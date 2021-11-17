@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdminmoduleModule } from './modules/adminmodule/adminmodule.module';
+import { UsermoduleModule } from './modules/usermodule/usermodule.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +14,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
+    UsermoduleModule,
+    AdminmoduleModule,
     AppRoutingModule
   ],
   providers: [],
