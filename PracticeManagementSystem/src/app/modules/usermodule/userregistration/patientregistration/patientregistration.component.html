@@ -1,1 +1,168 @@
 <p>patientregistration works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card col-md-5">
+        <div class="text-center">
+          <h2>User Registration</h2>
+        </div>
+
+        <form [formGroup]="UserForm" (ngSubmit)="onSubmit()">
+
+
+          <!-- <div class="form-group">
+
+            <label class="col-sm-4 control-label">Title</label>
+
+            <div class="col-sm-12">
+
+              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="titleradio" type="radio"
+                  name="titleradio" id="inlineMR" value="Mr"> Mr. </label>
+
+              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="titleradio" type="radio"
+                  name="titleradio" id="inlineMS" value="Ms"> Ms. </label>
+
+              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="titleradio" type="radio"
+                  name="titleradio" id="inlineMrs" value="Mrs"> Mrs. </label>
+
+              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="titleradio" type="radio"
+                  name="titleradio" id="inlineDR" value="Dr"> Dr. </label>
+            </div>
+
+          </div> -->
+
+          <div class="form-group">
+
+              <label class="col-sm-4 control-label">Title</label>
+
+  
+              <div class="row">
+  
+                <div class="col-2">
+  
+                  <input class="form-check-input" type="radio" name="titleradio" id="inlineMR" value="Mr." formControlName="titleradio">
+                  <label class="form-check-label" class="form-label" for="inlineMR">Mr.</label>
+                  <span class="text-danger" *ngIf="UserForm.controls['titleradio'].dirty && UserForm.hasError('required','titleradio')">Title can not be empty.</span>
+               </div>
+  
+                <div class="col-2">
+                  <input class="form-check-input" type="radio" name="titleradio" id="inlineMS" value="Ms."formControlName="titleradio">
+                  <label class="form-check-label" class="form-label" for="inlineMS">Ms.</label>
+                  <span class="text-danger" *ngIf="UserForm.controls['titleradio'].dirty && UserForm.hasError('required','titleradio')">Title can not be empty.</span>
+                </div>
+  
+                <div class="col-2">
+                  <input class="form-check-input" type="radio" name="titleradio" id="inlineMrs" value="Mrs." formControlName="titleradio">
+                  <label class="form-check-label" class="form-label" for="inlineMrs">Mrs.</label>
+                  <span class="text-danger" *ngIf="UserForm.controls['titleradio'].dirty && UserForm.hasError('required','titleradio')">Title can not be empty.</span>
+                </div>
+  
+                <div class="col-2">
+                  <input class="form-check-input" type="radio" name="titleradio" id="inlineDR" value="Dr." formControlName="titleradio">
+                  <label class="form-check-label" class="form-label" for="inlineDR">Dr.</label>
+                  <span class="text-danger" *ngIf="UserForm.controls['titleradio'].dirty && UserForm.hasError('required','titleradio')">Title can not be empty.</span>
+               
+                </div>
+              </div>
+            </div>
+
+
+          <div class="col-md-12">
+            <label for="firstname" class="form-label">First Name</label>
+            <input formControlName="firstname" required type="text" placeholder="Please Enter First Name"
+              class="form-control" id="InputFname">
+            <!-- <div *ngIf="getControl.name.errors.firstname">Name is required.</div> -->
+            <span class="text-danger"
+              *ngIf="UserForm.controls['firstname'].dirty && UserForm.hasError('required','firstname')">First name can
+              not be empty.</span>
+          </div>
+
+          <div class="col-mb-3">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input formControlName="lastname" required type="text" placeholder="Please Enter Last Name"
+              class="form-control" id="InputLname">
+            <!-- <div *ngIf="getControl.name.errors.lastname">Name is required.</div> -->
+            <span class="text-danger"
+              *ngIf="UserForm.controls['lastname'].dirty && UserForm.hasError('required','lastname')">Last name can not
+              be empty.</span>
+          </div>
+
+          <div class="col-mb-3">
+
+            <label for="emailid" class="form-label">Email Id</label>
+
+            <input formControlName="emailid" required type="text" placeholder="Please Enter Email Id"
+              class="form-control" id="InputEmailid">
+
+            <span class="text-danger"
+              *ngIf="UserForm.controls['emailid'].dirty && UserForm.hasError('required','emailid')">Email Id can not be
+              empty.</span>
+          </div>
+
+          <div class="col-mb-3">
+
+            <label for="DOB" class="form-label">Date Of Birth</label>
+
+            <input formControlName="dob" required type="date" class="form-control" id="InputDOB">
+            <!-- <div *ngIf="getControl.name.errors.date">Name is required.</div> -->
+            <!-- <span class="text-danger" *ngIf="UserForm.controls['dbo'].dirty && UserForm.hasError('required','dob')">Date Of Birth can not be empty.</span>
+            -->
+          </div>
+
+          <div class="col-mb-3">
+
+
+            <label for="contactnumber" class="form-label">Contact Number</label>
+
+            <input formControlName="contactnumber" required type="text" placeholder="Please Enter Contact Number"
+              class="form-control" id="ConactNumber">
+
+            <!-- <div *ngIf="getControl.name.errors.contactnumber">Name is required.</div> -->
+
+            <span class="text-danger"
+              *ngIf="UserForm.controls['contactnumber'] .dirty && UserForm.hasError('required','contactnumber')">Contact
+              Number can not be empty.</span>
+
+          </div>
+
+          <div class="col-mb-3">
+
+
+            <label for="password" class="form-label">Password</label>
+
+            <input formControlName="password" required type="password" placeholder="Please Enter  Password"
+              class="form-control" id="Password">
+            <!-- <div *ngIf="getControl.name.errors.password">Name is required.</div> -->
+
+            <span class="text-danger"
+              *ngIf="UserForm.controls['password'] .dirty && UserForm.hasError('required','password')">Password can not
+              be empty.</span>
+
+
+          </div>
+
+          <div class="col-mb-3">
+
+
+            <label for="confirmpassword" class="form-label">Confirm Password</label>
+
+            <input formControlName="confirmpassword" required type="password"
+              placeholder="Please Enter Confirm Password" class="form-control" id="ConfirmPassword">
+
+            <span class="text-danger"
+              *ngIf="UserForm.controls['confirmpassword'].dirty && UserForm.hasError('required','confirmpassword')">Confirm
+              Password can not be empty.</span>
+
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="!UserForm.valid">Submit</button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

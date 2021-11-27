@@ -1,0 +1,70 @@
+{
+  "PatientRegistration": [
+    {
+      "id": 1,
+      "titleradio": "Mr.",
+      "firstname": "Atish",
+      "lastname": "Langote",
+      "emailid": "atishlangote28@gmail.com",
+      "dob": "September 20, 2016",
+      "contactnumber": "9876543210",
+      "password": "atish",
+      "confirmpassword": "atish"
+    },
+    {
+      "titleradio": "Mr.",
+      "firstname": "Abhi",
+      "lastname": "Patil",
+      "emailid": "abhi@gmail.com",
+      "dob": "2021-11-18",
+      "contactnumber": "1234567890",
+      "password": "abhi",
+      "confirmpassword": "abhi",
+      "id": 2
+    },
+    {
+      "titleradio": "Mr.",
+      "firstname": "Anil",
+      "lastname": "Pawar",
+      "emailid": "anil@gmail.com",
+      "dob": "2021-11-17",
+      "contactnumber": "9098789087",
+      "password": "anil",
+      "confirmpassword": "anil",
+      "id": 3
+    },
+    {
+      "titleradio": "Mr.",
+      "firstname": "Arjun",
+      "lastname": "Pawar",
+      "emailid": "apwar@gmail.com",
+      "dob": "2021-11-10",
+      "contactnumber": "9876543221",
+      "password": "arjun",
+      "confirmpassword": "arjun",
+      "id": 4
+    },
+    {
+      "titleradio": "Mr.",
+      "firstname": "Aditya",
+      "lastname": "Shinde",
+      "emailid": "a@gmail.com",
+      "dob": "2021-11-04",
+      "contactnumber": "9876543210",
+      "password": "abc",
+      "confirmpassword": "abc",
+      "id": 5
+    },
+    {
+      "titleradio": "Mr.",
+      "firstname": "suraj",
+      "lastname": "mane",
+      "emailid": "s@gmail.com",
+      "dob": "2021-11-21",
+      "contactnumber": "9878909878",
+      "password": "suraj",
+      "confirmpassword": "suraj",
+      "id": 6
+    }
+  ]
+}
