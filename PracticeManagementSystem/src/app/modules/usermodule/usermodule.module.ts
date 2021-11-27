@@ -5,6 +5,8 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 import { UserregistrationComponent } from './userregistration/userregistration.component';
 import { PatientregistrationComponent } from './userregistration/patientregistration/patientregistration.component';
 import { AdminregistrationComponent } from './userregistration/adminregistration/adminregistration.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -14,10 +16,19 @@ import { AdminregistrationComponent } from './userregistration/adminregistration
     ChangepasswordComponent,
     UserregistrationComponent,
     PatientregistrationComponent,
-    AdminregistrationComponent
+    AdminregistrationComponent,
+
+    
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  exports:[
+    UserregistrationComponent
+
   ]
+  
 })
 export class UsermoduleModule { }
