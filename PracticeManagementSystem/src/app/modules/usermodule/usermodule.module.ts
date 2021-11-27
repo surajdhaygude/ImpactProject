@@ -6,12 +6,14 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 import { UserregistrationComponent } from './userregistration/userregistration.component';
 import { PatientregistrationComponent } from './userregistration/patientregistration/patientregistration.component';
 import { AdminregistrationComponent } from './userregistration/adminregistration/adminregistration.component';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
 
 @NgModule({
-  declarations: [
+  declarations: [    
     LoginComponent,
     ChangepasswordComponent,
     UserregistrationComponent,
@@ -21,12 +23,22 @@ import { AdminregistrationComponent } from './userregistration/adminregistration
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
-  
+    RouterModule.forChild([
+      {path:'',component:LoginComponent},
+      {path:'login/ChangePassword', component:ChangepasswordComponent},
+      {path:'login/adminregistration', component:AdminregistrationComponent}
+      
+
+    ])
   ],
+
+  
     
   exports:[ChangepasswordComponent]
+
 
 })
 export class UsermoduleModule { }

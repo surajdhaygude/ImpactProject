@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { AdminmoduleModule } from './modules/adminmodule/adminmodule.module';
 import { UsermoduleModule } from './modules/usermodule/usermodule.module';
 
-
-
 @NgModule({
   declarations: [
     AppComponent
