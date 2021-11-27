@@ -36,6 +36,7 @@ export class PatientregistrationComponent implements OnInit {
   
       confirmpassword:['',Validators.required],
   
+      
       })
     }  
     // get getControl(){
