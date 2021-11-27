@@ -1,0 +1,59 @@
+{
+  "PrividerRegister": [
+    {
+      "id": 0,
+      "firstname": "Rajesh",
+      "lastname": "Sharma",
+      "emailid": "rajes.sharma@gmail.com",
+      "dob": "September 14, 2016",
+      "roleDataList": "Admin",
+      "title": "Mr."
+    },
+    {
+      "firstname": "Tom",
+      "lastname": "Micky",
+      "emailid": "tom.micky@gmail.com",
+      "dob": "2021-11-02",
+      "role": "",
+      "roleDataList": "",
+      "id": 1,
+      "title": "Mr."
+    },
+    {
+      "firstname": "sunil",
+      "lastname": "more",
+      "emailid": "sunil.more@gmail.com",
+      "dob": "2021-11-08",
+      "role": "Physician",
+      "id": 2,
+      "title": "Mr."
+    },
+    {
+      "title": "Ms",
+      "firstname": "neha",
+      "lastname": "mane",
+      "emailid": "neha@gmail.com",
+      "dob": "2021-11-10",
+      "role": "Admin",
+      "id": 3
+    },
+    {
+      "title": "Mr",
+      "firstname": "Abhimanyu",
+      "lastname": "Ghadi",
+      "emailid": "abhi@gmail.com",
+      "dob": "2020-09-21",
+      "role": "Physician",
+      "id": 4
+    },
+    {
+      "title": "Dr",
+      "firstname": "Atish ",
+      "lastname": "Langote",
+      "emailid": "atish.Langote@gmail.com",
+      "dob": "2021-11-09",
+      "role": "Physician",
+      "id": 5
+    }
+  ]
+}

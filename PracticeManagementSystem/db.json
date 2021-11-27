@@ -1,0 +1,40 @@
+{
+  "changepassForm": [
+    {
+      "id": 1,
+      "password": "suraj4321",
+      "newpassword": "suraj1234",
+      "confirmnewpassword": "suraj1234"
+    },
+    {
+      "id": 2,
+      "password": "suraj4321ascf",
+      "newpassword": "suraj1234asdf",
+      "confirmnewpassword": "suraj1234asdf"
+    },
+    {
+      "password": "kiran1234",
+      "newpassword": "suraj987654",
+      "confirmnewpassword": "suraj987654",
+      "id": 3
+    },
+    {
+      "password": "12345678",
+      "newpassword": "987654321",
+      "confirmnewpassword": "987654321",
+      "id": 4
+    },
+    {
+      "password": "kiran1234",
+      "newpassword": "Kiran54321",
+      "confirmnewpassword": "Kiran54321",
+      "id": 5
+    },
+    {
+      "password": "atish1234",
+      "newpassword": "Atish12345",
+      "confirmnewpassword": "Atish12345",
+      "id": 6
+    }
+  ]
+}
