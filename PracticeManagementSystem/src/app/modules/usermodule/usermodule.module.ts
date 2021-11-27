@@ -27,10 +27,10 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     RouterModule.forChild([
       {path:'',component:LoginComponent},
-      {path:'login/ChangePassword', component:ChangepasswordComponent},
-      {path:'login/adminregistration', component:AdminregistrationComponent}
+      {path:'ChangePassword', component:ChangepasswordComponent},
+      {path:'login/adminregistration', component:AdminregistrationComponent},
+      {path:'Patientregistration', component:PatientregistrationComponent}
       
-
     ])
   ],
 
