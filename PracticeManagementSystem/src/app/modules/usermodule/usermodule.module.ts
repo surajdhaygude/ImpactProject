@@ -19,7 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
     UserregistrationComponent,
     PatientregistrationComponent,
     AdminregistrationComponent,
-
   ],
   imports: [
     CommonModule,
@@ -38,7 +37,6 @@ import { HttpClientModule } from '@angular/common/http';
   
     
   exports:[ChangepasswordComponent]
-
 
 })
 export class UsermoduleModule { }

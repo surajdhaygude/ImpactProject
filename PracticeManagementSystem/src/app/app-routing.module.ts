@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChangepasswordComponent } from './modules/usermodule/changepassword/changepassword.component';
-import { LoginComponent } from './modules/usermodule/login/login.component';
+import { PatientregistrationComponent } from './modules/usermodule/userregistration/patientregistration/patientregistration.component';
+// import { UserregistrationComponent } from './modules/usermodule/userregistration/userregistration.component';
 import { AdminregistrationComponent } from './modules/usermodule/userregistration/adminregistration/adminregistration.component';
 
 const routes: Routes = [
-  
-  {path:'login', component:LoginComponent}
+  {path:"Patientregistration",component:PatientregistrationComponent},
+  {path:'adminregistration', component:AdminregistrationComponent},
 ];
 
 @NgModule({

@@ -8,8 +8,14 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
 
-    "json:serverLogin": "json-server --watch db_user.json"
+    "json:serverPatientRegistration":"json-server --watch PatientRegistration_db.json",
+
+
+    "json:serverLogin": "json-server --watch db_user.json",
     
+    "json:server": "json-server --watch CPassword.json"
+
+
   },
   "private": true,
   "dependencies": {

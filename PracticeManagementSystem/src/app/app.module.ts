@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminmoduleModule } from './modules/adminmodule/adminmodule.module';
 import { UsermoduleModule } from './modules/usermodule/usermodule.module';
+import{HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -16,6 +18,7 @@ import { UsermoduleModule } from './modules/usermodule/usermodule.module';
     AdminmoduleModule,
     HttpClientModule,
     AppRoutingModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
