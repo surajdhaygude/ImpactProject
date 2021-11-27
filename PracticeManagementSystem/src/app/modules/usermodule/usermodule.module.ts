@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { UserregistrationComponent } from './userregistration/userregistration.component';
@@ -15,12 +16,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     ChangepasswordComponent,
     UserregistrationComponent,
     PatientregistrationComponent,
-    AdminregistrationComponent
+    AdminregistrationComponent,
+
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule
+  
   ],
+    
   exports:[ChangepasswordComponent]
+
 })
 export class UsermoduleModule { }
