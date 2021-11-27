@@ -5,11 +5,12 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 import { UserregistrationComponent } from './userregistration/userregistration.component';
 import { PatientregistrationComponent } from './userregistration/patientregistration/patientregistration.component';
 import { AdminregistrationComponent } from './userregistration/adminregistration/adminregistration.component';
-
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
+  declarations: [    
     LoginComponent,
     ChangepasswordComponent,
     UserregistrationComponent,
@@ -17,7 +18,12 @@ import { AdminregistrationComponent } from './userregistration/adminregistration
     AdminregistrationComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule.forChild([
+      {path:'login',component:LoginComponent}
+    ])
   ]
 })
 export class UsermoduleModule { }

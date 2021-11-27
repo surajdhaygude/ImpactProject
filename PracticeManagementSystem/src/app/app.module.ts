@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminmoduleModule } from './modules/adminmodule/adminmodule.module';
 import { UsermoduleModule } from './modules/usermodule/usermodule.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { UsermoduleModule } from './modules/usermodule/usermodule.module';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     UsermoduleModule,
     AdminmoduleModule,
     AppRoutingModule
