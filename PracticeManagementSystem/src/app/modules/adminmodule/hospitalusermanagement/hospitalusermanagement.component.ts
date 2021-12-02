@@ -16,17 +16,17 @@ export class HospitalusermanagementComponent implements OnInit {
   Name:any;
   p:number=1;
   Managelist:any[]=["Active","Deactivate","Block"]
-  columnDefs: ColDef[] = [
-    {headerName:"Employee ID", field: 'EmpID' },
-    { headerName:"Name",field: 'Name' },
-    { headerName:"Date Of Joining",field: 'DateofJoining'},
-    {headerName:"Status", field: 'Status'},
-    { headerName:"Edit Status ",field: 'EditStatus'},
-    {headerName:"Manage", field: 'EmpID'}
-];
-  defaultColDef={
-   sortable:true
-  }
+//   columnDefs: ColDef[] = [
+//     {headerName:"Employee ID", field: 'EmpID' },
+//     { headerName:"Name",field: 'Name' },
+//     { headerName:"Date Of Joining",field: 'DateofJoining'},
+//     {headerName:"Status", field: 'Status'},
+//     { headerName:"Edit Status ",field: 'EditStatus'},
+//     {headerName:"Manage", field: 'EmpID'}
+// ];
+  // defaultColDef={
+  //  sortable:true
+  // }
 
  
 
@@ -70,18 +70,18 @@ rowData:any[]=[];
    }
 
    deleteuser(id:number){
-     debugger
-    this.hospitaluser.Husersdelete(id)
-    .subscribe(
-      response => {
-        debugger
-        this.hospitaluser.GetHospitalUsers().subscribe(data =>{
-          this.rowData=data;
-        });
-      },
-      error => {
-        console.log(error);
+    if(confirm('Are you sure to delete physician record?')){
+      this.hospitaluser.Husersdelete(id).subscribe(res =>{});
+      this.hospitaluser.GetHospitalUsers().subscribe(data =>{
+        this.rowData=data;
       });
+    }
+    
+    
+  }
+
+  edituser(id: number){
+    this.route.navigate(['/edituser', id]);
   }
 // rowData = [
 //     { EmpID: '1001', Name: 'Rajesh Sharma', DateofJoining: "2000/11/30", EditStatus:"Active", Manage:""},

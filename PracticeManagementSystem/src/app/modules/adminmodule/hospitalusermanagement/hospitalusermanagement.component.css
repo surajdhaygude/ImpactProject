@@ -28,13 +28,13 @@
 }
 
 .editbtn{
-    width: 40%;
+    width: 35%;
     background-color: #0d6efd !important;
     margin-right: 16px;
 }
 
 .deletebtn{
-    width: 40%;
+    width: 45%;
     background-color: #dc3545 !important;
     margin-right: 16px;
 }
@@ -42,5 +42,19 @@
 #ManagetOptions{
     width: 98%;
 }
+.btn {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    /* background-color: #f1f1f1; */
+    cursor: pointer;
+    font-size: 18px;
+  }
+  .active, .btn:hover {
+    background-color: #666;
+    color: white;
+  }
 
-
+  /* .card{
+      background-color:skyblue;
+  } */

@@ -1,14 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import{ IHospitalusers}  from 'src/app/models/IHospitalusers'
+import{ Hospitalusers} from 'src/app/models/Hospitalusers'
 
 @Injectable({
   providedIn: 'root'
 })
 export class HospitalmanagementService {
 
+  hearders= new HttpHeaders().set('Content-Type', 'application/json').set('Accept','application/json');
 
+  httpOptions={
+    hearders:this.hearders,
+    body: {
+      id: 1006
+    }
+  }
   APIUrl:string='http://localhost:3000/rowdata';
 
   constructor(private http:HttpClient) { }
@@ -17,7 +24,6 @@ export class HospitalmanagementService {
     return this.http.get<any>(this.APIUrl);
   }
 
-  
 
   public AddPhysicianrecords(formdata:any){
     return this.http.post<any>("http://localhost:3000/AddPhysician", formdata)
@@ -27,13 +33,17 @@ export class HospitalmanagementService {
     return this.http.get(`${this.APIUrl}/${id}`)
   }
 
-  public Husersupdapte(id: any, data: any): Observable<any> {
-    return this.http.put(`${this.APIUrl}/${id}`, data)
+  public getUpdateUser(id: number): Observable<any> {
+    debugger
+   const url=`${this.APIUrl}/${id}`;
+    return this.http.get<any>(url)
   }
 
-  public Husersdelete(id: any): Observable<any> {
+  public Husersdelete(id: number): Observable<any> {
     debugger
-    return this.http.delete(`${this.APIUrl}/${id}`)
+    const url=`${this.APIUrl}/${id}`;
+    return this.http.delete<Hospitalusers>(url)
+    //return this.http.delete<any>("http://localhost:3000/rowdata/1")
   }
 
    

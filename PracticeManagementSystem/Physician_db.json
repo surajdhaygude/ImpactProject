@@ -1,14 +1,7 @@
 {
   "rowdata": [
     {
-      "EmpID": "1001",
-      "Name": "Rajesh Sharma",
-      "DateofJoining": "2000/11/30",
-      "Status": "Active",
-      "EditStatus": "",
-      "Manage": ""
-    },
-    {
+      "id": 2,
       "EmpID": "1002",
       "Name": "Rohit pawar",
       "DateofJoining": "2003/09/12",
@@ -17,6 +10,7 @@
       "Manage": ""
     },
     {
+      "id": 3,
       "EmpID": "1004",
       "Name": "Akash patil",
       "DateofJoining": "2018/10/22",
@@ -25,6 +19,7 @@
       "Manage": ""
     },
     {
+      "id": 4,
       "EmpID": "1005",
       "Name": "Rupesh Sharma",
       "DateofJoining": "2003/07/21",
@@ -33,6 +28,7 @@
       "Manage": ""
     },
     {
+      "id": 6,
       "EmpID": "1006",
       "Name": "Raj",
       "DateofJoining": "2007/09/14",
@@ -41,6 +37,7 @@
       "Manage": ""
     },
     {
+      "id": 7,
       "EmpID": "1007",
       "Name": "soham",
       "DateofJoining": "2007/10/21",
@@ -70,6 +67,13 @@
       "dob": "2021-11-09",
       "status": "Active",
       "id": 3
+    },
+    {
+      "name": "rock test",
+      "emailid": "test.rock@gmail.com",
+      "dob": "2021-11-10",
+      "status": "Deactivate",
+      "id": 4
     }
   ]
 }
