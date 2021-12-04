@@ -1,0 +1,83 @@
+{
+  "rowdata": [
+    {
+      "EmpID": "2",
+      "Name": "Rohit pawar123",
+      "DateofJoining": "2021-11-04",
+      "Status": "Block",
+      "id": 2,
+      "number":"65747473"
+    },
+    {
+      "EmpID": "",
+      "Name": "Akash patil555",
+      "DateofJoining": "2021-11-20",
+      "Status": "Deactivate",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "EmpID": "4",
+      "Name": "Rupesh Sharma",
+      "DateofJoining": "2003/07/21",
+      "Status": "Active",
+      "EditStatus": "Active",
+      "emailid": "abhi.ghadi@gmail.com",
+      "Manage": ""
+    },
+    {
+      "EmpID": "8",
+      "Name": "abhimanyu ghadi",
+      "emailid": "abhi.ghadi@gmail.com",
+      "DateofJoining": "2021-11-10",
+      "Status": "Active",
+      "id": 8,
+      "EditStatus": "Active"
+    },
+    {
+      "Name": "Atish Pawar",
+      "emailid": "atish.pawar@gmail.com",
+      "DateofJoining": "2021-11-09",
+      "Status": "Deactivate",
+      "id": 9,
+      "EditStatus": "Deactivate"
+    },
+    {
+      "id": 10,
+      "Name": "Amit sharma",
+      "emailid": "amit.sharma@gmail.com",
+      "DateofJoining": "2021-11-03",
+      "Status": "Block"
+    }
+  ],
+  "AddPhysician": [
+    {
+      "id": 1,
+      "name": "Abhimanyu ghadi",
+      "emailid": "abhi.ghadi@gmail.com",
+      "dob": "2004/10/23",
+      "status": "Active"
+    },
+    {
+      "name": "rohit salvi",
+      "emailid": "rohit.salvi@gmail.com",
+      "dob": "2021-11-09",
+      "status": "Active",
+      "id": 2
+    },
+    {
+      "name": "atish mane",
+      "emailid": "atish.mane@gmail.com",
+      "dob": "2021-11-09",
+      "status": "Active",
+      "id": 3
+    },
+    {
+      "name": "rock test",
+      "emailid": "test.rock@gmail.com",
+      "dob": "2021-11-10",
+      "status": "Deactivate",
+      "id": 4
+    }
+  ]
+}

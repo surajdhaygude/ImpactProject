@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminmoduleModule } from './modules/adminmodule/adminmodule.module';
 import { UsermoduleModule } from './modules/usermodule/usermodule.module';
+import { CutomepipePipe } from './cutomepipe.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CutomepipePipe
   
   ],
   imports: [
