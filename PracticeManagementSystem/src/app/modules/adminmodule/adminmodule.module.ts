@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { EdituserComponent } from './hospitalusermanagement/edituser/edituser.component';
+import { AddpatientComponent } from './patientusermanagement/addpatient/addpatient.component';
+import { EditpatientComponent } from './patientusermanagement/editpatient/editpatient.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { EdituserComponent } from './hospitalusermanagement/edituser/edituser.co
     NursedetailsComponent,
     CreateuserComponent,
     EdituserComponent,
+    AddpatientComponent,
+    EditpatientComponent,
     
   ],
   imports: [
@@ -29,7 +33,10 @@ import { EdituserComponent } from './hospitalusermanagement/edituser/edituser.co
       {path:'createuser', component:CreateuserComponent},
       {path:'hospitalusermanagement', component:HospitalusermanagementComponent},
       {path:'nursedetails', component:NursedetailsComponent},
-      {path:'edituser/:id', component:EdituserComponent}
+      {path:'edituser/:id', component:EdituserComponent},
+      {path:'patientusermanagement',component:PatientusermanagementComponent},
+      {path:'addpatient', component:AddpatientComponent},
+      {path:'editPatient/:id', component:EditpatientComponent}
 
 
     ])
