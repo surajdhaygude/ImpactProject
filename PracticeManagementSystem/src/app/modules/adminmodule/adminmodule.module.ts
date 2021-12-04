@@ -10,11 +10,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { EdituserComponent } from './hospitalusermanagement/edituser/edituser.component';
 
-import { EditnurseComponent } from './hospitalusermanagement/nursedetails/editnurse/editnurse.component';
-import { CreatenurseComponent } from './hospitalusermanagement/nursedetails/createnurse/createnurse.component';
-
 import { AddpatientComponent } from './patientusermanagement/addpatient/addpatient.component';
 import { EditpatientComponent } from './patientusermanagement/editpatient/editpatient.component';
+import { CreatenurseComponent } from './hospitalusermanagement/nursedetails/createnurse/createnurse.component';
+import { EditnurseComponent } from './hospitalusermanagement/nursedetails/editnurse/editnurse.component';
 
 
 @NgModule({
@@ -25,14 +24,10 @@ import { EditpatientComponent } from './patientusermanagement/editpatient/editpa
     NursedetailsComponent,
     CreateuserComponent,
     EdituserComponent,
-
     CreatenurseComponent,
-    EditnurseComponent
-
+    EditnurseComponent,
     AddpatientComponent,
     EditpatientComponent,
-
-    
   ],
   imports: [
     CommonModule,
@@ -44,10 +39,8 @@ import { EditpatientComponent } from './patientusermanagement/editpatient/editpa
       {path:'hospitalusermanagement', component:HospitalusermanagementComponent},
       {path:'nursedetails', component:NursedetailsComponent},
       {path:'edituser/:id', component:EdituserComponent},
-
       {path:'createnurse',component:CreatenurseComponent},
-      {path:'editnurse/:id',component:EditnurseComponent}
-
+      {path:'editnurse/:id',component:EditnurseComponent},
       {path:'patientusermanagement',component:PatientusermanagementComponent},
       {path:'addpatient', component:AddpatientComponent},
       {path:'editPatient/:id', component:EditpatientComponent}

@@ -53,7 +53,7 @@ export class NursedetailsComponent implements OnInit {
    }
   
    DispayPhysicainGrid():void{
-    this.route.navigateByUrl('nursedetails');
+    this.route.navigateByUrl('hospitalusermanagement');
    }
   
    deletenurse(id:number){
