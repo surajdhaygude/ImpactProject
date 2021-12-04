@@ -48,11 +48,11 @@ export class LoginComponent implements OnInit {
     if (this.validateUser(this.loginForm.value)) {      
       if(this.role=="admin")
       {
-          this.route.navigateByUrl("ChangePassword");
+          this.route.navigateByUrl("login/ChangePassword");
       }
       else
       {
-        this.route.navigateByUrl("Patientregistration");
+        this.route.navigateByUrl("login/Patientregistration");
       }
     } 
     else {
@@ -66,6 +66,7 @@ export class LoginComponent implements OnInit {
 
   validateUser(user: any): boolean {    
     let isUserValid: boolean = false;
+    debugger
     this.users.forEach((user1: IUser) => {
       if (user1.username === user.username) {
         if (user1.password === user.password) {

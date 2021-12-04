@@ -28,9 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forChild([
       // {path:'',component:LoginComponent},
       {path:'login', component:LoginComponent},
-      {path:'ChangePassword', component:ChangepasswordComponent},
+      {path:'login/ChangePassword', component:ChangepasswordComponent},
       {path:'login/adminregistration', component:AdminregistrationComponent},
-      {path:'Patientregistration', component:PatientregistrationComponent}
+      {path:'login/Patientregistration', component:PatientregistrationComponent}
       
     ])
   ],

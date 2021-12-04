@@ -13,6 +13,7 @@ export class UserserviceService {
   constructor(private http:HttpClient) { }
 
   public getUsers():Observable<IUser[]>{
+    debugger
     return this.http.get<IUser[]>(this.APIUrl);
   }
 }
