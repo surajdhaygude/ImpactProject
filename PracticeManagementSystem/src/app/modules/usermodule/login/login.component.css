@@ -1,5 +1,24 @@
-.loginDiv{
-    background-color:rgb(204, 230, 227);
-    border:1px solid black;
-    border-radius: 10px;
+.card{
+    margin-top: 10px;
+    border: none;
+    padding: 30px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgb(204, 230, 227);
+    background: linear-gradient(90deg, rgb(204, 230, 227)0%, rgb(204, 230, 227)100%);
+}
+
+.card h2{
+    color: cadetblue;
+    font-family: fantasy;
+}
+
+label{
+    color: black;
+}
+
+.container-fluid{
+    background: rgb(204, 230, 227);
 }
