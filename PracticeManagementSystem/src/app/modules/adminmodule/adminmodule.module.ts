@@ -8,7 +8,6 @@ import { CreateuserComponent } from './hospitalusermanagement/createuser/createu
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { OrderPipe } from 'ngx-order-pipe';
 import { EdituserComponent } from './hospitalusermanagement/edituser/edituser.component';
 
 @NgModule({
@@ -18,16 +17,15 @@ import { EdituserComponent } from './hospitalusermanagement/edituser/edituser.co
     PhysiciandetailsComponent,
     NursedetailsComponent,
     CreateuserComponent,
+    EdituserComponent,
     
   ],
   imports: [
     CommonModule,
-    // OrderPipe,
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxPaginationModule,
     RouterModule.forChild([
-      // {path:'',component:LoginComponent},
       {path:'createuser', component:CreateuserComponent},
       {path:'hospitalusermanagement', component:HospitalusermanagementComponent},
       {path:'nursedetails', component:NursedetailsComponent},

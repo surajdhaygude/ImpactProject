@@ -26,7 +26,7 @@ export class HospitalmanagementService {
 
 
   public AddPhysicianrecords(formdata:any){
-    return this.http.post<any>("http://localhost:3000/AddPhysician", formdata)
+    return this.http.post<any>("http://localhost:3000/rowdata", formdata)
   }
 
   public GetHuserasByID(id: any):Observable<any>{
@@ -37,6 +37,11 @@ export class HospitalmanagementService {
     debugger
    const url=`${this.APIUrl}/${id}`;
     return this.http.get<any>(url)
+  }
+  public updateusers(id: number, data:any): Observable<any> {
+    debugger
+   const url=`${this.APIUrl}/${id}`;
+    return this.http.put<any>(url,data)
   }
 
   public Husersdelete(id: number): Observable<any> {

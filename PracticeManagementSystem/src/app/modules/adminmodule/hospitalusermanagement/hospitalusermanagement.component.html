@@ -32,12 +32,12 @@
             <!-- <ag-grid-angular style="width: 1100px; height: 300px;" class="ag-theme-alpine" [rowData]="rowData"
                 [columnDefs]="columnDefs" [defaultColDef]="defaultColDef">
             </ag-grid-angular> -->
-
+            <!-- &nbsp;<i class="fa fa-sort"></i> -->
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th (click)="sort('EmpID')">Employee ID&nbsp;<i class="fa fa-sort"></i></th>
-                    <th>Name</th>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
                     <th>Date Of Joining</th>
                     <th>Status</th>
                     <th>Edit Status</th>
@@ -47,15 +47,15 @@
             <!-- | orderBy: key:reverse  -->
             <tbody>
                 <tr *ngFor="let data of rowData | paginate: { itemsPerPage: 5, currentPage: p }; ">
-                    <td>{{ data.EmpID }}</td>
+                    <td>{{ data.id }}</td>
                     <td>{{ data.Name }}</td>
                     <td>{{ data.DateofJoining }}</td>
                     <td>{{ data.Status }}</td>
                     <td>
                         <select id="ManagetOptions">
-                            <option value="Active">Active</option>
-                            <option value="Deactivate">Deactivate</option>
-                            <option value="Block">Block</option>
+                            <option value="{{data.Status}}">Active</option>
+                            <option value="{{data.Status}}">Deactivate</option>
+                            <option value="{{data.Status}}">Block</option>
                             <!-- <option value="{{Managelist}}">{{Managelist}}</option>     -->
                         </select>
                     </td>

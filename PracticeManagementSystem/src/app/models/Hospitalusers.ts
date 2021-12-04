@@ -5,5 +5,8 @@ export class Hospitalusers{
     DateofJoining:Date=new Date();
     Status:string="";
     EditStatus:string="";
+    emailid:string="";
     Manage:string="";
+    number:number=0;
+   
 }

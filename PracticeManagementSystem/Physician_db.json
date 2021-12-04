@@ -1,49 +1,53 @@
 {
   "rowdata": [
     {
+      "EmpID": "2",
+      "Name": "Rohit pawar123",
+      "DateofJoining": "2021-11-04",
+      "Status": "Block",
       "id": 2,
-      "EmpID": "1002",
-      "Name": "Rohit pawar",
-      "DateofJoining": "2003/09/12",
-      "Status": "Active",
-      "EditStatus": "",
-      "Manage": ""
+      "number":"65747473"
     },
     {
-      "id": 3,
-      "EmpID": "1004",
-      "Name": "Akash patil",
-      "DateofJoining": "2018/10/22",
-      "Status": "Dectivate",
-      "EditStatus": "",
-      "Manage": ""
+      "EmpID": "",
+      "Name": "Akash patil555",
+      "DateofJoining": "2021-11-20",
+      "Status": "Deactivate",
+      "id": 3
     },
     {
       "id": 4,
-      "EmpID": "1005",
+      "EmpID": "4",
       "Name": "Rupesh Sharma",
       "DateofJoining": "2003/07/21",
       "Status": "Active",
-      "EditStatus": "",
+      "EditStatus": "Active",
+      "emailid": "abhi.ghadi@gmail.com",
       "Manage": ""
     },
     {
-      "id": 6,
-      "EmpID": "1006",
-      "Name": "Raj",
-      "DateofJoining": "2007/09/14",
-      "Status": "Block",
-      "EditStatus": "",
-      "Manage": ""
-    },
-    {
-      "id": 7,
-      "EmpID": "1007",
-      "Name": "soham",
-      "DateofJoining": "2007/10/21",
+      "EmpID": "8",
+      "Name": "abhimanyu ghadi",
+      "emailid": "abhi.ghadi@gmail.com",
+      "DateofJoining": "2021-11-10",
       "Status": "Active",
-      "EditStatus": "",
-      "Manage": ""
+      "id": 8,
+      "EditStatus": "Active"
+    },
+    {
+      "Name": "Atish Pawar",
+      "emailid": "atish.pawar@gmail.com",
+      "DateofJoining": "2021-11-09",
+      "Status": "Deactivate",
+      "id": 9,
+      "EditStatus": "Deactivate"
+    },
+    {
+      "id": 10,
+      "Name": "Amit sharma",
+      "emailid": "amit.sharma@gmail.com",
+      "DateofJoining": "2021-11-03",
+      "Status": "Block"
     }
   ],
   "AddPhysician": [

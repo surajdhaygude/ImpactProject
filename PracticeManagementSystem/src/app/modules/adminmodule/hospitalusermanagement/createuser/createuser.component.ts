@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{FormGroup, FormBuilder,Validators} from '@angular/forms'
   import { HttpClient } from '@angular/common/http';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { HospitalmanagementService } from 'src/app/hospitalmanagement.service';
 
 @Component({
@@ -16,10 +16,11 @@ export class CreateuserComponent implements OnInit {
 
   ngOnInit(): void {
     this.Physicianform=this.formbuilder.group({
-      name:['',Validators.required],
+      id:[''],
+      Name:['',Validators.required],
       emailid:['',[Validators.required, Validators.email]],
-      dob:['',Validators.required],
-      status:['',Validators.required],
+      DateofJoining:['',Validators.required],
+      Status:['',Validators.required],
       })
   }
   
@@ -28,7 +29,6 @@ export class CreateuserComponent implements OnInit {
     alert("Phaysician details successfully...!")
     this.Physicianform.reset();
     this.route.navigateByUrl('hospitalusermanagement');
-    
     },err=>{
      alert("Somthing went wrong...!")
     })
