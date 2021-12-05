@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card col-md-4">
+                <div class="text-center">
+                    <h2>Update Patient</h2>
+                </div>
+                <!-- (ngSubmit)="AddPhysician()" -->
+                <form [formGroup]="updatepatient" > 
+                  <!--  -->
+              
+                  <!-- <span class="mydiv"  *ngFor="let user of Hospitaluser">
+                       <label  class="form-label"> {{user.Name}} </label>     
+                  </span> -->
+                  <!-- {{Hospitaluser.EmpID}} -->
+                  <div class="form-group">
+                    <label  class="form-label">Patient ID</label> <br>
+                    <label  class="form-label">{{Patientuser.id}}</label>  
+                    <!-- <input formControlName="EmpID" value="{{Hospitaluser.EmpID}}"  required type="text" class="form-control" id="InputEmpID"> -->
+                  
+                  </div>
+  
+  
+                    <div class="form-group">
+                      <label  class="form-label">Patient Name</label>
+                      <input formControlName="PatientName" value="{{Patientuser.PatientName}}"  required type="text" placeholder="Please Enter Name" class="form-control" id="InputFname">
+                    <!-- <span class="text-danger" *ngIf="updatephysician.controls['name'].dirty && updatephysician.hasError('required','name')">Name can not be empty.</span> -->
+                    </div>
+  
+                      <div class="form-group">
+                        <label class="form-label">Date Of Joining</label>
+                        <input formControlName="DateofJoining"  required type="date" value="{{Patientuser.DateofJoining}}"  max="2021-11-27" class="form-control" id="InputDOB">
+                        <!-- <span class="text-danger" *ngIf="updatephysician.controls['dob'].dirty && updatephysician.hasError('required','dob')">Please select date in mm/dd/yyyy format.</span> -->
+  
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Patient Number</label>
+                        <div class="mb-3">
+                          <input class="form-control" value="{{Patientuser.number}}"  formControlName="number" type="text" id="Empnumber" placeholder="Plaese eneter employee number....">
+                          <!-- <span class="text-danger" *ngIf="updatephysician.controls['status'].touched && updatephysician.hasError('required','status')">Please select role.</span> -->
+                          <!-- <datalist id="StatustOptions">
+                            <option value="Active">
+                            <option value="Deactivate">
+                            <option value="Block">
+                          </datalist> -->
+                        </div>
+                      </div>
+                      <div>
+                        <button type="submit" class="btn btn-primary" (click)="updatepatientdata(id)">Update</button>
+                        <button type="button" (click)="backtopatient()" class="btn btn-primary backbutton">Cancel</button>
+                      </div>
+                  </form>
+            </div>
+        </div>
+    </div>
+  
+  </div>

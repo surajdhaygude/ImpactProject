@@ -1,0 +1,78 @@
+{
+  "NurseUser": [
+    {
+      "EmpID": "12",
+      "Name": "Sara Gross",
+      "DateofJoining": "2002/05/15",
+      "Status": "Active",
+      "EditStatus": "",
+      "Manage": "",
+      "id": 12,
+      "number":123456
+      
+    },
+    {
+      "EmpID": "13",
+      "Name": "Danna Butler",
+      "DateofJoining": "2018/10/22",
+      "Status": "Dectivate",
+      "EditStatus": "",
+      "Manage": "",
+      "id": 13,
+      "number":123456
+    },
+    {
+      "EmpID": "14",
+      "Name": "Julie Bell",
+      "DateofJoining": "2001/03/22",
+      "Status": "Active",
+      "EditStatus": "",
+      "Manage": "",
+      "id": 14,
+      "number":123456
+    },
+    {
+      "EmpID": "15",
+      "Name": "Alice Cena",
+      "DateofJoining": "2008/06/11",
+      "Status": "Block",
+      "EditStatus": "",
+      "Manage": "",
+      "id": 15,
+      "number":123456
+    },
+    {
+      "EmpID": "16",
+      "Name": "Lily Daniel",
+      "DateofJoining": "2007/10/21",
+      "Status": "Active",
+      "EditStatus": "",
+      "Manage": "",
+      "id": 16,
+      "number":123456
+    }
+  ],
+  "AddNurse": [
+    {
+      "id": 1,
+      "name": "Linda Taylor",
+      "emailid": "linda.taylor@gmail.com",
+      "dob": "2002/11/15",
+      "status": "Active"
+    },
+    {
+      "name": "Essy Wong",
+      "emailid": "essy.wong@gmail.com",
+      "dob": "2000/10/14",
+      "status": "Active",
+      "id": 2
+    },
+    {
+      "name": "Radha Yadav",
+      "emailid": "radha.yadav@gmail.com",
+      "dob": "2010/11/12",
+      "status": "Active",
+      "id": 3
+    }
+  ]
+}
