@@ -12,7 +12,7 @@ import{FormGroup, FormBuilder,Validators} from '@angular/forms'
 export class EdituserComponent implements OnInit {
   public updatephysician!:FormGroup;
 
-   id:number=0;
+    id:number=0;
     EmpID:number=0;
     Name:string="";
     DateofJoining:Date=new Date();
@@ -22,10 +22,7 @@ export class EdituserComponent implements OnInit {
     Manage:string="";
 
 
-  constructor(private formbuilder:FormBuilder,private route: ActivatedRoute, private router: Router, private rs:HospitalmanagementService,private navigation:Router ) { 
-    
-  }
-
+  constructor(private formbuilder:FormBuilder,private route: ActivatedRoute, private router: Router, private rs:HospitalmanagementService,private navigation:Router ) { }
   val: any;
   Hospitaluser!:Hospitalusers
   
@@ -44,17 +41,12 @@ export class EdituserComponent implements OnInit {
     debugger
     this.rs.getUpdateUser(this.val).subscribe(data =>{
       this.id=data.id;
-      // this.Name=data.Name;
-      // this.DateofJoining=data.DateofJoining;
-      // this.Status=data.Status;
       this.Hospitaluser=data;
     })
   }
-
   backtophysicain():void{
     this.router.navigateByUrl('hospitalusermanagement');
    }
-
    updatephyasicaindata(id:number){
      debugger
     this.rs.updateusers(id,this.updatephysician.value).subscribe(res =>{
