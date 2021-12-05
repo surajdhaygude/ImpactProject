@@ -27,16 +27,16 @@ export class AddpatientComponent implements OnInit {
 
   AddPhysician(){   
     this.Patientuser.AddPatientrecords(this.Patientform.value).subscribe(res =>{
-    alert("Phaysician details successfully...!")
+    alert("Patient details successfully...!")
     this.Patientform.reset();
-    this.route.navigateByUrl('hospitalusermanagement');
+    this.route.navigateByUrl('patientusermanagement');
 
     },err=>{
      alert("Somthing went wrong...!")
     })
    }
    backtopatient():void{
-    this.route.navigateByUrl('PatientUser');
+    this.route.navigateByUrl('patientusermanagement');
    }
 
 

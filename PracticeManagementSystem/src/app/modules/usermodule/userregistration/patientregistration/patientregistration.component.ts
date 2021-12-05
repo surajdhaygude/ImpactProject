@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl,Validators, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class PatientregistrationComponent implements OnInit {
 
 
   constructor(private formbuilder:FormBuilder,
-              private http:HttpClient         
+              private http:HttpClient, private route:Router         
      ) { }
 
   ngOnInit(): void {
@@ -68,6 +69,10 @@ export class PatientregistrationComponent implements OnInit {
      alert("Somthing went wrong  ...!")
  
     })
+    }
+
+    BacktoLogin(){
+      this.route.navigateByUrl("login");
     }
 
 

@@ -76,7 +76,9 @@
                           </datalist>
                         </div>
                       </div>
-                    <button type="submit" [disabled]="!ProviderForm.valid" class="btn btn-primary">Register</button>
+                    <button type="submit" [disabled]="!ProviderForm.valid" class="btn btn-primary">Register</button>&nbsp;
+                    <button type="reset" class="btn btn-primary" (click)="BacktoLogin()">Cancel</button>
+
                     <!--  -->
                   </form>
                  

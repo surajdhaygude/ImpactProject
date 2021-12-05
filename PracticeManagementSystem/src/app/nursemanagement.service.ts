@@ -13,6 +13,7 @@ export class NursemanagementService {
 
   
   public GetHospitalNurse():Observable<any>{
+    debugger
     return this.http.get<any>(this.APIUrl);
   }
   

@@ -16,10 +16,10 @@ export class CreatenurseComponent implements OnInit {
 
     ngOnInit(): void {
       this.Nurseform=this.formbuilder.group({
-        name:['',Validators.required],
+        Name:['',Validators.required],
         emailid:['',[Validators.required, Validators.email]],
-        dob:['',Validators.required],
-        status:['',Validators.required],
+        DateofJoining:['',Validators.required],
+        Status:['',Validators.required],
         })
     }
     AddNurse(){   

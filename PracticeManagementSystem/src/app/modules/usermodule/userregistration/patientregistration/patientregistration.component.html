@@ -141,7 +141,7 @@
 
           </div>
 
-          <div class="col-mb-3">
+          <div class="mb-3">
 
 
             <label for="confirmpassword" class="form-label">Confirm Password</label>
@@ -153,9 +153,10 @@
               *ngIf="UserForm.controls['confirmpassword'].dirty && UserForm.hasError('required','confirmpassword')">Confirm
               Password can not be empty.</span>
 
-          </div>
+          </div> 
 
-          <button type="submit" class="btn btn-primary" [disabled]="!UserForm.valid">Submit</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!UserForm.valid">Submit</button>&nbsp;
+          <button type="reset" class="btn btn-primary" (click)="BacktoLogin()">Cancel</button>
 
         </form>
 

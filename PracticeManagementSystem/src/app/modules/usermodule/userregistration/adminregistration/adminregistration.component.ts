@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{FormGroup, FormBuilder,Validators} from '@angular/forms'
   import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminregistration',
@@ -12,7 +13,7 @@ export class AdminregistrationComponent implements OnInit {
   public ProviderForm!:FormGroup
 
   Curruntdate:Date=new Date();
-  constructor(private formbuilder:FormBuilder, private http:HttpClient) { }
+  constructor(private formbuilder:FormBuilder, private http:HttpClient,private route:Router ) { }
 
   radiobuttonvalue:string="";
   ngOnInit(): void {
@@ -41,4 +42,9 @@ export class AdminregistrationComponent implements OnInit {
     alert("Somthing went wrong...!")
    })
   }
+
+  BacktoLogin(){
+    this.route.navigateByUrl("login");
+  }
+
 }

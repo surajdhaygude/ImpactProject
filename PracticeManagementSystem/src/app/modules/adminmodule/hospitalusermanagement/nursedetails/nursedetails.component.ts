@@ -18,7 +18,7 @@ export class NursedetailsComponent implements OnInit {
 
 
   ngOnInit(): void {
-  
+  debugger
     this.nurseservice.GetHospitalNurse().subscribe(data =>{
       this.NurseUser=data;
       
@@ -58,7 +58,7 @@ export class NursedetailsComponent implements OnInit {
   
    deletenurse(id:number){
      debugger
-     if(confirm('Are you sure to delet nurse Record')){
+     if(confirm('Are you sure to delet nurse record?')){
       this.nurseservice.HNursedelete(id).subscribe(
         response => { });
         this.nurseservice.GetHospitalNurse().subscribe(data =>{

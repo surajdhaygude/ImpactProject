@@ -8,8 +8,8 @@
                 <form [formGroup]="Nurseform" (ngSubmit)="AddNurse()"> 
                     <div class="form-group">
                       <label  class="form-label">Name</label>
-                      <input formControlName="name" required type="text" placeholder="Please Enter Name" class="form-control" id="InputFname">
-                    <span class="text-danger" *ngIf="Nurseform.controls['name'].dirty && Nurseform.hasError('required','name')">Name can not be empty.</span>
+                      <input formControlName="Name" required type="text" placeholder="Please Enter Name" class="form-control" id="InputFname">
+                    <span class="text-danger" *ngIf="Nurseform.controls['Name'].dirty && Nurseform.hasError('required','Name')">Name can not be empty.</span>
                     </div>
                       <div class="form-group">
                         <label class="form-label">Email Id</label>
@@ -20,15 +20,15 @@
                       </div>
                       <div class="form-group">
                         <label class="form-label">Date Of Birth</label>
-                        <input formControlName="dob" required type="date" max="2021-11-27" class="form-control" id="InputDOB">
-                        <span class="text-danger" *ngIf="Nurseform.controls['dob'].dirty && Nurseform.hasError('required','dob')">Please select date in mm/dd/yyyy format.</span>
+                        <input formControlName="DateofJoining" required type="date" max="2021-11-27" class="form-control" id="InputDOB">
+                        <span class="text-danger" *ngIf="Nurseform.controls['DateofJoining'].dirty && Nurseform.hasError('required','DateofJoining')">Please select date in mm/dd/yyyy format.</span>
 
                       </div>
                       <div class="mb-3">
                         <label class="form-label">Status</label>
                         <div class="mb-3">
-                          <input class="form-control" formControlName='status' required list="StatustOptions" id="statusDataList" placeholder="Type to search status...">
-                          <span class="text-danger" *ngIf="Nurseform.controls['status'].touched && Nurseform.hasError('required','status')">Please select role.</span>
+                          <input class="form-control" formControlName='Status' required list="StatustOptions" id="statusDataList" placeholder="Type to search status...">
+                          <span class="text-danger" *ngIf="Nurseform.controls['Status'].touched && Nurseform.hasError('required','Status')">Please select role.</span>
                           <datalist id="StatustOptions">
                             <option value="Active">
                             <option value="Deactivate">

@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
     if (this.validateUser(this.loginForm.value)) {      
       if(this.role=="admin")
       {
-          this.route.navigateByUrl("login/ChangePassword");
+          this.route.navigateByUrl("hospitalusermanagement");
       }
       else
       {
