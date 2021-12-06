@@ -13,13 +13,13 @@ export class EditpatientComponent implements OnInit {
 
   public updatepatient!:FormGroup;
 
-   id:number=0;
-    EmpID:number=0;
-    Name:string="";
-    DateofJoining:Date=new Date();
+    id:number=0;
+    PatientId:number=0;
+    PatientName:string="";
+    Dateofbirth:Date=new Date();
     Status:string="";
     EditStatus:string="";
-    emailid:string="";
+    EmailId:string="";
     Manage:string="";
 
 
@@ -34,8 +34,8 @@ export class EditpatientComponent implements OnInit {
     this.updatepatient=this.formbuilder.group({
       PatientId:[''],
       PatientName:['',Validators.required],
-      DateofJoining:['',Validators.required],
-      number:['',Validators.required]
+      Dateofbirth:['',Validators.required],
+      Status:['']
       })
 
     this.route.params.subscribe(params => {
@@ -45,23 +45,23 @@ export class EditpatientComponent implements OnInit {
     debugger
     this.rs.getUpdatePatient(this.val).subscribe(data =>{
       this.id=data.id;
-      // this.Name=data.Name;
-      // this.DateofJoining=data.DateofJoining;
-      // this.Status=data.Status;
+      this.PatientName=data.PatientName;
+      this.Dateofbirth=data.Dateofbirth;
+      this.Status=data.Status
       this.Patientuser=data;
     })
   }
 
   backtopatient():void{
-    this.router.navigateByUrl('hospitalusermanagement');
+    this.router.navigateByUrl('patientusermanagement');
    }
 
    updatepatientdata(id:number){
      debugger
     this.rs.updatepatient(id,this.updatepatient.value).subscribe(res =>{
-      alert("Phaysician details update successfully...!")
+      alert("Patient details update successfully...!")
       this.updatepatient.reset();
-      this.navigation.navigateByUrl('hospitalusermanagement');
+      this.navigation.navigateByUrl('patientusermanagement');
       },err=>{
        alert("Somthing went wrong...!")
       })
