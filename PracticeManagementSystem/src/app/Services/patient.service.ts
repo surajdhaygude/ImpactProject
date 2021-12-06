@@ -17,7 +17,7 @@ export class PatientService {
  }
 
  public AddPatientrecords(formdata:any){
-  return this.http.post<any>("http://localhost:3000/AddPatient", formdata)
+  return this.http.post<any>("http://localhost:3000/PatientData", formdata)
 }
 
 public GetHuserasByID(id: any):Observable<any>{
