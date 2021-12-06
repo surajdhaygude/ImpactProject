@@ -8,7 +8,7 @@
                     <h2>Update Nurse</h2>
                 </div>
                 <!-- (ngSubmit)="AddPhysician()" -->
-                <!-- <form [formGroup]="updatephysician" >  -->
+                <form [formGroup]="updatenurseform" > 
                   <!--  -->
   
                   <!-- <span class="mydiv"  *ngFor="let user of Hospitaluser">
@@ -17,19 +17,19 @@
   
                   <div class="form-group">
                     <label  class="form-label">Employee ID</label> <br>
-                    <label  class="form-label">{{EmpID}}</label>                  
+                    <label  class="form-label">{{id}}</label>                  
                   </div>
   
   
                     <div class="form-group">
                       <label  class="form-label">Name</label>
-                      <input formControlName="name" required type="text" value="{{Name}}" placeholder="Please Enter Name" class="form-control" id="InputFname">
+                      <input formControlName="Name" required type="text" value="{{Name}}" placeholder="Please Enter Name" class="form-control" id="InputFname">
                     <!-- <span class="text-danger" *ngIf="updatephysician.controls['name'].dirty && updatephysician.hasError('required','name')">Name can not be empty.</span> -->
                     </div>
   
                       <div class="form-group">
                         <label class="form-label">Date Of Birth</label>
-                        <input formControlName="dob"  required type="date" value="{{DateofJoining}}" max="2021-11-27" class="form-control" id="InputDOB">
+                        <input formControlName="DateofJoining"  required type="date" value="{{DateofJoining}}" max="2021-11-27"  class="form-control" id="InputDOB">
                         <!-- <span class="text-danger" *ngIf="updatephysician.controls['dob'].dirty && updatephysician.hasError('required','dob')">Please select date in mm/dd/yyyy format.</span> -->
   
                       </div>
@@ -46,33 +46,27 @@
                         </div>
                       </div> -->
                       <div class="mb-3">
-
-                        <label class="form-label">Mobile Number</label>
-            
+                        <label class="form-label">Status</label>
                         <div class="mb-3">
-            
-                          <input class="form-control" value="{{number}}" formControlName="number" type="text"
-            
-                            id="Empnumber" placeholder="Plaese eneter employee number....">
-            
-                          <!-- <span class="text-danger"
-            
-                            *ngIf="updatephysician.controls['number'].dirty && updatephysician.hasError('required','number')">Please
-            
-                            Enter Empoyee Number.</span>
-             -->
+                          <input class="form-control" formControlName='Status'value="{{Status}}" required list="StatustOptions" id="statusDataList" placeholder="Type to search status...">
+                          <!-- <span class="text-danger" *ngIf="Nurseform.controls['Status'].touched && Nurseform.hasError('required','Status')">Please select role.</span> -->
+                          <datalist id="StatustOptions">
+                            <option value="Active">
+                            <option value="Deactivate">
+                            <option value="Block">
+                          </datalist>
                         </div>
-            
                       </div>
+
                       <div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary" (click)="updatenursedata(id)">Update</button>
                         <button type="button" (click)="backtoNurse()" class="btn btn-primary backbutton">Cancel</button>
                       </div>
   
   
   
                     <!--  -->
-                  <!-- </form> -->
+                  </form>
   
   
             </div>

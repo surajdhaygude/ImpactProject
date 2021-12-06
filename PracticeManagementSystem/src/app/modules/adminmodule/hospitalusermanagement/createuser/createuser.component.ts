@@ -13,7 +13,7 @@ export class CreateuserComponent implements OnInit {
 
   public Physicianform!:FormGroup
   constructor(private formbuilder:FormBuilder, private http:HttpClient, private route:Router, private hospitaluser:HospitalmanagementService) { }
-
+  number:Number=0;
   ngOnInit(): void {
     this.Physicianform=this.formbuilder.group({
       id:[''],

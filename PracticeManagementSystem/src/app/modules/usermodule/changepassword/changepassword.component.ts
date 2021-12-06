@@ -76,7 +76,7 @@ export class ChangepasswordComponent implements OnInit {
        }
 
        BacktoLogin(){
-         this.route.navigateByUrl("login");
+         this.route.navigateByUrl('');
        }
 
 }

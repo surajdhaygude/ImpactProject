@@ -93,17 +93,15 @@
 
             <input formControlName="emailid" required type="text" placeholder="Please Enter Email Id"
               class="form-control" id="InputEmailid">
-
-            <span class="text-danger"
-              *ngIf="UserForm.controls['emailid'].dirty && UserForm.hasError('required','emailid')">Email Id can not be
-              empty.</span>
+              <span class="text-danger" *ngIf="UserForm.controls['emailid'].dirty && UserForm.hasError('required','emailid')">Please enter you email address.</span>
+              <span class="text-danger" *ngIf="UserForm.controls['emailid'].dirty && UserForm.hasError('email','emailid')">Please enter valid email address.</span>
           </div>
 
           <div class="col-mb-3">
 
             <label for="DOB" class="form-label">Date Of Birth</label>
 
-            <input formControlName="dob" required type="date" class="form-control" id="InputDOB">
+            <input formControlName="dob" required type="date" class="form-control" id="InputDOB" max="2021-12-06">
             <!-- <div *ngIf="getControl.name.errors.date">Name is required.</div> -->
             <!-- <span class="text-danger" *ngIf="UserForm.controls['dbo'].dirty && UserForm.hasError('required','dob')">Date Of Birth can not be empty.</span>
             -->
@@ -114,8 +112,9 @@
 
             <label for="contactnumber" class="form-label">Contact Number</label>
 
-            <input formControlName="contactnumber" required type="text" placeholder="Please Enter Contact Number"
+            <input formControlName="contactnumber" required type="number" placeholder="Please Enter Contact Number"
               class="form-control" id="ConactNumber">
+              <span class="text-danger" *ngIf="UserForm.controls['contactnumber'].dirty && UserForm.hasError('email','contactnumber')">Contact number length should be 10 only</span>
 
             <!-- <div *ngIf="getControl.name.errors.contactnumber">Name is required.</div> -->
 

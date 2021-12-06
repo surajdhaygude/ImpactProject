@@ -20,19 +20,14 @@ export class EdituserComponent implements OnInit {
     EditStatus:string="";
     emailid:string="";
     Manage:string="";
-
+    number:number=0;
 
   constructor(private formbuilder:FormBuilder,private route: ActivatedRoute, private router: Router, private rs:HospitalmanagementService,private navigation:Router ) { }
   val: any;
   Hospitaluser!:Hospitalusers
   
   ngOnInit(): void {
-    this.updatephysician=this.formbuilder.group({
-      EmpID:[''],
-      Name:['',Validators.required],
-      DateofJoining:['',Validators.required],
-      number:['',Validators.required]
-      })
+   
 
     this.route.params.subscribe(params => {
       this.val = params['id']
@@ -41,8 +36,19 @@ export class EdituserComponent implements OnInit {
     debugger
     this.rs.getUpdateUser(this.val).subscribe(data =>{
       this.id=data.id;
+      this.Name=data.Name;
+      this.DateofJoining=data.DateofJoining;
+      this.number=data.number;
+      this.Status=data.Status;
       this.Hospitaluser=data;
     })
+
+    this.updatephysician=this.formbuilder.group({
+      EmpID:[''],
+      Name:['',Validators.required],
+      DateofJoining:['',Validators.required],
+      Status:['']
+      })
   }
   backtophysicain():void{
     this.router.navigateByUrl('hospitalusermanagement');

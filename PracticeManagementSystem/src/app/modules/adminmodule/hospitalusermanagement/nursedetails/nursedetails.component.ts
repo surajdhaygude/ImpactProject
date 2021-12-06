@@ -20,6 +20,8 @@ export class NursedetailsComponent implements OnInit {
   ngOnInit(): void {
   debugger
     this.nurseservice.GetHospitalNurse().subscribe(data =>{
+
+      
       this.NurseUser=data;
       
     });
