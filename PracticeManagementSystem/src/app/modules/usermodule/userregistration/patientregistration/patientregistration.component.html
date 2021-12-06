@@ -112,8 +112,9 @@
 
             <label for="contactnumber" class="form-label">Contact Number</label>
 
-            <input formControlName="contactnumber" required type="text" placeholder="Please Enter Contact Number"
+            <input formControlName="contactnumber" required type="number" placeholder="Please Enter Contact Number"
               class="form-control" id="ConactNumber">
+              <span class="text-danger" *ngIf="UserForm.controls['contactnumber'].dirty && UserForm.hasError('email','contactnumber')">Contact number length should be 10 only</span>
 
             <!-- <div *ngIf="getControl.name.errors.contactnumber">Name is required.</div> -->
 

@@ -44,7 +44,7 @@ export class AdminregistrationComponent implements OnInit {
   }
 
   BacktoLogin(){
-    this.route.navigateByUrl("login");
+    this.route.navigateByUrl('');
   }
 
 }

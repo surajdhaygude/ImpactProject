@@ -31,7 +31,7 @@ export class PatientregistrationComponent implements OnInit {
   
       dob:['',Validators.required],
   
-      contactnumber:['',Validators.required],
+      contactnumber:['',[Validators.required, Validators.max(10)]],
   
       password:['',Validators.required],
   
@@ -72,7 +72,7 @@ export class PatientregistrationComponent implements OnInit {
     }
 
     BacktoLogin(){
-      this.route.navigateByUrl("login");
+      this.route.navigateByUrl('');
     }
 
 
