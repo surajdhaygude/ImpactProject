@@ -44,7 +44,7 @@ export class AdminregistrationComponent implements OnInit {
   }
 
   BacktoLogin(){
-    this.route.navigateByUrl('');
+    this.route.navigateByUrl('hospitalusermanagement');
   }
 
 }

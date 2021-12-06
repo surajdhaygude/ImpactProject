@@ -1,5 +1,4 @@
-
-  <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <div class="container-fluid">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -11,18 +10,17 @@
       </ul>
       <ul class="navbar-nav" >
         <li class="nav-item">
-          <a routerLink="patientusermanagement" class="navbar-brand"> Patient user</a>
-        </li>
-          <li class="nav-item">
-            <a routerLink="hospitalusermanagement" class="navbar-brand" >Hospital User </a> 
+            <a href="adminregistration" class="navbar-brand ">Admin Registration </a> 
         </li>
         <li class="nav-item">
-          <a  class="navbar-brand" >Sign out </a> 
+          <a href="patientusermanagement" class="navbar-brand"> Patient user</a>
+        </li>
+          <li class="nav-item">
+            <a href="hospitalusermanagement" class="navbar-brand" >Hospital User </a> 
+        </li>
+        <li class="nav-item">
+          <a  class="navbar-brand " (click)="SignOut()">Sign out </a> 
       </li>
       </ul>
     </div>
   </nav>
-
- 
-  
-  

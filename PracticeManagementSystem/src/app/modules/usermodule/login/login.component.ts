@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
       }
       else
       {
-        this.route.navigateByUrl("login/Patientregistration");
+        this.route.navigateByUrl("patientdashboard");
       }
     } 
     else {

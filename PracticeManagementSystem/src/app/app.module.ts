@@ -6,21 +6,19 @@ import { AppComponent } from './app.component';
 import { AdminmoduleModule } from './modules/adminmodule/adminmodule.module';
 import { UsermoduleModule } from './modules/usermodule/usermodule.module';
 import { CutomepipePipe } from './cutomepipe.pipe';
-import { HeaderComponent } from './modules/masterlayout/header/header.component';
-import { NevbarComponent } from './modules/masterlayout/nevbar/nevbar.component';
+import { MasterLayoutModule } from './modules/master-layout/master-layout.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CutomepipePipe,
-    HeaderComponent,
-    NevbarComponent
-  
+    CutomepipePipe
   ],
   imports: [
     BrowserModule,
     UsermoduleModule,
     AdminmoduleModule,
+    MasterLayoutModule,
     HttpClientModule,
     AppRoutingModule
     
