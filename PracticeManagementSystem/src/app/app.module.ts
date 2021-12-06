@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { AdminmoduleModule } from './modules/adminmodule/adminmodule.module';
 import { UsermoduleModule } from './modules/usermodule/usermodule.module';
 import { CutomepipePipe } from './cutomepipe.pipe';
+import { HeaderComponent } from './modules/masterlayout/header/header.component';
+import { NevbarComponent } from './modules/masterlayout/nevbar/nevbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CutomepipePipe
+    CutomepipePipe,
+    HeaderComponent,
+    NevbarComponent
   
   ],
   imports: [
