@@ -40,6 +40,12 @@ export class NursemanagementService {
     return this.http.delete(`${this.APIUrl}/${id}`)
   }
 
+  public updateNurseusers(id: number, data:any): Observable<any> {
+    debugger
+   const url=`${this.APIUrl}/${id}`;
+    return this.http.put<any>(url,data)
+  }
+
 
 
 

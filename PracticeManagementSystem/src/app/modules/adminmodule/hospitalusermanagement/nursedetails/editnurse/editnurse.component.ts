@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NursemanagementService } from 'src/app/nursemanagement.service';
+import{FormGroup, FormBuilder,Validators} from '@angular/forms'
+
 
 @Component({
   selector: 'app-editnurse',
@@ -10,7 +11,7 @@ import { NursemanagementService } from 'src/app/nursemanagement.service';
 })
 export class EditnurseComponent implements OnInit {
 
-  public updateNurse!:FormGroup;
+  public updatenurseform!:FormGroup;
   id:number=0;
   EmpID:number=0;
   Name:string="";
@@ -21,7 +22,7 @@ export class EditnurseComponent implements OnInit {
   number:number=0;
 
   constructor(private route: ActivatedRoute, private router: Router,
-    private editservice:NursemanagementService
+    private editservice:NursemanagementService,private formbuilder:FormBuilder
     ) { }
 
     val: any;
@@ -34,15 +35,35 @@ export class EditnurseComponent implements OnInit {
       debugger
       this.editservice.HNurseupdapte(this.val).subscribe(data =>{
         this.EmpID=data.EmpID;
+        this.id=data.id;
         this.Name=data.Name;
         this.DateofJoining=data.DateofJoining;
-        this.number=data.number;
+        this.Status=data.Status;
       })
+
+      this.updatenurseform=this.formbuilder.group({
+        EmpID:[''],
+        Name:['',Validators.required],
+        DateofJoining:['',Validators.required],
+        Status:['']
+        })
     }
   
       backtoNurse():void{
         this.router.navigateByUrl('nursedetails');
       }
+
+      updatenursedata(id:number){
+        this.editservice.updateNurseusers(id,this.updatenurseform.value).subscribe(res =>{
+          alert("Nurse details update successfully...!")
+          this.updatenurseform.reset();
+          this.router.navigateByUrl('nursedetails');
+          },err=>{
+           alert("Somthing went wrong...!")
+          })
+       }
+       
+ }
   
 
-}
+
