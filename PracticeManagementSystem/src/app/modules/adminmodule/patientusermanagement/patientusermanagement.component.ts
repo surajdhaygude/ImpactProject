@@ -14,8 +14,7 @@ export class PatientusermanagementComponent implements OnInit {
   PatientName:any;
   p:number=1;
   Managelist:any[]=["Active","Deactivate","Block"]
-  btnValue : string = "";
-  btnValue1 : string = "";
+ 
  
   
   ngOnInit(): void {

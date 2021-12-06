@@ -32,7 +32,7 @@
                 <tr>
                     <th (click)="sort('PatientId')">Patient ID&nbsp;<i class="fa fa-sort"></i></th>
                     <th>PatientName</th>
-                    <th>Date Of Joining</th>
+                    <th>Date Of Birth</th>
                     <th>Status</th>
                     <th>Edit Status</th>
                     <th width="220px">Manage</th>
@@ -42,9 +42,9 @@
             <!-- | paginate: { itemsPerPage: 5, currentPage: p }; -->
             <tbody>
                 <tr *ngFor="let data of PatientData | paginate: { itemsPerPage: 5, currentPage: p };">
-                    <td>{{ data.PatientId }}</td>
+                    <td>{{ data.id }}</td>
                     <td>{{ data.PatientName }}</td>
-                    <td>{{ data.DateofJoining }}</td>
+                    <td>{{ data.Dateofbirth }}</td>
                     <td>{{ data.Status }}</td>
                     <td>
                         <select id="ManagetOptions">
