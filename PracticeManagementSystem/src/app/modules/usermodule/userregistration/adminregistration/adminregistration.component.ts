@@ -33,7 +33,7 @@ export class AdminregistrationComponent implements OnInit {
     return this.Curruntdate;
   }
   providerregister(){
-   this.http.post<any>("http://localhost:3000/PrividerRegister", this.ProviderForm.value)
+   this.http.post<any>("http://localhost:3000/ProviderRegister", this.ProviderForm.value)
    .subscribe(res =>{
     console.log(this.ProviderForm.value);
      alert("Provider registration successfully...!")
