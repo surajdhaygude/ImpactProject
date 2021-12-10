@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-diagnosis',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiagnosisComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
   }
+
+  diagnosis=[
+    "food",
+    "Fungi",
+    "Drug",
+    "Plant",
+    "Venom or Salivary",
+    "Other",
+  ];
+
+  option = [
+    {id: 'y', name: 'YES'},
+    {id: 'n', name: 'NO'},
+   
+  ];
+
+   Allery: FormGroup = this.formBuilder.group({
+   Typeofallery :['' , Validators.required],
+   alleryname :['',Validators.required]   
+   });
 
 }

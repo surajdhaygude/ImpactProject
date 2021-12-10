@@ -7,6 +7,11 @@ import { AdminmoduleModule } from './modules/adminmodule/adminmodule.module';
 import { UsermoduleModule } from './modules/usermodule/usermodule.module';
 import { CutomepipePipe } from './cutomepipe.pipe';
 import { MasterLayoutModule } from './modules/master-layout/master-layout.module';
+import { MaterialModule } from './modules/material/material.module';
+import { PatientModule } from './modules/patient/patient.module';
+import { PatientvisitModule } from './modules/patientvisit/patientvisit.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -20,7 +25,11 @@ import { MasterLayoutModule } from './modules/master-layout/master-layout.module
     AdminmoduleModule,
     MasterLayoutModule,
     HttpClientModule,
-    AppRoutingModule
+    MaterialModule,
+    PatientModule,
+    PatientvisitModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
     
   ],
   providers: [],
