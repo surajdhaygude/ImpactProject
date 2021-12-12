@@ -1,0 +1,59 @@
+<!-- <form [formGroup]="sendNoteForm" (ngSubmit)="onSubmit()">
+
+    <label for="urgency">Urgency</label>
+    <input id="urgency" type="text" formControlName="urgency">
+  
+    <label for="receiver">Receiver </label>
+    <input id="receiver" type="text" formControlName="receiver">
+
+    <label for="message">message </label>
+    <input id="message" type="text" formControlName="message">
+
+    <button type="submit" [disabled]="!sendNoteForm.valid">Submit</button>
+  
+  </form> -->
+
+  <div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card col-md-4">
+                <div class="text-center">
+                    <h2>Send Note</h2>
+                </div>
+                
+<form [formGroup]="sendNoteForm" (ngSubmit)="onSubmit()">
+
+    <div>
+
+        <div class="form-group mb-3">
+            <label class="col-sm-4 control-label" for="urgency">Urgency</label>
+            <div class="col-sm-12">
+                <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="urgency"  type="radio" name="urgency" id="urgencyYes" value="Yes"> Yes </label>
+                <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="urgency" type="radio" name="urgency" id="urgencyNo" value="No"> No </label>
+              </div>             
+        </div>
+
+        <div class="mb-3">
+            <label for="receiver">Receiver </label>
+            <div class="mb-3">
+                <input class="form-control" list="receiver" formControlName="receiver" placeholder="Select Receiver">
+                    <datalist id="receiver">
+                    <option *ngFor="let receiver of receivers">
+                            {{receiver.username}}
+                    </datalist>       
+            </div>
+        </div>  
+       
+        <div class="form-group mb-3">
+            <label for="message" class="form-label">Message </label>
+            <textarea id="message" rows="5" class="form-control" type="text" formControlName="message"></textarea>
+        </div>
+    
+        <button type="submit"  class="btn btn-primary">Send</button>&nbsp;
+    </div>   
+  
+  </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+    "sentnotes": [
+      {
+        "dateTime": "date",
+        "receiverName": "John",
+       
+        "message":"message",
+        "urgencyLevel":"No"
+      }
+    ]
+  }
