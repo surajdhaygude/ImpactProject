@@ -1,1 +1,44 @@
-<p>vitalsigns works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="col">
+                    <form>
+                        <div class="row">
+                            <mat-form-field appearance="legacy" class="full-width col-4">
+                                <mat-label>Height</mat-label>
+                                <input matInput required [readonly]="isReadonly" />
+                            </mat-form-field>
+                            <mat-form-field appearance="legacy" class="full-width col-4">
+                                <mat-label>Weight</mat-label>
+                                <input matInput required [readonly]="isReadonly" />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+                            <mat-form-field appearance="legacy" class="full-width col-4">
+                                <mat-label>Blood Pressure</mat-label>
+                                <input matInput required [readonly]="isReadonly" />
+                            </mat-form-field>
+                            <mat-form-field appearance="legacy" class="full-width col-4">
+                                <mat-label>Body Temperature</mat-label>
+                                <input matInput required [readonly]="isReadonly" />
+                            </mat-form-field>
+
+                            <mat-form-field appearance="legacy" class="full-width col-4">
+                                <mat-label>Respiration Rate</mat-label>
+                                <input matInput required [readonly]="isReadonly" />
+                            </mat-form-field>
+                        </div>
+
+                        <br />
+                        <div class="example-button-row">
+                            <button class="btn btn-outline-primary">Save</button>&nbsp;&nbsp;
+                            <button class="btn btn-outline-primary">Edit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
