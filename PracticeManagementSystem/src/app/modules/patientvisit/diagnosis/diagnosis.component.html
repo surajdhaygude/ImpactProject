@@ -1,55 +1,59 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col">
       <div class="card">
         <div class="col">
-          <form [formGroup]="Allery">
+          <form [formGroup]="diagnosisdetails" (ngSubmit)="addDiagnosis()" >
             <mat-card-title style="text-align: center;">
               <h2>Diagnosis Form</h2>
             </mat-card-title>
-  
-            <div class="row">
-              <mat-form-field appearance="legacy" class="full-width col-10">
-                <mat-label>Dignosis Id</mat-label>
-                <input matInput required>
-              </mat-form-field>
-            </div>
             <div class="row">
               <mat-form-field class="full-width col-10">
-                <mat-select placeholder="Diagnosis Type">
-                  <mat-option *ngFor="let al of diagnosis" [value]="al">
+                <mat-select
+                  placeholder="Diagnosis Code"
+                  formControlName="diagnosisCode"
+                  required
+                >
+                  <mat-option *ngFor="let al of Code" [value]="al">
                     {{ al }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
+              <div *ngIf='diagnosisdetails.controls.diagnosisCode.touched && diagnosisdetails.controls.diagnosisCode.errors?.required' class="alert alert-danger">
+                diagnosisCode is Required
+              </div>
             </div>
-  
             <div class="row">
-              <mat-form-field appearance="legacy" class="full-width col-10">
-                <mat-label>Dignosis Description</mat-label>
-                <textarea matInput required></textarea>
+              <mat-form-field class="full-width col-10">
+                <mat-select
+                  placeholder="Diagnosis Description"
+                  formControlName="diagnosisDescription"
+                  required
+                >
+                  <mat-option *ngFor="let al of Description" [value]="al">
+                    {{ al }}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
+              <div *ngIf='diagnosisdetails.controls.diagnosisCode.touched && diagnosisdetails.controls.diagnosisCode.errors?.required' class="alert alert-danger">
+                diagnosisCode is Required
+              </div>
             </div>
-  
-  
-            <div class="row">
-              <mat-radio-group name="id">
-                <mat-label> Diagnosis Is Depricated</mat-label>&nbsp;&nbsp;&nbsp;
-                <mat-radio-button value="Yes">
-                  Yes
-                </mat-radio-button>&nbsp;&nbsp;
-                <mat-radio-button value="No">
-                  No
-                </mat-radio-button>
-              </mat-radio-group>
-            </div><br/>
-            <div class="example-button-row">
-              <button mat-flat-button color="primary">Submit</button>&nbsp;&nbsp;
-              <button mat-flat-button color="primary">Cancel</button>
-            </div>
+            
+            <button type="submit"
+            type="submit" [disabled]='!diagnosisdetails.valid' class="btn btn-primary"
+          >
+            Add
+          </button>&nbsp;&nbsp;
+          <button mat-flat-button color="primary" (click)="Back()">Cancel</button>
           </form>
+          
+         
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+

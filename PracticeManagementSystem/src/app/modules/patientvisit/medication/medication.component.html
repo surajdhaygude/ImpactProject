@@ -1,1 +1,54 @@
-<p>medication works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="col">
+                    <form [formGroup]="patientmedForm" (ngSubmit)="addMedication()">
+                        <mat-card-title style="text-align: center;">
+                            <h2>Medication Form</h2>
+                        </mat-card-title>
+                        <div class="row">
+                            <mat-form-field appearance="legacy" class="full-width col-10">
+                                <mat-label>Drug Name</mat-label>
+                                <input matInput required
+                                formControlName="drugName"
+                                >
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field appearance="legacy" class="full-width col-10">
+                                <mat-label>Drug manufacturer</mat-label>
+                                <input matInput required formControlName="drugMfg">
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field class="full-width col-10">
+                                <mat-select placeholder="Drug Form" formControlName="drugForm">
+                                    <mat-option *ngFor="let al of medication" [value]="al">
+                                        {{ al }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field appearance="legacy" class="full-width col-10">
+                                <mat-label>Drug strength </mat-label>
+                                <input matInput required data-toggle="tooltip" formControlName="drugStrength" data-placement="top" title="In mg">
+                            </mat-form-field>
+
+                        </div>
+                        <div class="row">
+                            <mat-form-field appearance="legacy" class="full-width col-10">
+                                <mat-label>Active ingredient </mat-label>
+                                <input matInput required formControlName="activeIngredient">
+                            </mat-form-field>
+                        </div>
+                        <div class="example-button-row">
+                            <button type="submit" [disabled]='!patientmedForm.valid' class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

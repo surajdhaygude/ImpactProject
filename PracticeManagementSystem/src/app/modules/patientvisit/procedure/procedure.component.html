@@ -1,1 +1,57 @@
-<p>procedure works!</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="col">
+                    <form [formGroup]="proceduredetails" (ngSubmit)="addProcedure()">
+                        <mat-card-title style="text-align: center;">  
+                            <h2>Procedure Form</h2>
+                        </mat-card-title>
+                         <div class="row">
+                            <mat-form-field class="full-width col-10">
+                                <mat-select
+                                  placeholder="Procedure Code"
+                                  formControlName="procedureCode"
+                                  required
+                                >
+                                  <mat-option *ngFor="let al of Code" [value]="al">
+                                    {{ al }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field class="full-width col-10">
+                                <mat-select
+                                  placeholder="Procedure Description"
+                                  formControlName="procedureDescription"
+                                >
+                                  <mat-option *ngFor="let al of Description" [value]="al">
+                                    {{ al }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-radio-group name="id" formControlName="procedureIsDepricated">
+                            <mat-label> Procedure Is Depricated</mat-label>&nbsp;&nbsp;&nbsp;
+                         <mat-radio-button value="Yes" >
+                             Yes 
+                         </mat-radio-button>&nbsp;&nbsp;
+                         <mat-radio-button value="No" >
+                            No
+                        </mat-radio-button>
+                        </mat-radio-group>
+                     </div>
+                     <div class="example-button-row">
+                        <button type="submit" [disabled]='!proceduredetails.valid' class="btn btn-primary">Submit</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
