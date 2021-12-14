@@ -8,7 +8,7 @@ import { LoginComponent } from './modules/usermodule/login/login.component';
 import { DiagnosisComponent } from './modules/patientvisit/diagnosis/diagnosis.component';
 
 import { PatientinformationComponent } from './modules/patientvisit/patientinformation/patientinformation.component';
-import { EditpatientinformationComponent } from './modules/patientvisit/editpatientinformation/editpatientinformation.component';
+
 
 import { MedicationComponent } from './modules/patientvisit/medication/medication.component';
 import { ProcedureComponent } from './modules/patientvisit/procedure/procedure.component';
@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:'diagnosis' , component:DiagnosisComponent},
 
   {path:'patientinformation',component:PatientinformationComponent},
-  {path:'editpatientinformation',component:EditpatientinformationComponent}
+ 
 
   {path:'medication' , component:MedicationComponent},
   {path:'procedure' , component:ProcedureComponent},

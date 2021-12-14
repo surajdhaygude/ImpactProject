@@ -1,16 +1,16 @@
 .card{
 
-    margin-top: 90px;
+    margin-top: 180px;
 
     border: none;
 
-    padding: 30px;
+    padding: 10px;
 
-    position: absolute;
+    position:absolute;
 
     top:50%;
 
-    left: 50%;
+     left: 50%;
 
     width: 50%;
 

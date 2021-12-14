@@ -7,7 +7,7 @@ import { ProcedureComponent } from './procedure/procedure.component';
 import { MedicationComponent } from './medication/medication.component';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EditpatientinformationComponent } from './editpatientinformation/editpatientinformation.component';
+
 
 
 
@@ -17,8 +17,8 @@ import { EditpatientinformationComponent } from './editpatientinformation/editpa
     VitalsignsComponent,
     DiagnosisComponent,
     ProcedureComponent,
-    MedicationComponent,
-    EditpatientinformationComponent
+    MedicationComponent
+    
   ],
   imports: [
     CommonModule,

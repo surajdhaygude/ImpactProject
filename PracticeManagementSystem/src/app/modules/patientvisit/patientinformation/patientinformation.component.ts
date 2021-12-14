@@ -80,10 +80,10 @@ export class PatientinformationComponent implements OnInit {
 
  toggleReadonly() {
   this.isReadonly = !this.isReadonly;
-  this.router.navigateByUrl('editpatientinformation');
+  
 }
 toggleDiable() {
-  this.isReadonly = true;
+  // this.isReadonly = true;
 }
 
 // edituser():void{
