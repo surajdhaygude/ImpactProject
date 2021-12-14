@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vitalsigns.component.css']
 })
 export class VitalsignsComponent implements OnInit {
-
+  isReadonly = true;
   constructor() { }
 
   ngOnInit(): void {
