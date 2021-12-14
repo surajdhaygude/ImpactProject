@@ -3,11 +3,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-patientinformation',
-  templateUrl: './patientinformation.component.html',
-  styleUrls: ['./patientinformation.component.css']
+  selector: 'app-editpatientinformation',
+  templateUrl: './editpatientinformation.component.html',
+  styleUrls: ['./editpatientinformation.component.css']
 })
-export class PatientinformationComponent implements OnInit {
+export class EditpatientinformationComponent implements OnInit {
   patientDetails: any;
   EmerencyInfo: any;
   isReadonly = true;
@@ -29,7 +29,6 @@ export class PatientinformationComponent implements OnInit {
   homeAddress :['',Validators.required],
   contactNumber :['',Validators.required],
   Title :['',Validators.required],
-
   emergencyFname :['',Validators.minLength(2)],
   emergencyLname :['',Validators.minLength , Validators.minLength(2)],
   relationship: ['',Validators.required],
@@ -40,15 +39,16 @@ export class PatientinformationComponent implements OnInit {
 
 //  this.EmerencyInfo = this.formBuilder.group({
 //   patientid :[''],
-//   // emergencyFname :['',Validators.minLength(2)],
-//   // emergencyLname :['',Validators.minLength , Validators.minLength(2)],
-//   // relationship: ['',Validators.required],
-//   // emergencyEmail: ['',Validators.required],
-//   // EmergencyMobileNo: ['',Validators.required],
-//   // emergencyAddress: ['',Validators.required],
-//   title :['',Validators.required]
+//   emergencyFname :['',Validators.minLength(2)],
+//   emergencyLname :['',Validators.minLength , Validators.minLength(2)],
+//   relationship: ['',Validators.required],
+//   emergencyEmail: ['',Validators.required],
+//   EmergencyMobileNo: ['',Validators.required],
+//   emergencyAddress: ['',Validators.required],
+//   title :['']
 // })
   }
+
   MyProfil : any ;
   fname:any;
   lname : any;
@@ -80,13 +80,10 @@ export class PatientinformationComponent implements OnInit {
 
  toggleReadonly() {
   this.isReadonly = !this.isReadonly;
-  this.router.navigateByUrl('editpatientinformation');
 }
 toggleDiable() {
-  this.isReadonly = true;
+ // this.isReadonly = true;
+  this.router.navigateByUrl('patientinformation');
 }
 
-// edituser():void{
-//   this.router.navigate(['/editpatientinformation']);
-// }
 }

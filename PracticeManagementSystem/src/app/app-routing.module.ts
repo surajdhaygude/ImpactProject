@@ -6,13 +6,17 @@ import { AdminregistrationComponent } from './modules/usermodule/userregistratio
 import { HospitalusermanagementComponent } from './modules/adminmodule/hospitalusermanagement/hospitalusermanagement.component';
 import { LoginComponent } from './modules/usermodule/login/login.component';
 import { DiagnosisComponent } from './modules/patientvisit/diagnosis/diagnosis.component';
+import { PatientinformationComponent } from './modules/patientvisit/patientinformation/patientinformation.component';
+import { EditpatientinformationComponent } from './modules/patientvisit/editpatientinformation/editpatientinformation.component';
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
   {path:"Patientregistration",component:PatientregistrationComponent},
   {path:'adminregistration', component:AdminregistrationComponent},
   {path:'hospitalusermanagement', component:HospitalusermanagementComponent},
-  {path:'diagnosis' , component:DiagnosisComponent}
+  {path:'diagnosis' , component:DiagnosisComponent},
+  {path:'patientinformation',component:PatientinformationComponent},
+  {path:'editpatientinformation',component:EditpatientinformationComponent}
 ];
 
 @NgModule({
