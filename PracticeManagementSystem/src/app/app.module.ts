@@ -11,6 +11,7 @@ import { MaterialModule } from './modules/material/material.module';
 import { PatientModule } from './modules/patient/patient.module';
 import { PatientvisitModule } from './modules/patientvisit/patientvisit.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SchedulingModule } from './modules/scheduling/scheduling.module';
 
 
 
@@ -28,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MaterialModule,
     PatientModule,
     PatientvisitModule,
+    SchedulingModule,
     AppRoutingModule,
     BrowserAnimationsModule
     
