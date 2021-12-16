@@ -13,6 +13,7 @@ import { PatientinformationComponent } from './modules/patientvisit/patientinfor
 import { MedicationComponent } from './modules/patientvisit/medication/medication.component';
 import { ProcedureComponent } from './modules/patientvisit/procedure/procedure.component';
 import { VitalsignsComponent } from './modules/patientvisit/vitalsigns/vitalsigns.component';
+import { DemographicinformationComponent } from './modules/patient/demographicinformation/demographicinformation.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,9 @@ const routes: Routes = [
 
   {path:'medication' , component:MedicationComponent},
   {path:'procedure' , component:ProcedureComponent},
-  {path:'vitalsigns' , component:VitalsignsComponent}
+  {path:'vitalsigns' , component:VitalsignsComponent},
+  {path:'demographicinformation' , component:DemographicinformationComponent}
+
 
 
 ];

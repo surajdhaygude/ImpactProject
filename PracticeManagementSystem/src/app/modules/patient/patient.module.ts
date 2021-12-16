@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DemographicinformationComponent } from './demographicinformation/demographicinformation.component';
 import { AllergyinformationComponent } from './allergyinformation/allergyinformation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '../material/material.module';
 
 
 
@@ -11,7 +13,10 @@ import { AllergyinformationComponent } from './allergyinformation/allergyinforma
     AllergyinformationComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class PatientModule { }
