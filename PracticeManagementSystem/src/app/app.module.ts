@@ -18,7 +18,7 @@ import { SchedulingModule } from './modules/scheduling/scheduling.module';
 @NgModule({
   declarations: [
     AppComponent,
-    CutomepipePipe
+    CutomepipePipe,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +32,7 @@ import { SchedulingModule } from './modules/scheduling/scheduling.module';
     SchedulingModule,
     AppRoutingModule,
     BrowserAnimationsModule
+    
     
   ],
   providers: [],

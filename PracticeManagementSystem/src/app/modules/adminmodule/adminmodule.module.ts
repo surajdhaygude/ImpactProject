@@ -48,9 +48,6 @@ import { MasterLayoutModule } from '../master-layout/master-layout.module';
       {path:'patientusermanagement',component:PatientusermanagementComponent},
       {path:'addpatient', component:AddpatientComponent},
       {path:'editPatient/:id', component:EditpatientComponent}
-
-
-
     ])
   ]
   
