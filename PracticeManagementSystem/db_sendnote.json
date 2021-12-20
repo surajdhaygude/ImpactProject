@@ -1,0 +1,11 @@
+{
+    "sendnotes": [
+      {
+        "dateTime": "date",
+        "receiverName": "John",
+        "designation":"admin",
+        "message":"message",
+        "urgencyLevel":"No"
+      }
+    ]
+  }

@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="col">
+          <form [formGroup]="Allery">
+            <mat-card-title style="text-align: center;">
+              <h2>Diagnosis Form</h2>
+            </mat-card-title>
+  
+            <div class="row">
+              <mat-form-field appearance="legacy" class="full-width col-10">
+                <mat-label>Dignosis Id</mat-label>
+                <input matInput required>
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <mat-form-field class="full-width col-10">
+                <mat-select placeholder="Diagnosis Type">
+                  <mat-option *ngFor="let al of diagnosis" [value]="al">
+                    {{ al }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+  
+            <div class="row">
+              <mat-form-field appearance="legacy" class="full-width col-10">
+                <mat-label>Dignosis Description</mat-label>
+                <textarea matInput required></textarea>
+              </mat-form-field>
+            </div>
+  
+  
+            <div class="row">
+              <mat-radio-group name="id">
+                <mat-label> Diagnosis Is Depricated</mat-label>&nbsp;&nbsp;&nbsp;
+                <mat-radio-button value="Yes">
+                  Yes
+                </mat-radio-button>&nbsp;&nbsp;
+                <mat-radio-button value="No">
+                  No
+                </mat-radio-button>
+              </mat-radio-group>
+            </div><br/>
+            <div class="example-button-row">
+              <button mat-flat-button color="primary">Submit</button>&nbsp;&nbsp;
+              <button mat-flat-button color="primary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

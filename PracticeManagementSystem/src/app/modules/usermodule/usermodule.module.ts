@@ -8,6 +8,8 @@ import { PatientregistrationComponent } from './userregistration/patientregistra
 import { AdminregistrationComponent } from './userregistration/adminregistration/adminregistration.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { PatientdashbordComponent } from './patientdashbord/patientdashbord.component';
+import { HospitalusermanagementComponent } from '../adminmodule/hospitalusermanagement/hospitalusermanagement.component';
 
 
 
@@ -19,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     UserregistrationComponent,
     PatientregistrationComponent,
     AdminregistrationComponent,
+    PatientdashbordComponent,
   ],
   imports: [
     CommonModule,
@@ -27,9 +30,12 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     RouterModule.forChild([
       {path:'',component:LoginComponent},
+      {path:'login', component:LoginComponent},
       {path:'ChangePassword', component:ChangepasswordComponent},
-      {path:'login/adminregistration', component:AdminregistrationComponent},
-      {path:'Patientregistration', component:PatientregistrationComponent}
+      {path:'adminregistration', component:AdminregistrationComponent},
+      {path:'Patientregistration', component:PatientregistrationComponent},
+      {path:'patientdashboard' ,component:PatientdashbordComponent},
+      {path:'hospitalusermanagement', component:HospitalusermanagementComponent}
       
     ])
   ],

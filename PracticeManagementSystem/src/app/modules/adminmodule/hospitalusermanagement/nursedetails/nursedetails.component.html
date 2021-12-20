@@ -1,0 +1,86 @@
+<app-header></app-header>
+
+<div class="container fluid">
+    <div class="row">
+        <div class="hospitalHeader">
+            <h1>Hospital User Management</h1>
+        </div>
+    </div>
+    <div class="card col-md-12">
+        <div class="row">
+            <div class="col-md-6 Physiciandiv">
+                <div class="Physician p-3">
+                    <button type="button" class="btn btn-secondary  Physicianbtn" (click)="DispayPhysicainGrid()">Physician</button>
+                </div>
+            </div>
+  
+            <div class="col-md-6">
+                <div class="nurse p-3">
+                    <button type="button" class="btn btn-secondary nursebtn" (click)="DispayNurseGrid()">Nurse</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row p-3">
+            <div class="col-md -3 p-3">
+                <div>
+                    <button type="button" class="btn btn-primary addNurse" (click)="AddNurserecords()">Add New</button>
+                </div>
+  
+                <input type="text" name="Name" [(ngModel)]="Name" (ngModelChange)="search()"
+                placeholder="Search "/>
+                
+  
+            </div>
+            <!-- <ag-grid-angular style="width: 1100px; height: 300px;" class="ag-theme-alpine" [rowData]="rowData"
+                [columnDefs]="columnDefs" [defaultColDef]="defaultColDef">
+            </ag-grid-angular> -->
+  
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th (click)="sort('EmpID')">Employee ID&nbsp;<i class="fa fa-sort"></i></th>
+                    <th>Name</th>
+                    <th>Date Of Joining</th>
+                    <th>Status</th>
+                    <th>Edit Status</th>
+                    <th width="220px">Manage</th>
+                </tr>
+            </thead>
+            <!-- | orderBy: key:reverse  -->
+            <tbody>
+                <tr *ngFor="let data of NurseUser | paginate: { itemsPerPage: 5, currentPage: p };">
+                    <td>{{ data.id }}</td>
+                    <td>{{ data.Name }}</td>
+                    <td>{{ data.DateofJoining }}</td>
+                    <td>{{ data.Status }}</td>
+                    
+                    <!-- <td >{{selectstatus}}</td> -->
+                    <td>
+                        <select id="ManagetOptions">
+                          <!-- <select (change)="selectChnageHandler($event)" > -->
+                            <option value="Active">Active</option>
+                            <option value="Deactivate">Deactivate</option>
+                            <option value="Block">Block</option>
+                            <!-- <option value="{{Managelist}}">{{Managelist}}</option>     -->
+  
+                        </select>
+                    </td>
+                    <td>
+                        <!-- [routerLink]="['/post/', post.id, 'view']" -->
+                        <!-- [routerLink]="['/post/', post.id, 'edit']"  -->
+                        <!-- (click)="deletePost(post.id)" -->
+                        <!-- <a href="#" class="btn btn-info viewbtn">View</a> -->
+                        <!-- <a href=" " class="btn btn-primary editbtn">Edit</a> -->
+                        <!-- <button type="button" class="btn btn-primary editbtn">Edit</button> -->
+                        <button type="button" class="btn btn-primary editbtn" (click)="editnurse(data.id)">Edit</button>
+                        <button type="button" (click)="deletenurse(data.id)" class="btn btn-danger deletebtn">Delete</button>
+                        
+                    </td>
+                </tr>
+            </tbody>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </table>
+        </div>
+    </div>
+  </div>

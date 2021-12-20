@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-changepassword',
@@ -15,7 +16,7 @@ export class ChangepasswordComponent implements OnInit {
     //passwordRegex: any = '((?=.*\d)(?=.*[a-zA-Z]).{4,20})' ;
     
     changepassForm!:FormGroup
-  constructor(private fb:FormBuilder, private http:HttpClient) { }
+  constructor(private fb:FormBuilder, private http:HttpClient, private route:Router) { }
 
   ngOnInit(): void {
     this.changepassForm= this.fb.group({
@@ -72,6 +73,10 @@ export class ChangepasswordComponent implements OnInit {
       else{
         console.log("form is invalid ");
       }
+       }
+
+       BacktoLogin(){
+         this.route.navigateByUrl('');
        }
 
 }

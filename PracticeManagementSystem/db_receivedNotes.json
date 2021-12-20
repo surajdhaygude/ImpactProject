@@ -1,0 +1,31 @@
+{
+    "receivednotes": [
+      {
+        "dateTime": "12/12/2021, 5:50:11 PM",
+        "urgency": "Yes",
+        "sender": "John",
+        "senderDesignation": "test",
+        "message": "test",
+        "isActive":"true",
+        "id": 1
+      },
+      {
+        "dateTime": "12/12/2021, 5:51:11 PM",
+        "urgency": "Yes",
+        "sender": "John",
+        "senderDesignation": "test",
+        "message": "test",
+        "isActive":"true",
+        "id": 2
+      },      
+      {
+        "dateTime": "12/12/2021, 5:52:11 PM",
+        "urgency": "Yes",
+        "sender": "John",
+        "senderDesignation": "test",
+        "message": "test",
+        "isActive":"true",
+        "id": 3
+      }
+    ]
+}

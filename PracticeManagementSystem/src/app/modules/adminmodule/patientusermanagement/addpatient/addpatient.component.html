@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card col-md-4">
+                <div class="text-center">
+                    <h2>Add Patient</h2>
+                </div>
+                <form [formGroup]="Patientform" (ngSubmit)="AddPatient()"> 
+                    <div class="form-group">
+                      <label  class="form-label">Name</label>
+                      <input formControlName="PatientName" required type="text" placeholder="Please Enter Name" class="form-control" id="InputFname">
+                    <span class="text-danger" *ngIf="Patientform.controls['PatientName'].dirty && Patientform.hasError('required','PatientName')">Name can not be empty.</span>
+                    </div>
+                      <div class="form-group">
+                        <label class="form-label">Email Id</label>
+                        <input  formControlName="EmailId" required type="email" placeholder="Please Enter Email Id" class="form-control" id="InputEmailid">
+                        <span class="text-danger" *ngIf="Patientform.controls['EmailId'].dirty && Patientform.hasError('required','EmailId')">Please enter you email address.</span>
+                        <span class="text-danger" *ngIf="Patientform.controls['EmailId'].dirty && Patientform.hasError('email','EmailId')">Please enter valid email address.</span>
+
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Date Of Birth</label>
+                        <input formControlName="Dateofbirth" required type="date" max="2021-11-27" class="form-control" id="InputDOB">
+                        <span class="text-danger" *ngIf="Patientform.controls['Dateofbirth'].dirty && Patientform.hasError('required','Dateofbirth')">Please select date in mm/dd/yyyy format.</span>
+
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <div class="mb-3">
+                          <input class="form-control" formControlName='Status' required list="StatustOptions" id="statusDataList" placeholder="Type to search status...">
+                          <span class="text-danger" *ngIf="Patientform.controls['Status'].touched && Patientform.hasError('required','Status')">Please select role.</span>
+                          <datalist id="StatustOptions">
+                            <option value="Active">
+                            <option value="Deactivate">
+                            <option value="Block">
+                          </datalist>
+                        </div>
+                      </div>
+                    <button type="submit" [disabled]="!Patientform.valid" class="btn btn-primary">Save</button>
+
+                    <button type="reset" (click)="backtopatient()" class="btn btn-primary backbutton">Cancel</button>
+
+                    <!--  -->
+                  </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card col-md-4">
+        <div class="text-center">
+          <h2>Add Physician</h2>
+        </div>
+        <form [formGroup]="Physicianform" (ngSubmit)="AddPhysician()">
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input formControlName="Name" required type="text" placeholder="Please Enter Name" class="form-control"
+              id="InputFname">
+            <span class="text-danger"
+              *ngIf="Physicianform.controls['Name'].dirty && Physicianform.hasError('required','Name')">Name can not be
+              empty.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Id</label>
+            <input formControlName="emailid" required type="email" placeholder="Please Enter Email Id"
+              class="form-control" id="InputEmailid">
+            <span class="text-danger"
+              *ngIf="Physicianform.controls['emailid'].dirty && Physicianform.hasError('required','emailid')">Please
+              enter you email address.</span>
+            <span class="text-danger"
+              *ngIf="Physicianform.controls['emailid'].dirty && Physicianform.hasError('email','emailid')">Please enter
+              valid email address.</span>
+
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date Of Joining</label>
+            <input formControlName="DateofJoining" required type="date" max="2021-11-27" class="form-control"
+              id="InputDOB">
+            <span class="text-danger"
+              *ngIf="Physicianform.controls['DateofJoining'].dirty && Physicianform.hasError('required','DateofJoining')">Please
+              select date in mm/dd/yyyy format.</span>
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Status</label>
+            <div class="mb-3">
+              <input class="form-control" formControlName='Status' required list="StatustOptions" id="statusDataList"
+                placeholder="Type to search status...">
+              <!-- <span class="text-danger" *ngIf="Physicianform.controls['Status'].touched && Physicianform.hasError('required','Status')">Please select role.</span> -->
+              <datalist id="StatustOptions">
+                <option value="Active">
+                <option value="Deactivate">
+                <option value="Block">
+              </datalist>
+            </div>
+
+          </div>
+          <button type="submit" [disabled]="!Physicianform.valid" class="btn btn-primary">Save</button>
+
+          <button type="submit" (click)="backtophysicain()" class="btn btn-primary backbutton">Cancel</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
