@@ -9,12 +9,17 @@
     <button type="submit" [disabled]="!loginForm.valid">Submit</button>
   
   </form> -->
-  <a routerLink="sendnote">send note</a>
+
+  <a routerLink="sendnote">send note</a><br>
+  <a routerLink="receivednotes">Received Note</a><br>
+  <a routerLink="sentnotes">Sent Notes</a><br>
+  <a routerLink="allergyinformation">allergy</a><br>
+  <a routerLink="replynote">reply note</a>
 
 <div class="container">
     <div class="row">
-        <div class="col">
-            <div class="card col-md-4">
+        <div>
+            <div class="card col-12 col-md-4">
                 <div class="text-center">
                     <h2>Login</h2>
                 </div>
@@ -25,10 +30,8 @@
                         <label for="username" class=".col-form-label">User Name: </label> 
                         <input id="username" type="text" formControlName="username" class="form-control" 
                                         [ngClass]="{ 'is-invalid': isSubmitted && f.username.errors }" placeholder="Enter Username">
-                                               
-                        <div *ngIf="isSubmitted && f.username.errors" class="invalid-feedback">
-                            <div *ngIf="f.username.errors.required">This field cannot be empty.</div>
-                        </div>
+                       
+                        <span class="text-danger" *ngIf="loginForm.controls['username'].touched && loginForm.hasError('required','username')">This field cannot be empty.</span>
                     </div>
     
                     <div class="form-group mb-4">
@@ -37,13 +40,11 @@
                         <input id="password" type="password" formControlName="password" class="form-control" 
                                         [ngClass]="{ 'is-invalid': isSubmitted && f.password.errors }" placeholder="Enter Password">
         
-                        <div *ngIf="isSubmitted && f.password.errors" class="invalid-feedback">
-                            <div *ngIf="f.password.errors.required">This field cannot be empty</div>
-                            <div *ngIf="f.password.errors.pattern">Password entry does not meet criteria.</div>
-                        </div>
+                        <span class="text-danger" *ngIf="loginForm.controls['password'].touched && loginForm.hasError('required','password')">This field cannot be empty.</span>
+                        <span class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('pattern','password')">Password entry does not meet criteria.</span>
                     </div>        
                                
-                    <button type="submit" class="btn btn-primary mb-3 d-grid gap-2" style="width: 100px;">Login</button>
+                    <button type="submit" class="btn btn-primary mb-3 d-grid gap-2" style="width: 100px;" [disabled]="!loginForm.valid">Login</button>
                     
                   </form>
                  

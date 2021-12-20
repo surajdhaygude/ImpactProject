@@ -5,28 +5,30 @@ import { SendnoteserviceService } from 'src/app/sendnoteservice.service';
 import { IUser } from 'src/IUser';
 
 @Component({
-  selector: 'app-sendnote',
-  templateUrl: './sendnote.component.html',
-  styleUrls: ['./sendnote.component.css']
+  selector: 'app-replynote',
+  templateUrl: './replynote.component.html',
+  styleUrls: ['./replynote.component.css']
 })
-export class SendnoteComponent implements OnInit {
-  sendNoteForm!: FormGroup;
+export class ReplynoteComponent implements OnInit {
+
+  replyNoteForm!: FormGroup;
   isSubmitted!: boolean;
   BreakException:any = {};
   receiverddl:any="";
   showddl:any="";
 
   receivers: IUser[] = [];
-
+  
   constructor(private fb: FormBuilder,private sendNoteService:SendnoteserviceService,private http:HttpClient) { }
 
   ngOnInit(): void {
-    this.sendNoteForm = this.fb.group({
+    this.replyNoteForm = this.fb.group({
       dateTime:[''],
       urgency: ['No'],
       designation:[''],
       receiver: [''],
-      message:['']    
+      message:[''],
+      reply:['']    
     });
 
     this.sendNoteService.getReceivers().subscribe(
@@ -38,24 +40,26 @@ export class SendnoteComponent implements OnInit {
         console.log('error', error);
       }
     );  
+
   }
 
   get f() {
-    return this.sendNoteForm?.controls;
+    return this.replyNoteForm?.controls;
   }
 
   onSubmit():void{
-    debugger
+
     this.f.dateTime.setValue((new Date().toLocaleString()).toString());
-    this.http.post<any>("http://localhost:3000/sendnotes", this.sendNoteForm.value)
+    this.http.post<any>("http://localhost:3000/sendnotes", this.replyNoteForm.value)
       .subscribe(res =>{
-      console.log(this.sendNoteForm.value);
+      console.log(this.replyNoteForm.value);
         alert("Note sent successfully...!");
-        this.sendNoteForm.reset();
+        this.replyNoteForm.reset();
       },err=>{
       alert("Somthing went wrong...!");
       })
-  }  
+
+  }
 
   populateDesignation():void{
     try

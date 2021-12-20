@@ -1,0 +1,57 @@
+{
+    "allergies": [
+      {
+        "allergyid": "1",
+        "allergytype": "type1",
+        "allergyname": "name1",
+        "allergyclinicalinfo": "clinicalinfo1"
+      },
+      {
+        "allergyid": "2",
+        "allergytype": "type2",
+        "allergyname": "name2",
+        "allergyclinicalinfo": "clinicalinfo2"
+      },
+      {
+        "allergyid": "3",
+        "allergytype": "type3",
+        "allergyname": "name3",
+        "allergyclinicalinfo": "clinicalinfo3"
+      },
+      {
+        "allergyid": "4",
+        "allergytype": "type4",
+        "allergyname": "Other",
+        "allergyclinicalinfo": "clinicalinfo4"
+      }
+    ],
+    "patientallergyinfo": [        
+      {
+        "hasallergy": "1",
+        "allergyid": "test",
+        "allergytype": "type1",
+        "allergyname": "dhsdjsdhj",
+        "allergydescription": "xkjshxshkshkschkskhskahsakjhdkjsahkjsajsajsahkakakajk",
+        "allergyclinicalinfo": "kjxjsaxjas",
+        "isfatal": "No"
+      },
+      {
+        "hasallergy": "1",
+        "allergyid": "sdd",
+        "allergytype": "type2",
+        "allergyname": "name1",
+        "allergydescription": "dshdsudugdssdyugduhdudsudududwuhuwhdwjdhwudwudwudwdgwdwuduwhiuwdiuwdiwdwiudwiduwd",
+        "allergyclinicalinfo": "",
+        "isfatal": "Yes"
+      },
+      {
+        "hasallergy": "1",
+        "allergyid": "hffh",
+        "allergytype": "type2",
+        "allergyname": "Otherhgfhfh",
+        "allergydescription": "ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt",
+        "allergyclinicalinfo": null,
+        "isfatal": "Yes"
+      }
+    ]
+  }

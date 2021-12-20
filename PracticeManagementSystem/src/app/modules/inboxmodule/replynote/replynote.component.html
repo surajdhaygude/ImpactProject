@@ -1,27 +1,12 @@
-<!-- <form [formGroup]="sendNoteForm" (ngSubmit)="onSubmit()">
-
-    <label for="urgency">Urgency</label>
-    <input id="urgency" type="text" formControlName="urgency">
-  
-    <label for="receiver">Receiver </label>
-    <input id="receiver" type="text" formControlName="receiver">
-
-    <label for="message">message </label>
-    <input id="message" type="text" formControlName="message">
-
-    <button type="submit" [disabled]="!sendNoteForm.valid">Submit</button>
-  
-  </form> -->
-
-  <div class="container">
+<div class="container">
     <div class="row">
         <div class="col">
             <div class="card col-md-4">
                 <div class="text-center">
-                    <h2>Send Note</h2>
+                    <h2>Reply Note</h2>
                 </div>
                 
-<form [formGroup]="sendNoteForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="replyNoteForm" (ngSubmit)="onSubmit()">
 
     <div>
 
@@ -45,8 +30,8 @@
         </div>  
        
         <div class="form-group mb-3">
-            <label for="message" class="form-label">Message </label>
-            <textarea id="message" rows="5" class="form-control" type="text" formControlName="message"></textarea>
+            <label for="reply" class="form-label">Reply </label>
+            <textarea id="reply" rows="5" class="form-control" type="text" formControlName="reply"></textarea>
         </div>
     
         <button type="submit"  class="btn btn-primary">Send</button>&nbsp;
