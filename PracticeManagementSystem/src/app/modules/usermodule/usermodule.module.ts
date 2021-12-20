@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { PatientdashbordComponent } from './patientdashbord/patientdashbord.component';
 import { HospitalusermanagementComponent } from '../adminmodule/hospitalusermanagement/hospitalusermanagement.component';
+import { DemographicinformationComponent } from '../patient/demographicinformation/demographicinformation.component';
+import { PatientschedulingComponent } from '../scheduling/patientscheduling/patientscheduling.component';
 
 
 
@@ -35,8 +37,9 @@ import { HospitalusermanagementComponent } from '../adminmodule/hospitalusermana
       {path:'adminregistration', component:AdminregistrationComponent},
       {path:'Patientregistration', component:PatientregistrationComponent},
       {path:'patientdashboard' ,component:PatientdashbordComponent},
-      {path:'hospitalusermanagement', component:HospitalusermanagementComponent}
-      
+      {path:'hospitalusermanagement', component:HospitalusermanagementComponent},
+      {path:'demographicinformation' , component:DemographicinformationComponent},
+      {path:'patientscheduling' , component:PatientschedulingComponent}
     ])
   ],
 

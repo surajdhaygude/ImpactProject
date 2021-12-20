@@ -1,7 +1,9 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PatientschedulingComponent } from './patientscheduling/patientscheduling.component';
 import { UserschedulingComponent } from './userscheduling/userscheduling.component';
+import { AddpatientappointmentComponent } from './patientscheduling/addpatientappointment/addpatientappointment.component';
+import { ScheduleAllModule ,ScheduleModule, RecurrenceEditorModule,DayService,WeekService,MonthService,MonthAgendaService, WorkWeekService } from '@syncfusion/ej2-angular-schedule';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +21,7 @@ import { DeletenurseappointmentComponent } from './userscheduling/nurseschedulin
   declarations: [
     PatientschedulingComponent,
     UserschedulingComponent,
+    AddpatientappointmentComponent
     PhysicianschedulingComponent,
     NurseschedulingComponent,
     EditphysicianappointmentComponent,
@@ -30,11 +33,22 @@ import { DeletenurseappointmentComponent } from './userscheduling/nurseschedulin
   imports: [
     CommonModule,
     MaterialModule,
+    ReactiveFormsModule,
+    ScheduleModule,
+    RecurrenceEditorModule,
+    ScheduleAllModule,
+    FormsModule,
+    RouterModule.forChild([
+      {path:'addpatientappointment', component:AddpatientappointmentComponent}
+    ])
+  ],
+  providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService ],
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       {path:'user', component:UserschedulingComponent}
     ])
   ]
+
 })
 export class SchedulingModule { }

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./patientdashbord.component.css']
 })
 export class PatientdashbordComponent implements OnInit {
+  patientpath="https://www.nestsoft.com/images/services/hospital-management-software1s.jpg";
 
   constructor(private route:Router) { }
 
@@ -15,5 +16,13 @@ export class PatientdashbordComponent implements OnInit {
  
   backtoLogin(){
    this.route.navigateByUrl('');
+  }
+
+  demographicpage(){
+    this.route.navigateByUrl('demographicinformation');
+  }
+
+  backscheduling(){
+    this.route.navigateByUrl('patientscheduling');
   }
 }
