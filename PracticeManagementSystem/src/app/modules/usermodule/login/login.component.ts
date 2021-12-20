@@ -50,6 +50,12 @@ export class LoginComponent implements OnInit {
       {
           this.route.navigateByUrl("hospitalusermanagement");
       }
+      else if(this.role=="physician"){
+        // this.route.navigateByUrl("hospitalusermanagement");
+      }
+      else if(this.role=="nurse"){
+        // this.route.navigateByUrl("hospitalusermanagement");
+      }
       else
       {
         this.route.navigateByUrl("patientdashboard");

@@ -21,7 +21,9 @@ import { MaterialModule } from '../material/material.module';
     MaterialModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      {path:'allergyinformation',component:AllergyinformationComponent}     
+      {path:'allergyinformation',component:AllergyinformationComponent},
+      {path:'demographicinformation' , component:DemographicinformationComponent}
+
     ])
 
    

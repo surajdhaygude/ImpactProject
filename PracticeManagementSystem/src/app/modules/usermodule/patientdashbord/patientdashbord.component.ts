@@ -25,4 +25,8 @@ export class PatientdashbordComponent implements OnInit {
   backscheduling(){
     this.route.navigateByUrl('patientscheduling');
   }
+
+  Allergy(){
+    this.route.navigateByUrl('allergyinformation');
+  }
 }
