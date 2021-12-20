@@ -1,1 +1,78 @@
-<p>addnurseappointment works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="col">
+                    <form class="createAppointment">
+                        <div>
+                        <mat-card-title style="text-align: center;">
+                            <h2>Create Appointment</h2>
+                        </mat-card-title>
+                       </div>
+                            <div class="row" style="text-align: center;">
+                                <mat-form-field>
+                                    <mat-label>Meeting Title</mat-label>
+                                    <textarea matInput placeholder=" "></textarea>
+                                </mat-form-field>
+                            </div>
+                        <div>
+                        <mat-card-title style="text-align: center;">
+                            <h2>Description</h2>
+
+                        </mat-card-title>
+                    </div>
+                        <div class="row" >
+                            <mat-form-field class="full-width col-10">
+                                <mat-select placeholder="selection of Patient">
+                                    <!-- <mat-option *ngFor="let al of Timeslot" [value]="al">
+                                {{ al }}
+                            </mat-option> -->
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field>
+                                <mat-label>Descriptive Information</mat-label>
+                                <textarea matInput placeholder=" "></textarea>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+                            <mat-form-field appearance="legacy" class="full-width col-10">
+                                <mat-label>Patient Information</mat-label>
+                                <input matInput required />
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field class="full-width col-10">
+                                <mat-select placeholder="Physican">
+                                    <!-- <mat-option *ngFor="let al of Timeslot" [value]="al">
+                                {{ al }}
+                            </mat-option> -->
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+                            <mat-form-field appearance="legacy" class="full-width col-10">
+                                <mat-label>Date</mat-label>
+                                <input matInput type="date" required />
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+                            <mat-form-field class="full-width col-10">
+                                <mat-select placeholder="Time">
+                                    <mat-option *ngFor="let al of Timeslot" [value]="al">
+                                        {{ al }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

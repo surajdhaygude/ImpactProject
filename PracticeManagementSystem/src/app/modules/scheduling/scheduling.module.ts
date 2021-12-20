@@ -46,7 +46,13 @@ import { DeletenurseappointmentComponent } from './userscheduling/nurseschedulin
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      {path:'user', component:UserschedulingComponent}
+      {path:'Userscheduling', component:UserschedulingComponent},
+      {path:'editphysicianappointment', component:EditphysicianappointmentComponent},
+      {path:'deletephysicianappointment', component:DeletephysicianappointmentComponent},
+      {path:'addnurseappointment',component:AddnurseappointmentComponent},
+      {path:'editnurseappointment',component:EditnurseappointmentComponent},
+      {path:'deletenurseappointment',component:DeletenurseappointmentComponent}
+
     ])
   ]
 
