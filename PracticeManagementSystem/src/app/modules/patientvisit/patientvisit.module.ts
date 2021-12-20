@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
     PatientinformationComponent,
@@ -17,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DiagnosisComponent,
     ProcedureComponent,
     MedicationComponent
+    
   ],
   imports: [
     CommonModule,

@@ -7,12 +7,32 @@ import { HospitalusermanagementComponent } from './modules/adminmodule/hospitalu
 import { LoginComponent } from './modules/usermodule/login/login.component';
 import { DiagnosisComponent } from './modules/patientvisit/diagnosis/diagnosis.component';
 
+import { PatientinformationComponent } from './modules/patientvisit/patientinformation/patientinformation.component';
+
+
+import { MedicationComponent } from './modules/patientvisit/medication/medication.component';
+import { ProcedureComponent } from './modules/patientvisit/procedure/procedure.component';
+import { VitalsignsComponent } from './modules/patientvisit/vitalsigns/vitalsigns.component';
+import { DemographicinformationComponent } from './modules/patient/demographicinformation/demographicinformation.component';
+
+
 const routes: Routes = [
   {path:'', component:LoginComponent},
   {path:"Patientregistration",component:PatientregistrationComponent},
   {path:'adminregistration', component:AdminregistrationComponent},
   {path:'hospitalusermanagement', component:HospitalusermanagementComponent},
-  {path:'diagnosis' , component:DiagnosisComponent}
+  {path:'diagnosis' , component:DiagnosisComponent},
+
+  {path:'patientinformation',component:PatientinformationComponent},
+ 
+
+  {path:'medication' , component:MedicationComponent},
+  {path:'procedure' , component:ProcedureComponent},
+  {path:'vitalsigns' , component:VitalsignsComponent},
+  {path:'demographicinformation' , component:DemographicinformationComponent}
+
+
+
 ];
 
 @NgModule({
