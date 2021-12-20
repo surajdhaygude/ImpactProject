@@ -1,0 +1,31 @@
+.demoinfobtn{
+    width: 50%;
+    color: white;
+    background-color: darkslategray;
+}
+
+.allergybtn{
+    width: 50%;
+    color: white;
+    background-color: darkslategray;
+}
+
+.allerfydiv{
+    margin-left: -100px;
+}
+.schedulingbtn{
+    color: white;
+    background-color: darkslategray;
+}
+
+.schedulingdiv{
+    margin-left: -100px;
+}
+h1{
+    color: red;
+}
+
+.img{
+    width: 100%;
+    height: 10%;
+}

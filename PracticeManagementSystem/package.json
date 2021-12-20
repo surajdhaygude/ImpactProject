@@ -9,6 +9,7 @@
     "test": "ng test",
     "json:serverPatientRegistration": "json-server --watch PatientRegistration_db.json",
     "json:serverLogin": "json-server --watch db_user.json",
+    "json:serverSendNote": "json-server --watch db_sendnote.json",
     "json:server": "json-server --watch CPassword.json"
   },
   "private": true,
@@ -23,6 +24,8 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@syncfusion/ej2-angular-schedule": "^19.4.38",
+    "@syncfusion/ej2-material-theme": "^19.4.38",
     "ag-grid-angular": "^26.2.0",
     "ag-grid-community": "^26.2.0",
     "bootstrap": "^5.1.3",
@@ -35,7 +38,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^12.2.13",
+    "@angular-devkit/build-angular": "^12.2.14",
     "@angular/cli": "~12.2.10",
     "@angular/compiler-cli": "~12.2.0",
     "@types/jasmine": "~3.8.0",

@@ -84,4 +84,14 @@ export class DemographicinformationComponent implements OnInit {
     "Other",
   ];
 
+  backtodashboard(){
+    this.router.navigateByUrl('patientdashboard')
+  }
+
+  Canceltodashboard(){
+    this.router.navigateByUrl('patientdashboard')
+  }
+
+  
+
 }

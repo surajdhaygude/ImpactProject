@@ -49,9 +49,7 @@ export class HospitalmanagementService {
     const url=`${this.APIUrl}/${id}`;
     return this.http.delete<Hospitalusers>(url)
     //return this.http.delete<any>("http://localhost:3000/rowdata/1")
-  }
-
-   
+  }   
 }
 
 

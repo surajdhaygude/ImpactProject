@@ -1,10 +1,38 @@
-<div class="container" style="text-align: center;">
-    <a  class="navbar-brand " (click)="backtoLogin()" style="float: left;">Back To Login </a> 
+<div class="container-fuild" style="text-align: center;">
+    <!-- <a  class="navbar-brand " (click)="backtoLogin()" style="float: left;">Back To Login </a>  -->
 
     <div class="row">
         <div class="patientHeader">
-            <h1>Welcome in Patient Dashboard</h1>
-
+            <!-- <h1>Welcome in Patient Dashboard</h1> -->
+            <marquee behavior="scroll" direction="left"><h1>Welcome to Patient Dashboard</h1></marquee>
+           
         </div>
     </div>
+    <div>
+        <!-- <hr> -->
+        <div class="row">
+            <div class="col-md-5 demoinfodiv">
+                <div class="demographic p-3">
+                    <button type="button" class="btn active  demoinfobtn" (click)="demographicpage()">Demographic Information</button>
+                </div>
+            </div>
+
+            <div class="col-md-3 allerfydiv" >
+                <div class="allergy p-3">
+                    <button type="button" class="btn allergybtn">Allergy</button>
+                </div>
+            </div>
+
+            <div class="col-md-4 schedulingdiv">
+                <div class="allergy p-3">
+                    <button type="button" class="btn schedulingbtn" (click)="backscheduling()">Scheduling</button>
+                </div>
+            </div>
+        </div>
+        <!-- <hr> -->
+    </div>
+    <div class="row">
+        <img [src]="patientpath" class="img">
+    </div>
+
 </div>

@@ -11,14 +11,18 @@ import { MaterialModule } from './modules/material/material.module';
 import { PatientModule } from './modules/patient/patient.module';
 import { PatientvisitModule } from './modules/patientvisit/patientvisit.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { InboxmoduleModule } from './modules/inboxmodule/inboxmodule.module';
+
 import { SchedulingModule } from './modules/scheduling/scheduling.module';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CutomepipePipe
+    CutomepipePipe,
   ],
   imports: [
     BrowserModule,
@@ -31,8 +35,9 @@ import { SchedulingModule } from './modules/scheduling/scheduling.module';
     PatientvisitModule,
     SchedulingModule,
     AppRoutingModule,
-    BrowserAnimationsModule
-    
+    BrowserAnimationsModule,
+    InboxmoduleModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
