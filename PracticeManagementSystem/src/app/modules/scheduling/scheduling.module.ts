@@ -21,7 +21,7 @@ import { DeletenurseappointmentComponent } from './userscheduling/nurseschedulin
   declarations: [
     PatientschedulingComponent,
     UserschedulingComponent,
-    AddpatientappointmentComponent
+    AddpatientappointmentComponent,
     PhysicianschedulingComponent,
     NurseschedulingComponent,
     EditphysicianappointmentComponent,
@@ -39,22 +39,17 @@ import { DeletenurseappointmentComponent } from './userscheduling/nurseschedulin
     ScheduleAllModule,
     FormsModule,
     RouterModule.forChild([
-      {path:'addpatientappointment', component:AddpatientappointmentComponent}
-    ])
-  ],
-  providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService ],
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forChild([
+      {path:'addpatientappointment', component:AddpatientappointmentComponent},
       {path:'Userscheduling', component:UserschedulingComponent},
       {path:'editphysicianappointment', component:EditphysicianappointmentComponent},
       {path:'deletephysicianappointment', component:DeletephysicianappointmentComponent},
       {path:'addnurseappointment',component:AddnurseappointmentComponent},
       {path:'editnurseappointment',component:EditnurseappointmentComponent},
       {path:'deletenurseappointment',component:DeletenurseappointmentComponent}
-
     ])
-  ]
+  ],
+  providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService ],
+    
 
 })
 export class SchedulingModule { }
