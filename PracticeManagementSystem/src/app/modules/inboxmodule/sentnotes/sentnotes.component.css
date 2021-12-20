@@ -22,3 +22,19 @@ label{
 .container-fluid{
     background: rgb(204, 230, 227);
 }
+
+.borderClass{
+    border: 1px solid rgb(64, 202, 149);
+}
+
+.sentNoteClass{
+    color: grey;
+}
+
+.receiverClass{
+    color: rgb(73, 61, 61);
+}
+
+.dateClass{
+    font-size: 12px;
+}

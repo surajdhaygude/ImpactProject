@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { DemographicinformationComponent } from './demographicinformation/demographicinformation.component';
 import { AllergyinformationComponent } from './allergyinformation/allergyinformation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { RouterModule } from '@angular/router';
+
 import { MaterialModule } from '../material/material.module';
 
 
@@ -16,7 +19,13 @@ import { MaterialModule } from '../material/material.module';
     CommonModule,
     FormsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forChild([
+      {path:'allergyinformation',component:AllergyinformationComponent}     
+    ])
+
+   
+   
   ]
 })
 export class PatientModule { }

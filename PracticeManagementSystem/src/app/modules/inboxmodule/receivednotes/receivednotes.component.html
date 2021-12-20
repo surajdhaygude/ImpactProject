@@ -1,0 +1,93 @@
+<!-- <div *ngFor="let receivedNote of receivedNotes">
+    <div>{{receivedNote.senderDesignation}}</div>
+    <div>{{receivedNote.sender}}</div>
+    <div>{{receivedNote.dateTime}}</div>
+    <div>{{receivedNote.dateTime}}</div>
+    <div>{{receivedNote.urgency}}</div>
+    <div>{{receivedNote.message}}</div>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div>
+            <div class="card col-12 col-md-4">
+                <div class="text-center">
+                    <h2>Received Notes</h2>
+                </div>
+
+                <div class="borderClass" *ngFor="let receivedNote of receivedNotes.slice().reverse()">
+
+                    <div *ngIf="receivedNote.isActive=='true'">
+                        <div class="row col-sm-12 mb-1">
+                            <div class="col-3 col-sm-2">{{receivedNote.senderDesignation}}</div>
+                            <div class="col-3 col-sm-4">{{receivedNote.sender}}</div>
+                            <div class="col-6 col-sm-6 dateClass">{{receivedNote.dateTime}}</div>
+                        </div>
+
+                        <div class="row col-sm-12 mb-2">
+                            <div *ngIf="receivedNote.urgency=='Yes'" class="urgentClass">Urgent</div>
+                            <div *ngIf="receivedNote.urgency=='No'" class="notUrgentClass">Not Urgent</div>
+                        </div>
+                        <div class="row col-sm-12 mb-2">
+                            <div>{{receivedNote.message}}</div>
+                        </div>
+                        <div class="mb-1">
+                            <!-- <button type="submit"  class="btn btn-primary">Reply</button>&nbsp; -->
+                            <a routerLink="replynote">Reply</a>&nbsp;
+                            <a routerLink="#" (click)="onDelete(receivedNote.id)">Delete</a>&nbsp;
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showReceivedNote(receivedNote.id)">
+                                View
+                            </a>
+                            <!-- <button type="submit"  class="btn btn-light">Delete</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h5 class="modal-title text-danger" id="exampleModalLabel">Received Note</h5> -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="button" class="btn btn-primary">Login</button>
+          </form> -->
+          <div class="row col-sm-12 mb-1">
+            <div class="col-3 col-sm-2">{{showsenderDesignation}}</div>
+            <div class="col-3 col-sm-4">{{showsender}}</div>
+            <div class="col-6 col-sm-6 dateClass">{{showdateTime}}</div>
+        </div>
+
+        <div class="row col-sm-12 mb-2">
+            <div *ngIf="showurgency=='Yes'" class="urgentClass">Urgent</div>
+            <div *ngIf="showurgency=='No'" class="notUrgentClass">Not Urgent</div>
+        </div>
+        <div style="width: auto;" class="mb-2 d-flex justify-content">
+            <div>{{showmessage}}</div>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

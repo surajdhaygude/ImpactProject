@@ -3,10 +3,18 @@ import { CommonModule } from '@angular/common';
 import { PatientschedulingComponent } from './patientscheduling/patientscheduling.component';
 import { UserschedulingComponent } from './userscheduling/userscheduling.component';
 import { AddpatientappointmentComponent } from './patientscheduling/addpatientappointment/addpatientappointment.component';
+import { ScheduleAllModule ,ScheduleModule, RecurrenceEditorModule,DayService,WeekService,MonthService,MonthAgendaService, WorkWeekService } from '@syncfusion/ej2-angular-schedule';
+import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { ScheduleAllModule ,ScheduleModule, RecurrenceEditorModule,DayService,WeekService,MonthService,MonthAgendaService, WorkWeekService } from '@syncfusion/ej2-angular-schedule';
+import { PhysicianschedulingComponent } from './userscheduling/physicianscheduling/physicianscheduling.component';
+import { NurseschedulingComponent } from './userscheduling/nursescheduling/nursescheduling.component';
+import { EditphysicianappointmentComponent } from './userscheduling/physicianscheduling/editphysicianappointment/editphysicianappointment.component';
+import { DeletephysicianappointmentComponent } from './userscheduling/physicianscheduling/deletephysicianappointment/deletephysicianappointment.component';
+import { AddnurseappointmentComponent } from './userscheduling/nursescheduling/addnurseappointment/addnurseappointment.component';
+import { EditnurseappointmentComponent } from './userscheduling/nursescheduling/editnurseappointment/editnurseappointment.component';
+import { DeletenurseappointmentComponent } from './userscheduling/nursescheduling/deletenurseappointment/deletenurseappointment.component';
+
 
 
 @NgModule({
@@ -14,6 +22,13 @@ import { ScheduleAllModule ,ScheduleModule, RecurrenceEditorModule,DayService,We
     PatientschedulingComponent,
     UserschedulingComponent,
     AddpatientappointmentComponent
+    PhysicianschedulingComponent,
+    NurseschedulingComponent,
+    EditphysicianappointmentComponent,
+    DeletephysicianappointmentComponent,
+    AddnurseappointmentComponent,
+    EditnurseappointmentComponent,
+    DeletenurseappointmentComponent
   ],
   imports: [
     CommonModule,
@@ -24,13 +39,16 @@ import { ScheduleAllModule ,ScheduleModule, RecurrenceEditorModule,DayService,We
     ScheduleAllModule,
     FormsModule,
     RouterModule.forChild([
-      {path:'addpatientappointment', component:AddpatientappointmentComponent},
       {path:'addpatientappointment', component:AddpatientappointmentComponent}
-  
-
     ])
-    
   ],
   providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService ],
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forChild([
+      {path:'user', component:UserschedulingComponent}
+    ])
+  ]
+
 })
 export class SchedulingModule { }
