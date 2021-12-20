@@ -22,3 +22,20 @@ label{
 .container-fluid{
     background: rgb(204, 230, 227);
 }
+
+.borderClass{
+    border: 1px solid rgb(64, 202, 149);
+}
+
+.urgentClass{
+    color: red;
+    font-size: 12px;
+}
+
+.notUrgentClass{
+    color: green;
+}
+
+.dateClass{
+    font-size: 12px;
+}

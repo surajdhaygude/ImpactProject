@@ -9,6 +9,7 @@
     "test": "ng test",
     "json:serverPatientRegistration": "json-server --watch PatientRegistration_db.json",
     "json:serverLogin": "json-server --watch db_user.json",
+    "json:serverSendNote": "json-server --watch db_sendnote.json",
     "json:server": "json-server --watch CPassword.json"
   },
   "private": true,

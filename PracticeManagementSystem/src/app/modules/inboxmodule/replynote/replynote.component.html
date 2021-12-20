@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card col-md-4">
+                <div class="text-center">
+                    <h2>Reply Note</h2>
+                </div>
+                
+<form [formGroup]="replyNoteForm" (ngSubmit)="onSubmit()">
+
+    <div>
+
+        <div class="form-group mb-3">
+            <label class="col-sm-4 control-label" for="urgency">Urgency</label>
+            <div class="col-sm-12">
+                <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="urgency"  type="radio" name="urgency" id="urgencyYes" value="Yes"> Yes </label>
+                <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="urgency" type="radio" name="urgency" id="urgencyNo" value="No"> No </label>
+              </div>             
+        </div>
+
+        <div class="mb-3">
+            <label for="receiver">Receiver </label>
+            <div class="mb-3">
+                <input class="form-control" list="receiver" formControlName="receiver" [(ngModel)]="receiverddl" [value]="showddl" placeholder="Select Receiver" (change)="populateDesignation()">
+                    <datalist id="receiver">
+                    <option *ngFor="let receiver of receivers">
+                            {{receiver.username}}
+                    </datalist>       
+            </div>
+        </div>  
+       
+        <div class="form-group mb-3">
+            <label for="reply" class="form-label">Reply </label>
+            <textarea id="reply" rows="5" class="form-control" type="text" formControlName="reply"></textarea>
+        </div>
+    
+        <button type="submit"  class="btn btn-primary">Send</button>&nbsp;
+    </div>   
+  
+  </form>
+            </div>
+        </div>
+    </div>
+</div>
