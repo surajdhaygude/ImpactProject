@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-editphysicianappointment',
@@ -11,7 +12,7 @@ export class EditphysicianappointmentComponent implements OnInit {
   mySelect : any
   mySelect1 : any
   editAppoinment!: FormGroup;
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -22,5 +23,8 @@ export class EditphysicianappointmentComponent implements OnInit {
     "12:00 pm - 1:00 pm",
     
   ];
-
+  
+  Cancel(){
+    this.router.navigateByUrl('physicianscheduling')
+  }
 }

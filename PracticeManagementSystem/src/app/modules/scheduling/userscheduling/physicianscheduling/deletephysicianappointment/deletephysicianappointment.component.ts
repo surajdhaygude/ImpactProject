@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deletephysicianappointment',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeletephysicianappointmentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -18,5 +19,9 @@ export class DeletephysicianappointmentComponent implements OnInit {
     "12:00 pm - 1:00 pm",
     
   ]
+
+  Cancel(){
+    this.router.navigateByUrl('physicianscheduling')
+  }
 
 }
