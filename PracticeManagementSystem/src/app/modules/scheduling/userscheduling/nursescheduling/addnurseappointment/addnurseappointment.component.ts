@@ -31,4 +31,7 @@ export class AddnurseappointmentComponent implements OnInit {
     
   ]
   
+  RedirectToNurseScheduling(){
+    this.router.navigateByUrl('nursescheduling');
+  }
 }

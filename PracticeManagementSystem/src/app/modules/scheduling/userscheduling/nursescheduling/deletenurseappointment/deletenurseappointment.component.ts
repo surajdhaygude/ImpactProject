@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-deletenurseappointment',
@@ -6,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./deletenurseappointment.component.css']
 })
 export class DeletenurseappointmentComponent implements OnInit {
+  
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -19,4 +22,8 @@ export class DeletenurseappointmentComponent implements OnInit {
     "12:00 pm - 1:00 pm",
     
   ]
+
+  RedirectToNurseScheduling(){
+    this.router.navigateByUrl('nursescheduling');
+  }
 }
