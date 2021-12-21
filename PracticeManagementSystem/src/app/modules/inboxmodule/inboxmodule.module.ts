@@ -36,7 +36,8 @@ import { InboxpatientComponent } from './inboxpatient/inboxpatient.component';
       {path:'sendnote',component:SendnoteComponent},
       {path:'receivednotes',component:ReceivednotesComponent},
       {path:'sentnotes',component:SentnotesComponent},
-      {path:'replynote',component:ReplynoteComponent}
+      {path:'replynote',component:ReplynoteComponent},
+      {path:'topnavuser',component:TopnavuserComponent}
     ])
   ]
 })

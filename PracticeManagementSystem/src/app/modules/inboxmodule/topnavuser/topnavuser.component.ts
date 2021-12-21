@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topnavuser.component.css']
 })
 export class TopnavuserComponent implements OnInit {
-
+  imgurl:string="./assets/Images/logo1.jpg"
   constructor() { }
 
   ngOnInit(): void {
