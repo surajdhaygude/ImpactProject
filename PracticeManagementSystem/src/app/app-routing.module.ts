@@ -22,6 +22,7 @@ import { DeletenurseappointmentComponent } from './modules/scheduling/userschedu
 import { EditnurseappointmentComponent } from './modules/scheduling/userscheduling/nursescheduling/editnurseappointment/editnurseappointment.component';
 
 import { PatientschedulingComponent } from './modules/scheduling/patientscheduling/patientscheduling.component';
+import { NurseschedulingComponent } from './modules/scheduling/userscheduling/nursescheduling/nursescheduling.component';
 
 
 
@@ -41,7 +42,8 @@ const routes: Routes = [
   {path:'addnurseappointment',component:AddnurseappointmentComponent},
   {path:'editnurseappointment',component:EditnurseappointmentComponent},
   {path:'deletenurseappointment',component:DeletenurseappointmentComponent},
-  {path:'patientscheduling' , component:PatientschedulingComponent}
+  {path:'patientscheduling' , component:PatientschedulingComponent},
+  {path:'nursescheduling',component:NurseschedulingComponent}
 ];
 
 @NgModule({

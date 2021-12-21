@@ -14,8 +14,7 @@ import { DeletephysicianappointmentComponent } from './userscheduling/physicians
 import { AddnurseappointmentComponent } from './userscheduling/nursescheduling/addnurseappointment/addnurseappointment.component';
 import { EditnurseappointmentComponent } from './userscheduling/nursescheduling/editnurseappointment/editnurseappointment.component';
 import { DeletenurseappointmentComponent } from './userscheduling/nursescheduling/deletenurseappointment/deletenurseappointment.component';
-
-
+import { NursedashboardComponent } from './userscheduling/nursescheduling/nursedashboard/nursedashboard.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,8 @@ import { DeletenurseappointmentComponent } from './userscheduling/nurseschedulin
     DeletephysicianappointmentComponent,
     AddnurseappointmentComponent,
     EditnurseappointmentComponent,
-    DeletenurseappointmentComponent
+    DeletenurseappointmentComponent,
+    NursedashboardComponent
   ],
   imports: [
     CommonModule,
