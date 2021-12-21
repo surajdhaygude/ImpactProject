@@ -51,9 +51,9 @@ export class PatientusermanagementComponent implements OnInit {
       this.route.navigateByUrl('addpatient');
      }
 
-     DispayPatientGrid():void{
-      this.route.navigateByUrl('hospitalusermanagement');
-     }
+    //  DispayPatientGrid():void{
+    //   this.route.navigateByUrl('patientusermanagement');
+    //  }
 
      deleteuser(id:number){
       if(confirm('Are you sure to delete patient record?')){
