@@ -1,8 +1,8 @@
 .card{
-    margin-top: -150px  !important;
+    margin-top: 10px  !important;
     border: none;
     padding: 30px;
-    position: absolute;
+    /* position: absolute; */
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
