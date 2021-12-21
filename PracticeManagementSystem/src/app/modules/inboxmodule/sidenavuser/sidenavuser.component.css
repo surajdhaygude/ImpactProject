@@ -18,3 +18,8 @@
 .navbar-collapse.show {
     right: 0;
 }
+
+.nav{
+    z-index: 10;
+    position: absolute;
+}
