@@ -46,8 +46,12 @@ backtoDashbors(){
     this.router.navigateByUrl('patientdashboard')
 }
 
-createappointment(){
-    this.router.navigateByUrl('addpatientappointment')
+Editappointment(){
+    this.router.navigateByUrl('editphysicianappointment')
 }
+Deleteappointment(){
+    this.router.navigateByUrl('deletephysicianappointment')
+}
+
 
 }
