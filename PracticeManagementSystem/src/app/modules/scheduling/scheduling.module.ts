@@ -14,6 +14,7 @@ import { DeletephysicianappointmentComponent } from './userscheduling/physicians
 import { AddnurseappointmentComponent } from './userscheduling/nursescheduling/addnurseappointment/addnurseappointment.component';
 import { EditnurseappointmentComponent } from './userscheduling/nursescheduling/editnurseappointment/editnurseappointment.component';
 import { DeletenurseappointmentComponent } from './userscheduling/nursescheduling/deletenurseappointment/deletenurseappointment.component';
+import { PhysiciandashboardComponent } from './userscheduling/physicianscheduling/physiciandashboard/physiciandashboard.component';
 
 
 
@@ -28,7 +29,8 @@ import { DeletenurseappointmentComponent } from './userscheduling/nurseschedulin
     DeletephysicianappointmentComponent,
     AddnurseappointmentComponent,
     EditnurseappointmentComponent,
-    DeletenurseappointmentComponent
+    DeletenurseappointmentComponent,
+    PhysiciandashboardComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,9 @@ import { DeletenurseappointmentComponent } from './userscheduling/nurseschedulin
       {path:'deletephysicianappointment', component:DeletephysicianappointmentComponent},
       {path:'addnurseappointment',component:AddnurseappointmentComponent},
       {path:'editnurseappointment',component:EditnurseappointmentComponent},
-      {path:'deletenurseappointment',component:DeletenurseappointmentComponent}
+      {path:'deletenurseappointment',component:DeletenurseappointmentComponent},
+      {path:'physicianscheduling',component:PhysicianschedulingComponent}
+   
     ])
   ],
   providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService ],
