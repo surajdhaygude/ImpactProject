@@ -42,12 +42,17 @@ export class NurseschedulingComponent implements OnInit {
 public selectedDate: Date = new Date(2021, 12, 18);
 public currentView: View = 'Month';
 
-backtoDashbors(){
-    //this.router.navigateByUrl('hospitalusermanagement')
+Editappointment(){
+    this.router.navigateByUrl('editnurseappointment')
 }
 
 createappointment(){
     this.router.navigateByUrl('addnurseappointment')
+}
+
+
+Deleteappointment(){
+    this.router.navigateByUrl('deletenurseappointment')
 }
 
 }
