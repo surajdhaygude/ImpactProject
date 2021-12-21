@@ -23,8 +23,8 @@
   </nav>
 
 
-<div class="container-fuild" style="text-align: center;">
-    <button class="btn btn-primary Backbtn" (click)="backtoDashbors()" style="float: left;">Back</button>
+<div class="container" style="text-align: center;">
+    <!-- <button class="btn btn-primary Backbtn" (click)="backtoDashbors()" style="float: left;">Back</button> -->
 
     <button class="btn btn-primary" style="float: right;" (click)="createappointment()">Create Appointment</button>
 
@@ -34,8 +34,12 @@
         </div>
     </div>
     <div>
-        <div class="row">
-            <ejs-schedule  [selectedDate]='selectedDate' [currentView]='currentView' [eventSettings]='eventSettings'></ejs-schedule>
-        </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+          <ejs-schedule  [selectedDate]='selectedDate' [currentView]='currentView' [eventSettings]='eventSettings'></ejs-schedule>
+      </div>
+      </div>
+       
     </div>
 </div>
