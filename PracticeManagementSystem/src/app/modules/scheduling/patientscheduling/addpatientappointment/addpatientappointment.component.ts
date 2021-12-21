@@ -46,7 +46,7 @@ constructor(private router:Router, private formBuilder:FormBuilder) { }
   ]
 
   backtodashboard(){
-    this.router.navigateByUrl('patientdashboard')
+    this.router.navigateByUrl('patientscheduling')
   }
 
 }
