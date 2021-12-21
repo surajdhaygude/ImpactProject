@@ -12,6 +12,7 @@ import { PatientdashbordComponent } from './patientdashbord/patientdashbord.comp
 import { HospitalusermanagementComponent } from '../adminmodule/hospitalusermanagement/hospitalusermanagement.component';
 import { DemographicinformationComponent } from '../patient/demographicinformation/demographicinformation.component';
 import { PatientschedulingComponent } from '../scheduling/patientscheduling/patientscheduling.component';
+import { MasterLayoutModule } from '../master-layout/master-layout.module';
 
 
 
@@ -29,6 +30,7 @@ import { PatientschedulingComponent } from '../scheduling/patientscheduling/pati
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MasterLayoutModule,
     FormsModule,
     RouterModule.forChild([
       {path:'',component:LoginComponent},

@@ -15,6 +15,9 @@ import { AddnurseappointmentComponent } from './userscheduling/nursescheduling/a
 import { EditnurseappointmentComponent } from './userscheduling/nursescheduling/editnurseappointment/editnurseappointment.component';
 import { DeletenurseappointmentComponent } from './userscheduling/nursescheduling/deletenurseappointment/deletenurseappointment.component';
 import { NursedashboardComponent } from './userscheduling/nursescheduling/nursedashboard/nursedashboard.component';
+import { PhysiciandashboardComponent } from './userscheduling/physicianscheduling/physiciandashboard/physiciandashboard.component';
+
+
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { NursedashboardComponent } from './userscheduling/nursescheduling/nursed
     AddnurseappointmentComponent,
     EditnurseappointmentComponent,
     DeletenurseappointmentComponent,
-    NursedashboardComponent
+    NursedashboardComponent,
+    PhysiciandashboardComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +49,9 @@ import { NursedashboardComponent } from './userscheduling/nursescheduling/nursed
       {path:'deletephysicianappointment', component:DeletephysicianappointmentComponent},
       {path:'addnurseappointment',component:AddnurseappointmentComponent},
       {path:'editnurseappointment',component:EditnurseappointmentComponent},
-      {path:'deletenurseappointment',component:DeletenurseappointmentComponent}
+      {path:'deletenurseappointment',component:DeletenurseappointmentComponent},
+      {path:'physicianscheduling',component:PhysicianschedulingComponent},
+      {path:'patientscheduling',component:PatientschedulingComponent}
     ])
   ],
   providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService ],

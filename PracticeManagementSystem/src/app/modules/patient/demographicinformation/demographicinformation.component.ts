@@ -89,7 +89,7 @@ export class DemographicinformationComponent implements OnInit {
   }
 
   Canceltodashboard(){
-    this.router.navigateByUrl('patientdashboard')
+    this.router.navigateByUrl('patientscheduling')
   }
 
   

@@ -1,1 +1,17 @@
-<p>physicianscheduling works!</p>
+<app-physiciandashboard></app-physiciandashboard>
+<div class="container-fuild">
+    
+    <button class="btn btn-primary" style="float: right; margin-right: 100px;" (click)="Editappointment()">Edit Appointment</button>
+    <button class="btn btn-primary" style="float: right;" (click)="Deleteappointment()">Delete Appointment</button>
+    <div class="row">
+        <div class="patientHeader">
+            <h1>Physician Scheduling Page</h1>
+        </div>
+    </div>
+    <div>
+        <div class="row">
+            <ejs-schedule  [selectedDate]='selectedDate' [currentView]='currentView' [eventSettings]='eventSettings'></ejs-schedule>
+        </div>
+    </div>
+</div>
+
