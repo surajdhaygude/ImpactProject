@@ -6,6 +6,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReceivednotesComponent } from './receivednotes/receivednotes.component';
 import { SentnotesComponent } from './sentnotes/sentnotes.component';
 import { ReplynoteComponent } from './replynote/replynote.component';
+import { SidenavuserComponent } from './sidenavuser/sidenavuser.component';
+import { SidenavpatientComponent } from './sidenavpatient/sidenavpatient.component';
+import { TopnavpatientComponent } from './topnavpatient/topnavpatient.component';
+import { TopnavuserComponent } from './topnavuser/topnavuser.component';
+import { InboxuserComponent } from './inboxuser/inboxuser.component';
+import { InboxpatientComponent } from './inboxpatient/inboxpatient.component';
 
 
 
@@ -14,7 +20,13 @@ import { ReplynoteComponent } from './replynote/replynote.component';
     SendnoteComponent,
     ReceivednotesComponent,
     SentnotesComponent,
-    ReplynoteComponent
+    ReplynoteComponent,
+    SidenavuserComponent,
+    SidenavpatientComponent,
+    TopnavpatientComponent,
+    TopnavuserComponent,
+    InboxuserComponent,
+    InboxpatientComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +36,8 @@ import { ReplynoteComponent } from './replynote/replynote.component';
       {path:'sendnote',component:SendnoteComponent},
       {path:'receivednotes',component:ReceivednotesComponent},
       {path:'sentnotes',component:SentnotesComponent},
-      {path:'replynote',component:ReplynoteComponent}
+      {path:'replynote',component:ReplynoteComponent},
+      {path:'topnavuser',component:TopnavuserComponent}
     ])
   ]
 })

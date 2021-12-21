@@ -8,6 +8,7 @@
     transform: translate(-50%,-50%);
     background: rgb(204, 230, 227);
     background: linear-gradient(90deg, rgb(204, 230, 227)0%, rgb(204, 230, 227)100%);
+    display: inline-block;
 }
 
 .card h2{

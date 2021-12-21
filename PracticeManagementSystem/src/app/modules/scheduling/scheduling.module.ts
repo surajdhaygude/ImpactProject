@@ -48,8 +48,8 @@ import { PhysiciandashboardComponent } from './userscheduling/physicianschedulin
       {path:'addnurseappointment',component:AddnurseappointmentComponent},
       {path:'editnurseappointment',component:EditnurseappointmentComponent},
       {path:'deletenurseappointment',component:DeletenurseappointmentComponent},
-      {path:'physicianscheduling',component:PhysicianschedulingComponent}
-   
+      {path:'physicianscheduling',component:PhysicianschedulingComponent},
+      {path:'patientscheduling',component:PatientschedulingComponent}
     ])
   ],
   providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService ],

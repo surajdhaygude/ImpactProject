@@ -14,7 +14,6 @@ import { AddpatientComponent } from './patientusermanagement/addpatient/addpatie
 import { EditpatientComponent } from './patientusermanagement/editpatient/editpatient.component';
 import { CreatenurseComponent } from './hospitalusermanagement/nursedetails/createnurse/createnurse.component';
 import { EditnurseComponent } from './hospitalusermanagement/nursedetails/editnurse/editnurse.component';
-import { HeaderComponent } from 'ag-grid-community/dist/lib/components/framework/componentTypes';
 import { MasterLayoutModule } from '../master-layout/master-layout.module';
 
 
