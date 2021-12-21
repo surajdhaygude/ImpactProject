@@ -45,7 +45,8 @@ import { DeletenurseappointmentComponent } from './userscheduling/nurseschedulin
       {path:'deletephysicianappointment', component:DeletephysicianappointmentComponent},
       {path:'addnurseappointment',component:AddnurseappointmentComponent},
       {path:'editnurseappointment',component:EditnurseappointmentComponent},
-      {path:'deletenurseappointment',component:DeletenurseappointmentComponent}
+      {path:'deletenurseappointment',component:DeletenurseappointmentComponent},
+      {path:'patientscheduling',component:PatientschedulingComponent}
     ])
   ],
   providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService ],

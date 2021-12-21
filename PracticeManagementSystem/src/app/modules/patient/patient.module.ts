@@ -7,13 +7,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from '../material/material.module';
+import { PatientdetailsdashboardComponent } from './patientdetailsdashboard/patientdetailsdashboard.component';
 
 
 
 @NgModule({
   declarations: [
     DemographicinformationComponent,
-    AllergyinformationComponent
+    AllergyinformationComponent,
+    PatientdetailsdashboardComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { MaterialModule } from '../material/material.module';
     ReactiveFormsModule,
     RouterModule.forChild([
       {path:'allergyinformation',component:AllergyinformationComponent},
-      {path:'demographicinformation' , component:DemographicinformationComponent}
+      {path:'demographicinformation' , component:DemographicinformationComponent},
+      {path:'patientdetailsdashboard',component:PatientdetailsdashboardComponent}
 
     ])
 
