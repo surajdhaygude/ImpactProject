@@ -21,12 +21,15 @@ export class HospitalmanagementService {
   constructor(private http:HttpClient) { }
 
   public GetHospitalUsers():Observable<any>{
-    return this.http.get<any>(this.APIUrl);
+    //return this.http.get<any>(this.APIUrl);
+    //changes According to Api URL
+    return this.http.get<any>("http://localhost:29345/api/Admins/GetByRoleId/2");
+    
   }
 
 
   public AddPhysicianrecords(formdata:any){
-    return this.http.post<any>("http://localhost:3000/rowdata", formdata)
+    return this.http.post<any>("http://localhost:29345/api/admins/CreateUser",formdata)
   }
 
   public GetHuserasByID(id: any):Observable<any>{
@@ -47,8 +50,8 @@ export class HospitalmanagementService {
   public Husersdelete(id: number): Observable<any> {
     debugger
     const url=`${this.APIUrl}/${id}`;
-    return this.http.delete<Hospitalusers>(url)
-    //return this.http.delete<any>("http://localhost:3000/rowdata/1")
+   // return this.http.delete<Hospitalusers>(url)
+    return this.http.delete<any>(`http://localhost:29345/api/admins/DeleteUser/${id}`)
   }   
 }
 
