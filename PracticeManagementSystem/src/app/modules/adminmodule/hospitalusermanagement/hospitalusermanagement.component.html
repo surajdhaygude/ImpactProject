@@ -57,6 +57,7 @@
                 <tr>
                     <th>Employee ID</th>
                     <th>Employee Name</th>
+                    
                     <th>Date Of Joining</th>
                     <th>Status</th>
                     <th>Edit Status</th>
@@ -66,16 +67,17 @@
             <!-- | orderBy: key:reverse  -->
             <tbody>
                 <tr *ngFor="let data of rowData | paginate: { itemsPerPage: 5, currentPage: p }; ">
-                    <td>{{ data.id }}</td>
-                    <td>{{ data.Name }}</td>
-                    <td>{{ data.DateofJoining }}</td>
-                    <td>{{ data.Status }}</td>
+                    <td>{{ data.userId }}</td>
+                    <td>{{ data.firstname }} {{data.lastname}}</td>
+                    <td>{{ data.doj }}</td>
+                    <td>{{ data.status }}</td>
+                    
                     <td>
                         <select id="ManagetOptions">
-                            <option value="{{data.Status}}">Active</option>
-                            <option value="{{data.Status}}">Deactivate</option>
-                            <option value="{{data.Status}}">Block</option>
-                            <!-- <option value="{{Managelist}}">{{Managelist}}</option>     -->
+                            <option value="{{data.status}}">Active</option>
+                            <option value="{{data.status}}">Deactivate</option>
+                            <option value="{{data.status}}">Block</option>
+                             <!-- <option value="{{Managelist}}">{{Managelist}}</option>  -->
                         </select>
                     </td>
                     <td>

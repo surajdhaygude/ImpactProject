@@ -25,6 +25,7 @@ export class CreateuserComponent implements OnInit {
   }
   
   AddPhysician(){   
+    debugger;
     this.hospitaluser.AddPhysicianrecords(this.Physicianform.value).subscribe(res =>{
     alert("Phaysician details successfully...!")
     this.Physicianform.reset();
