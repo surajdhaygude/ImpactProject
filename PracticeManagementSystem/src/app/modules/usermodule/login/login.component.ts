@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthservicesService } from 'src/app/authservices.service';
 import { UserserviceService } from 'src/app/userservice.service';
 import { IUser } from 'src/IUser';
 
@@ -12,7 +13,7 @@ import { IUser } from 'src/IUser';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,private userService:UserserviceService,private route:Router) { }  
+  constructor(private fb: FormBuilder,private userService:UserserviceService,private route:Router, private service:AuthservicesService) { }  
 
   loginForm!: FormGroup;
   isSubmitted!: boolean;
@@ -41,30 +42,41 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {   
-    this.isSubmitted = true;
-    console.log(this.f.username.errors?.username);
-    console.log('password' + JSON.stringify(this.f.password.errors));
+    if(this.loginForm.valid){
+  
+      this.service.login(this.loginForm.value).subscribe(result =>{
+        debugger
+        if(result !=null){
+          console.log(result);
+         
+          this.isSubmitted = true;
+          console.log(this.f.username.errors?.username);
+          console.log('password' + JSON.stringify(this.f.password.errors));
+      
+          // if (this.validateUser(this.loginForm.value)) {      
+            if(result.roleId==1)
+            {
+                this.route.navigateByUrl("hospitalusermanagement");
+            }
+            else if(result.roleId==2){
+              this.route.navigateByUrl("physicianscheduling");
+            }
+            else if(result.roleId==3){
+              this.route.navigateByUrl("nursescheduling");
+            }
+            else
+            {
+              this.route.navigateByUrl("patientscheduling");
+            }
+          } 
+          else {
+            alert('Please enter valid credentials');
+           
+            return;
+          }
 
-    if (this.validateUser(this.loginForm.value)) {      
-      if(this.role=="admin")
-      {
-          this.route.navigateByUrl("hospitalusermanagement");
-      }
-      else if(this.role=="physician"){
-        this.route.navigateByUrl("physicianscheduling");
-      }
-      else if(this.role=="nurse"){
-        this.route.navigateByUrl("nursescheduling");
-      }
-      else
-      {
-        this.route.navigateByUrl("patientscheduling");
-      }
-    } 
-    else {
-      alert('Please enter valid credentials');
-     
-      return;
+        // }
+      })
     }
   }
 
