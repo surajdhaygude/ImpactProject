@@ -60,33 +60,30 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th (click)="sort('EmpID')">Employee ID&nbsp;<i class="fa fa-sort"></i></th>
-                    <th>Name</th>
+                    <!-- <th (click)="sort('EmpID')">Employee ID&nbsp;<i class="fa fa-sort"></i></th> -->
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
                     <th>Date Of Joining</th>
                     <th>Status</th>
-                    <th>Edit Status</th>
                     <th width="220px">Manage</th>
                 </tr>
             </thead>
             <!-- | orderBy: key:reverse  -->
             <tbody>
                 <tr *ngFor="let data of NurseUser | paginate: { itemsPerPage: 5, currentPage: p };">
-                    <td>{{ data.id }}</td>
-                    <td>{{ data.Name }}</td>
-                    <td>{{ data.DateofJoining }}</td>
-                    <td>{{ data.Status }}</td>
+                    <td>{{ data.userId }}</td>
+                    <td>{{ data.firstname }} {{data.lastname}}</td>
+                    <td>{{ data.doj | date}}</td>
+                    <td>{{ data.status }}</td>
                     
                     <!-- <td >{{selectstatus}}</td> -->
-                    <td>
+                    <!-- <td>
                         <select id="ManagetOptions">
-                          <!-- <select (change)="selectChnageHandler($event)" > -->
                             <option value="Active">Active</option>
                             <option value="Deactivate">Deactivate</option>
                             <option value="Block">Block</option>
-                            <!-- <option value="{{Managelist}}">{{Managelist}}</option>     -->
-  
                         </select>
-                    </td>
+                    </td> -->
                     <td>
                         <!-- [routerLink]="['/post/', post.id, 'view']" -->
                         <!-- [routerLink]="['/post/', post.id, 'edit']"  -->
@@ -94,8 +91,8 @@
                         <!-- <a href="#" class="btn btn-info viewbtn">View</a> -->
                         <!-- <a href=" " class="btn btn-primary editbtn">Edit</a> -->
                         <!-- <button type="button" class="btn btn-primary editbtn">Edit</button> -->
-                        <button type="button" class="btn btn-primary editbtn" (click)="editnurse(data.id)">Edit</button>
-                        <button type="button" (click)="deletenurse(data.id)" class="btn btn-danger deletebtn">Delete</button>
+                        <button type="button" class="btn btn-primary editbtn" (click)="editnurse(data.userId)">Edit</button>
+                        <button type="button" (click)="deletenurse(data.userId)" class="btn btn-danger deletebtn">Delete</button>
                         
                     </td>
                 </tr>

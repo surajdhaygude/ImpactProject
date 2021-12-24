@@ -23,28 +23,32 @@ export class HospitalmanagementService {
   public GetHospitalUsers():Observable<any>{
     //return this.http.get<any>(this.APIUrl);
     //changes According to Api URL
-    return this.http.get<any>("http://localhost:29345/api/Admins/GetByRoleId/2");
+    return this.http.get<any>("http://localhost:29345/api/Admins/GetByRoleId/1");
     
   }
 
 
   public AddPhysicianrecords(formdata:any){
+    debugger
     return this.http.post<any>("http://localhost:29345/api/admins/CreateUser",formdata)
   }
 
   public GetHuserasByID(id: any):Observable<any>{
-    return this.http.get(`${this.APIUrl}/${id}`)
+    return this.http.get(`http://localhost:29345/api/admins/GetUserById/${id}`)
   }
 
-  public getUpdateUser(id: number): Observable<any> {
+  public getUserByID(id: number): Observable<any> {
     debugger
-   const url=`${this.APIUrl}/${id}`;
-    return this.http.get<any>(url)
+    return this.http.get(`http://localhost:29345/api/admins/GetUserById/${id}`)
+  //  const url=`${this.APIUrl}/${id}`;
+  //   return this.http.get<any>(url)
   }
-  public updateusers(id: number, data:any): Observable<any> {
+  public updateusers(data:any): Observable<any> {
     debugger
-   const url=`${this.APIUrl}/${id}`;
-    return this.http.put<any>(url,data)
+  //  const url=`${this.APIUrl}/${id}`;
+  //   return this.http.put<any>(url,data)
+  return this.http.put<any>("http://localhost:29345/api/admins/UpdateUser",data)
+
   }
 
   public Husersdelete(id: number): Observable<any> {

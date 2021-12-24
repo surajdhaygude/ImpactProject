@@ -12,14 +12,19 @@ import{FormGroup, FormBuilder,Validators} from '@angular/forms'
 export class EditnurseComponent implements OnInit {
 
   public updatenurseform!:FormGroup;
-  id:number=0;
+  userId:number=0;
   EmpID:number=0;
-  Name:string="";
-  DateofJoining:Date=new Date();
+  title:string="";
+  firstname:string="";
+  lastname:string="";
+  dob:Date=new Date();
+  doj:Date=new Date();
   Status:string="";
   EditStatus:string="";
-  Manage:string="";
-  number:number=0;
+  emailId:string="";
+  status:string="";
+  dateset:any="2021-11-08";
+
 
   constructor(private route: ActivatedRoute, private router: Router,
     private editservice:NursemanagementService,private formbuilder:FormBuilder
@@ -33,28 +38,43 @@ export class EditnurseComponent implements OnInit {
       });
       console.log(this.val);
       debugger
-      this.editservice.HNurseupdapte(this.val).subscribe(data =>{
-        this.EmpID=data.EmpID;
-        this.id=data.id;
-        this.Name=data.Name;
-        this.DateofJoining=data.DateofJoining;
-        this.Status=data.Status;
+      this.editservice.GetnursebyID(this.val).subscribe(data =>{
+        this.userId=data.userId;
+        this.title=data.title;
+        this.firstname=data.firstname;
+        this.lastname=data.lastname;
+        this.emailId=data.emailId;
+        this.dob=data.dob;
+        this.doj=data.doj;
+        this.status=data.status;
       })
 
       this.updatenurseform=this.formbuilder.group({
-        EmpID:[''],
-        Name:['',Validators.required],
-        DateofJoining:['',Validators.required],
-        Status:['']
+        title:[''],
+        userId:[''],
+        firstname:['',Validators.required],
+        lastname:['',Validators.required],
+        emailId:['',[Validators.required, Validators.email]],
+        dob:['',Validators.required],
+        doj:['',Validators.required],
+        status:['',Validators.required]
         })
     }
   
       backtoNurse():void{
         this.router.navigateByUrl('nursedetails');
       }
+      get f() {
 
-      updatenursedata(id:number){
-        this.editservice.updateNurseusers(id,this.updatenurseform.value).subscribe(res =>{
+        return this.updatenurseform?.controls;
+    
+      }
+      employeeid:any=""
+      updatenursedata(){
+        this.employeeid=this.userId;
+        debugger
+        this.f.userId.setValue(this.employeeid);
+        this.editservice.updateNurseusers(this.updatenurseform.value).subscribe(res =>{
           alert("Nurse details update successfully...!")
           this.updatenurseform.reset();
           this.router.navigateByUrl('nursedetails');

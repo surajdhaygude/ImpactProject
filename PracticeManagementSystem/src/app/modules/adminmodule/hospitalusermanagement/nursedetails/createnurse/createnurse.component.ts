@@ -16,13 +16,28 @@ export class CreatenurseComponent implements OnInit {
 
     ngOnInit(): void {
       this.Nurseform=this.formbuilder.group({
-        Name:['',Validators.required],
-        emailid:['',[Validators.required, Validators.email]],
-        DateofJoining:['',Validators.required],
-        Status:['',Validators.required],
+        title:['',Validators.required],
+        firstname:['',Validators.required],
+        lastname:['',Validators.required],
+        emailId:['',[Validators.required, Validators.email]],
+        dob:['',Validators.required],
+        doj:['',Validators.required],
+        roleId:[''],
+        username:[''],
+        status:['',Validators.required]
         })
     }
+
+    get f() {
+
+      return this.Nurseform?.controls;
+  
+    }
+    setemailid:any="";
     AddNurse(){   
+      debugger
+      this.f.roleId.setValue(2);
+      this.f.username.setValue(this.setemailid);
       this.hospitalnurse.AddNurserecords(this.Nurseform.value).subscribe(res =>{
       alert("Nurse details successfully...!")
       this.Nurseform.reset();

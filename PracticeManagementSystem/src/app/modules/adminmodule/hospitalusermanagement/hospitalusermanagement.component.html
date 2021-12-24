@@ -57,10 +57,8 @@
                 <tr>
                     <th>Employee ID</th>
                     <th>Employee Name</th>
-                    
                     <th>Date Of Joining</th>
                     <th>Status</th>
-                    <th>Edit Status</th>
                     <th width="220px">Manage</th>
                 </tr>
             </thead>
@@ -69,24 +67,23 @@
                 <tr *ngFor="let data of rowData | paginate: { itemsPerPage: 5, currentPage: p }; ">
                     <td>{{ data.userId }}</td>
                     <td>{{ data.firstname }} {{data.lastname}}</td>
-                    <td>{{ data.doj }}</td>
+                    <td>{{ data.doj | date}}</td>
                     <td>{{ data.status }}</td>
                     
-                    <td>
+                    <!-- <td>
                         <select id="ManagetOptions">
                             <option value="{{data.status}}">Active</option>
                             <option value="{{data.status}}">Deactivate</option>
                             <option value="{{data.status}}">Block</option>
-                             <!-- <option value="{{Managelist}}">{{Managelist}}</option>  -->
                         </select>
-                    </td>
+                    </td> -->
                     <td>
                         <!-- [routerLink]="['/post/', post.id, 'view']" -->
                         <!-- [routerLink]="['/post/', post.id, 'edit']"  -->
                         <!-- (click)="deletePost(post.id)" -->
                         <!-- <a href="#" class="btn btn-info viewbtn">View</a> -->
-                        <button type="button" class="btn btn-primary editbtn" (click)="edituser(data.id)">Edit</button>
-                        <button type="button" (click)="deleteuser(data.id)" class="btn btn-danger deletebtn">Delete</button>
+                        <button type="button" class="btn btn-primary editbtn" (click)="edituser(data.userId)">Edit</button>
+                        <button type="button" (click)="deleteuser(data.userId)" class="btn btn-danger deletebtn">Delete</button>
                     </td>
                 </tr>
             </tbody>

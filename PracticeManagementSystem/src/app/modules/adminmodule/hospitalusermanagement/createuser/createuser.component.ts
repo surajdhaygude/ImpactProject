@@ -16,16 +16,28 @@ export class CreateuserComponent implements OnInit {
   number:Number=0;
   ngOnInit(): void {
     this.Physicianform=this.formbuilder.group({
-      id:[''],
-      Name:['',Validators.required],
-      emailid:['',[Validators.required, Validators.email]],
-      DateofJoining:['',Validators.required],
-      Status:['',Validators.required],
+      title:['',Validators.required],
+      firstname:['',Validators.required],
+      lastname:['',Validators.required],
+      emailId:['',[Validators.required, Validators.email]],
+      dob:['',Validators.required],
+      doj:['',Validators.required],
+      roleId:[''],
+      username:[''],
+      status:['',Validators.required]
       })
   }
-  
+  get f() {
+
+    return this.Physicianform?.controls;
+
+  }
+  setemailid:any="";
+
   AddPhysician(){   
     debugger;
+    this.f.roleId.setValue(1);
+    this.f.username.setValue(this.setemailid);
     this.hospitaluser.AddPhysicianrecords(this.Physicianform.value).subscribe(res =>{
     alert("Phaysician details successfully...!")
     this.Physicianform.reset();

@@ -20,8 +20,6 @@ export class NursedetailsComponent implements OnInit {
   ngOnInit(): void {
   debugger
     this.nurseservice.GetHospitalNurse().subscribe(data =>{
-
-      
       this.NurseUser=data;
       
     });
@@ -71,7 +69,7 @@ export class NursedetailsComponent implements OnInit {
   }
   
   editnurse(id:number){
-this.route.navigate(['/editnurse',id]);
+   this.route.navigate(['/editnurse',id]);
   }
 
 }

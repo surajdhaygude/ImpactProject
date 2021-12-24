@@ -56,6 +56,7 @@ export class PatientusermanagementComponent implements OnInit {
     //  }
 
      deleteuser(id:number){
+
       if(confirm('Are you sure to delete patient record?')){
         this.patientservice.Husersdelete(id).subscribe(res =>{});
         this.patientservice.getPatientList().subscribe(data =>{
