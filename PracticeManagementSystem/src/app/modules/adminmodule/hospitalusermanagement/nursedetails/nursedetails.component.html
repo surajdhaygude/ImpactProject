@@ -73,7 +73,7 @@
                 <tr *ngFor="let data of NurseUser | paginate: { itemsPerPage: 5, currentPage: p };">
                     <td>{{ data.userId }}</td>
                     <td>{{ data.firstname }} {{data.lastname}}</td>
-                    <td>{{ data.doj | date}}</td>
+                    <td>{{ data.doj | date:'yyyy-MM-dd'}}</td>
                     <td>{{ data.status }}</td>
                     
                     <!-- <td >{{selectstatus}}</td> -->

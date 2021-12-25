@@ -65,7 +65,7 @@
 
             <label for="DOB" class="form-label">Date Of Birth</label>
 
-            <input formControlName="dob" required type="date" class="form-control" id="InputDOB" max="2021-12-06" [(ngModel)]="dob" >
+            <input formControlName="dob" required type="date" class="form-control" id="InputDOB" max="2021-12-06" [ngModel]="dob | date:'yyyy-MM-dd'" >
             <!-- <div *ngIf="getControl.name.errors.date">Name is required.</div> -->
             <!-- <span class="text-danger" *ngIf="updatepatient.controls['dbo'].dirty && updatepatient.hasError('required','dob')">Date Of Birth can not be empty.</span>
             -->

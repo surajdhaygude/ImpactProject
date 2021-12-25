@@ -30,7 +30,7 @@ export class EdituserComponent implements OnInit {
   Hospitaluser!:Hospitalusers
   
   ngOnInit(): void {
-   
+
 
     this.route.params.subscribe(params => {
       this.val = params['id']

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PatientinformationService } from 'src/app/patientinformation.service';
+import { PatientschedulingComponent } from '../../scheduling/patientscheduling/patientscheduling.component';
 
 @Component({
   selector: 'app-demographicinformation',
@@ -21,11 +23,14 @@ export class DemographicinformationComponent implements OnInit {
   dob : Date=new Date();
   gender : string="";
   email: string="";
+   age: any=0;
 
   constructor(
     private formBuilder : FormBuilder, 
     private router : Router,
     private fb:FormBuilder, 
+    private service:PatientinformationService,
+    
   ) {
     this.allergyList = [];
       this.Allery = this.fb.group({
@@ -58,7 +63,7 @@ export class DemographicinformationComponent implements OnInit {
       email :[''],
       homeAddress :[''],
       contactNumber :[''],
-      Title :[''],
+      //Title :[''],
 
     ////Emergency details controls
       //patientid :[''],
@@ -69,7 +74,9 @@ export class DemographicinformationComponent implements OnInit {
       EmergencyMobileNo: ['' ],
       emergencyAddress: ['' ],
       title :[''],
-      portalaccess:['']
+      portalaccess:[''],
+      userId:['']
+      
      });
     
     //  this.EmerencyInfo = this.formBuilder.group({
@@ -92,7 +99,32 @@ export class DemographicinformationComponent implements OnInit {
   Canceltodashboard(){
     this.router.navigateByUrl('patientscheduling')
   }
+  get f() {
 
+    return this.patientDetails?.controls;
+
+  }
+  AddDemographicInfo(){   
+    debugger;
+    this.f.userId.setValue(5);
+    this.service.AddDemographics(this.patientDetails.value).subscribe(res =>{
+    alert("Patient Demographics details added successfully...!")
+    this.patientDetails.reset();
+    this.router.navigateByUrl('patientscheduling');
+    },err=>{
+     alert("Somthing went wrong...!")
+    })
+   }
+
+   timeDiff:any="";
+   public CalculateAge(date:any): void
+     {
+       debugger
+         if(date){
+            this.timeDiff = Math.abs(Date.now() - date);
+            this.age = Math.floor((this.timeDiff / (1000 * 3600 * 24))/365);
+        }
+    }
   
 
 }
