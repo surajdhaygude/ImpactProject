@@ -12,7 +12,7 @@ export class AllergyserviceService {
 
   constructor(private http:HttpClient) { }
 
-  public getAllergies():Observable<IAllergy[]>{
-    return this.http.get<IAllergy[]>(this.APIUrl);
+  public getAllergies():Observable<any[]>{
+    return this.http.get<any[]>("http://localhost:39671/api/Allergies/GetAllAllergies");
   }
 }

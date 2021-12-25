@@ -17,7 +17,7 @@ export class AllergyinformationComponent implements OnInit {
   type:number=0;
   enteredAlleryName:any;
   enteredAllergyclinicalinfo:any="";
-  allergies: IAllergy[] = [];
+  allergies: any[] = [];
   validationSubscription!: Subscription;
   allergynameddl:any="";
   showClinicalInfo:any="";
@@ -28,12 +28,13 @@ export class AllergyinformationComponent implements OnInit {
   ngOnInit(): void {
     this.allergyForm = this.fb.group({
       hasallergy:[''],
-      allergyid: [''],
-      allergytype: [''],    
-      allergyname: [''], 
+      allergyId: [''],
+      allergyType: [''],    
+      allergyName: [''], 
       allergydescription: [''], 
-      allergyclinicalinfo: [''], 
-      isfatal: ['']
+      clinicalInfo: [''], 
+      isfatal: [''],
+      userId:['']
     });
     
     this.validationSubscription = this.allergyForm
@@ -41,20 +42,21 @@ export class AllergyinformationComponent implements OnInit {
                               .valueChanges
                               .subscribe((newValue: number) => {
       if (newValue === 0) {
-        this.allergyForm.get('allergyname').clearValidators();
+        this.allergyForm.get('allergyName').clearValidators();
         this.allergyForm.get('isfatal').clearValidators();
-        this.allergyForm.get('allergydescription').clearValidators();
+        this.allergyForm.get('clinicalInfo').clearValidators();
       } else {
-        this.allergyForm.get('allergyname').setValidators([Validators.required]);
+        this.allergyForm.get('allergyName').setValidators([Validators.required]);
         this.allergyForm.get('isfatal').setValidators([Validators.required]);
         this.allergyForm.get('allergydescription').setValidators([Validators.required,Validators.minLength(50),Validators.maxLength(1000)]);
       }
       // force valitators to be triggered, to update form validity.
-      this.allergyForm.get('allergyname').updateValueAndValidity();
+      this.allergyForm.get('allergyName').updateValueAndValidity();
     });
     
     this.allergyService.getAllergies().subscribe(
-      (data: IAllergy[]) => {
+      (data: any[]) => {
+        debugger
         this.allergies = data;
       },
 
@@ -70,12 +72,12 @@ export class AllergyinformationComponent implements OnInit {
   showClinicalInfoandAllergyIdOnAllergyName():void{ 
     try{
           this.allergies.forEach(record=>{
-          if(this.allergynameddl==record.allergyname)
+          if(this.allergynameddl==record.allergyName)
           {
-            this.showAllergyName=record.allergyname;
-            this.showAllergyType=record.allergytype;
-            this.showClinicalInfo=record.allergyclinicalinfo;
-            this.showAllergyId=record.allergyid;
+            this.showAllergyName=record.allergyName;
+            this.showAllergyType=record.allergyType;
+            this.showClinicalInfo=record.clinicalInfo;
+            this.showAllergyId=record.allergyId;
             throw this.BreakException;
           }
       });
@@ -93,12 +95,12 @@ export class AllergyinformationComponent implements OnInit {
   showOtherFieldsOnAllergyId():void{ 
     try{
           this.allergies.forEach(record=>{
-          if(this.allergyIdDdl==record.allergyid)
+          if(this.allergyIdDdl==record.allergyId)
           {
-            this.showAllergyId=record.allergyid;
-            this.showAllergyType=record.allergytype;
-            this.showAllergyName=record.allergyname;
-            this.showClinicalInfo=record.allergyclinicalinfo;
+            this.showAllergyId=record.allergyId;
+            this.showAllergyType=record.allergyType;
+            this.showAllergyName=record.allergyName;
+            this.showClinicalInfo=record.clinicalInfo;
             throw this.BreakException;
           }
       });
@@ -128,11 +130,12 @@ export class AllergyinformationComponent implements OnInit {
     // {
       debugger
       this.isSubmitted=true;
-      this.f.allergyid.setValue(this.showAllergyId);
-      this.f.allergyclinicalinfo.setValue(this.showClinicalInfo);
-      this.f.allergytype.setValue(this.showAllergyType);
-      this.f.allergyname.setValue(this.showAllergyName);
-        this.http.post<any>("http://localhost:3000/patientallergyinfo", this.allergyForm.value)
+      this.f.userId.setValue(2);
+      this.f.allergyId.setValue(this.showAllergyId);
+      this.f.clinicalInfo.setValue(this.showClinicalInfo);
+      this.f.allergyType.setValue(this.showAllergyType);
+      this.f.allergyName.setValue(this.showAllergyName);
+        this.http.post<any>("http://localhost:39671/api/Allergies/CreatePatientAllergyInfo", this.allergyForm.value)
       .subscribe(res =>{
       console.log(this.allergyForm.value);
         alert("Allergy Form submitted successfully...!");

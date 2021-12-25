@@ -20,12 +20,12 @@
 
     <div *ngIf="type == 1">
         <div class="mb-3">
-            <label for="allergyid">Allergy Id </label>
+            <label for="allergyId">Allergy Id </label>
             <div class="mb-3">
-                <input class="form-control" list="allergyid" formControlName="allergyid" [(ngModel)]="allergyIdDdl" (change)="showOtherFieldsOnAllergyId()" [value]="showAllergyId" placeholder="Enter WHO/IUIS Allergen Nomenclature ID, if known">
+                <input class="form-control" list="allergyid" formControlName="allergyId" [(ngModel)]="allergyIdDdl" (change)="showOtherFieldsOnAllergyId()" [value]="showAllergyId" placeholder="Enter WHO/IUIS Allergen Nomenclature ID, if known">
                     <datalist id="allergyid">
                     <option *ngFor="let allergy of allergies">
-                            {{allergy.allergyid}}
+                            {{allergy.allergyId}}
                     </datalist>       
             </div>
         </div>
@@ -37,7 +37,7 @@
         <div class="mb-3">
             <label for="allergytype">Allergy Type </label>
             <div class="mb-3">
-                <input class="form-control" list="allergytype" formControlName="allergytype" [value]="showAllergyType">
+                <input class="form-control" list="allergytype" formControlName="allergyType" [value]="showAllergyType">
                     <datalist id="allergytype">
                     <option *ngFor="let allergy of allergies">
                         {{allergy.allergytype}}
@@ -48,14 +48,14 @@
         <div class="form-group mb-3">
             <label for="allergyname">Allergy Name </label>
             <div class="mb-3">                
-                <input class="form-control" [(ngModel)]="allergynameddl" [value]="showAllergyName" list="allergyname" formControlName="allergyname" (change)="showClinicalInfoandAllergyIdOnAllergyName()">
+                <input class="form-control" [(ngModel)]="allergynameddl" [value]="showAllergyName" list="allergyname" formControlName="allergyName" (change)="showClinicalInfoandAllergyIdOnAllergyName()">
                     <datalist id="allergyname">                      
                     <option *ngFor="let allergy of allergies">
                         {{allergy.allergyname}}
                     </datalist>
             </div>
-            <input type="text" class="form-control" formControlName="allergyname" *ngIf="allergynameddl=='Other'" [(ngModel)]="allergynameddl">           
-            <span class="text-danger" *ngIf="allergyForm.controls['allergyname'].touched && allergyForm.hasError('required','allergyname')">This field cannot be empty.</span>
+            <input type="text" class="form-control" formControlName="allergyName" *ngIf="allergynameddl=='Other'" [(ngModel)]="allergynameddl">           
+            <span class="text-danger" *ngIf="allergyForm.controls['allergyName'].touched && allergyForm.hasError('required','allergyName')">This field cannot be empty.</span>
         </div>       
        
         <div class="form-group mb-3">
@@ -68,7 +68,7 @@
     
         <div class="form-group mb-3">
             <label for="allergyclinicalinfo">Allergy Clinical Information </label>
-            <input id="allergyclinicalinfo" type="text" formControlName="allergyclinicalinfo" class="form-control mb-3" [value]="showClinicalInfo">            
+            <input id="allergyclinicalinfo" type="text" formControlName="clinicalInfo" class="form-control mb-3" [value]="showClinicalInfo">            
         </div>
     
 
