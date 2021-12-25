@@ -56,7 +56,16 @@ export class HospitalmanagementService {
     const url=`${this.APIUrl}/${id}`;
    // return this.http.delete<Hospitalusers>(url)
     return this.http.delete<any>(`http://localhost:29345/api/admins/DeleteUser/${id}`)
-  }   
+  }  
+
+  public Providerregistration(formdata:any): Observable<any> {
+    debugger
+    //const url=`${this.APIUrl}/${id}`;
+   // return this.http.delete<Hospitalusers>(url)
+   return this.http.post<any>("http://localhost:29345/api/admins/CreateUser",formdata)
+  }  
+  
+  
 }
 
 
