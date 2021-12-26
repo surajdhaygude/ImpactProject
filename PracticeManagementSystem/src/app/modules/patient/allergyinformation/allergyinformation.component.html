@@ -13,8 +13,8 @@
     <div class="form-group mb-3">
         <label class="col-sm-12 control-label">Patient has any known allergies</label>
         <div class="col-sm-12">
-            <label class="radio-inline col-sm-3"> <input  [(ngModel)]="type" class="form-check-input" formControlName="hasallergy"  type="radio" name="hasallergy" id="hasallergyYes" [value]="1"> Yes </label>
-            <label class="radio-inline col-sm-3"> <input  [(ngModel)]="type" class="form-check-input" formControlName="hasallergy" type="radio" name="hasallergy" id="hasallergyNo" [value]="0"> No </label>
+            <label class="radio-inline col-sm-3"> <input  [(ngModel)]="type" class="form-check-input" formControlName="hasAllergy"  type="radio" name="hasAllergy" id="hasallergyYes" [value]="true"> Yes </label>
+            <label class="radio-inline col-sm-3"> <input  [(ngModel)]="type" class="form-check-input" formControlName="hasAllergy" type="radio" name="hasAllergy" id="hasallergyNo" [value]="false"> No </label>
           </div>
     </div>
 
@@ -60,10 +60,10 @@
        
         <div class="form-group mb-3">
             <label for="allergydescription" class="form-label">Allergy Description </label>
-            <textarea id="allergydescription" rows="3" class="form-control" type="text" formControlName="allergydescription"></textarea>
-            <span class="text-danger" *ngIf="allergyForm.controls['allergydescription'].touched && allergyForm.hasError('required','allergydescription')">This field cannot be empty.</span>
-            <span class="text-danger" *ngIf="allergyForm.controls['allergydescription'].dirty && allergyForm.hasError('minlength','allergydescription')">Description should be more than 50 letters.</span>
-            <span class="text-danger" *ngIf="allergyForm.controls['allergydescription'].dirty && allergyForm.hasError('maxlength','allergydescription')">Description should be more than 1000 letters.</span>
+            <textarea id="allergydescription" rows="3" class="form-control" type="text" formControlName="allergyDescription"></textarea>
+            <span class="text-danger" *ngIf="allergyForm.controls['allergyDescription'].touched && allergyForm.hasError('required','allergyDescription')">This field cannot be empty.</span>
+            <span class="text-danger" *ngIf="allergyForm.controls['allergyDescription'].dirty && allergyForm.hasError('minlength','allergyDescription')">Description should be more than 50 letters.</span>
+            <span class="text-danger" *ngIf="allergyForm.controls['allergyDescription'].dirty && allergyForm.hasError('maxlength','allergyDescription')">Description should be more than 1000 letters.</span>
         </div>
     
         <div class="form-group mb-3">
@@ -73,12 +73,12 @@
     
 
         <div class="form-group mb-3">
-            <label class="col-sm-4 control-label" for="isfatal">Is Allergy Fatal?</label>
+            <label class="col-sm-4 control-label" for="isFatal">Is Allergy Fatal?</label>
             <div class="col-sm-12">
-                <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="isfatal"  type="radio" name="isfatal" id="isfatalYes" value="Yes"> Yes </label>
-                <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="isfatal" type="radio" name="isfatal" id="isfatalNo" value="No"> No </label>
+                <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="isFatal"  type="radio" name="isFatal" id="isfatalYes" value="Yes"> Yes </label>
+                <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="isFatal" type="radio" name="isFatal" id="isfatalNo" value="No"> No </label>
               </div>             
-            <span class="text-danger" *ngIf="allergyForm.controls['isfatal'].touched && allergyForm.hasError('required','isfatal')">Kindly provide a response.</span>
+            <span class="text-danger" *ngIf="allergyForm.controls['isFatal'].touched && allergyForm.hasError('required','isFatal')">Kindly provide a response.</span>
         </div>
     
         <button type="submit"  class="btn btn-primary">Submit</button>&nbsp;

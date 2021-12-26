@@ -27,28 +27,28 @@ export class AllergyinformationComponent implements OnInit {
 
   ngOnInit(): void {
     this.allergyForm = this.fb.group({
-      hasallergy:[''],
+      hasAllergy:[''],
       allergyId: [''],
       allergyType: [''],    
       allergyName: [''], 
-      allergydescription: [''], 
+      allergyDescription: [''], 
       clinicalInfo: [''], 
-      isfatal: [''],
+      isFatal: [''],
       userId:['']
     });
     
     this.validationSubscription = this.allergyForm
-                              .get('hasallergy')
+                              .get('hasAllergy')
                               .valueChanges
                               .subscribe((newValue: number) => {
       if (newValue === 0) {
         this.allergyForm.get('allergyName').clearValidators();
-        this.allergyForm.get('isfatal').clearValidators();
+        this.allergyForm.get('isFatal').clearValidators();
         this.allergyForm.get('clinicalInfo').clearValidators();
       } else {
         this.allergyForm.get('allergyName').setValidators([Validators.required]);
-        this.allergyForm.get('isfatal').setValidators([Validators.required]);
-        this.allergyForm.get('allergydescription').setValidators([Validators.required,Validators.minLength(50),Validators.maxLength(1000)]);
+        this.allergyForm.get('isFatal').setValidators([Validators.required]);
+        this.allergyForm.get('allergyDescription').setValidators([Validators.required,Validators.minLength(50),Validators.maxLength(1000)]);
       }
       // force valitators to be triggered, to update form validity.
       this.allergyForm.get('allergyName').updateValueAndValidity();
