@@ -75,14 +75,11 @@
                             <option value="{{data.Status}}">Active</option>
                             <option value="{{data.Status}}">Deactivate</option>
                             <option value="{{data.Status}}">Block</option>
-                            <!-- <option value="{{Managelist}}">{{Managelist}}</option>     -->
+                          
                         </select>
                     </td>
                     <td>
-                        <!-- [routerLink]="['/post/', post.id, 'view']" -->
-                        <!-- [routerLink]="['/post/', post.id, 'edit']"  -->
-                        <!-- (click)="deletePost(post.id)" -->
-                        <!-- <a href="#" class="btn btn-info viewbtn">View</a> -->
+                       
                         <button type="button" class="btn btn-primary editbtn" (click)="edituser(data.id)">Edit</button>
                         <button type="button" (click)="deleteuser(data.id)" class="btn btn-danger deletebtn">Delete</button>
                     </td>
