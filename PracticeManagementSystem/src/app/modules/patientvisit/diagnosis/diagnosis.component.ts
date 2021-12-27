@@ -39,6 +39,8 @@ export class DiagnosisComponent implements OnInit {
       debugger
           this.phyasiciandata = data;
         })
+
+        
   }
 
   diagnosis=[
@@ -64,22 +66,6 @@ export class DiagnosisComponent implements OnInit {
     "D00",
     "E00",
     "F00",
-   ];
-
-   patient=[
-    "Amol Sawant",
-    "Anil yadav",
-    "Rajesh Sharma",
-    "Amit varma",
-    "sunil debey",
-   ];
-
-
-   physician=[
-    "Dr. Bhupendra Kumar",
-    "Dr. Bhupendra Kumar",
-    "Dr. Rajan Bhargava",
-    "Dr. Rakesh Chandra",
    ];
 
   option = [

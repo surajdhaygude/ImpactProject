@@ -26,4 +26,6 @@ export class PatientvisitService {
     return this.http.get<any>("http://localhost:29345/api/Admins/GetByRoleId/2");
     
   }
+
+  
 }
