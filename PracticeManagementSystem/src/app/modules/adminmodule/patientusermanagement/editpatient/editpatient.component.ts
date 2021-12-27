@@ -12,15 +12,18 @@ import { PatientService } from 'src/app/Services/patient.service';
 export class EditpatientComponent implements OnInit {
 
   public updatepatient!:FormGroup;
-
-    id:number=0;
-    PatientId:number=0;
-    PatientName:string="";
-    Dateofbirth:Date=new Date();
-    Status:string="";
-    EditStatus:string="";
-    EmailId:string="";
-    Manage:string="";
+  userId:number=0;
+  EmpID:number=0;
+  title:string="";
+  firstname:string="";
+  lastname:string="";
+  dob:Date=new Date();
+  doj:Date=new Date();
+  Status:string="";
+  EditStatus:string="";
+  emailId:string="";
+  status:string="";
+  contactNo:number=0;
 
 
   constructor(private formbuilder:FormBuilder,private route: ActivatedRoute, private router: Router, private rs:PatientService,private navigation:Router ) { 
@@ -29,13 +32,16 @@ export class EditpatientComponent implements OnInit {
 
   val: any;
   Patientuser!:PatientUser
-  
+  setemailid:any="";
   ngOnInit(): void {
     this.updatepatient=this.formbuilder.group({
-      PatientId:[''],
-      PatientName:['',Validators.required],
-      Dateofbirth:['',Validators.required],
-      Status:['']
+      userId:[''],
+      firstname:['',Validators.required],
+      lastname:['',Validators.required],
+      emailid:['',[Validators.required,Validators.email]],
+      dob:['',Validators.required],
+      contactNo:['',[Validators.required, Validators.max(10)]],
+      status:['',Validators.required],
       })
 
     this.route.params.subscribe(params => {
@@ -44,21 +50,31 @@ export class EditpatientComponent implements OnInit {
     console.log(this.val);
     debugger
     this.rs.getUpdatePatient(this.val).subscribe(data =>{
-      this.id=data.id;
-      this.PatientName=data.PatientName;
-      this.Dateofbirth=data.Dateofbirth;
-      this.Status=data.Status
-      this.Patientuser=data;
+     this.userId=data.userId;
+      this.firstname=data.firstname;
+      this.lastname=data.lastname;
+      this.emailId=data.emailId;
+      this.dob=data.dob;
+      this.doj=data.doj;
+      this.status=data.status;
+      this.contactNo=data.contactNo
     })
   }
+  get f() {
 
+    return this.updatepatient?.controls;
+
+  }
   backtopatient():void{
     this.router.navigateByUrl('patientusermanagement');
    }
-
-   updatepatientdata(id:number){
-     debugger
-    this.rs.updatepatient(id,this.updatepatient.value).subscribe(res =>{
+   employeeid:any=""
+   updatepatientdata(){
+    debugger
+    this.employeeid=this.userId;
+  
+     this.f.userId.setValue(this.employeeid);
+     this.rs.updatepatient(this.updatepatient.value).subscribe(res =>{
       alert("Patient details update successfully...!")
       this.updatepatient.reset();
       this.navigation.navigateByUrl('patientusermanagement');

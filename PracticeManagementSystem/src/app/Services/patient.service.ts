@@ -13,11 +13,13 @@ export class PatientService {
  getPatientList():Observable<any>
  {
    //debugger;
-   return this.http.get<any>("http://localhost:3000/PatientData");
+   //return this.http.get<any>("http://localhost:3000/PatientData");
+   return this.http.get<any>("http://localhost:29345/api/Admins/GetByRoleId/3");
  }
 
  public AddPatientrecords(formdata:any){
-  return this.http.post<any>("http://localhost:3000/PatientData", formdata)
+  //return this.http.post<any>("http://localhost:3000/PatientData", formdata)
+  return this.http.post<any>("http://localhost:29345/api/admins/CreateUser",formdata)
 }
 
 public GetHuserasByID(id: any):Observable<any>{
@@ -29,18 +31,22 @@ public Husersupdapte(id: any, data: any): Observable<any> {
 }
 public getUpdatePatient(id: number): Observable<any> {
   debugger
- const url=`${this.APIUrl}/${id}`;
-  return this.http.get<any>(url)
+//  const url=`${this.APIUrl}/${id}`;
+//   return this.http.get<any>(url)
+return this.http.get(`http://localhost:29345/api/admins/GetUserById/${id}`)
 }
-public updatepatient(id: number, data:any): Observable<any> {
+public updatepatient(data:any): Observable<any> {
   debugger
- const url=`${this.APIUrl}/${id}`;
-  return this.http.put<any>(url,data)
+//  const url=`${this.APIUrl}/${id}`;
+//   return this.http.put<any>(url,data)
+return this.http.put<any>("http://localhost:29345/api/admins/UpdateUser",data)
+
 }
 
 public Husersdelete(id: any): Observable<any> {
   debugger
-  return this.http.delete(`${this.APIUrl}/${id}`)
+  //return this.http.delete(`${this.APIUrl}/${id}`)
+  return this.http.delete<any>(`http://localhost:29345/api/admins/DeleteUser/${id}`)
 }
 
 }

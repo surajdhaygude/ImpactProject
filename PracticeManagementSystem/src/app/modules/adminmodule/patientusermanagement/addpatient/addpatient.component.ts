@@ -18,15 +18,31 @@ export class AddpatientComponent implements OnInit {
   ngOnInit(): void {
 
     this.Patientform=this.formbuilder.group({
-      PatientName:['',Validators.required],
-      EmailId:['',[Validators.required, Validators.email]],
-      Dateofbirth:['',Validators.required],
-      Status:['',Validators.required],
+      title:['',Validators.required],
+      firstname:['',Validators.required],
+      lastname:['',Validators.required],
+      emailid:['',[Validators.required,Validators.email]],
+      dob:['',Validators.required],
+      contactno:['',[Validators.required, Validators.max(10)]],
+      roleId:[''],
+      username:[''],
+      status:['',Validators.required],
       })
   }
+  get f() {
+
+    return this.Patientform?.controls;
+
+  }
+
+  setemailid:any="";
+  SetDoj:Date=new Date();
 
   AddPatient(){   
     debugger;
+    this.f.roleId.setValue(3);
+    this.f.username.setValue(this.setemailid);
+    // this.f.doj.setValue(this.SetDoj)
     this.Patientuser.AddPatientrecords(this.Patientform.value).subscribe(res =>{
     alert("Patient details successfully...!")
     this.Patientform.reset();

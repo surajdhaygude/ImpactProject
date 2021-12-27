@@ -53,22 +53,29 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1" class="form-label">Email Id</label>
-                        <input  formControlName="emailid" required type="email" placeholder="Please Enter Email Id" class="form-control" id="InputEmailid">
-                        <span class="text-danger" *ngIf="ProviderForm.controls['emailid'].dirty && ProviderForm.hasError('required','emailid')">Please enter you email address.</span>
-                        <span class="text-danger" *ngIf="ProviderForm.controls['emailid'].dirty && ProviderForm.hasError('email','emailid')">Please enter valid email address.</span>
+                        <input  formControlName="emailId" required type="email" placeholder="Please Enter Email Id" class="form-control" id="InputEmailid" [(ngModel)]="setemailid">
+                        <span class="text-danger" *ngIf="ProviderForm.controls['emailId'].dirty && ProviderForm.hasError('required','emailId')">Please enter you email address.</span>
+                        <span class="text-danger" *ngIf="ProviderForm.controls['emailId'].dirty && ProviderForm.hasError('email','emailId')">Please enter valid email address.</span>
 
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1" class="form-label">Date Of Birth</label>
                         <input formControlName="dob" required type="date" max="2021-11-27" class="form-control" id="InputDOB">
                         <span class="text-danger" *ngIf="ProviderForm.controls['dob'].dirty && ProviderForm.hasError('required','dob')">Please select date in mm/dd/yyyy format.</span>
-
+  
+                      </div>
+  
+                      <div class="form-group">
+                        <label for="exampleInputPassword1" class="form-label">Date Of Joining</label>
+                        <input formControlName="doj" required type="date" max="2021-11-27" class="form-control" id="InputDOB">
+                        <span class="text-danger" *ngIf="ProviderForm.controls['doj'].dirty && ProviderForm.hasError('required','doj')">Please select date in mm/dd/yyyy format.</span>
+  
                       </div>
                       <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Role</label>
                         <div class="mb-3">
-                          <input class="form-control" formControlName='role' required list="roledatalistOptions" id="roleDataList" placeholder="Type to search role...">
-                          <span class="text-danger" *ngIf="ProviderForm.controls['role'].touched && ProviderForm.hasError('required','role')">Please select role.</span>
+                          <input class="form-control" formControlName='roleId' required list="roledatalistOptions" id="roleDataList" placeholder="Type to search role..." [(ngModel)]="setroleid">
+                          <span class="text-danger" *ngIf="ProviderForm.controls['roleId'].touched && ProviderForm.hasError('required','roleId')">Please select role.</span>
                           <datalist id="roledatalistOptions">
                             <option value="Physician">
                             <option value="Nurse">

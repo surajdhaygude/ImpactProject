@@ -20,7 +20,7 @@
                             <div class="col-sm-4" style="color: red;">
                               <h2><b>Personal Information</b></h2>
                             </div>
-                            <mat-radio-group>
+                            <mat-radio-group formControlName="title">
                               <mat-radio-button value="1" color="primary"
                                 >Mr&nbsp;</mat-radio-button
                               >
@@ -49,7 +49,7 @@
                             <div class="row">
                               <mat-form-field appearance="legacy" class="full-width col-4" >
                                 <mat-label>DOB</mat-label>
-                                <input  matInput formControlName="dob" [matDatepicker]="picker" value="{{dob}}"  required />
+                                <input  matInput formControlName="dob" [matDatepicker]="picker"  required (ngModelChange)="CalculateAge($event)" />
                                 <mat-datepicker-toggle
                                   matSuffix
                                   [for]="picker"
@@ -58,7 +58,7 @@
                               </mat-form-field>
                               <mat-form-field appearance="legacy" class="full-width col-4">
                                 <mat-label>Age</mat-label>
-                                <input matInput formControlName="age"   required  />
+                                <input matInput formControlName="age"   required  [(ngModel)]="age"/>
                               </mat-form-field>
                             </div>
                 
@@ -179,7 +179,7 @@
 
                             <div class="row">
 
-                            <mat-radio-group name="id">
+                            <mat-radio-group name="id" formControlName="portalaccess">
                               <mat-label> Do you need Access to Patient Portal</mat-label
                               >&nbsp;&nbsp;&nbsp;
                               <mat-radio-button value="1"> Yes </mat-radio-button>&nbsp;&nbsp;
@@ -193,7 +193,8 @@
                                >
                                 Edit</button> -->
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                              <button class="btn btn-outline-primary" >  Save </button>
+                                <!-- [disabled]="!patientDetails.valid"  -->
+                              <button class="btn btn-outline-primary" (click)="AddDemographicInfo()" >  Save </button>
                               &nbsp;&nbsp;&nbsp;&nbsp;
 
                               <button class="btn btn-outline-primary" (click)="Canceltodashboard()" >  Cancel </button>

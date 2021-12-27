@@ -20,30 +20,29 @@ export class PatientregistrationComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.UserForm=this.formbuilder.group({
-       
-      titleradio:['',Validators.required],
+  this.UserForm=this.formbuilder.group({
+      title:['',Validators.required],
       firstname:['',Validators.required],
-  
       lastname:['',Validators.required],
-  
       emailid:['',[Validators.required,Validators.email]],
-  
       dob:['',Validators.required],
-  
-      contactnumber:['',[Validators.required, Validators.max(10)]],
-  
-      password:['',Validators.required],
-  
+      contactno:['',[Validators.required, Validators.max(10)]],
+      password:['',Validators.required], 
       confirmpassword:['',Validators.required],
-  
-      
+      roleId:[''],
+      username:[''],
+      status:[''],
       })
     }  
     // get getControl(){
     //   return this.UserForm.controls;
     // }
-    
+    get f() {
+
+      return this.UserForm?.controls;
+  
+    }
+    setemailid:any="";
     onSubmit():void
     {
     //   console.log(this.UserForm.get('titleradio')?.value);
@@ -53,8 +52,10 @@ export class PatientregistrationComponent implements OnInit {
     //  console.log(this.UserForm.get('password')?.value);
     // console.log(this.UserForm.get('dob')?.value);
     // console.log(this.UserForm.get('contactnumber')?.value);
-    
-    this.http.post<any>("http://localhost:3000/PatientRegistration", this.UserForm.value)
+    this.f.roleId.setValue(3);
+    this.f.status.setValue('Active');
+    this.f.username.setValue(this.setemailid);
+    this.http.post<any>("http://localhost:29345/api/admins/CreateUser", this.UserForm.value)
 
     .subscribe(res =>{
  
