@@ -53,8 +53,8 @@
                   formControlName="diagnosisCode"
                   required
                 >
-                  <mat-option *ngFor="let al of Code" [value]="al">
-                    {{ al }}
+                  <mat-option *ngFor="let al of diagnosismasterdata" [value]="al.diagnosisCode">
+                    {{ al.diagnosisCode }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -73,8 +73,8 @@
                   formControlName="diagnosisDescription"
                   required
                 >
-                  <mat-option *ngFor="let al of Description" [value]="al">
-                    {{ al }}
+                  <mat-option *ngFor="let al of diagnosismasterdata" [value]="al.diagnosisDescription">
+                    {{ al.diagnosisDescription }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
