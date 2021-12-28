@@ -16,14 +16,15 @@ export class DiagnosisComponent implements OnInit {
     this.diagnosisdetails = this.formBuilder.group({
       diagnosisCode: ['',Validators.required],
       diagnosisDescription: ['',Validators.required],
-      patientId:['20',Validators.required],
-      physicianId:['4',Validators.required],
+      patientId:['',Validators.required],
+      physicianId:['',Validators.required],
       createdby:['']
       //diagnosisIsDepricated: ['',Validators.required],
     })
   }
   patientdata:any[]=[];
   phyasiciandata:any[]=[];
+  diagnosismasterdata:any[]=[];
 
   ngOnInit(): void {
     debugger
@@ -40,7 +41,13 @@ export class DiagnosisComponent implements OnInit {
           this.phyasiciandata = data;
         })
 
-        
+
+        this.service.GetDiagnosisMasterData().subscribe(
+          (data: any[]) =>{
+            debugger
+            this.diagnosismasterdata=data
+          })
+
   }
 
   diagnosis=[
@@ -51,22 +58,22 @@ export class DiagnosisComponent implements OnInit {
     "Venom or Salivary",
     "Other",
   ];
-  Description=[
-    "food",
-    "Typhoid",
-    "Drug",
-    "Cholera",
-    "Venom or Salivary",
-    "Other",
-   ];
-   Code=[
-    "A00",
-    "B00",
-    "C00",
-    "D00",
-    "E00",
-    "F00",
-   ];
+  // Description=[
+  //   "food",
+  //   "Typhoid",
+  //   "Drug",
+  //   "Cholera",
+  //   "Venom or Salivary",
+  //   "Other",
+  //  ];
+  //  Code=[
+  //   "A00",
+  //   "B00",
+  //   "C00",
+  //   "D00",
+  //   "E00",
+  //   "F00",
+  //  ];
 
   option = [
     {id: 'y', name: 'YES'},
