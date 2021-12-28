@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="card col-md-8">
                 <div class="col-md-12">
-                    <form class="createAppointment" [formGroup]="createAppointment">
+                    <form  [formGroup]="createAppointment" (ngSubmit)="createPatientAppointment()">
                         <div>
                             <a style="color:rgb(24, 24, 221);" (click)="backtodashboard()">Back</a>
                             <mat-card-title style="text-align: center;">
@@ -11,38 +11,43 @@
                             </mat-card-title>
                         </div>
                         <div class="row">
-
+                            <div class="col-1"></div>
                             <mat-form-field class="full-width col-10">
 
-                                <mat-select placeholder="Physican Name" formControlName="physicianname" >
+                                <mat-select placeholder="Physician Name" formControlName="physicianId" >
 
-                                    <mat-option *ngFor="let p1 of physicanname" [value]="p1" required>
+                                    <mat-option *ngFor="let p1 of phyasiciandata" [value]="p1.userId" required>
 
-                                        {{ p1 }}
+                                        {{ p1.firstname }}   {{ p1.lastname }}
 
                                     </mat-option>
 
                                 </mat-select>
 
                             </mat-form-field>
+                            <div class="col-1"></div>
                        </div>
                          <div class="row" >
+                            <div class="col-1"></div>
                             <mat-form-field class="full-width col-10">
                                 <mat-label>Meeting Description</mat-label>
-                                <textarea matInput placeholder=" " formControlName="mettingdesc" required></textarea>
+                                <textarea matInput placeholder="Meeting Description" formControlName="meetingTitle" required></textarea>
                             </mat-form-field>
+                            <div class="col-1"></div>
                         </div>
                         <div class="row">
+                            <div class="col-1"></div>
                             <mat-form-field appearance="legacy" class="full-width col-10">
                                 <mat-label>Date</mat-label>
-                                <input matInput type="date" required  formControlName="date"/>
+                                <input matInput type="date" required  formControlName="dateOfAppointment"/>
                             </mat-form-field>
+                            <div class="col-1"></div>
                         </div>
                         <div class="row">
-
+                            <div class="col-1"></div>
                             <mat-form-field class="full-width col-10">
 
-                                <mat-select placeholder="Time" formControlName="time">
+                                <mat-select placeholder="Time" formControlName="timeOfAppointment">
 
                                     <mat-option *ngFor="let al of Timeslot" [value]="al" required>
 
@@ -53,16 +58,29 @@
                                 </mat-select>
 
                             </mat-form-field>
-
+                            <div class="col-1"></div>
                         </div>
-                            <div class="row">
-                                <a class="patientdetails" (click)="backtodashboard()">Patient Details</a>
-                            </div>
+
+                       
+                        <div class="row">
+                            <div class="col-4"></div>
+                            <div class="full-width col-6">
+                            <a class="patientdetails" (click)="backtodashboard()">Patient Details</a>
+                        </div>
+                            <div class="col-1"></div>
+                        </div> 
+
+                           
                     <br/>
-                    <div class="example-button-row">
-                        <button  class="btn btn-primary">Add Appointment</button> &nbsp;
-                        <button class="btn btn-primary" (click)="backtodashboard()" >Cancle</button>
+                
+                    <div class="row">
+                        <div class="col-1"></div>
+                            <div class="example-button-row full-width col-10">
+                                <button  class="btn btn-primary">Add Appointment</button> &nbsp;
+                                <button class="btn btn-primary" (click)="backtodashboard()" >Cancle</button>
+                        <div class="col-1"></div>
                     </div>
+                     </div>
 
                     </form>
 

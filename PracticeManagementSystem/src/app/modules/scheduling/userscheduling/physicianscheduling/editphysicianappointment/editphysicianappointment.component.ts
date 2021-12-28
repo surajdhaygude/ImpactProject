@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SchedulingService } from 'src/app/scheduling.service';
 
 @Component({
   selector: 'app-editphysicianappointment',
@@ -11,10 +12,19 @@ export class EditphysicianappointmentComponent implements OnInit {
   list : any[] = []
   mySelect : any
   mySelect1 : any
-  editAppoinment!: FormGroup;
-  constructor(private router:Router) { }
+  EditAppointment!: FormGroup;
+  constructor(private formBuilder:FormBuilder, private router:Router,private service:SchedulingService) { }
 
   ngOnInit(): void {
+    this.EditAppointment=this.formBuilder.group({
+
+      employeeId:['',Validators.required],
+      patientName:['',Validators.required],
+      descriptiveInformation:['',Validators.required],
+       physicianName:['',Validators.required],
+       dateOfAppointment:['',Validators.required],
+       timeOfAppointment:['',Validators.required]
+     })
   }
   Timeslot=[
     "9:00 am - 10:00 am",
@@ -26,5 +36,16 @@ export class EditphysicianappointmentComponent implements OnInit {
   
   Cancel(){
     this.router.navigateByUrl('physicianscheduling')
+  }
+
+ public EditPhysicianAppointment(){
+    debugger;
+    this.service.UpdateAppointment(this.EditAppointment.value).subscribe(res =>{
+    alert("Patient Appointment Updated successfully...!")
+    this.EditAppointment.reset();
+    //this.router.navigateByUrl('patientscheduling');
+    },err=>{
+     alert("Somthing went wrong...!")
+    })
   }
 }

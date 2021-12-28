@@ -3,13 +3,13 @@
         <div class="col">
             <div class="card">
                 <div class="col">
-                    <form class="createAppointment">
+                    <form [formGroup]="DeleteAppointment" (ngSubmit)="DeletePhysicianAppointment()">
                         <mat-card-title style="text-align: center;">
                             <h2>Delete Appointment</h2>
                         </mat-card-title>
-                     <div class="row">
+                      <div class="row">
                         <mat-form-field class="full-width col-10">
-                            <mat-select placeholder="Select Appointment">
+                            <mat-select placeholder="Select Appointment" formControlName="timeOfAppointment"> 
                                 <mat-option *ngFor="let al of Timeslot" [value]="al">
                                     {{ al }}
                                 </mat-option>
@@ -19,7 +19,7 @@
                             <button type="submit"  class="btn btn-primary">Delete Appointment</button>&nbsp;
                             <button type="submit"  (click)="Cancel()"class="btn btn-primary">Cancel </button>
                         </div>
-                     </div>
+                      </div>
                     </form>
                 </div>
             </div>
