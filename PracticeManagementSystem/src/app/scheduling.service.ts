@@ -57,5 +57,22 @@ export class SchedulingService {
     return this.http.get<any>("http://localhost:62917/api/Scheduling/GetByUserId/4");
   }
 
+  
+
+  public GetAppointmentDetails():Observable<any>{
+
+    return this.http.get<any>("http://localhost:62917/api/Scheduling/GetAppointmentDetails/4");
+  }
+
+  public GetPhysicianAppointmentDetails():Observable<any>{
+
+    return this.http.get<any>("http://localhost:62917/api/Scheduling/GetByPhysicianAppointment/3");
+  }
+
+  public GetNurseAppointmentDetails():Observable<any>{
+
+    return this.http.get<any>("http://localhost:62917/api/Scheduling/GetAppointmentDetails/3");
+  }
+
 
 }

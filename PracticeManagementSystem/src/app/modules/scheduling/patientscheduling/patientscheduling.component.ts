@@ -14,7 +14,7 @@ import { SchedulingService } from 'src/app/scheduling.service';
 })
 export class PatientschedulingComponent implements OnInit {
 
-    calenderData:any[]=[]
+  calenderData:any[]=[]
   Id:number=0;
   //createdBy:number=0;
   Subject:string="";
@@ -34,11 +34,15 @@ export class PatientschedulingComponent implements OnInit {
    }
 d:any="";
 p:number=1;
-  ngOnInit(): void {
-    this.service.GetPatientCalenderData().subscribe(
-        (data) => {
-          debugger
+  ngOnInit(): void
+  {
+     this.service.GetAppointmentDetails().subscribe(
+        data=> {
+         
           this.calenderData = data;
+       
+
+        
           // this.Id=data.createdBy;
           // this.Subject=data.meetingTitle;
           // this.StartTime=new Date(data.dateOfAppointment);
@@ -46,14 +50,18 @@ p:number=1;
           
           //convertdate(this.StartTime,this.EndTime);
         })
+  }
+        //-------
       //var fulldate;
-      var startdatearray;
-      var enddatearray;
-       var month;
-          var day;
-          var year;
-          var strthours;
-          var startmin;var endendhours; var endmin;
+      // var startdatearray;
+      // var enddatearray;
+      //  var month;
+      //     var day;
+      //     var year;
+      //     var strthours;
+      //     var startmin;var endendhours; var endmin;
+         //-----------------
+
         // function  dateTest(date:Date):void{
         //   debugger
         //   var month=date.getMonth();
@@ -71,21 +79,24 @@ p:number=1;
       /**
        * name
        */
-     function convertdate(date1:Date , time:any){
-          debugger
-          month=date1.getMonth();
-          day=date1.getDate();
-          year=date1.getFullYear();
-          var hours=time.split(":"); 
-           strthours=hours[0];
-          var startminarray=hours[1].split(" ");
-         startmin=startminarray[0]
+      //----------------
+    //  function convertdate(date1:Date , time:any){
+    //       debugger
+    //       month=date1.getMonth();
+    //       day=date1.getDate();
+    //       year=date1.getFullYear();
+    //       var hours=time.split(":"); 
+    //        strthours=hours[0];
+    //       var startminarray=hours[1].split(" ");
+    //      startmin=startminarray[0]
 
-          var endhoursarray=hours[1].split("- ")
-           endendhours =endhoursarray[1];
-          var endmindarray=hours[2].split(" pm");
-           endmin=endmindarray[0];
-          console.log(strthours+","+startmin+","+endendhours+","+endmin);
+    //       var endhoursarray=hours[1].split("- ")
+    //        endendhours =endhoursarray[1];
+    //       var endmindarray=hours[2].split(" pm");
+    //        endmin=endmindarray[0];
+    //       console.log(strthours+","+startmin+","+endendhours+","+endmin);
+
+    //---------------------------
           //var minutes=time.getMinutes();
           // startdatearray=year+","+month+","+day+","+strthours+","+0;
           // console.log(startdatearray);
@@ -93,18 +104,18 @@ p:number=1;
           // enddatearray=year+","+month+","+day+","+endendhours+","+0;
           // console.log(enddatearray);
           //console.log(fulldate1);
-        }
+      //--------1  }
         // this.setstartdatearray=startdatearray;
         // this.setenddatearray=enddatearray
         
-        this.setyear=year
-        this.setmonth=month
-        this.setday=day
-        this.setstrthours=strthours
-        this.setendendhours=endendhours
-        this.setstartmin=startmin
-        this.setendmin=endmin
-  }
+        // this.setyear=year
+        // this.setmonth=month
+        // this.setday=day
+        // this.setstrthours=strthours
+        // this.setendendhours=endendhours
+        // this.setstartmin=startmin
+        // this.setendmin=endmin
+ //1 }
 
 
 
