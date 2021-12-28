@@ -117,18 +117,11 @@ p:number=1;
         // this.setendmin=endmin
  //1 }
 
-
-
-  
-
-
-
 //   public selectedDate: Date = new Date(2021, 12, 18);
 public eventSettings: EventSettingsModel = {
   
     dataSource: [
     { 
-   
         Id:this.Id,
         Subject:this.Subject,
        //Subject: 'Thule Air Crash Report',
