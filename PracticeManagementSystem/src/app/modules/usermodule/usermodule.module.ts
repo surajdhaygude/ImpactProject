@@ -13,6 +13,8 @@ import { HospitalusermanagementComponent } from '../adminmodule/hospitalusermana
 import { DemographicinformationComponent } from '../patient/demographicinformation/demographicinformation.component';
 import { PatientschedulingComponent } from '../scheduling/patientscheduling/patientscheduling.component';
 import { MasterLayoutModule } from '../master-layout/master-layout.module';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+
 
 
 
@@ -25,6 +27,7 @@ import { MasterLayoutModule } from '../master-layout/master-layout.module';
     PatientregistrationComponent,
     AdminregistrationComponent,
     PatientdashbordComponent,
+    ForgotpasswordComponent,
   ],
   imports: [
     CommonModule,
@@ -41,7 +44,8 @@ import { MasterLayoutModule } from '../master-layout/master-layout.module';
       {path:'patientdashboard' ,component:PatientdashbordComponent},
       {path:'hospitalusermanagement', component:HospitalusermanagementComponent},
       {path:'demographicinformation' , component:DemographicinformationComponent},
-      {path:'patientscheduling' , component:PatientschedulingComponent}
+      {path:'patientscheduling' , component:PatientschedulingComponent},
+      {path:'forgotpassword' , component:ForgotpasswordComponent}
     ])
   ],
 

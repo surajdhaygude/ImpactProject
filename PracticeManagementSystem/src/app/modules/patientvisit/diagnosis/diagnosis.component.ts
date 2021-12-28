@@ -41,11 +41,13 @@ export class DiagnosisComponent implements OnInit {
           this.phyasiciandata = data;
         })
 
+
         this.service.GetDiagnosisMasterData().subscribe(
           (data: any[]) =>{
             debugger
             this.diagnosismasterdata=data
           })
+
   }
 
   diagnosis=[
@@ -72,22 +74,6 @@ export class DiagnosisComponent implements OnInit {
   //   "E00",
   //   "F00",
   //  ];
-
-   patient=[
-    "Amol Sawant",
-    "Anil yadav",
-    "Rajesh Sharma",
-    "Amit varma",
-    "sunil debey",
-   ];
-
-
-   physician=[
-    "Dr. Bhupendra Kumar",
-    "Dr. Bhupendra Kumar",
-    "Dr. Rajan Bhargava",
-    "Dr. Rakesh Chandra",
-   ];
 
   option = [
     {id: 'y', name: 'YES'},

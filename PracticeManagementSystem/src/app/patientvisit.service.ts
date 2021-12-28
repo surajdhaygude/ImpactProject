@@ -39,6 +39,7 @@ export class PatientvisitService {
     
   }
 
+
   public GetDiagnosisMasterData():Observable<any>{
  
     return this.http.get<any>("http://localhost:39671/api/Diagnosis/GetAllDiagnosis");
@@ -54,4 +55,5 @@ export class PatientvisitService {
     return this.http.get<any>("http://localhost:39671/api/Procedures/GetAllProcedures");  
     
   }
+
 }
