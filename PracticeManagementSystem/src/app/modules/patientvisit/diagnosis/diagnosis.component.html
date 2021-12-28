@@ -4,11 +4,49 @@
     <div class="col">
       <div class="card">
         <div class="col">
-          <form [formGroup]="diagnosisdetails" (ngSubmit)="addDiagnosis()" >
+          <form [formGroup]="diagnosisdetails" (ngSubmit)="diagnosisadded()" >
             <mat-card-title style="text-align: center;">
               <h2>Diagnosis Form</h2>
             </mat-card-title>
             <div class="row">
+              <div class="col-1"></div>
+              <mat-form-field class="full-width col-10">
+                <mat-select
+                  placeholder="Patient Name"
+                  formControlName="patientId"
+                  required
+                >
+                  <mat-option *ngFor="let p1 of patientdata" [value]="p1.userId">
+                    {{ p1.firstname }}   {{ p1.lastname }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div *ngIf='diagnosisdetails.controls.patientId.touched && diagnosisdetails.controls.patientId.errors?.required' class="alert alert-danger">
+                Patient name is Required
+              </div>
+              <div class="col-1"></div>
+            </div>
+            <div class="row">
+              <div class="col-1"></div>
+              <mat-form-field class="full-width col-10">
+                <mat-select
+                  placeholder="Physicain Name"
+                  formControlName="physicianId"
+                  required
+                >
+                  <mat-option *ngFor="let ph1 of phyasiciandata" [value]="ph1.userId">
+                    {{ ph1.firstname }}   {{ ph1.lastname }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div *ngIf='diagnosisdetails.controls.physicianId.touched && diagnosisdetails.controls.physicianId.errors?.required' class="alert alert-danger">
+                Physicain name is Required
+              </div>
+              <div class="col-1"></div>
+            </div>
+
+            <div class="row">
+              <div class="col-1"></div>
               <mat-form-field class="full-width col-10">
                 <mat-select
                   placeholder="Diagnosis Code"
@@ -23,8 +61,12 @@
               <div *ngIf='diagnosisdetails.controls.diagnosisCode.touched && diagnosisdetails.controls.diagnosisCode.errors?.required' class="alert alert-danger">
                 diagnosisCode is Required
               </div>
+              <div class="col-1"></div>
             </div>
+
+
             <div class="row">
+              <div class="col-1"></div>
               <mat-form-field class="full-width col-10">
                 <mat-select
                   placeholder="Diagnosis Description"
@@ -37,15 +79,20 @@
                 </mat-select>
               </mat-form-field>
               <div *ngIf='diagnosisdetails.controls.diagnosisCode.touched && diagnosisdetails.controls.diagnosisCode.errors?.required' class="alert alert-danger">
-                diagnosisCode is Required
+                Diagnosis Description is Required
               </div>
+              <div class="col-1"></div>
             </div>
             
-            <button type="submit"
-            type="submit" [disabled]='!diagnosisdetails.valid' class="btn btn-primary"
-          >
-            Add
-          </button>&nbsp;&nbsp;
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="full-width col-10">
+                <button type="submit"
+                type="submit" [disabled]='!diagnosisdetails.valid' class="btn btn-primary" >Add</button>
+              </div>
+              <div class="col-1"></div>
+            </div>
+     
           <!-- <button mat-flat-button color="primary" (click)="Back()">Cancel</button> -->
           </form>
           
