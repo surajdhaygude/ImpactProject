@@ -41,7 +41,7 @@
                         <label for="password" class=".col-form-label">Password: </label> 
                         <input id="password" type="password" formControlName="password" class="form-control" 
                                         [ngClass]="{ 'is-invalid': isSubmitted && f.password.errors }" placeholder="Enter Password">
------m        
+
                         <span class="text-danger" *ngIf="loginForm.controls['password'].touched && loginForm.hasError('required','password')">This field cannot be empty.</span>
                         <span class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('pattern','password')">Password entry does not meet criteria.</span>
                     </div>        

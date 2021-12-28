@@ -16,6 +16,7 @@ import { EditnurseappointmentComponent } from './userscheduling/nursescheduling/
 import { DeletenurseappointmentComponent } from './userscheduling/nursescheduling/deletenurseappointment/deletenurseappointment.component';
 import { NursedashboardComponent } from './userscheduling/nursescheduling/nursedashboard/nursedashboard.component';
 import { PhysiciandashboardComponent } from './userscheduling/physicianscheduling/physiciandashboard/physiciandashboard.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -40,6 +41,7 @@ import { PhysiciandashboardComponent } from './userscheduling/physicianschedulin
     ReactiveFormsModule,
     ScheduleModule,
     RecurrenceEditorModule,
+    NgxPaginationModule,
     ScheduleAllModule,
     FormsModule,
     RouterModule.forChild([
