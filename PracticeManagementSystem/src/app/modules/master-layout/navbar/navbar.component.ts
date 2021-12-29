@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthservicesService } from 'src/app/authservices.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,12 +9,13 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   imgurl:string="./assets/Images/logo1.jpg"
-  constructor( private route:Router) { }
+  constructor( private route:Router,private service:AuthservicesService) { }
 
   ngOnInit(): void {
   }
 
   SignOut(){
+    this.service.logout();
    this.route.navigateByUrl('');
   }
 

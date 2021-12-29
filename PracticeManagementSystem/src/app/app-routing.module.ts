@@ -22,6 +22,7 @@ import { EditnurseappointmentComponent } from './modules/scheduling/userscheduli
 
 import { PatientschedulingComponent } from './modules/scheduling/patientscheduling/patientscheduling.component';
 import { NurseschedulingComponent } from './modules/scheduling/userscheduling/nursescheduling/nursescheduling.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 
@@ -31,7 +32,7 @@ const routes: Routes = [
   {path:'adminregistration', component:AdminregistrationComponent},
   {path:'hospitalusermanagement', component:HospitalusermanagementComponent},
   {path:'diagnosis' , component:DiagnosisComponent},
-  {path:'patientinformation',component:PatientinformationComponent},
+  {path:'patientinformation',component:PatientinformationComponent,canActivate: [AuthGuard]},
   {path:'medication' , component:MedicationComponent},
   {path:'procedure' , component:ProcedureComponent},
   {path:'vitalsigns' , component:VitalsignsComponent},

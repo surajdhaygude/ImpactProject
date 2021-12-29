@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
   isSubmitted!: boolean;
+  localUser:any="";
+  localUserId:any="";
 
   users: IUser[] = [];
  
@@ -47,6 +49,13 @@ export class LoginComponent implements OnInit {
       this.service.login(this.loginForm.value).subscribe(result =>{
         debugger
         if(result !=null){
+
+          localStorage.setItem('currentUser', JSON.stringify(result));
+          // console.log("From local storage");
+          // console.log(localStorage.getItem('currentUser'));
+
+          this.service.isLoggedIn();
+          console.log("From service");
           console.log(result);
          
           this.isSubmitted = true;
@@ -79,6 +88,7 @@ export class LoginComponent implements OnInit {
       })
     }
   }
+
 
   role:any;
 

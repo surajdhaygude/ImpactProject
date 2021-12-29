@@ -13,4 +13,16 @@ export class AuthservicesService {
     debugger
     return this.http.post("http://localhost:42261/api/JWTAuth/login",data);
   }
+  
+  isLoggedIn() {
+    if (localStorage.getItem('currentUser')) {
+      return true;
+    }
+    return false;
+  }
+
+  logout() {
+    localStorage.removeItem('currentUser');
+  }
+  
 }
