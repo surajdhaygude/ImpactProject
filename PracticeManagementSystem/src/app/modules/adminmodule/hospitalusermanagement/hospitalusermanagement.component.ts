@@ -41,7 +41,9 @@ rowData:any[]=[];
   }
 
   search(){
+
     if(this.firstname== ""){
+
       this.ngOnInit()
     }else{
       this.rowData=this.rowData.filter(res =>{

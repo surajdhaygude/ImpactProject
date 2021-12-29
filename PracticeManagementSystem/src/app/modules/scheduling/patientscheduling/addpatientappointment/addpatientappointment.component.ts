@@ -72,7 +72,7 @@ constructor(private router:Router, private formBuilder:FormBuilder,private servi
     this.service.AddAppointment(this.createAppointment.value).subscribe(res =>{
     alert("Patient Appointment Added successfully...!")
     this.createAppointment.reset();
-    //this.router.navigateByUrl('patientscheduling');
+    this.router.navigateByUrl('patientscheduling');
     },err=>{
      alert("Somthing went wrong...!")
     })
