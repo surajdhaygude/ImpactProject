@@ -11,7 +11,7 @@ export class PatientusermanagementComponent implements OnInit {
 
   
   constructor(private patientservice:PatientService, private route:Router) { }
-  PatientName:any;
+  firstname:any;
   p:number=1;
   Managelist:any[]=["Active","Deactivate","Block"]
  
@@ -31,11 +31,11 @@ export class PatientusermanagementComponent implements OnInit {
 
 
     search(){
-      if(this.PatientName== ""){
+      if(this.firstname== ""){
         this.ngOnInit()
       }else{
         this.PatientData=this.PatientData.filter(res =>{
-          return res.PatientName.toLocaleLowerCase().match(this.PatientName.toLocaleLowerCase());
+          return res.firstname.toLocaleLowerCase().match(this.firstname.toLocaleLowerCase());
         })
       }
   

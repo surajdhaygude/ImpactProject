@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthservicesService } from 'src/app/authservices.service';
 
@@ -8,6 +8,7 @@ import { AuthservicesService } from 'src/app/authservices.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   imgurl:string="./assets/Images/logo1.jpg"
   constructor( private route:Router,private service:AuthservicesService) { }
 
@@ -17,6 +18,15 @@ export class NavbarComponent implements OnInit {
   SignOut(){
     this.service.logout();
    this.route.navigateByUrl('');
+  }
+
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
   }
 
 }

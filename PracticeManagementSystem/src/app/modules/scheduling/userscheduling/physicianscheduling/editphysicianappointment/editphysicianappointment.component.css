@@ -7,8 +7,8 @@
     left: 50%;
     width: 50%;
     transform: translate(-50%,-50%);
-    background: rgb(231, 241, 248);
-    background: linear-gradient(90deg, rgb(206, 211, 214)0%, rgb(247, 244, 252)100%);
+    background: rgb(204, 230, 227);
+    background: linear-gradient(90deg, rgb(204, 230, 227)0%, rgb(204, 230, 227)100%);
 }
 
 .card h2{

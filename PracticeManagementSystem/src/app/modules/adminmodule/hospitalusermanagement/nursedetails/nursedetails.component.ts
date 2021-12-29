@@ -11,7 +11,7 @@ export class NursedetailsComponent implements OnInit {
 
   constructor(private nurseservice:NursemanagementService,private route:Router) { }
 
-  Name:any;
+  firstname:any;
   p:number=1;
   Managelist:any[]=["Active","Deactivate","Block"]
   NurseUser:any[]=[];
@@ -27,11 +27,11 @@ export class NursedetailsComponent implements OnInit {
   }
   
   search(){
-    if(this.Name== ""){
+    if(this.firstname== ""){
       this.ngOnInit()
     }else{
       this.NurseUser=this.NurseUser.filter(res =>{
-        return res.Name.toLocaleLowerCase().match(this.Name.toLocaleLowerCase());
+        return res.firstname.toLocaleLowerCase().match(this.firstname.toLocaleLowerCase());
       })
     }
   

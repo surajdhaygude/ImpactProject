@@ -56,3 +56,30 @@
   /* .card{
       background-color:skyblue;
   } */
+
+
+  .navbar-collapse {
+    position: absolute;
+    top: 54px;
+    right: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    transition: all 0.4s ease;
+    display: block;
+}
+.navbar-collapse.collapsing {
+    height: auto !important;
+    margin-right: 50%;
+    right: 50%;
+    transition: all 0.2s ease;
+}
+.navbar-collapse.show {
+    right: 0;
+}
+
+.nav{
+    z-index: 10;
+    position: absolute;
+}
