@@ -22,11 +22,13 @@ import { EditnurseappointmentComponent } from './modules/scheduling/userscheduli
 
 import { PatientschedulingComponent } from './modules/scheduling/patientscheduling/patientscheduling.component';
 import { NurseschedulingComponent } from './modules/scheduling/userscheduling/nursescheduling/nursescheduling.component';
+import { HomescreenComponent } from './modules/master-layout/homescreen/homescreen.component';
 
 
 
 const routes: Routes = [
-  {path:'', component:LoginComponent},
+  {path:'', component:HomescreenComponent}, 
+  {path:'login',component:LoginComponent},
   {path:"Patientregistration",component:PatientregistrationComponent},
   {path:'adminregistration', component:AdminregistrationComponent},
   {path:'hospitalusermanagement', component:HospitalusermanagementComponent},

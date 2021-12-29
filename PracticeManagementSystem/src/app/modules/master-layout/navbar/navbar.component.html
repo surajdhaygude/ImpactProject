@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+<!-- <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <div class="container-fluid">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -9,15 +9,7 @@
         </li>
       </ul>
       <ul class="navbar-nav" >
-        <!-- <li class="nav-item">
-            <a href="adminregistration" class="navbar-brand ">Admin Registration </a> 
-        </li>
-        <li class="nav-item">
-          <a href="patientusermanagement" class="navbar-brand"> Patient user</a>
-        </li>
-          <li class="nav-item">
-            <a href="hospitalusermanagement" class="navbar-brand" >Hospital User </a> 
-        </li> -->
+
         <li class="nav-item">
           <a href="" class="navbar-brand"> About us</a>
         </li>
@@ -26,4 +18,60 @@
       </li>
       </ul>
     </div>
-  </nav>
+  </nav> -->
+
+  
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+      <button mat-icon-button (click)="toggleSideBar()">
+        <span class="material-icons">local_hospital</span>
+      </button>
+
+      <span> CT Hospital </span>
+      
+      <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+          
+              
+          <ul fxLayout="row" fxLayoutGap="20px">
+
+         
+              <!-- <li>
+                  <button mat-icon-button routerLink="/registeration">
+                      Register
+                  </button>
+              </li>
+              <li>
+                  <button mat-icon-button routerLink="/login">
+                      Login
+                  </button>
+              </li> -->
+
+              <!-- <li>
+                  <button mat-icon-button>
+                      <mat-icon>settings</mat-icon>
+                  </button>
+              </li> -->
+              <!-- <li>
+                  <button mat-icon-button>
+                      <mat-icon>help_outline</mat-icon>
+                  </button>
+              </li>-->
+              <!-- <li> 
+                  <button mat-button [matMenuTriggerFor]="menu">
+                      <mat-icon>person_outline</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                      <button mat-menu-item>
+                          <mat-icon>exit_to_app</mat-icon>
+                          Sign out
+                      </button>
+                  </mat-menu>
+
+              </li>
+               -->
+          </ul>
+
+        
+      </div>
+  </mat-toolbar-row>
+   </mat-toolbar>
