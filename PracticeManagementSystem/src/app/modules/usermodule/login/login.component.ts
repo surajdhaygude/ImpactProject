@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   isSubmitted!: boolean;
   localUser:any="";
-  localUserId:any="";
+  currentUser:any="";
+  currentUserId:any="";
 
   users: IUser[] = [];
  
@@ -52,7 +53,10 @@ export class LoginComponent implements OnInit {
 
           localStorage.setItem('currentUser', JSON.stringify(result));
           // console.log("From local storage");
-          // console.log(localStorage.getItem('currentUser'));
+           //console.log(localStorage.getItem('currentUser'));
+           this.localUser=localStorage.getItem('currentUser');
+          this.currentUser=JSON.parse(this.localUser);
+          this.currentUserId=this.currentUser.userId;
 
           this.service.isLoggedIn();
           console.log("From service");
