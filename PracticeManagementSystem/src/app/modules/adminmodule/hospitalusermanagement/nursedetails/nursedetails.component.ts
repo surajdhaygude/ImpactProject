@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthservicesService } from 'src/app/authservices.service';
 import { NursemanagementService } from 'src/app/nursemanagement.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { NursemanagementService } from 'src/app/nursemanagement.service';
 })
 export class NursedetailsComponent implements OnInit {
 
-  constructor(private nurseservice:NursemanagementService,private route:Router) { }
+  constructor(private nurseservice:NursemanagementService,private route:Router,private service:AuthservicesService) { }
 
   firstname:any;
   p:number=1;
@@ -70,6 +71,11 @@ export class NursedetailsComponent implements OnInit {
   
   editnurse(id:number){
    this.route.navigate(['/editnurse',id]);
+  }
+
+  SignOut(){
+    this.service.logout();
+   this.route.navigateByUrl('');
   }
 
 }

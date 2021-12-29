@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthservicesService } from 'src/app/authservices.service';
 
 @Component({
   selector: 'app-patientdashbord',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class PatientdashbordComponent implements OnInit {
   patientpath="https://www.nestsoft.com/images/services/hospital-management-software1s.jpg";
 
-  constructor(private route:Router) { }
+  constructor(private route:Router,private service:AuthservicesService) { }
 
   ngOnInit(): void {
   }
@@ -28,5 +29,10 @@ export class PatientdashbordComponent implements OnInit {
 
   Allergy(){
     this.route.navigateByUrl('allergyinformation');
+  }
+
+  SignOut(){
+    this.service.logout();
+   this.route.navigateByUrl('');
   }
 }

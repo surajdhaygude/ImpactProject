@@ -14,6 +14,7 @@ import { DemographicinformationComponent } from '../patient/demographicinformati
 import { PatientschedulingComponent } from '../scheduling/patientscheduling/patientscheduling.component';
 import { MasterLayoutModule } from '../master-layout/master-layout.module';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { AuthGuard } from 'src/app/auth/auth.guard';
 
 
 
@@ -39,12 +40,12 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
       {path:'',component:LoginComponent},
       {path:'login', component:LoginComponent},
       {path:'ChangePassword', component:ChangepasswordComponent},
-      {path:'adminregistration', component:AdminregistrationComponent},
+      {path:'adminregistration', component:AdminregistrationComponent,canActivate: [AuthGuard]},
       {path:'Patientregistration', component:PatientregistrationComponent},
-      {path:'patientdashboard' ,component:PatientdashbordComponent},
-      {path:'hospitalusermanagement', component:HospitalusermanagementComponent},
-      {path:'demographicinformation' , component:DemographicinformationComponent},
-      {path:'patientscheduling' , component:PatientschedulingComponent},
+      {path:'patientdashboard' ,component:PatientdashbordComponent,canActivate: [AuthGuard]},
+      {path:'hospitalusermanagement', component:HospitalusermanagementComponent,canActivate: [AuthGuard]},
+      {path:'demographicinformation' , component:DemographicinformationComponent,canActivate: [AuthGuard]},
+      {path:'patientscheduling' , component:PatientschedulingComponent,canActivate: [AuthGuard]},
       {path:'forgotpassword' , component:ForgotpasswordComponent}
     ])
   ],

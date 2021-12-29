@@ -12,6 +12,7 @@ import { TopnavpatientComponent } from './topnavpatient/topnavpatient.component'
 import { TopnavuserComponent } from './topnavuser/topnavuser.component';
 import { InboxuserComponent } from './inboxuser/inboxuser.component';
 import { InboxpatientComponent } from './inboxpatient/inboxpatient.component';
+import { AuthGuard } from 'src/app/auth/auth.guard';
 
 
 
@@ -33,11 +34,11 @@ import { InboxpatientComponent } from './inboxpatient/inboxpatient.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      {path:'sendnote',component:SendnoteComponent},
-      {path:'receivednotes',component:ReceivednotesComponent},
-      {path:'sentnotes',component:SentnotesComponent},
-      {path:'replynote',component:ReplynoteComponent},
-      {path:'topnavuser',component:TopnavuserComponent}
+      {path:'sendnote',component:SendnoteComponent,canActivate: [AuthGuard]},
+      {path:'receivednotes',component:ReceivednotesComponent,canActivate: [AuthGuard]},
+      {path:'sentnotes',component:SentnotesComponent,canActivate: [AuthGuard]},
+      {path:'replynote',component:ReplynoteComponent,canActivate: [AuthGuard]},
+      {path:'topnavuser',component:TopnavuserComponent,canActivate: [AuthGuard]}
     ])
   ]
 })

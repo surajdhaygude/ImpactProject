@@ -17,6 +17,7 @@ import { DeletenurseappointmentComponent } from './userscheduling/nurseschedulin
 import { NursedashboardComponent } from './userscheduling/nursescheduling/nursedashboard/nursedashboard.component';
 import { PhysiciandashboardComponent } from './userscheduling/physicianscheduling/physiciandashboard/physiciandashboard.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AuthGuard } from 'src/app/auth/auth.guard';
 
 
 
@@ -45,15 +46,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ScheduleAllModule,
     FormsModule,
     RouterModule.forChild([
-      {path:'addpatientappointment', component:AddpatientappointmentComponent},
-      {path:'Userscheduling', component:UserschedulingComponent},
-      {path:'editphysicianappointment', component:EditphysicianappointmentComponent},
-      {path:'deletephysicianappointment', component:DeletephysicianappointmentComponent},
-      {path:'addnurseappointment',component:AddnurseappointmentComponent},
-      {path:'editnurseappointment',component:EditnurseappointmentComponent},
-      {path:'deletenurseappointment',component:DeletenurseappointmentComponent},
-      {path:'physicianscheduling',component:PhysicianschedulingComponent},
-      {path:'patientscheduling',component:PatientschedulingComponent}
+      {path:'addpatientappointment', component:AddpatientappointmentComponent,canActivate: [AuthGuard]},
+      {path:'Userscheduling', component:UserschedulingComponent,canActivate: [AuthGuard]},
+      {path:'editphysicianappointment', component:EditphysicianappointmentComponent,canActivate: [AuthGuard]},
+      {path:'deletephysicianappointment', component:DeletephysicianappointmentComponent,canActivate: [AuthGuard]},
+      {path:'addnurseappointment',component:AddnurseappointmentComponent,canActivate: [AuthGuard]},
+      {path:'editnurseappointment',component:EditnurseappointmentComponent,canActivate: [AuthGuard]},
+      {path:'deletenurseappointment',component:DeletenurseappointmentComponent,canActivate: [AuthGuard]},
+      {path:'physicianscheduling',component:PhysicianschedulingComponent,canActivate: [AuthGuard]},
+      {path:'patientscheduling',component:PatientschedulingComponent,canActivate: [AuthGuard]}
     ])
   ],
   providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService ],

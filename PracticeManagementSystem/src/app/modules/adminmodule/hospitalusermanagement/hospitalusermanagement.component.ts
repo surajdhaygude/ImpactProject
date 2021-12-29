@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ColDef } from 'ag-grid-community';
+import { AuthservicesService } from 'src/app/authservices.service';
 import { HospitalmanagementService } from 'src/app/hospitalmanagement.service';
 
 
@@ -12,7 +13,7 @@ import { HospitalmanagementService } from 'src/app/hospitalmanagement.service';
 })
 export class HospitalusermanagementComponent implements OnInit {
 
-  constructor(private hospitaluser:HospitalmanagementService, private route:Router) { }
+  constructor(private hospitaluser:HospitalmanagementService, private route:Router,private service:AuthservicesService) { }
   firstname:any;
   p:number=1;
   Managelist:any[]=["Active","Deactivate","Block"]
@@ -95,4 +96,10 @@ rowData:any[]=[];
 //     { EmpID: '1006', Name: 'Raj', DateofJoining: "2007/09/14", EditStatus:"Block", Manage:""},
 // ];
 
+SignOut(){
+  this.service.logout();
+ this.route.navigateByUrl('');
 }
+
+}
+

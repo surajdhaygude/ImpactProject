@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from '../material/material.module';
 import { PatientdetailsdashboardComponent } from './patientdetailsdashboard/patientdetailsdashboard.component';
+import { AuthGuard } from 'src/app/auth/auth.guard';
 
 
 
@@ -23,9 +24,9 @@ import { PatientdetailsdashboardComponent } from './patientdetailsdashboard/pati
     MaterialModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      {path:'allergyinformation',component:AllergyinformationComponent},
-      {path:'demographicinformation' , component:DemographicinformationComponent},
-      {path:'patientdetailsdashboard',component:PatientdetailsdashboardComponent}
+      {path:'allergyinformation',component:AllergyinformationComponent,canActivate: [AuthGuard]},
+      {path:'demographicinformation' , component:DemographicinformationComponent,canActivate: [AuthGuard]},
+      {path:'patientdetailsdashboard',component:PatientdetailsdashboardComponent,canActivate: [AuthGuard]}
 
     ])
 

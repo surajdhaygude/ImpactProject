@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthservicesService } from 'src/app/authservices.service';
 import { PatientService } from 'src/app/Services/patient.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { PatientService } from 'src/app/Services/patient.service';
 export class PatientusermanagementComponent implements OnInit {
 
   
-  constructor(private patientservice:PatientService, private route:Router) { }
+  constructor(private patientservice:PatientService, private route:Router,private service:AuthservicesService) { }
   firstname:any;
   p:number=1;
   Managelist:any[]=["Active","Deactivate","Block"]
@@ -71,5 +72,8 @@ export class PatientusermanagementComponent implements OnInit {
       
     }
  
-
+    SignOut(){
+      this.service.logout();
+     this.route.navigateByUrl('');
+    }
 }

@@ -34,20 +34,20 @@ const routes: Routes = [
   {path:'', component:HomescreenComponent}, 
   {path:'login',component:LoginComponent},
   {path:"Patientregistration",component:PatientregistrationComponent},
-  {path:'adminregistration', component:AdminregistrationComponent},
-  {path:'hospitalusermanagement', component:HospitalusermanagementComponent},
-  {path:'diagnosis' , component:DiagnosisComponent},
-  {path:'patientinformation',component:PatientinformationComponent},
-  {path:'medication' , component:MedicationComponent},
-  {path:'procedure' , component:ProcedureComponent},
+  {path:'adminregistration', component:AdminregistrationComponent,canActivate: [AuthGuard]},
+  {path:'hospitalusermanagement', component:HospitalusermanagementComponent,canActivate: [AuthGuard]},
+  {path:'diagnosis' , component:DiagnosisComponent,canActivate: [AuthGuard]},
+  {path:'patientinformation',component:PatientinformationComponent,canActivate: [AuthGuard]},
+  {path:'medication' , component:MedicationComponent,canActivate: [AuthGuard]},
+  {path:'procedure' , component:ProcedureComponent,canActivate: [AuthGuard]},
   {path:'vitalsigns' , component:VitalsignsComponent,canActivate: [AuthGuard]},
-  {path:'editphysicianappointment', component:EditphysicianappointmentComponent},
-  {path:'deletephysicianappointment', component:DeletephysicianappointmentComponent},
-  {path:'addnurseappointment',component:AddnurseappointmentComponent},
-  {path:'editnurseappointment',component:EditnurseappointmentComponent},
-  {path:'deletenurseappointment',component:DeletenurseappointmentComponent},
-  {path:'patientscheduling' , component:PatientschedulingComponent},
-  {path:'nursescheduling',component:NurseschedulingComponent}
+  {path:'editphysicianappointment', component:EditphysicianappointmentComponent,canActivate: [AuthGuard]},
+  {path:'deletephysicianappointment', component:DeletephysicianappointmentComponent,canActivate: [AuthGuard]},
+  {path:'addnurseappointment',component:AddnurseappointmentComponent,canActivate: [AuthGuard]},
+  {path:'editnurseappointment',component:EditnurseappointmentComponent,canActivate: [AuthGuard]},
+  {path:'deletenurseappointment',component:DeletenurseappointmentComponent,canActivate: [AuthGuard]},
+  {path:'patientscheduling' , component:PatientschedulingComponent,canActivate: [AuthGuard]},
+  {path:'nursescheduling',component:NurseschedulingComponent,canActivate: [AuthGuard]}
 ];
 
 @NgModule({

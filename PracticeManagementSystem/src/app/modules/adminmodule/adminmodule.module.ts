@@ -15,6 +15,7 @@ import { EditpatientComponent } from './patientusermanagement/editpatient/editpa
 import { CreatenurseComponent } from './hospitalusermanagement/nursedetails/createnurse/createnurse.component';
 import { EditnurseComponent } from './hospitalusermanagement/nursedetails/editnurse/editnurse.component';
 import { MasterLayoutModule } from '../master-layout/master-layout.module';
+import { AuthGuard } from 'src/app/auth/auth.guard';
 
 
 @NgModule({
@@ -38,15 +39,15 @@ import { MasterLayoutModule } from '../master-layout/master-layout.module';
     ReactiveFormsModule,
     NgxPaginationModule,
     RouterModule.forChild([
-      {path:'createuser', component:CreateuserComponent},
-      {path:'hospitalusermanagement', component:HospitalusermanagementComponent},
-      {path:'nursedetails', component:NursedetailsComponent},
-      {path:'edituser/:id', component:EdituserComponent},
-      {path:'createnurse',component:CreatenurseComponent},
-      {path:'editnurse/:id',component:EditnurseComponent},
-      {path:'patientusermanagement',component:PatientusermanagementComponent},
-      {path:'addpatient', component:AddpatientComponent},
-      {path:'editPatient/:id', component:EditpatientComponent}
+      {path:'createuser', component:CreateuserComponent,canActivate: [AuthGuard]},
+      {path:'hospitalusermanagement', component:HospitalusermanagementComponent,canActivate: [AuthGuard]},
+      {path:'nursedetails', component:NursedetailsComponent,canActivate: [AuthGuard]},
+      {path:'edituser/:id', component:EdituserComponent,canActivate: [AuthGuard]},
+      {path:'createnurse',component:CreatenurseComponent,canActivate: [AuthGuard]},
+      {path:'editnurse/:id',component:EditnurseComponent,canActivate: [AuthGuard]},
+      {path:'patientusermanagement',component:PatientusermanagementComponent,canActivate: [AuthGuard]},
+      {path:'addpatient', component:AddpatientComponent,canActivate: [AuthGuard]},
+      {path:'editPatient/:id', component:EditpatientComponent,canActivate: [AuthGuard]}
     ])
   ]
   
