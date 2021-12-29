@@ -1,12 +1,12 @@
 .card{
 
-    margin-top: 400px;
+    margin-top: 10px;
 
     border: none;
 
     padding: 10px;
 
-    position:absolute;
+    /* position:absolute; */
 
     top:50%;
 

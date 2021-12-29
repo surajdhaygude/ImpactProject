@@ -11,7 +11,9 @@ import { PatientvisitService } from 'src/app/patientvisit.service';
 export class ProcedureComponent implements OnInit {
   proceduredetails !: FormGroup;
   procedureList : any= [];
- 
+  localUser:any="";
+  currentUser:any="";
+  currentUserId:any="";
   constructor(private fb:FormBuilder , private router:Router,private service:PatientvisitService) {
     this.proceduredetails = this.fb.group({
       patientId:['',Validators.required],
@@ -27,6 +29,10 @@ export class ProcedureComponent implements OnInit {
    proceduremasterdata:any[]=[]
 
   ngOnInit(): void {
+
+    this.localUser=localStorage.getItem('currentUser');
+          this.currentUser=JSON.parse(this.localUser);
+          this.currentUserId=this.currentUser.userId;
     debugger
     this.service.GetPatientUsers().subscribe(
       (data: any[]) => {
@@ -74,7 +80,7 @@ export class ProcedureComponent implements OnInit {
   addProcedure(){
     debugger;
  
-    this.f.createdBy.setValue(2);
+    this.f.createdBy.setValue(this.currentUserId);
     this.f.procedureCode.setValue(this.showProcedureCode);
     this.f.procedureDescription.setValue(this.showProcedureDescription);
     
@@ -82,7 +88,7 @@ export class ProcedureComponent implements OnInit {
       console.log(this.procedureList)
     alert("Patient Procedure details added successfully...!")
     this.proceduredetails.reset();
-    this.router.navigateByUrl('patientscheduling');
+    this.router.navigateByUrl('nursescheduling');
     },err=>{
      alert("Somthing went wrong...!")
     })

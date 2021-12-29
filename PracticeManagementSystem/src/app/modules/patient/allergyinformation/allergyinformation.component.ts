@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IAllergy } from 'IAllergy';
 import { Subscription } from 'rxjs';
 import { AllergyserviceService } from 'src/app/allergyservice.service';
@@ -22,10 +23,20 @@ export class AllergyinformationComponent implements OnInit {
   allergynameddl:any="";
   showClinicalInfo:any="";
   BreakException:any = {};
+
+
+  localUser:any="";
+  currentUser:any="";
+  currentUserId:any="";
   
-  constructor(private fb: FormBuilder,private allergyService:AllergyserviceService,private http:HttpClient) { }
+  constructor(private fb: FormBuilder,private allergyService:AllergyserviceService,private http:HttpClient, private router:Router) { }
 
   ngOnInit(): void {
+
+    this.localUser=localStorage.getItem('currentUser');
+          this.currentUser=JSON.parse(this.localUser);
+          this.currentUserId=this.currentUser.userId;
+
     this.allergyForm = this.fb.group({
       hasAllergy:[''],
       allergyId: [''],
@@ -130,7 +141,7 @@ export class AllergyinformationComponent implements OnInit {
     // {
       debugger
       this.isSubmitted=true;
-      this.f.userId.setValue(2);
+      this.f.userId.setValue(this.currentUserId);
       this.f.allergyId.setValue(this.showAllergyId);
       this.f.clinicalInfo.setValue(this.showClinicalInfo);
       this.f.allergyType.setValue(this.showAllergyType);
@@ -140,6 +151,7 @@ export class AllergyinformationComponent implements OnInit {
       console.log(this.allergyForm.value);
         alert("Allergy Form submitted successfully...!");
         this.allergyForm.reset();
+        this.router.navigateByUrl('patientscheduling');
       },err=>{
       alert("Something went wrong...!");
       })

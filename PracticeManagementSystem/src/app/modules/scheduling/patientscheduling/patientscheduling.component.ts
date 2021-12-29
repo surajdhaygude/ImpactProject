@@ -34,9 +34,19 @@ export class PatientschedulingComponent implements OnInit {
    }
 d:any="";
 p:number=1;
+localUser:any="";
+currentUser:any="";
+currentUserId:any="";
+
+
+
   ngOnInit(): void
   {
-     this.service.GetAppointmentDetails().subscribe(
+    this.localUser=localStorage.getItem('currentUser');
+     this.currentUser=JSON.parse(this.localUser);
+     this.currentUserId=this.currentUser.userId;
+
+     this.service.GetAppointmentDetails(this.currentUserId).subscribe(
         data=> {
          
           this.calenderData = data;

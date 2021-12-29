@@ -13,11 +13,16 @@ export class PhysicianschedulingComponent implements OnInit {
     calenderData:any[]=[]
     d:any="";
     p:number=1;
+    localUser:any="";
+  currentUser:any="";
+  currentUserId:any="";
   constructor(private router:Router,private service:SchedulingService) { }
 
   ngOnInit(): void {
-      
-     this.service.GetPhysicianAppointmentDetails().subscribe(
+    this.localUser=localStorage.getItem('currentUser');
+    this.currentUser=JSON.parse(this.localUser);
+    this.currentUserId=this.currentUser.userId;
+     this.service.GetPhysicianAppointmentDetails(this.currentUserId).subscribe(
         data=> {
          debugger
           this.calenderData = data;

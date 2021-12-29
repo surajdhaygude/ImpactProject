@@ -17,9 +17,18 @@ mySelect1 : any
 createAppointment!: FormGroup;
 phyasiciandata:any[]=[]
 
+localUser:any="";
+  currentUser:any="";
+  currentUserId:any="";
+
 constructor(private router:Router, private formBuilder:FormBuilder,private service:SchedulingService) { }
 
   ngOnInit(): void {
+
+    this.localUser=localStorage.getItem('currentUser');
+    this.currentUser=JSON.parse(this.localUser);
+    this.currentUserId=this.currentUser.userId;
+
     this.createAppointment = this.formBuilder.group({
       physicianId:['',Validators.required],
       meetingTitle:['',Validators.required],
@@ -64,10 +73,12 @@ constructor(private router:Router, private formBuilder:FormBuilder,private servi
     return this.createAppointment?.controls;
   }
 
+  
+
  public createPatientAppointment()
   {
-    this.f.createdBy.setValue(4);
-    this.f.patientId.setValue(4);
+    this.f.createdBy.setValue(this.currentUserId);
+    this.f.patientId.setValue(this.currentUserId);
     debugger;
     this.service.AddAppointment(this.createAppointment.value).subscribe(res =>{
     alert("Patient Appointment Added successfully...!")

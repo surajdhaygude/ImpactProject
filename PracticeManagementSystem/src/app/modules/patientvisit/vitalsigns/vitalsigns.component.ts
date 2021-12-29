@@ -9,7 +9,9 @@ import { PatientvisitService } from 'src/app/patientvisit.service';
   styleUrls: ['./vitalsigns.component.css']
 })
 export class VitalsignsComponent implements OnInit {
-
+  localUser:any="";
+  currentUser:any="";
+  currentUserId:any="";
   vitalsigndetails !: FormGroup;
   constructor(private fb:FormBuilder , private router:Router,private service:PatientvisitService){
     this.vitalsigndetails = this.fb.group({
@@ -27,6 +29,10 @@ export class VitalsignsComponent implements OnInit {
 patientdata:any[]=[];
 phyasiciandata:any[]=[];
   ngOnInit(): void {
+
+    this.localUser=localStorage.getItem('currentUser');
+    this.currentUser=JSON.parse(this.localUser);
+    this.currentUserId=this.currentUser.userId;
     debugger
     this.service.GetPatientUsers().subscribe(
       (data: any[]) => {
@@ -49,11 +55,11 @@ phyasiciandata:any[]=[];
 
     debugger;
  
-    this.f.createdBy.setValue(2);
+    this.f.createdBy.setValue(this.currentUserId);
     this.service.AddPatientVitalSign(this.vitalsigndetails.value).subscribe(res =>{
     alert("Patient Vital sign details added successfully...!")
     this.vitalsigndetails.reset();
-    this.router.navigateByUrl('patientscheduling');
+    this.router.navigateByUrl('nursescheduling');
     },err=>{
      alert("Somthing went wrong...!")
     })

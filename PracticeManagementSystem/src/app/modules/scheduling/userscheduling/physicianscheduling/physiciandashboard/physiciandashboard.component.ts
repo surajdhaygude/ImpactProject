@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthservicesService } from 'src/app/authservices.service';
 
 @Component({
   selector: 'app-physiciandashboard',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhysiciandashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router,private service:AuthservicesService) { }
 
   ngOnInit(): void {
   }
+
+  SignOut(){
+    this.service.logout();
+   this.route.navigateByUrl('');
+  }
+  
 
 }

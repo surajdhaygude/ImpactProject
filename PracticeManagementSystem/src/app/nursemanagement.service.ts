@@ -15,7 +15,7 @@ export class NursemanagementService {
   public GetHospitalNurse():Observable<any>{
     debugger
     // return this.http.get<any>(this.APIUrl);
-    return this.http.get<any>("http://localhost:29345/api/Admins/GetByRoleId/2");
+    return this.http.get<any>("http://localhost:29345/api/Admins/GetByRoleId/3");
   }
   
   public AddNurserecords(formdata:any){

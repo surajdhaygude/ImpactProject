@@ -40,7 +40,7 @@ export class AddpatientComponent implements OnInit {
 
   AddPatient(){   
     debugger;
-    this.f.roleId.setValue(3);
+    this.f.roleId.setValue(4);
     this.f.username.setValue(this.setemailid);
     // this.f.doj.setValue(this.SetDoj)
     this.Patientuser.AddPatientrecords(this.Patientform.value).subscribe(res =>{

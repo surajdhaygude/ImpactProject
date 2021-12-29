@@ -11,6 +11,9 @@ import { PatientvisitService } from 'src/app/patientvisit.service';
 export class MedicationComponent implements OnInit {
   patientmedForm !:FormGroup;
   medicationList : any = [];
+  localUser:any="";
+  currentUser:any="";
+  currentUserId:any="";
   constructor(private formBuilder : FormBuilder , private router:Router ,private service:PatientvisitService) { 
     this.patientmedForm = this.formBuilder.group({
       
@@ -31,7 +34,9 @@ export class MedicationComponent implements OnInit {
   drugmasterdata:any[]=[]
 
   ngOnInit(): void {
-    
+    this.localUser=localStorage.getItem('currentUser');
+          this.currentUser=JSON.parse(this.localUser);
+          this.currentUserId=this.currentUser.userId;
     debugger
     this.service.GetPatientUsers().subscribe(
       (data: any[]) => {
@@ -104,7 +109,7 @@ export class MedicationComponent implements OnInit {
   addMedication(){
     debugger;
  
-    this.f.createdby.setValue(5);
+    this.f.createdby.setValue(this.currentUserId);
     this.f.drugId.setValue(this.showDrugId);
     this.f.drugName.setValue(this.showDrugName);
     this.f.drugGenericName.setValue(this.showDrugGenericName);
@@ -114,7 +119,7 @@ export class MedicationComponent implements OnInit {
       console.log(this.medicationList)
     alert("Patient Medication details added successfully...!")
     this.patientmedForm.reset();
-    this.router.navigateByUrl('patientscheduling');
+    this.router.navigateByUrl('nursescheduling');
     },err=>{
      alert("Somthing went wrong...!")
     })

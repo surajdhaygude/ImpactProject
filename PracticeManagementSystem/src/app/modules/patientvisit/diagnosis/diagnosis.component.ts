@@ -12,6 +12,9 @@ export class DiagnosisComponent implements OnInit {
   diagnosisdetails!: FormGroup;
   diagnosisList : any = [];
   isdiagnosis: boolean = true;
+  localUser:any="";
+  currentUser:any="";
+  currentUserId:any="";
   constructor(private formBuilder : FormBuilder, private router:Router, private service:PatientvisitService) { 
     this.diagnosisdetails = this.formBuilder.group({
       diagnosisCode: ['',Validators.required],
@@ -27,6 +30,9 @@ export class DiagnosisComponent implements OnInit {
   diagnosismasterdata:any[]=[];
 
   ngOnInit(): void {
+    this.localUser=localStorage.getItem('currentUser');
+          this.currentUser=JSON.parse(this.localUser);
+          this.currentUserId=this.currentUser.userId;
     debugger
     this.service.GetPatientUsers().subscribe(
       (data: any[]) => {
@@ -105,12 +111,12 @@ export class DiagnosisComponent implements OnInit {
     debugger;
     // this.f.patientid.setValue(20);
     // this.f.physicianid.setValue(4);
-    this.f.createdby.setValue(5);
+    this.f.createdby.setValue(this.currentUserId);
     this.service.Adddiagnosis(this.diagnosisdetails.value).subscribe(res =>{
       console.log(this.diagnosisList)
     alert("Patient diagnosis details added successfully...!")
     this.diagnosisdetails.reset();
-    this.router.navigateByUrl('patientscheduling');
+    this.router.navigateByUrl('nursescheduling');
     },err=>{
      alert("Somthing went wrong...!")
     })

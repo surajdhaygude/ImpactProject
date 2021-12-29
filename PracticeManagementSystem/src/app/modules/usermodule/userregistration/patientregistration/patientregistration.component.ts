@@ -52,7 +52,7 @@ export class PatientregistrationComponent implements OnInit {
     //  console.log(this.UserForm.get('password')?.value);
     // console.log(this.UserForm.get('dob')?.value);
     // console.log(this.UserForm.get('contactnumber')?.value);
-    this.f.roleId.setValue(3);
+    this.f.roleId.setValue(4);
     this.f.status.setValue('Active');
     this.f.username.setValue(this.setemailid);
     this.http.post<any>("http://localhost:29345/api/admins/CreateUser", this.UserForm.value)
@@ -62,7 +62,7 @@ export class PatientregistrationComponent implements OnInit {
      console.log(this.UserForm.value);
  
       alert("Patient registration successfully...!")
- 
+      this.route.navigateByUrl('');
       this.UserForm.reset();
  
     },err=>{

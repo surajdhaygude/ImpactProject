@@ -25,6 +25,10 @@ export class DemographicinformationComponent implements OnInit {
   email: string="";
    age: any=0;
 
+   localUser:any="";
+  currentUser:any="";
+  currentUserId:any="";
+
   constructor(
     private formBuilder : FormBuilder, 
     private router : Router,
@@ -44,6 +48,9 @@ export class DemographicinformationComponent implements OnInit {
    public pId:string="";
     ngOnInit(): void {
     debugger;
+    this.localUser=localStorage.getItem('currentUser');
+    this.currentUser=JSON.parse(this.localUser);
+    this.currentUserId=this.currentUser.userId;
     // var patientuser= localStorage.getItem('currentUser');
     // var user = JSON.parse(patientuser);
     // this.pId= user.userid; 
@@ -51,7 +58,6 @@ export class DemographicinformationComponent implements OnInit {
     // console.log(this.pId);
 
     this.patientDetails = this.formBuilder.group({
-      patientid :[''], 
       fname :['' ],
       lname :[''],
       dob :[''],
@@ -67,12 +73,12 @@ export class DemographicinformationComponent implements OnInit {
 
     ////Emergency details controls
       //patientid :[''],
-      emergencyFname :['',Validators.minLength(2) ],
-      emergencyLname :['',Validators.minLength , Validators.minLength(2)],
+      emergencyFname :[''],
+      emergencyLname :[''],
       relationship: ['' ],
       emergencyEmail: ['' ],
-      EmergencyMobileNo: ['' ],
-      emergencyAddress: ['' ],
+      emergencyMobileNo: [''] ,
+      emergencyAddress: [''],
       title :[''],
       portalaccess:[''],
       userId:['']
@@ -106,7 +112,7 @@ export class DemographicinformationComponent implements OnInit {
   }
   AddDemographicInfo(){   
     debugger;
-    this.f.userId.setValue(5);
+    this.f.userId.setValue(this.currentUserId);
     this.service.AddDemographics(this.patientDetails.value).subscribe(res =>{
     alert("Patient Demographics details added successfully...!")
     this.patientDetails.reset();

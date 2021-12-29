@@ -36,7 +36,7 @@ export class CreateuserComponent implements OnInit {
 
   AddPhysician(){   
     debugger;
-    this.f.roleId.setValue(1);
+    this.f.roleId.setValue(2);
     this.f.username.setValue(this.setemailid);
     this.hospitaluser.AddPhysicianrecords(this.Physicianform.value).subscribe(res =>{
     alert("Phaysician details successfully...!")

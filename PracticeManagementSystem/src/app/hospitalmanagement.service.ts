@@ -23,7 +23,7 @@ export class HospitalmanagementService {
   public GetHospitalUsers():Observable<any>{
     //return this.http.get<any>(this.APIUrl);
     //changes According to Api URL
-    return this.http.get<any>("http://localhost:29345/api/Admins/GetByRoleId/1");
+    return this.http.get<any>("http://localhost:29345/api/Admins/GetByRoleId/2");
     
   }
 

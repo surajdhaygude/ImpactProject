@@ -36,7 +36,7 @@ export class CreatenurseComponent implements OnInit {
     setemailid:any="";
     AddNurse(){   
       debugger
-      this.f.roleId.setValue(2);
+      this.f.roleId.setValue(3);
       this.f.username.setValue(this.setemailid);
       this.hospitalnurse.AddNurserecords(this.Nurseform.value).subscribe(res =>{
       alert("Nurse details successfully...!")

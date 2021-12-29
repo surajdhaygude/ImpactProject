@@ -14,7 +14,7 @@ export class PatientService {
  {
    //debugger;
    //return this.http.get<any>("http://localhost:3000/PatientData");
-   return this.http.get<any>("http://localhost:29345/api/Admins/GetByRoleId/3");
+   return this.http.get<any>("http://localhost:29345/api/Admins/GetByRoleId/4");
  }
 
  public AddPatientrecords(formdata:any){

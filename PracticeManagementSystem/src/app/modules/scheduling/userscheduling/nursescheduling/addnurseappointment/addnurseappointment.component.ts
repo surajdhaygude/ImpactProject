@@ -28,7 +28,6 @@ export class AddnurseappointmentComponent implements OnInit {
       physicianId:['',Validators.required],
       dateOfAppointment:['',Validators.required],
       timeOfAppointment:['',Validators.required]
- 
     })
     this.service.GetPhysicianUsers().subscribe(
       (data: any[]) => {

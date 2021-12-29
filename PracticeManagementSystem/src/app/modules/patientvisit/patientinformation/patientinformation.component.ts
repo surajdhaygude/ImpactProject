@@ -147,6 +147,7 @@ export class PatientinformationComponent implements OnInit {
         {
           debugger
           alert("Patient Information Updated Successfully");
+          this.router.navigateByUrl('nursescheduling');
         },
         (error) => {
           console.log('error', error);

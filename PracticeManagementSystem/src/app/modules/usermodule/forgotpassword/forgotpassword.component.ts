@@ -20,9 +20,11 @@ export class ForgotpasswordComponent implements OnInit {
   }) 
 }
 
-
+setemail:any;
 
 onSubmit():void{
+
+
       
   if(this.ForgotPassword.valid)
   {
@@ -30,14 +32,18 @@ onSubmit():void{
     // console.log(this.changepassForm.get('password')?.value);
     // console.log(this.changepassForm.get('newpassword')?.value);
     // console.log(this.changepassForm.get('confirmnewpassword')?.value);
+    http://localhost:29345/api/admins/GetUserById/${id}
     debugger;
     this.http.post<any>("http://localhost:18311/api/inboxs/sendmail", this.ForgotPassword.value)
+    
+
 
   .subscribe(res =>{
 
    console.log(this.ForgotPassword.value);
         alert("Email Send Successfully...!")
    this.ForgotPassword.reset();
+   this.route.navigateByUrl('login');
 
   },err=>{
 

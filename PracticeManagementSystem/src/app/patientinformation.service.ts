@@ -13,7 +13,7 @@ export class PatientinformationService {
     return this.http.get<any[]>("http://localhost:39671/api/PatientDemoInfos/GetAllPatientDemoInfos");
   }
 
-  public AddDemographics(formdata:any){
+  public AddDemographics(formdata:any):Observable<any[]>{
     debugger
     return this.http.post<any>("http://localhost:39671/api/PatientDemoInfos/CreateDemoInfo",formdata)
   }

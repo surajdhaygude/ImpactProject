@@ -59,14 +59,14 @@ export class SchedulingService {
 
   
 
-  public GetAppointmentDetails():Observable<any>{
+  public GetAppointmentDetails(id: any):Observable<any>{
 
-    return this.http.get<any>("http://localhost:62917/api/Scheduling/GetAppointmentDetails/4");
+    return this.http.get<any>(`http://localhost:62917/api/Scheduling/GetAppointmentDetails/${id}`);
   }
 
-  public GetPhysicianAppointmentDetails():Observable<any>{
+  public GetPhysicianAppointmentDetails(id: any):Observable<any>{
 
-    return this.http.get<any>("http://localhost:62917/api/Scheduling/GetByPhysicianAppointment/3");
+    return this.http.get<any>(`http://localhost:62917/api/Scheduling/GetByPhysicianAppointment/${id}`);
   }
 
   public GetNurseAppointmentDetails():Observable<any>{
