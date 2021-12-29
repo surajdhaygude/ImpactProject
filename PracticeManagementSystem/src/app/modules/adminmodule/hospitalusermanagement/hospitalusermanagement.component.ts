@@ -13,7 +13,7 @@ import { HospitalmanagementService } from 'src/app/hospitalmanagement.service';
 export class HospitalusermanagementComponent implements OnInit {
 
   constructor(private hospitaluser:HospitalmanagementService, private route:Router) { }
-  Name:any;
+  firstname:any;
   p:number=1;
   Managelist:any[]=["Active","Deactivate","Block"]
 //   columnDefs: ColDef[] = [
@@ -41,11 +41,13 @@ rowData:any[]=[];
   }
 
   search(){
-    if(this.Name==" "){
+
+    if(this.firstname== ""){
+
       this.ngOnInit()
     }else{
       this.rowData=this.rowData.filter(res =>{
-        return res.Name.toLocaleLowerCase().match(this.Name.toLocaleLowerCase());
+        return res.firstname.toLocaleLowerCase().match(this.firstname.toLocaleLowerCase());
       })
     }
 

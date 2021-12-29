@@ -39,8 +39,8 @@ body {
   left: 100%;
   width: 80%;
   transform: translate(-50%,-50%);
-  background: rgb(239, 241, 243);
-  background: linear-gradient(90deg, rgb(244, 245, 247)0%, rgb(252, 251, 253)100%);
+  background: rgb(204, 230, 227);
+  background: linear-gradient(90deg, rgb(204, 230, 227)0%, rgb(204, 230, 227)100%);
 }
 
 
