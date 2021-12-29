@@ -1,0 +1,42 @@
+.card{
+    margin-top: 10px;
+    margin-bottom: 50px;
+    border: none;
+    padding: 30px;
+    /* position: absolute; */
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgb(204, 230, 227);
+    background: linear-gradient(90deg, rgb(204, 230, 227)0%, rgb(204, 230, 227)100%);
+}
+
+.card h2{
+    color: cadetblue;
+    font-family: fantasy;
+}
+
+label{
+    color: black;
+}
+
+.container-fluid{
+    background: rgb(204, 230, 227);
+}
+
+.borderClass{
+    border: 1px solid rgb(64, 202, 149);
+}
+
+.urgentClass{
+    color: red;
+    font-size: 12px;
+}
+
+.notUrgentClass{
+    color: green;
+}
+
+.dateClass{
+    font-size: 12px;
+}

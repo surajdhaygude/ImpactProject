@@ -1,0 +1,116 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card col-md-5">
+        <div class="text-center">
+          <h2>Patient Registration</h2>
+        </div>
+
+        <form [formGroup]="updatepatient" >
+
+
+          <!-- <div class="form-group">
+
+            <label class="col-sm-4 control-label">Title</label>
+
+            <div class="col-sm-12">
+
+              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="title" type="radio"
+                  name="title" id="inlineMR" value="Mr"> Mr. </label>
+
+              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="title" type="radio"
+                  name="title" id="inlineMS" value="Ms"> Ms. </label>
+
+              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="title" type="radio"
+                  name="title" id="inlineMrs" value="Mrs"> Mrs. </label>
+
+              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="title" type="radio"
+                  name="title" id="inlineDR" value="Dr"> Dr. </label>
+            </div>
+
+          </div> -->
+
+          <div class="col-md-12">
+            <label for="firstname" class="form-label">First Name</label>
+            <input formControlName="firstname" required type="text" placeholder="Please Enter First Name"
+              class="form-control" id="InputFname" [(ngModel)]="firstname">
+            <!-- <div *ngIf="getControl.name.errors.firstname">Name is required.</div> -->
+            <span class="text-danger"
+              *ngIf="updatepatient.controls['firstname'].dirty && updatepatient.hasError('required','firstname')">First name can
+              not be empty.</span>
+          </div>
+
+          <div class="col-mb-3">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input formControlName="lastname" required type="text" placeholder="Please Enter Last Name"
+              class="form-control" id="InputLname" [(ngModel)]="lastname">
+            <!-- <div *ngIf="getControl.name.errors.lastname">Name is required.</div> -->
+            <span class="text-danger"
+              *ngIf="updatepatient.controls['lastname'].dirty && updatepatient.hasError('required','lastname')">Last name can not
+              be empty.</span>
+          </div>
+
+          <div class="col-mb-3">
+
+            <label for="emailid" class="form-label">Email Id</label>
+
+            <input formControlName="emailid" required type="text" placeholder="Please Enter Email Id"
+              class="form-control" id="InputEmailid" [(ngModel)]="emailId">
+              <span class="text-danger" *ngIf="updatepatient.controls['emailid'].dirty && updatepatient.hasError('required','emailid')">Please enter you email address.</span>
+              <span class="text-danger" *ngIf="updatepatient.controls['emailid'].dirty && updatepatient.hasError('email','emailid')">Please enter valid email address.</span>
+          </div>
+
+          <div class="col-mb-3">
+
+            <label for="DOB" class="form-label">Date Of Birth</label>
+
+            <input formControlName="dob" required type="date" class="form-control" id="InputDOB" max="2021-12-06" [ngModel]="dob | date:'yyyy-MM-dd'" >
+            <!-- <div *ngIf="getControl.name.errors.date">Name is required.</div> -->
+            <!-- <span class="text-danger" *ngIf="updatepatient.controls['dbo'].dirty && updatepatient.hasError('required','dob')">Date Of Birth can not be empty.</span>
+            -->
+          </div>
+
+          <div class="col-mb-3">
+
+
+            <label for="contactNo" class="form-label">Contact Number</label>
+
+            <input formControlName="contactNo" required type="number" placeholder="Please Enter Contact Number"
+              class="form-control" id="contactNo" [(ngModel)]="contactNo">
+              <span class="text-danger" *ngIf="updatepatient.controls['contactNo'].dirty && updatepatient.hasError('email','contactNo')">Contact number length should be 10 only</span>
+
+            <!-- <div *ngIf="getControl.name.errors.contactnumber">Name is required.</div> -->
+
+            <span class="text-danger"
+              *ngIf="updatepatient.controls['contactNo'] .dirty && updatepatient.hasError('required','contactNo')">Contact
+              Number can not be empty.</span>
+
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Status</label>
+            <div class="mb-3">
+              <input class="form-control" formControlName='status' required list="StatusOptions" id="StatusList" placeholder="Type to search status..." [(ngModel)]="status">
+              <span class="text-danger" *ngIf="updatepatient.controls['status'].touched && updatepatient.hasError('required','status')">Please select Status.</span>
+              <datalist id="StatusOptions">
+                <option value="Active">
+                <option value="Deactivate">
+                <option value="Block">
+              </datalist>
+            </div>
+          </div>
+          <!-- [disabled]="!updatepatient.valid" -->
+
+          <button type="submit" class="btn btn-primary" (click)="updatepatientdata()" >Save</button>&nbsp;
+          <button type="reset" class="btn btn-primary" (click)="backtopatient()">Cancel</button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

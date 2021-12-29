@@ -1,22 +1,22 @@
 {
     "users": [
       {
-        "id": 1,
+        "role": "admin",
         "username": "Manisha",
         "password": "1@Manisha"
       },
       {
-        "id": 2,
+        "role": "user",
         "username": "John",
         "password": "1@JohnJohn"
       },
       {
-        "id": 3,
+        "role": "admin",
         "username": "Jane",
         "password": "1@JaneJane"
       },
       {
-        "id": 4,
+        "role": "user",
         "username": "Lily",
         "password": "1@LilyLily"
       }      

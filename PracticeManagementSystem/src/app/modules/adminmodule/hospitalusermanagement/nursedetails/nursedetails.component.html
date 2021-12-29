@@ -1,0 +1,104 @@
+<!-- <app-header></app-header> -->
+<nav class="col-8 col-sm-2 navbar navbar-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerSideNavPatient" aria-controls="navbarTogglerSideNavPatient" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerSideNavPatient" style="background-color: #e3f2fd;">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="patientusermanagement">Patient UserManagement</a>
+              </li>
+               
+          
+          <li class="nav-item">
+            <a class="nav-link" href="hospitalusermanagement">Hospital UserManagement</a>
+          </li>
+          
+        </ul>
+       
+      </div>
+    </div>
+  </nav>
+
+<div class="container fluid">
+    <div class="row">
+        <div class="hospitalHeader">
+            <h1>Hospital User Management</h1>
+        </div>
+    </div>
+    <div class="card col-md-12">
+        <div class="row">
+            <div class="col-md-6 Physiciandiv">
+                <div class="Physician p-3">
+                    <button type="button" class="btn btn-secondary  Physicianbtn" (click)="DispayPhysicainGrid()">Physician</button>
+                </div>
+            </div>
+  
+            <div class="col-md-6">
+                <div class="nurse p-3">
+                    <button type="button" class="btn btn-secondary nursebtn" (click)="DispayNurseGrid()">Nurse</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row p-3">
+            <div class="col-md -3 p-3">
+                <div>
+                    <button type="button" class="btn btn-primary addNurse" (click)="AddNurserecords()">Add New</button>
+                </div>
+  
+                <input type="text" name="Name" [(ngModel)]="firstname" (ngModelChange)="search()"
+                placeholder="Search "/>
+                
+  
+            </div>
+            <!-- <ag-grid-angular style="width: 1100px; height: 300px;" class="ag-theme-alpine" [rowData]="rowData"
+                [columnDefs]="columnDefs" [defaultColDef]="defaultColDef">
+            </ag-grid-angular> -->
+  
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <!-- <th (click)="sort('EmpID')">Employee ID&nbsp;<i class="fa fa-sort"></i></th> -->
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Date Of Joining</th>
+                    <th>Status</th>
+                    <th width="220px">Manage</th>
+                </tr>
+            </thead>
+            <!-- | orderBy: key:reverse  -->
+            <tbody>
+                <tr *ngFor="let data of NurseUser | paginate: { itemsPerPage: 5, currentPage: p };">
+                    <td>{{ data.userId }}</td>
+                    <td>{{ data.firstname }} {{data.lastname}}</td>
+                    <td>{{ data.doj | date:'yyyy-MM-dd'}}</td>
+                    <td>{{ data.status }}</td>
+                    
+                    <!-- <td >{{selectstatus}}</td> -->
+                    <!-- <td>
+                        <select id="ManagetOptions">
+                            <option value="Active">Active</option>
+                            <option value="Deactivate">Deactivate</option>
+                            <option value="Block">Block</option>
+                        </select>
+                    </td> -->
+                    <td>
+                        <!-- [routerLink]="['/post/', post.id, 'view']" -->
+                        <!-- [routerLink]="['/post/', post.id, 'edit']"  -->
+                        <!-- (click)="deletePost(post.id)" -->
+                        <!-- <a href="#" class="btn btn-info viewbtn">View</a> -->
+                        <!-- <a href=" " class="btn btn-primary editbtn">Edit</a> -->
+                        <!-- <button type="button" class="btn btn-primary editbtn">Edit</button> -->
+                        <button type="button" class="btn btn-primary editbtn" (click)="editnurse(data.userId)">Edit</button>
+                        <button type="button" (click)="deletenurse(data.userId)" class="btn btn-danger deletebtn">Delete</button>
+                        
+                    </td>
+                </tr>
+            </tbody>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </table>
+        </div>
+    </div>
+  </div>

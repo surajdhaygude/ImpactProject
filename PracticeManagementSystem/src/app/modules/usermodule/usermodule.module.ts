@@ -8,6 +8,13 @@ import { PatientregistrationComponent } from './userregistration/patientregistra
 import { AdminregistrationComponent } from './userregistration/adminregistration/adminregistration.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { PatientdashbordComponent } from './patientdashbord/patientdashbord.component';
+import { HospitalusermanagementComponent } from '../adminmodule/hospitalusermanagement/hospitalusermanagement.component';
+import { DemographicinformationComponent } from '../patient/demographicinformation/demographicinformation.component';
+import { PatientschedulingComponent } from '../scheduling/patientscheduling/patientscheduling.component';
+import { MasterLayoutModule } from '../master-layout/master-layout.module';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+
 
 
 
@@ -19,18 +26,26 @@ import { HttpClientModule } from '@angular/common/http';
     UserregistrationComponent,
     PatientregistrationComponent,
     AdminregistrationComponent,
+    PatientdashbordComponent,
+    ForgotpasswordComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MasterLayoutModule,
     FormsModule,
     RouterModule.forChild([
       {path:'',component:LoginComponent},
+      {path:'login', component:LoginComponent},
       {path:'ChangePassword', component:ChangepasswordComponent},
-      {path:'login/adminregistration', component:AdminregistrationComponent},
-      {path:'Patientregistration', component:PatientregistrationComponent}
-      
+      {path:'adminregistration', component:AdminregistrationComponent},
+      {path:'Patientregistration', component:PatientregistrationComponent},
+      {path:'patientdashboard' ,component:PatientdashbordComponent},
+      {path:'hospitalusermanagement', component:HospitalusermanagementComponent},
+      {path:'demographicinformation' , component:DemographicinformationComponent},
+      {path:'patientscheduling' , component:PatientschedulingComponent},
+      {path:'forgotpassword' , component:ForgotpasswordComponent}
     ])
   ],
 

@@ -16,17 +16,17 @@
 
             <div class="col-sm-12">
 
-              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="titleradio" type="radio"
-                  name="titleradio" id="inlineMR" value="Mr"> Mr. </label>
+              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="title" type="radio"
+                  name="title" id="inlineMR" value="Mr"> Mr. </label>
 
-              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="titleradio" type="radio"
-                  name="titleradio" id="inlineMS" value="Ms"> Ms. </label>
+              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="title" type="radio"
+                  name="title" id="inlineMS" value="Ms"> Ms. </label>
 
-              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="titleradio" type="radio"
-                  name="titleradio" id="inlineMrs" value="Mrs"> Mrs. </label>
+              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="title" type="radio"
+                  name="title" id="inlineMrs" value="Mrs"> Mrs. </label>
 
-              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="titleradio" type="radio"
-                  name="titleradio" id="inlineDR" value="Dr"> Dr. </label>
+              <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="title" type="radio"
+                  name="title" id="inlineDR" value="Dr"> Dr. </label>
             </div>
 
           </div> -->
@@ -40,27 +40,27 @@
   
                 <div class="col-2">
   
-                  <input class="form-check-input" type="radio" name="titleradio" id="inlineMR" value="Mr." formControlName="titleradio">
+                  <input class="form-check-input" type="radio" name="title" id="inlineMR" value="Mr." formControlName="title">
                   <label class="form-check-label" class="form-label" for="inlineMR">Mr.</label>
-                  <span class="text-danger" *ngIf="UserForm.controls['titleradio'].dirty && UserForm.hasError('required','titleradio')">Title can not be empty.</span>
+                  <span class="text-danger" *ngIf="UserForm.controls['title'].dirty && UserForm.hasError('required','title')">Title can not be empty.</span>
                </div>
   
                 <div class="col-2">
-                  <input class="form-check-input" type="radio" name="titleradio" id="inlineMS" value="Ms."formControlName="titleradio">
+                  <input class="form-check-input" type="radio" name="title" id="inlineMS" value="Ms."formControlName="title">
                   <label class="form-check-label" class="form-label" for="inlineMS">Ms.</label>
-                  <span class="text-danger" *ngIf="UserForm.controls['titleradio'].dirty && UserForm.hasError('required','titleradio')">Title can not be empty.</span>
+                  <span class="text-danger" *ngIf="UserForm.controls['title'].dirty && UserForm.hasError('required','title')">Title can not be empty.</span>
                 </div>
   
                 <div class="col-2">
-                  <input class="form-check-input" type="radio" name="titleradio" id="inlineMrs" value="Mrs." formControlName="titleradio">
+                  <input class="form-check-input" type="radio" name="title" id="inlineMrs" value="Mrs." formControlName="title">
                   <label class="form-check-label" class="form-label" for="inlineMrs">Mrs.</label>
-                  <span class="text-danger" *ngIf="UserForm.controls['titleradio'].dirty && UserForm.hasError('required','titleradio')">Title can not be empty.</span>
+                  <span class="text-danger" *ngIf="UserForm.controls['title'].dirty && UserForm.hasError('required','title')">Title can not be empty.</span>
                 </div>
   
                 <div class="col-2">
-                  <input class="form-check-input" type="radio" name="titleradio" id="inlineDR" value="Dr." formControlName="titleradio">
+                  <input class="form-check-input" type="radio" name="title" id="inlineDR" value="Dr." formControlName="title">
                   <label class="form-check-label" class="form-label" for="inlineDR">Dr.</label>
-                  <span class="text-danger" *ngIf="UserForm.controls['titleradio'].dirty && UserForm.hasError('required','titleradio')">Title can not be empty.</span>
+                  <span class="text-danger" *ngIf="UserForm.controls['title'].dirty && UserForm.hasError('required','title')">Title can not be empty.</span>
                
                 </div>
               </div>
@@ -92,37 +92,25 @@
             <label for="emailid" class="form-label">Email Id</label>
 
             <input formControlName="emailid" required type="text" placeholder="Please Enter Email Id"
-              class="form-control" id="InputEmailid">
-
-            <span class="text-danger"
-              *ngIf="UserForm.controls['emailid'].dirty && UserForm.hasError('required','emailid')">Email Id can not be
-              empty.</span>
+              class="form-control" id="InputEmailid" [(ngModel)]="setemailid">
+              <span class="text-danger" *ngIf="UserForm.controls['emailid'].dirty && UserForm.hasError('required','emailid')">Please enter you email address.</span>
+              <span class="text-danger" *ngIf="UserForm.controls['emailid'].dirty && UserForm.hasError('email','emailid')">Please enter valid email address.</span>
           </div>
 
           <div class="col-mb-3">
 
             <label for="DOB" class="form-label">Date Of Birth</label>
 
-            <input formControlName="dob" required type="date" class="form-control" id="InputDOB">
+            <input formControlName="dob" required type="date" class="form-control" id="InputDOB" max="2021-12-06">
             <!-- <div *ngIf="getControl.name.errors.date">Name is required.</div> -->
             <!-- <span class="text-danger" *ngIf="UserForm.controls['dbo'].dirty && UserForm.hasError('required','dob')">Date Of Birth can not be empty.</span>
             -->
           </div>
-
           <div class="col-mb-3">
-
-
-            <label for="contactnumber" class="form-label">Contact Number</label>
-
-            <input formControlName="contactnumber" required type="text" placeholder="Please Enter Contact Number"
-              class="form-control" id="ConactNumber">
-
-            <!-- <div *ngIf="getControl.name.errors.contactnumber">Name is required.</div> -->
-
-            <span class="text-danger"
-              *ngIf="UserForm.controls['contactnumber'] .dirty && UserForm.hasError('required','contactnumber')">Contact
-              Number can not be empty.</span>
-
+            <label for="contactno" class="form-label">Contact Number</label>
+            <input formControlName="contactno" required type="text" placeholder="Please Enter Contact no"
+              class="form-control" id="Inputcontactno">
+              <span class="text-danger" *ngIf="UserForm.controls['contactno'].dirty && UserForm.hasError('required','contactno')">Please enter you email address.</span>
           </div>
 
           <div class="col-mb-3">
@@ -141,7 +129,7 @@
 
           </div>
 
-          <div class="col-mb-3">
+          <div class="mb-3">
 
 
             <label for="confirmpassword" class="form-label">Confirm Password</label>
@@ -153,9 +141,10 @@
               *ngIf="UserForm.controls['confirmpassword'].dirty && UserForm.hasError('required','confirmpassword')">Confirm
               Password can not be empty.</span>
 
-          </div>
-
-          <button type="submit" class="btn btn-primary" [disabled]="!UserForm.valid">Submit</button>
+          </div> 
+          <!-- [disabled]="!UserForm.valid" -->
+          <button type="submit" class="btn btn-primary" >Submit</button>&nbsp;
+          <button type="reset" class="btn btn-primary" (click)="BacktoLogin()">Cancel</button>
 
         </form>
 
@@ -163,6 +152,12 @@
 
     </div>
 
+    <!-- <footer style="text-align: center;">
+      All Rights Are Reserved By CT Hospital
+      </footer> -->
   </div>
 
+ 
+
 </div>
+

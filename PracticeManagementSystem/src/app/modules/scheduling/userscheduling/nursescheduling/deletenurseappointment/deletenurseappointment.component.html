@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="col">
+                    <form  [formGroup]="DeleteAppointment"  (ngSubmit)="DeleteNurseAppointment()">
+                        <mat-card-title style="text-align: center;">
+                            <h2>Delete Appointment</h2>
+                        </mat-card-title>
+                     <div class="row">
+                        <mat-form-field class="full-width col-10">
+                            <mat-select placeholder="Select Appointment" formControlName="timeOfAppointment" (selectionChange)="onBookChange($event)" >
+                                <mat-option *ngFor="let al of patientdata" [value]="al.schedulingId" >
+                                    {{ al.meetingTitle}}  {{al.timeOfAppointment}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <div class="example-button-row">
+                            <button type="submit"  class="btn btn-primary">Delete Appointment</button> &nbsp;
+                            <button type="submit" (click)="RedirectToNurseScheduling()"  class="btn btn-primary">Cancel</button>
+                        </div>
+                     </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
