@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventSettingsModel, View } from '@syncfusion/ej2-angular-schedule';
+import { SchedulingService } from 'src/app/scheduling.service';
 
 @Component({
   selector: 'app-physicianscheduling',
@@ -9,38 +10,56 @@ import { EventSettingsModel, View } from '@syncfusion/ej2-angular-schedule';
 })
 export class PhysicianschedulingComponent implements OnInit {
 
-  constructor(private router:Router) { }
+    calenderData:any[]=[]
+    d:any="";
+    p:number=1;
+  constructor(private router:Router,private service:SchedulingService) { }
 
   ngOnInit(): void {
+      
+     this.service.GetPhysicianAppointmentDetails().subscribe(
+        data=> {
+         debugger
+          this.calenderData = data;
+       
+
+        
+          // this.Id=data.createdBy;
+          // this.Subject=data.meetingTitle;
+          // this.StartTime=new Date(data.dateOfAppointment);
+          // this.EndTime=data.timeOfAppointment;
+          
+          //convertdate(this.StartTime,this.EndTime);
+        })
   }
-  public eventSettings: EventSettingsModel = {
-    dataSource: [
-    {
-        Id: 1,
-        Subject: 'Explosion of Betelgeuse Star',
-        StartTime: new Date(2021, 12, 15, 9, 30),
-        EndTime: new Date(2021, 12, 15, 11, 0)
-    }, {
-        Id: 2,
-        Subject: 'Thule Air Crash Report',
-        StartTime: new Date(2021, 12, 12, 12, 0),
-        EndTime: new Date(2021, 12, 12, 14, 0)
-    }, {
-        Id: 3,
-        Subject: 'Blue Moon Eclipse',
-        StartTime: new Date(2021, 12 ,13, 9, 30),
-        EndTime: new Date(2021, 12, 13, 11, 0)
-    }, {
-        Id: 4,
-        Subject: 'Meteor Showers in 2018',
-        StartTime: new Date(2021, 12, 14, 13, 0),
-        EndTime: new Date(2021, 12, 14, 14, 30)
-    }]
-};
+//   public eventSettings: EventSettingsModel = {
+//     dataSource: [
+//     {
+//         Id: 1,
+//         Subject: 'Explosion of Betelgeuse Star',
+//         StartTime: new Date(2021, 12, 15, 9, 30),
+//         EndTime: new Date(2021, 12, 15, 11, 0)
+//     }, {
+//         Id: 2,
+//         Subject: 'Thule Air Crash Report',
+//         StartTime: new Date(2021, 12, 12, 12, 0),
+//         EndTime: new Date(2021, 12, 12, 14, 0)
+//     }, {
+//         Id: 3,
+//         Subject: 'Blue Moon Eclipse',
+//         StartTime: new Date(2021, 12 ,13, 9, 30),
+//         EndTime: new Date(2021, 12, 13, 11, 0)
+//     }, {
+//         Id: 4,
+//         Subject: 'Meteor Showers in 2018',
+//         StartTime: new Date(2021, 12, 14, 13, 0),
+//         EndTime: new Date(2021, 12, 14, 14, 30)
+//     }]
+// };
  
 
-public selectedDate: Date = new Date(2021, 12, 18);
-public currentView: View = 'Month';
+// public selectedDate: Date = new Date(2021, 12, 18);
+// public currentView: View = 'Month';
 
 backtoDashbors(){
     this.router.navigateByUrl('patientdashboard')

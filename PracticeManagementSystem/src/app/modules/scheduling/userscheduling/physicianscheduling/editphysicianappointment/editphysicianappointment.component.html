@@ -3,7 +3,7 @@
       <div class="col">
         <div class="card">
           <div class="col">
-            <form class="example-form">
+            <form  [formGroup]="EditAppointment" (ngSubmit)="EditPhysicianAppointment()">
                 <mat-card-title style="text-align: center;">
                     <h2>Edit Appointment</h2>
                 </mat-card-title>

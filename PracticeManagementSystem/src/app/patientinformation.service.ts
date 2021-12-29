@@ -22,4 +22,6 @@ export class PatientinformationService {
     debugger
     return this.http.put<any>("http://localhost:39671/api/PatientDemoInfos/UpdateDemoInfo",formdata)
   }
+  
+ 
 }

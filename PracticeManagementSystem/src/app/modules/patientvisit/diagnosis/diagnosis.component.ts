@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PatientvisitService } from 'src/app/patientvisit.service';
 
 @Component({
   selector: 'app-diagnosis',
@@ -11,17 +12,42 @@ export class DiagnosisComponent implements OnInit {
   diagnosisdetails!: FormGroup;
   diagnosisList : any = [];
   isdiagnosis: boolean = true;
-  constructor(private formBuilder : FormBuilder, private router:Router) { 
+  constructor(private formBuilder : FormBuilder, private router:Router, private service:PatientvisitService) { 
     this.diagnosisdetails = this.formBuilder.group({
       diagnosisCode: ['',Validators.required],
       diagnosisDescription: ['',Validators.required],
+      patientId:['',Validators.required],
+      physicianId:['',Validators.required],
+      createdby:['']
       //diagnosisIsDepricated: ['',Validators.required],
     })
   }
+  patientdata:any[]=[];
+  phyasiciandata:any[]=[];
+  diagnosismasterdata:any[]=[];
 
   ngOnInit(): void {
+    debugger
+    this.service.GetPatientUsers().subscribe(
+      (data: any[]) => {
+    debugger
 
-    
+        this.patientdata = data;
+      })
+
+      this.service.GetPhyasicanUsers().subscribe(
+        (data: any[]) => {
+      debugger
+          this.phyasiciandata = data;
+        })
+
+
+        this.service.GetDiagnosisMasterData().subscribe(
+          (data: any[]) =>{
+            debugger
+            this.diagnosismasterdata=data
+          })
+
   }
 
   diagnosis=[
@@ -32,22 +58,22 @@ export class DiagnosisComponent implements OnInit {
     "Venom or Salivary",
     "Other",
   ];
-  Description=[
-    "food",
-    "Fungi",
-    "Drug",
-    "Plant",
-    "Venom or Salivary",
-    "Other",
-   ];
-   Code=[
-    "101",
-    "102",
-    "103",
-    "104",
-    "105",
-    "105",
-   ];
+  // Description=[
+  //   "food",
+  //   "Typhoid",
+  //   "Drug",
+  //   "Cholera",
+  //   "Venom or Salivary",
+  //   "Other",
+  //  ];
+  //  Code=[
+  //   "A00",
+  //   "B00",
+  //   "C00",
+  //   "D00",
+  //   "E00",
+  //   "F00",
+  //  ];
 
   option = [
     {id: 'y', name: 'YES'},
@@ -55,15 +81,11 @@ export class DiagnosisComponent implements OnInit {
    
   ];
 
-  addDiagnosis(){
-    // debugger;
-    // this.diagnosisList.push(this.diagnosisdetails.value); 
-    // this.diagnosisdetails.reset();
-    // //this.resetDiagnosis();
-    this.diagnosisList=this.diagnosisdetails.value
-    console.log(this.diagnosisList)
-    alert("Diagnosis Added successfully...!")
-  }
+  // addDiagnosis(){
+  //   this.diagnosisList=this.diagnosisdetails.value
+  //   console.log(this.diagnosisList)
+  //   alert("Diagnosis Added successfully...!")
+  // }
   removeDiagnosis(element:any){
     this.diagnosisList.forEach((value: any, index:any)=>{
       if(value == element)
@@ -73,6 +95,28 @@ export class DiagnosisComponent implements OnInit {
   Back(){
      this.router.navigateByUrl("medication");
   }
+  get f() {
+
+    return this.diagnosisdetails?.controls;
+
+  }
+
+  diagnosisadded(){
+    debugger;
+    // this.f.patientid.setValue(20);
+    // this.f.physicianid.setValue(4);
+    this.f.createdby.setValue(5);
+    this.service.Adddiagnosis(this.diagnosisdetails.value).subscribe(res =>{
+      console.log(this.diagnosisList)
+    alert("Patient diagnosis details added successfully...!")
+    this.diagnosisdetails.reset();
+    this.router.navigateByUrl('patientscheduling');
+    },err=>{
+     alert("Somthing went wrong...!")
+    })
+  }
+
+ 
 
 
 }
