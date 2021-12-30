@@ -14,6 +14,7 @@ export class ProcedureComponent implements OnInit {
   localUser:any="";
   currentUser:any="";
   currentUserId:any="";
+  currentroleId:any="";
   constructor(private fb:FormBuilder , private router:Router,private service:PatientvisitService) {
     this.proceduredetails = this.fb.group({
       patientId:['',Validators.required],
@@ -33,6 +34,7 @@ export class ProcedureComponent implements OnInit {
     this.localUser=localStorage.getItem('currentUser');
           this.currentUser=JSON.parse(this.localUser);
           this.currentUserId=this.currentUser.userId;
+          this.currentroleId=this.currentUser.roleId
     debugger
     this.service.GetPatientUsers().subscribe(
       (data: any[]) => {
@@ -88,10 +90,36 @@ export class ProcedureComponent implements OnInit {
       console.log(this.procedureList)
     alert("Patient Procedure details added successfully...!")
     this.proceduredetails.reset();
-    this.router.navigateByUrl('nursescheduling');
+    if(this.currentroleId==2)
+    {
+      this.router.navigateByUrl("physicianscheduling")
+    }
+    else if(this.currentroleId==3)
+    {
+      this.router.navigateByUrl("nursescheduling")
+    }
+    else
+    {
+      this.router.navigateByUrl("patientscheduling")
+    }
     },err=>{
      alert("Somthing went wrong...!")
     })
+  }
+  Cancel(){
+     
+    if(this.currentroleId==2)
+  {
+    this.router.navigateByUrl("physicianscheduling")
+  }
+  else if(this.currentroleId==3)
+  {
+    this.router.navigateByUrl("nursescheduling")
+  }
+  else
+  {
+    this.router.navigateByUrl("patientscheduling")
+  }
   }
   
 

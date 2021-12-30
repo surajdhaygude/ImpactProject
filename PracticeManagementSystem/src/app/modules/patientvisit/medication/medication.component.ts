@@ -14,6 +14,7 @@ export class MedicationComponent implements OnInit {
   localUser:any="";
   currentUser:any="";
   currentUserId:any="";
+  currentroleId:any="";
   constructor(private formBuilder : FormBuilder , private router:Router ,private service:PatientvisitService) { 
     this.patientmedForm = this.formBuilder.group({
       
@@ -37,6 +38,7 @@ export class MedicationComponent implements OnInit {
     this.localUser=localStorage.getItem('currentUser');
           this.currentUser=JSON.parse(this.localUser);
           this.currentUserId=this.currentUser.userId;
+          this.currentroleId=this.currentUser.roleId
     debugger
     this.service.GetPatientUsers().subscribe(
       (data: any[]) => {
@@ -119,10 +121,36 @@ export class MedicationComponent implements OnInit {
       console.log(this.medicationList)
     alert("Patient Medication details added successfully...!")
     this.patientmedForm.reset();
-    this.router.navigateByUrl('nursescheduling');
+    if(this.currentroleId==2)
+  {
+    this.router.navigateByUrl("physicianscheduling")
+  }
+  else if(this.currentroleId==3)
+  {
+    this.router.navigateByUrl("nursescheduling")
+  }
+  else
+  {
+    this.router.navigateByUrl("patientscheduling")
+  }
     },err=>{
      alert("Somthing went wrong...!")
     })
+  }
+  Cancel(){
+     
+    if(this.currentroleId==2)
+  {
+    this.router.navigateByUrl("physicianscheduling")
+  }
+  else if(this.currentroleId==3)
+  {
+    this.router.navigateByUrl("nursescheduling")
+  }
+  else
+  {
+    this.router.navigateByUrl("patientscheduling")
+  }
   }
   
 
