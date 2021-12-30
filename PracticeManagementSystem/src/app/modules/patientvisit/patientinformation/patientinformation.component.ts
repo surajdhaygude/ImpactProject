@@ -93,6 +93,8 @@ export class PatientinformationComponent implements OnInit {
   showemergencyEmail:any;
   showemergencyMobileNo:any;
   showemergencyAddress:any;
+  showtypeofAllergies:any;
+  showportalaccess:any;
 
   showOtherFieldsOnUserId():void{ 
     try{
@@ -118,7 +120,8 @@ export class PatientinformationComponent implements OnInit {
             this.showemergencyEmail=record.emergencyEmail;
             this.showemergencyMobileNo=record.emergencyMobileNo;
             this.showemergencyAddress=record.emergencyAddress;
-           
+           this.showtypeofAllergies=record.typeofAllergies;
+           this.showportalaccess=record.portalaccess;
            throw this.BreakException;
           }
       });
