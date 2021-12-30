@@ -21,12 +21,13 @@
         
         <div class="row">
           <div class="col-1"></div>
-        <mat-radio-group  formControlName="gender" [(ngModel)]="showgender" class="full-width col-10">
+          <!-- [checked]="showgender=='Mr'" -->
+        <mat-radio-group  formControlName="gender" [(ngModel)]="showtitle" class="full-width col-10">
           <mat-label class="label">Title:</mat-label>&nbsp;&nbsp;&nbsp;
-          <mat-radio-button [checked]="showgender=='Mr'" value="Mr" color="primary">Mr</mat-radio-button>&nbsp;
-          <mat-radio-button [checked]="showgender=='Ms'" value="Ms" color="primary">Ms</mat-radio-button>&nbsp;
-          <mat-radio-button [checked]="showgender=='Mrs'" value="Mrs" color="primary">Mrs</mat-radio-button>&nbsp;
-          <mat-radio-button [checked]="showgender=='Dr'" value="Dr" color="primary">Dr</mat-radio-button>&nbsp;
+          <mat-radio-button value="Mr" color="primary">Mr</mat-radio-button>&nbsp;
+          <mat-radio-button value="Ms" color="primary">Ms</mat-radio-button>&nbsp;
+          <mat-radio-button  value="Mrs" color="primary">Mrs</mat-radio-button>&nbsp;
+          <mat-radio-button  value="Dr" color="primary">Dr</mat-radio-button>&nbsp;
         </mat-radio-group>
         <div class="col-1"></div>
       </div>
@@ -150,11 +151,12 @@
         <div class="row">
           <div class="col-1"></div>
 
-        <mat-radio-group  formControlName="portalaccess" name="id" class="full-width col-10">
+        <mat-radio-group  formControlName="portalaccess" name="id" [(ngModel)]="showportalaccess" class="full-width col-10">
           <mat-label> Do You Need Access To Patient Portal ?</mat-label
           >&nbsp;&nbsp;
-          <mat-radio-button value="1"> Yes </mat-radio-button>&nbsp;&nbsp;
-          <mat-radio-button value="2"> No </mat-radio-button>
+          <!-- [(ngModel)]="showportalaccess" -->
+          <mat-radio-button value="Yes"> Yes </mat-radio-button>&nbsp;&nbsp;
+          <mat-radio-button value="No"> No </mat-radio-button>
         </mat-radio-group>
         <div class="col-1"></div>
         </div>
@@ -162,11 +164,12 @@
         <br />
         <div class="row">
           <div class="col-1"></div>
-        <mat-radio-group formControlName="typeofAllergies" name="id1" class="full-width col-10">
+        <mat-radio-group formControlName="typeofAllergies" name="id1" [(ngModel)]="showtypeofAllergies" class="full-width col-10">
           <mat-label> Patient Has Any Known Allergy ?</mat-label
           >&nbsp;&nbsp;
-          <mat-radio-button value="1"> Yes </mat-radio-button>&nbsp;&nbsp;
-          <mat-radio-button value="2"> No </mat-radio-button>
+          <!-- [(ngModel)]="showtypeofAllergies" -->
+          <mat-radio-button value="Yes"> Yes </mat-radio-button>&nbsp;&nbsp;
+          <mat-radio-button value="No"> No </mat-radio-button>
         </mat-radio-group>
         <div class="col-1"></div>
         </div>
@@ -176,7 +179,7 @@
           <div class="col-1"></div>
           <mat-form-field appearance="legacy" class="full-width col-10">
             <mat-label>FirstName</mat-label>
-            <input matInput formControlName="emergencyFname" required [value]="showemergencyFname" />
+            <input matInput formControlName="emergencyFname" required [(ngModel)]="showemergencyFname" />
           </mat-form-field>
           <div class="col-1"></div>
         </div>
