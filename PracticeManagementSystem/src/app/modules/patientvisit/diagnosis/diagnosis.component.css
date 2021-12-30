@@ -2,7 +2,7 @@
     margin-top: 10px;
     border: none;
     padding: 30px;
-    position: absolute;
+    /* position: absolute; */
     top:50%;
     left: 50%;
     width: 50%;
@@ -19,9 +19,9 @@ label{
     color: white;
 }
 
-.container-fluid{
+/* .container-fluid{
     background: hsla(205, 40%, 30%, 1);
-}
+} */
 
 .backbutton{
     margin-left: 16px;;

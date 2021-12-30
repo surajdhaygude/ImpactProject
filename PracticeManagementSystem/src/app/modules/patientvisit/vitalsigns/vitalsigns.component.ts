@@ -12,6 +12,7 @@ export class VitalsignsComponent implements OnInit {
   localUser:any="";
   currentUser:any="";
   currentUserId:any="";
+  currentroleId:any="";
   vitalsigndetails !: FormGroup;
   constructor(private fb:FormBuilder , private router:Router,private service:PatientvisitService){
     this.vitalsigndetails = this.fb.group({
@@ -33,6 +34,7 @@ phyasiciandata:any[]=[];
     this.localUser=localStorage.getItem('currentUser');
     this.currentUser=JSON.parse(this.localUser);
     this.currentUserId=this.currentUser.userId;
+    this.currentroleId=this.currentUser.roleId
     debugger
     this.service.GetPatientUsers().subscribe(
       (data: any[]) => {
@@ -59,10 +61,49 @@ phyasiciandata:any[]=[];
     this.service.AddPatientVitalSign(this.vitalsigndetails.value).subscribe(res =>{
     alert("Patient Vital sign details added successfully...!")
     this.vitalsigndetails.reset();
-    this.router.navigateByUrl('nursescheduling');
+    if(this.currentroleId==2)
+  {
+    this.router.navigateByUrl("physicianscheduling")
+  }
+  else if(this.currentroleId==3)
+  {
+    this.router.navigateByUrl("nursescheduling")
+  }
+  else
+  {
+    this.router.navigateByUrl("patientscheduling")
+  }
     },err=>{
-     alert("Somthing went wrong...!")
+   
+     alert("Patient Vital sign details added successfully...!")
+     if(this.currentroleId==2)
+     {
+       this.router.navigateByUrl("physicianscheduling")
+     }
+     else if(this.currentroleId==3)
+     {
+       this.router.navigateByUrl("nursescheduling")
+     }
+     else
+     {
+       this.router.navigateByUrl("patientscheduling")
+     }
     })
 
+  }
+  Cancel(){
+     
+  if(this.currentroleId==2)
+  {
+    this.router.navigateByUrl("physicianscheduling")
+  }
+  else if(this.currentroleId==3)
+  {
+    this.router.navigateByUrl("nursescheduling")
+  }
+  else
+  {
+    this.router.navigateByUrl("patientscheduling")
+  }
   }
 }

@@ -15,10 +15,19 @@ export class PatientinformationComponent implements OnInit {
   allPatientDemoInfo:any[]=[];
   BreakException: any;
   testgender:any="Male";
+  localUser:any="";
+  currentUser:any="";
+  currentUserId:any="";
+  currentroleId:any="";
 
   constructor(private formBuilder : FormBuilder, private router : Router,private service:PatientinformationService) { }
 
   ngOnInit(): void {
+    this.localUser=localStorage.getItem('currentUser');
+    this.currentUser=JSON.parse(this.localUser);
+    this.currentUserId=this.currentUser.userId;
+    this.currentroleId=this.currentUser.roleId
+  
     
  this.patientDetails = this.formBuilder.group({
   userId :['',Validators.required], 
@@ -84,6 +93,8 @@ export class PatientinformationComponent implements OnInit {
   showemergencyEmail:any;
   showemergencyMobileNo:any;
   showemergencyAddress:any;
+  showtypeofAllergies:any;
+  showportalaccess:any;
 
   showOtherFieldsOnUserId():void{ 
     try{
@@ -109,7 +120,8 @@ export class PatientinformationComponent implements OnInit {
             this.showemergencyEmail=record.emergencyEmail;
             this.showemergencyMobileNo=record.emergencyMobileNo;
             this.showemergencyAddress=record.emergencyAddress;
-           
+           this.showtypeofAllergies=record.typeofAllergies;
+           this.showportalaccess=record.portalaccess;
            throw this.BreakException;
           }
       });
@@ -147,7 +159,18 @@ export class PatientinformationComponent implements OnInit {
         {
           debugger
           alert("Patient Information Updated Successfully");
-          this.router.navigateByUrl('nursescheduling');
+          if(this.currentroleId==2)
+          {
+            this.router.navigateByUrl("physicianscheduling")
+          }
+          else if(this.currentroleId==3)
+          {
+            this.router.navigateByUrl("nursescheduling")
+          }
+          else
+          {
+            this.router.navigateByUrl("patientscheduling")
+          }
         },
         (error) => {
           console.log('error', error);
@@ -189,6 +212,21 @@ export class PatientinformationComponent implements OnInit {
 }
 toggleDiable() {
   // this.isReadonly = true;
+}
+Cancel(){
+  if(this.currentroleId==2)
+  {
+    this.router.navigateByUrl("physicianscheduling")
+  }
+  else if(this.currentroleId==3)
+  {
+    this.router.navigateByUrl("nursescheduling")
+  }
+  else
+  {
+    this.router.navigateByUrl("patientscheduling")
+  }
+
 }
 
 // edituser():void{

@@ -89,14 +89,18 @@
               <div class="full-width col-10">
                 <button type="submit"
                 type="submit" [disabled]='!diagnosisdetails.valid' class="btn btn-primary" >Add</button>
+                &nbsp;&nbsp;
+                <button class="btn btn-outline-primary" (click)="Cancel()">
+                  Cancel
+                </button>
               </div>
+              
+           
               <div class="col-1"></div>
             </div>
      
-          <!-- <button mat-flat-button color="primary" (click)="Back()">Cancel</button> -->
           </form>
-          
-         
+
         </div>
       </div>
     </div>

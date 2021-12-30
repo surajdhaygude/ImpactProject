@@ -20,8 +20,9 @@ export class ForgotpasswordComponent implements OnInit {
   }) 
 }
 
-setemail:any;
-
+setemail:any="";
+username:string="Suraj Dhaygude";
+address:string="";
 onSubmit():void{
 
 
@@ -32,9 +33,12 @@ onSubmit():void{
     // console.log(this.changepassForm.get('password')?.value);
     // console.log(this.changepassForm.get('newpassword')?.value);
     // console.log(this.changepassForm.get('confirmnewpassword')?.value);
-    http://localhost:29345/api/admins/GetUserById/${id}
+   // http://localhost:29345/api/admins/GetUserById/${id}
+ //http://localhost:18311/api/inboxs/sendmail?username=Atish&address=atishlangote28@gmail.com
+//`http://localhost:29345/api/admins/GetUserById/${id}`
+//  "http://localhost:18311/api/inboxs/sendmail", this.ForgotPassword.value
     debugger;
-    this.http.post<any>("http://localhost:18311/api/inboxs/sendmail", this.ForgotPassword.value)
+    this.http.post<any>("http://localhost:18311/api/inboxs/sendmail",this.setemail)
     
 
 

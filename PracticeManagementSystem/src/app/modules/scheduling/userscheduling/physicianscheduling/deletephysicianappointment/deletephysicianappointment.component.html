@@ -9,9 +9,9 @@
                         </mat-card-title>
                       <div class="row">
                         <mat-form-field class="full-width col-10">
-                            <mat-select placeholder="Select Appointment" formControlName="timeOfAppointment"> 
-                                <mat-option *ngFor="let al of Timeslot" [value]="al">
-                                    {{ al }}
+                            <mat-select placeholder="Select Appointment" formControlName="timeOfAppointment" (selectionChange)="onBookChange($event)"> 
+                                <mat-option *ngFor="let al of patientdata" [value]="al.schedulingId" >
+                                    {{ al.meetingTitle}}  {{al.timeOfAppointment}}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>

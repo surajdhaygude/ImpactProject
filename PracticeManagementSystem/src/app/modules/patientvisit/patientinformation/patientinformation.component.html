@@ -150,11 +150,12 @@
         <div class="row">
           <div class="col-1"></div>
 
-        <mat-radio-group  formControlName="portalaccess" name="id" class="full-width col-10">
+        <mat-radio-group  formControlName="portalaccess" name="id" [(ngModel)]="showportalaccess" class="full-width col-10">
           <mat-label> Do You Need Access To Patient Portal ?</mat-label
           >&nbsp;&nbsp;
-          <mat-radio-button value="1"> Yes </mat-radio-button>&nbsp;&nbsp;
-          <mat-radio-button value="2"> No </mat-radio-button>
+          <!-- [(ngModel)]="showportalaccess" -->
+          <mat-radio-button value="Yes"> Yes </mat-radio-button>&nbsp;&nbsp;
+          <mat-radio-button value="No"> No </mat-radio-button>
         </mat-radio-group>
         <div class="col-1"></div>
         </div>
@@ -162,11 +163,12 @@
         <br />
         <div class="row">
           <div class="col-1"></div>
-        <mat-radio-group formControlName="typeofAllergies" name="id1" class="full-width col-10">
+        <mat-radio-group formControlName="typeofAllergies" name="id1" [(ngModel)]="showtypeofAllergies" class="full-width col-10">
           <mat-label> Patient Has Any Known Allergy ?</mat-label
           >&nbsp;&nbsp;
-          <mat-radio-button value="1"> Yes </mat-radio-button>&nbsp;&nbsp;
-          <mat-radio-button value="2"> No </mat-radio-button>
+          <!-- [(ngModel)]="showtypeofAllergies" -->
+          <mat-radio-button value="Yes"> Yes </mat-radio-button>&nbsp;&nbsp;
+          <mat-radio-button value="No"> No </mat-radio-button>
         </mat-radio-group>
         <div class="col-1"></div>
         </div>
@@ -176,7 +178,7 @@
           <div class="col-1"></div>
           <mat-form-field appearance="legacy" class="full-width col-10">
             <mat-label>FirstName</mat-label>
-            <input matInput formControlName="emergencyFname" required [value]="showemergencyFname" />
+            <input matInput formControlName="emergencyFname" required [(ngModel)]="showemergencyFname" />
           </mat-form-field>
           <div class="col-1"></div>
         </div>
@@ -243,9 +245,9 @@
           <button class="btn btn-outline-primary" (click)="updatePatientDemoInfo()" >
              Edit
           </button>&nbsp;&nbsp;&nbsp;&nbsp;
-          <!-- <button class="btn btn-outline-primary">
+          <button class="btn btn-outline-primary" (click)="Cancel()">
             Cancel
-          </button> -->
+          </button>
           <div class="col-1"></div>
           </div>
         </div>
