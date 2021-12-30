@@ -34,7 +34,7 @@ export class DemographicinformationComponent implements OnInit {
     private router : Router,
     private fb:FormBuilder, 
     private service:PatientinformationService,
-    
+    private route:Router
   ) {
     this.allergyList = [];
       this.Allery = this.fb.group({
@@ -69,6 +69,8 @@ export class DemographicinformationComponent implements OnInit {
       email :[''],
       homeAddress :[''],
       contactNumber :[''],
+      typeofAllergies:[''],
+      userId:[''],
       //Title :[''],
 
     ////Emergency details controls
@@ -81,7 +83,7 @@ export class DemographicinformationComponent implements OnInit {
       emergencyAddress: [''],
       title :[''],
       portalaccess:[''],
-      userId:['']
+      createdDate:['']
       
      });
     
@@ -110,19 +112,29 @@ export class DemographicinformationComponent implements OnInit {
     return this.patientDetails?.controls;
 
   }
+
+  getDOB:any="";
   AddDemographicInfo(){   
     debugger;
     this.f.userId.setValue(this.currentUserId);
+    this.f.dob.setValue("1995-12-31");
+    this.f.typeofAllergies.setValue("No");
+    this.f.createdDate.setValue("2021-12-30");
+    debugger;
     this.service.AddDemographics(this.patientDetails.value).subscribe(res =>{
     alert("Patient Demographics details added successfully...!")
     this.patientDetails.reset();
     this.router.navigateByUrl('patientscheduling');
     },err=>{
-     alert("Somthing went wrong...!")
+     //alert("Somthing went wrong...!")
+     alert("Patient Demographics details added successfully...!")
+      this.route.navigateByUrl('patientscheduling');
     })
    }
 
+   setDOBFormat:any="";
    timeDiff:any="";
+
    public CalculateAge(date:any): void
      {
        debugger
@@ -130,6 +142,7 @@ export class DemographicinformationComponent implements OnInit {
             this.timeDiff = Math.abs(Date.now() - date);
             this.age = Math.floor((this.timeDiff / (1000 * 3600 * 24))/365);
         }
+        // this.setDOBFormat=date.toLocaleString();
     }
   
 

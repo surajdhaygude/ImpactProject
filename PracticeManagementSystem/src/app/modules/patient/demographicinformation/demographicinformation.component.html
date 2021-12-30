@@ -21,18 +21,10 @@
                               <h2><b>Personal Information</b></h2>
                             </div>
                             <mat-radio-group formControlName="title">
-                              <mat-radio-button value="1" color="primary"
-                                >Mr&nbsp;</mat-radio-button
-                              >
-                              <mat-radio-button value="2" color="primary"
-                                >Ms&nbsp;</mat-radio-button
-                              >
-                              <mat-radio-button value="3" color="primary"
-                                >Mrs&nbsp;</mat-radio-button
-                              >
-                              <mat-radio-button value="4" color="primary"
-                                >Dr&nbsp;</mat-radio-button
-                              >
+                              <mat-radio-button value="Mr" color="primary">Mr</mat-radio-button>&nbsp;
+                              <mat-radio-button value="Ms" color="primary">Ms</mat-radio-button>&nbsp;
+                              <mat-radio-button value="Mrs" color="primary">Mrs</mat-radio-button>&nbsp;
+                              <mat-radio-button value="Dr" color="primary">Dr</mat-radio-button>&nbsp;
                             </mat-radio-group>
                 
                             <div class="row">
@@ -49,7 +41,7 @@
                             <div class="row">
                               <mat-form-field appearance="legacy" class="full-width col-4" >
                                 <mat-label>DOB</mat-label>
-                                <input  matInput formControlName="dob" [matDatepicker]="picker"  required (ngModelChange)="CalculateAge($event)" />
+                                <input  matInput formControlName="dob" [matDatepicker]="picker" [(ngModel)]="getDOB"  required (ngModelChange)="CalculateAge($event)" />
                                 <mat-datepicker-toggle
                                   matSuffix
                                   [for]="picker"
@@ -85,8 +77,8 @@
                              </mat-form-field>
                                <mat-form-field class="full-width col-4">
                                 <mat-select formControlName="gender" placeholder="Gender"  required>
-                                  <mat-option value="3">male </mat-option>
-                                  <mat-option value="4">female</mat-option>
+                                  <mat-option value="Male">Male </mat-option>
+                                  <mat-option value="Female">Female</mat-option>
                                 </mat-select>
                               </mat-form-field>  
                               
@@ -182,8 +174,8 @@
                             <mat-radio-group name="id" formControlName="portalaccess">
                               <mat-label> Do you need Access to Patient Portal</mat-label
                               >&nbsp;&nbsp;&nbsp;
-                              <mat-radio-button value="1"> Yes </mat-radio-button>&nbsp;&nbsp;
-                              <mat-radio-button value="2"> No </mat-radio-button>
+                              <mat-radio-button value="Yes"> Yes </mat-radio-button>&nbsp;&nbsp;
+                              <mat-radio-button value="No"> No </mat-radio-button>
                             </mat-radio-group>
                            </div>
                           <br/>
