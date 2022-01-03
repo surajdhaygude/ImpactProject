@@ -9,6 +9,7 @@ import { MaterialModule } from '../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PatientvisitdashboardComponent } from './patientvisitdashboard/patientvisitdashboard.component';
 import { MasterLayoutModule } from '../master-layout/master-layout.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -28,7 +29,10 @@ import { MasterLayoutModule } from '../master-layout/master-layout.module';
     MaterialModule,
     FormsModule,
     MasterLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forChild([
+      {path:'patientinformation',component:PatientinformationComponent}
+    ])
   ]
 })
 export class PatientvisitModule { }
