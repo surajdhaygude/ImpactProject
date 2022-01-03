@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PatientvisitService } from 'src/app/patientvisit.service';
@@ -9,6 +9,9 @@ import { PatientvisitService } from 'src/app/patientvisit.service';
   styleUrls: ['./vitalsigns.component.css']
 })
 export class VitalsignsComponent implements OnInit {
+
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
+
   localUser:any="";
   currentUser:any="";
   currentUserId:any="";
@@ -105,5 +108,18 @@ phyasiciandata:any[]=[];
   {
     this.router.navigateByUrl("patientscheduling")
   }
+  }
+
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
   }
 }

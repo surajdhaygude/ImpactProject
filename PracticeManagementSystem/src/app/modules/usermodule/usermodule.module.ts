@@ -37,8 +37,8 @@ import { AuthGuard } from 'src/app/auth/auth.guard';
     MasterLayoutModule,
     FormsModule,
     RouterModule.forChild([
-      {path:'',component:LoginComponent},
-      {path:'login', component:LoginComponent},
+      // {path:'',component:LoginComponent},
+      {path:'', component:LoginComponent},
       {path:'ChangePassword', component:ChangepasswordComponent},
       {path:'adminregistration', component:AdminregistrationComponent,canActivate: [AuthGuard]},
       {path:'Patientregistration', component:PatientregistrationComponent},

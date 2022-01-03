@@ -20,8 +20,8 @@ import { MaterialModule } from '../material/material.module';
     CommonModule,
     MaterialModule,
     RouterModule.forChild([ 
-     {path:'', component:HomescreenComponent}, 
-      {path:'login',component:LoginComponent},
+    //  {path:'', component:HomescreenComponent}, 
+      {path:'',component:LoginComponent},
       {path:'header',component:HeaderComponent},
       {path:'navbar', component:NavbarComponent},
       {path:'adminregistration', component:AdminregistrationComponent},

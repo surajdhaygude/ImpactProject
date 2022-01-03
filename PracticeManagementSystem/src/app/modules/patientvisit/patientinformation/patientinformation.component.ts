@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PatientinformationService } from 'src/app/patientinformation.service';
@@ -9,6 +9,8 @@ import { PatientinformationService } from 'src/app/patientinformation.service';
   styleUrls: ['./patientinformation.component.css']
 })
 export class PatientinformationComponent implements OnInit {
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
+
   patientDetails: any;
   EmerencyInfo: any;
   isReadonly = true;
@@ -227,6 +229,19 @@ Cancel(){
     this.router.navigateByUrl("patientscheduling")
   }
 
+}
+
+toggleSideBar() {
+  this.toggleSideBarForMe.emit();
+  setTimeout(() => {
+    window.dispatchEvent(
+      new Event('resize')
+    );
+  }, 300);
+}
+sideBarOpen = true;
+sideBarToggler() {
+  this.sideBarOpen = !this.sideBarOpen;
 }
 
 // edituser():void{
