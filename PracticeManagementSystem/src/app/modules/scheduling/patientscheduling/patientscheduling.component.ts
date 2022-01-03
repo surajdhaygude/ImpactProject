@@ -1,5 +1,5 @@
 import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import{EventSettingsModel, View} from '@syncfusion/ej2-angular-schedule';
 import { SchedulingService } from 'src/app/scheduling.service';
@@ -13,6 +13,7 @@ import { SchedulingService } from 'src/app/scheduling.service';
   styleUrls: ['./patientscheduling.component.css']
 })
 export class PatientschedulingComponent implements OnInit {
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
   calenderData:any[]=[]
   Id:number=0;
@@ -167,6 +168,18 @@ backtoDashbors(){
 
 createappointment(){
     this.router.navigateByUrl('addpatientappointment')
+}
+toggleSideBar() {
+  this.toggleSideBarForMe.emit();
+  setTimeout(() => {
+    window.dispatchEvent(
+      new Event('resize')
+    );
+  }, 300);
+}
+sideBarOpen = true;
+sideBarToggler() {
+  this.sideBarOpen = !this.sideBarOpen;
 }
 
 }

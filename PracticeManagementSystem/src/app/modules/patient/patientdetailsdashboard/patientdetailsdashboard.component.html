@@ -1,4 +1,4 @@
-
+<!-- 
 <nav class="col-8 col-sm-2 navbar navbar-light">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerSideNavPatient" aria-controls="navbarTogglerSideNavPatient" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,4 +24,29 @@
        
       </div>
     </div>
-  </nav>
+  </nav> -->
+
+
+
+<mat-divider></mat-divider>
+<mat-nav-list>
+  <div class="profile-card">
+    <div class="header">
+        <h2 style="color:white;">Patient </h2>
+        <h4 style="color:white;">patient@gmail.com</h4>
+    </div>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7FqSE46QFOJAAmw4ALVH4w1kR-IaV8cil9g&usqp=CAU" alt="Soufiane FADIL">
+</div> 
+    <mat-divider></mat-divider>
+   
+  
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/demographicinformation">
+        <mat-icon>supervisor_account</mat-icon> <b style="font-size: 16px;">Demographic Information</b>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/allergyinformation">
+      <mat-icon>info</mat-icon>  <b style="font-size: 16px;">Allergy</b>
+    </a>
+    <a mat-list-item routerLink="/patientscheduling"> <mat-icon>calendar_today</mat-icon><b style="font-size: 16px;">Scheduleing</b>  </a>
+    <a mat-list-item  routerLink="" (click)="SignOut()"><mat-icon>exit_to_app</mat-icon><b style="font-size: 16px;">SignOut</b>  </a>
+
+</mat-nav-list>
