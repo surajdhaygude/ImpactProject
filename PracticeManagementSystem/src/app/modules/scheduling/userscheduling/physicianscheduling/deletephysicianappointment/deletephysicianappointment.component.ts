@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SchedulingService } from 'src/app/scheduling.service';
@@ -12,7 +12,7 @@ export class DeletephysicianappointmentComponent implements OnInit {
 
   DeleteAppointment !:FormGroup;
   constructor(private formBuilder:FormBuilder, private router:Router,private service:SchedulingService) { }
-
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   // ngOnInit(): void {
   //   this.DeleteAppointment=this.formBuilder.group({
   //     timeOfAppointment:['',Validators.required]
@@ -77,6 +77,19 @@ export class DeletephysicianappointmentComponent implements OnInit {
     },err=>{
      alert("Somthing went wrong...!")
     })
+  }
+
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
   }
 }
 

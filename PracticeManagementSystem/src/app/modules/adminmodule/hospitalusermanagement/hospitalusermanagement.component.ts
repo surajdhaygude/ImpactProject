@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ColDef } from 'ag-grid-community';
 import { AuthservicesService } from 'src/app/authservices.service';
@@ -12,6 +12,7 @@ import { HospitalmanagementService } from 'src/app/hospitalmanagement.service';
   styleUrls: ['./hospitalusermanagement.component.css']
 })
 export class HospitalusermanagementComponent implements OnInit {
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
   constructor(private hospitaluser:HospitalmanagementService, private route:Router,private service:AuthservicesService) { }
   firstname:any;
@@ -99,6 +100,18 @@ rowData:any[]=[];
 SignOut(){
   this.service.logout();
  this.route.navigateByUrl('');
+}
+toggleSideBar() {
+  this.toggleSideBarForMe.emit();
+  setTimeout(() => {
+    window.dispatchEvent(
+      new Event('resize')
+    );
+  }, 300);
+}
+sideBarOpen = true;
+sideBarToggler() {
+  this.sideBarOpen = !this.sideBarOpen;
 }
 
 }

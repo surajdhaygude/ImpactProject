@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HospitalmanagementService } from 'src/app/hospitalmanagement.service';
 import { Hospitalusers } from 'src/app/models/Hospitalusers';
@@ -11,7 +11,7 @@ import{FormGroup, FormBuilder,Validators} from '@angular/forms'
 })
 export class EdituserComponent implements OnInit {
   public updatephysician!:FormGroup;
-
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   userId:number=0;
     EmpID:number=0;
     title:string="";
@@ -85,4 +85,16 @@ export class EdituserComponent implements OnInit {
       })
    }
 
+   toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 }

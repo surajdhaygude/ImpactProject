@@ -23,3 +23,27 @@
 .mydiv{
     color: red;
 }
+
+
+
+/* drawer css  */
+
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  mat-drawer {
+    width: 250px;
+    background: #2c3344 !important;
+
+    color: aliceblue;
+  }
+  
+  mat-drawer-container {
+    height: 100%;
+  }
+  
+  mat-drawer-content {
+    padding: 20px;
+  }

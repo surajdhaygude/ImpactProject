@@ -1,5 +1,5 @@
 import { Time } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SchedulingService } from 'src/app/scheduling.service';
@@ -10,7 +10,7 @@ import { SchedulingService } from 'src/app/scheduling.service';
   styleUrls: ['./addnurseappointment.component.css']
 })
 export class AddnurseappointmentComponent implements OnInit {
-
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   Meetingtitle:string="";
   mySelect : any;
   mySelect1 : any;
@@ -87,4 +87,18 @@ export class AddnurseappointmentComponent implements OnInit {
    public backtodashboard(){
 
    }
+
+   
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 }

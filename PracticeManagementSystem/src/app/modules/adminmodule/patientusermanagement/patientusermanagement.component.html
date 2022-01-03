@@ -1,35 +1,11 @@
-<!-- <app-header></app-header> -->
-<nav class="col-8 col-sm-2 navbar navbar-light" style="z-index: 4">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerSideNavPatient" aria-controls="navbarTogglerSideNavPatient" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerSideNavPatient" style="background-color: #e3f2fd;">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-            <li class="nav-item">
-                <a class="nav-link" href="/adminregistration">User Registration</a>
-              </li>  
-              
-            <li class="nav-item">
-                <a class="nav-link" href="patientusermanagement">Patient UserManagement</a>
-              </li>
-               
-          
-          <li class="nav-item">
-            <a class="nav-link" href="hospitalusermanagement">Hospital UserManagement</a>
-          </li>
 
 
-          <li class="nav-item">
-            <a class="nav-link" href="" (click)="SignOut()">Sign Out</a>
-          </li>
-          
-        </ul>
-       
-      </div>
-    </div>
-  </nav>
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container > 
+   <mat-drawer mode="side" [opened]="sideBarOpen" >
+    <app-admindashboard></app-admindashboard>
+</mat-drawer>
+   <mat-drawer-content>
 <div class="container " style="z-index: 8">
     <div class="row">
         <div class="patientHeader">
@@ -85,7 +61,7 @@
                         </select>
                     </td> -->
                     <td>
-                        <button type="button" class="btn btn-primary editbtn" (click)="edituser(data.userId)">Edit</button>
+                        <!-- <button type="button" class="btn btn-primary editbtn" (click)="edituser(data.userId)">Edit</button> -->
                         <button type="button" (click)="deleteuser(data.userId)" class="btn btn-danger deletebtn">Delete</button>
                     </td>
                 </tr>
@@ -95,3 +71,7 @@
         </div>
     </div>
   </div>
+
+  
+</mat-drawer-content>
+</mat-drawer-container> 

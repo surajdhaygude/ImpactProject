@@ -34,3 +34,10 @@ img {
 .ddcolour{
   color:#2c3344 !important ;
 }
+
+.active-list-item {
+  color: #3F51B5 !important; /* Note: You could also use a custom theme */
+}
+:hover:active{
+  color: red;
+}

@@ -20,6 +20,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthGuard } from 'src/app/auth/auth.guard';
 import { MasterLayoutModule } from '../master-layout/master-layout.module';
 import { PatientModule } from '../patient/patient.module';
+import { SendnoteComponent } from '../inboxmodule/sendnote/sendnote.component';
+import { ReceivednotesComponent } from '../inboxmodule/receivednotes/receivednotes.component';
+import { SentnotesComponent } from '../inboxmodule/sentnotes/sentnotes.component';
 
 
 
@@ -58,7 +61,12 @@ import { PatientModule } from '../patient/patient.module';
       {path:'editnurseappointment',component:EditnurseappointmentComponent,canActivate: [AuthGuard]},
       {path:'deletenurseappointment',component:DeletenurseappointmentComponent,canActivate: [AuthGuard]},
       {path:'physicianscheduling',component:PhysicianschedulingComponent,canActivate: [AuthGuard]},
-      {path:'patientscheduling',component:PatientschedulingComponent,canActivate: [AuthGuard]}
+      {path:'patientscheduling',component:PatientschedulingComponent,canActivate: [AuthGuard]},
+      {path:'sendnotes',component:SendnoteComponent},
+      {path:'recievenotes',component:ReceivednotesComponent},
+
+      {path:'sentnotes',component:SentnotesComponent}
+
     ])
   ],
   providers: [DayService,WeekService,WorkWeekService,MonthService,MonthAgendaService ],

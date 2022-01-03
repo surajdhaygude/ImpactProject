@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SchedulingService } from 'src/app/scheduling.service';
@@ -10,7 +10,7 @@ import { SchedulingService } from 'src/app/scheduling.service';
   styleUrls: ['./deletenurseappointment.component.css']
 })
 export class DeletenurseappointmentComponent implements OnInit {
-  
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   public DeleteAppointment!:FormGroup;
 
   constructor(private formBuilder:FormBuilder, private router:Router,private service:SchedulingService) { }
@@ -62,6 +62,18 @@ export class DeletenurseappointmentComponent implements OnInit {
   }
 
 
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 
 }
 

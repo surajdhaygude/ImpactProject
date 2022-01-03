@@ -13,6 +13,8 @@ import { TopnavuserComponent } from './topnavuser/topnavuser.component';
 import { InboxuserComponent } from './inboxuser/inboxuser.component';
 import { InboxpatientComponent } from './inboxpatient/inboxpatient.component';
 import { AuthGuard } from 'src/app/auth/auth.guard';
+import { MaterialModule } from '../material/material.module';
+import { MasterLayoutModule } from '../master-layout/master-layout.module';
 
 
 
@@ -32,6 +34,8 @@ import { AuthGuard } from 'src/app/auth/auth.guard';
   imports: [
     CommonModule,
     FormsModule,
+    MaterialModule,
+    MasterLayoutModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       {path:'sendnote',component:SendnoteComponent,canActivate: [AuthGuard]},

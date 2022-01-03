@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { AuthservicesService } from 'src/app/authservices.service';
 
 @Component({
-  selector: 'app-patientdetailsdashboard',
-  templateUrl: './patientdetailsdashboard.component.html',
-  styleUrls: ['./patientdetailsdashboard.component.css']
+  selector: 'app-admindashboard',
+  templateUrl: './admindashboard.component.html',
+  styleUrls: ['./admindashboard.component.css']
 })
-export class PatientdetailsdashboardComponent implements OnInit {
+export class AdmindashboardComponent implements OnInit {
   localUser:any="";
   currentUser:any="";
   currentEmail:any="";
@@ -44,4 +44,5 @@ export class PatientdetailsdashboardComponent implements OnInit {
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
   }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import{FormGroup, FormBuilder,Validators} from '@angular/forms'
   import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { HospitalmanagementService } from 'src/app/hospitalmanagement.service';
   styleUrls: ['./createuser.component.css']
 })
 export class CreateuserComponent implements OnInit {
-
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   public Physicianform!:FormGroup
   constructor(private formbuilder:FormBuilder, private http:HttpClient, private route:Router, private hospitaluser:HospitalmanagementService) { }
   number:Number=0;
@@ -50,4 +50,18 @@ export class CreateuserComponent implements OnInit {
    backtophysicain():void{
     this.route.navigateByUrl('hospitalusermanagement');
    }
+
+   
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 }

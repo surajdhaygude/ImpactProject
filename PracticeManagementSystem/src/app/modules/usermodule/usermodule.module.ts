@@ -15,6 +15,8 @@ import { PatientschedulingComponent } from '../scheduling/patientscheduling/pati
 import { MasterLayoutModule } from '../master-layout/master-layout.module';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { AuthGuard } from 'src/app/auth/auth.guard';
+import { MaterialModule } from '../material/material.module';
+import { AdminmoduleModule } from '../adminmodule/adminmodule.module';
 
 
 
@@ -33,6 +35,8 @@ import { AuthGuard } from 'src/app/auth/auth.guard';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MaterialModule,
+    AdminmoduleModule,
     HttpClientModule,
     MasterLayoutModule,
     FormsModule,

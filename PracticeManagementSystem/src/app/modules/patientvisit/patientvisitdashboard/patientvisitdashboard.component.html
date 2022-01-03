@@ -2,11 +2,19 @@
 <mat-nav-list>
   <div class="profile-card">
     <div class="header">
-        <h2 style="color:white;">Pysician </h2>
-        <h4 style="color:white;">physician@gmail.com</h4>
+      <div  *ngIf="currentroleId==2">       
+         <h2 style="color:white;">Physician </h2>
+      </div>
+      <div *ngIf="currentroleId==3">
+        <h2 style="color:white;">Nurse</h2>
+      </div>
+        <h4 style="color:white;">{{currentEmail}}</h4>
     </div>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7FqSE46QFOJAAmw4ALVH4w1kR-IaV8cil9g&usqp=CAU" alt="Soufiane FADIL">
-</div> 
+    <div class="text-center">
+      {{currentFname}} {{currentLname}}
+    </div>
+  </div> 
     <mat-divider></mat-divider>
    
   
@@ -27,8 +35,13 @@
       </mat-nav-list>
       </mat-expansion-panel>
     </mat-accordion>
-    <a mat-list-item routerLink="/nursescheduling"> <mat-icon>calendar_today</mat-icon><b style="font-size: 16px;">Scheduleing</b>  </a>
-    <mat-accordion class="app-nav-accordion">
+    <div *ngIf="currentroleId==3">
+      <a mat-list-item routerLink="/nursescheduling"> <mat-icon>calendar_today</mat-icon><b style="font-size: 16px;">Scheduleing</b>  </a>
+    </div> 
+    <div *ngIf="currentroleId==2">
+      <a mat-list-item routerLink="/physicianscheduling"> <mat-icon>calendar_today</mat-icon><b style="font-size: 16px;">Scheduleing</b>  </a>
+  </div>   
+   <mat-accordion class="app-nav-accordion">
       <mat-expansion-panel class="mat-elevation-z0">
         <mat-expansion-panel-header>
           <mat-panel-title><b style="font-size: 16px;">Notes</b></mat-panel-title>

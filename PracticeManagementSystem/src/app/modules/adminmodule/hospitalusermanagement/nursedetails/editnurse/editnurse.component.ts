@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NursemanagementService } from 'src/app/nursemanagement.service';
 import{FormGroup, FormBuilder,Validators} from '@angular/forms'
@@ -10,7 +10,7 @@ import{FormGroup, FormBuilder,Validators} from '@angular/forms'
   styleUrls: ['./editnurse.component.css']
 })
 export class EditnurseComponent implements OnInit {
-
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   public updatenurseform!:FormGroup;
   userId:number=0;
   EmpID:number=0;
@@ -82,6 +82,20 @@ export class EditnurseComponent implements OnInit {
            alert("Somthing went wrong...!")
           })
        }
+
+       
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
        
  }
   

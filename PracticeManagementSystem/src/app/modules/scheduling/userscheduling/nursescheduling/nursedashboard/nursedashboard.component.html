@@ -2,11 +2,19 @@
 <mat-nav-list>
   <div class="profile-card">
     <div class="header">
-        <h2 style="color:white;">Nurse </h2>
-        <h4 style="color:white;">nurse@gmail.com</h4>
+      <div  *ngIf="currentroleId==2">       
+        <h2 style="color:white;">Physician </h2>
+     </div>
+     <div *ngIf="currentroleId==3">
+       <h2 style="color:white;">Nurse </h2>
+     </div>        
+     <h4 style="color:white;">{{currentEmail}}</h4>
     </div>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7FqSE46QFOJAAmw4ALVH4w1kR-IaV8cil9g&usqp=CAU" alt="Soufiane FADIL">
-</div> 
+    <div class="text-center">
+      {{currentFname}} {{currentLname}}
+    </div>
+  </div> 
     <mat-divider></mat-divider>
    
   

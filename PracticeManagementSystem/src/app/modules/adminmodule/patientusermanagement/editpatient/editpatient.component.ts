@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PatientUser } from 'src/app/models/Patientusers';
@@ -10,7 +10,7 @@ import { PatientService } from 'src/app/Services/patient.service';
   styleUrls: ['./editpatient.component.css']
 })
 export class EditpatientComponent implements OnInit {
-
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   public updatepatient!:FormGroup;
   userId:number=0;
   EmpID:number=0;
@@ -82,5 +82,19 @@ export class EditpatientComponent implements OnInit {
        alert("Somthing went wrong...!")
       })
    }
+
+   
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 
 }

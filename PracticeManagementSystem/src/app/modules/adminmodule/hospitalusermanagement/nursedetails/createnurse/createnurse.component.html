@@ -1,3 +1,12 @@
+
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container > 
+   <mat-drawer mode="side" [opened]="sideBarOpen" >
+    <app-admindashboard></app-admindashboard>
+</mat-drawer>
+   <mat-drawer-content>
+
+
 <div class="container">
   <div class="row">
       <div class="col">
@@ -106,3 +115,6 @@
       </div>
   </div>
 </div>
+
+</mat-drawer-content>
+</mat-drawer-container> 
