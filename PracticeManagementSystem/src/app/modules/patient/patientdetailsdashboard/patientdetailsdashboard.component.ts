@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthservicesService } from 'src/app/authservices.service';
 
@@ -9,12 +9,28 @@ import { AuthservicesService } from 'src/app/authservices.service';
 })
 export class PatientdetailsdashboardComponent implements OnInit {
 
-  constructor(private route:Router,private service:AuthservicesService) { }
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
+  imgurl:string="./assets/Images/logo1.jpg"
+  constructor( private route:Router,private service:AuthservicesService) { }
 
   ngOnInit(): void {
   }
+
   SignOut(){
     this.service.logout();
    this.route.navigateByUrl('');
+  }
+
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
   }
 }

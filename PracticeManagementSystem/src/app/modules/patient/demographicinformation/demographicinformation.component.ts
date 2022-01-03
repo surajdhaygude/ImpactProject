@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PatientinformationService } from 'src/app/patientinformation.service';
@@ -10,6 +10,7 @@ import { PatientschedulingComponent } from '../../scheduling/patientscheduling/p
   styleUrls: ['./demographicinformation.component.css']
 })
 export class DemographicinformationComponent implements OnInit {
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
   Allery !: FormGroup 
   allergyList :any;
@@ -145,5 +146,17 @@ export class DemographicinformationComponent implements OnInit {
         // this.setDOBFormat=date.toLocaleString();
     }
   
+    toggleSideBar() {
+      this.toggleSideBarForMe.emit();
+      setTimeout(() => {
+        window.dispatchEvent(
+          new Event('resize')
+        );
+      }, 300);
+    }
+    sideBarOpen = true;
+    sideBarToggler() {
+      this.sideBarOpen = !this.sideBarOpen;
+    }
 
 }

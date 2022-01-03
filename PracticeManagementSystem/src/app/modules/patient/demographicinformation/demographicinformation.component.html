@@ -1,19 +1,15 @@
-<app-patientdetailsdashboard></app-patientdetailsdashboard>
+
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container > 
+   <mat-drawer mode="side" [opened]="sideBarOpen" >
+    <app-patientdetailsdashboard></app-patientdetailsdashboard>
+   </mat-drawer>
+   <mat-drawer-content>
 
 <div class="container-fuild">
-  <!-- <button class="btn btn-primary Backbtn" (click)="backtodashboard()">Back</button> -->
     <div class="row">
         <div class="col">
-            <div class="card">
-                <!-- <div class="text-center">
-                    <h2>Demographics Information</h2>
-                </div> -->
-                
-                <!-- <accordion [isAnimated]="true" > -->
-                  <!-- <accordion-group heading="Patient Details"> -->
-                    <!-- <div class="container"> -->
-                      <!-- <div class="row"> -->
-                       
+            <div class="card">                      
                         <div class="col-md-8">
                           <form [formGroup]="patientDetails">
                             
@@ -214,4 +210,8 @@
             </div>
         </div>
     </div>
+  </div>
 </div>
+
+</mat-drawer-content>
+</mat-drawer-container> 

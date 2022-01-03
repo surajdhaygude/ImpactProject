@@ -18,6 +18,8 @@ import { NursedashboardComponent } from './userscheduling/nursescheduling/nursed
 import { PhysiciandashboardComponent } from './userscheduling/physicianscheduling/physiciandashboard/physiciandashboard.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthGuard } from 'src/app/auth/auth.guard';
+import { MasterLayoutModule } from '../master-layout/master-layout.module';
+import { PatientModule } from '../patient/patient.module';
 
 
 
@@ -41,6 +43,8 @@ import { AuthGuard } from 'src/app/auth/auth.guard';
     MaterialModule,
     ReactiveFormsModule,
     ScheduleModule,
+    MasterLayoutModule,
+    PatientModule,
     RecurrenceEditorModule,
     NgxPaginationModule,
     ScheduleAllModule,
