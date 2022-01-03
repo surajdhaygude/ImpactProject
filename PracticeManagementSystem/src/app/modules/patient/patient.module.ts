@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { PatientdetailsdashboardComponent } from './patientdetailsdashboard/patientdetailsdashboard.component';
 import { AuthGuard } from 'src/app/auth/auth.guard';
+import { MasterLayoutModule } from '../master-layout/master-layout.module';
 
 
 
@@ -21,6 +22,7 @@ import { AuthGuard } from 'src/app/auth/auth.guard';
   imports: [
     CommonModule,
     FormsModule,
+    MasterLayoutModule,
     MaterialModule,
     ReactiveFormsModule,
     RouterModule.forChild([
@@ -29,9 +31,7 @@ import { AuthGuard } from 'src/app/auth/auth.guard';
       {path:'patientdetailsdashboard',component:PatientdetailsdashboardComponent,canActivate: [AuthGuard]}
 
     ])
-
-   
-   
-  ]
+  ],
+  exports:[PatientdetailsdashboardComponent]
 })
 export class PatientModule { }

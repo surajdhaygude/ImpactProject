@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IAllergy } from 'IAllergy';
@@ -28,6 +28,7 @@ export class AllergyinformationComponent implements OnInit {
   localUser:any="";
   currentUser:any="";
   currentUserId:any="";
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   
   constructor(private fb: FormBuilder,private allergyService:AllergyserviceService,private http:HttpClient, private router:Router) { }
 
@@ -162,6 +163,18 @@ export class AllergyinformationComponent implements OnInit {
     if (this.validationSubscription) {
       this.validationSubscription.unsubscribe();
     }
+  }
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
   }
   
 }
