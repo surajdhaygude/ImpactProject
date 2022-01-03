@@ -13,29 +13,36 @@
                         <div class="col-md-8">
                           <form [formGroup]="patientDetails">
                             
-                            <div class="col-sm-4" style="color: red;">
-                              <h2><b>Personal Information</b></h2>
+                            <div class="col-sm-4" style="color: rgb(7, 7, 7);">
+                              <h2>Personal Information</h2>
                             </div>
+
+                            <div class="mb-2">
                             <mat-radio-group formControlName="title">
                               <mat-radio-button value="Mr" color="primary">Mr</mat-radio-button>&nbsp;
                               <mat-radio-button value="Ms" color="primary">Ms</mat-radio-button>&nbsp;
                               <mat-radio-button value="Mrs" color="primary">Mrs</mat-radio-button>&nbsp;
                               <mat-radio-button value="Dr" color="primary">Dr</mat-radio-button>&nbsp;
                             </mat-radio-group>
-                
+                          </div>
+
                             <div class="row">
-                              <mat-form-field appearance="legacy" class="full-width col-4">
+                              <div class="col">
+                              <mat-form-field appearance="outline" class="full-width">
                                 <mat-label class="label">First name</mat-label>
                                 <input matInput  formControlName="fname"  value="{{fname}}"  required  />
                               </mat-form-field>
-                              <mat-form-field appearance="legacy" class="full-width col-4">
+                              </div>
+
+                              <div class="col">
+                              <mat-form-field appearance="outline" class="full-width">
                                 <mat-label>LastName</mat-label>
                                 <input matInput   formControlName="lname"   value="{{lname}}" required />
                               </mat-form-field>
                             </div>
                 
-                            <div class="row">
-                              <mat-form-field appearance="legacy" class="full-width col-4" >
+                            <div class="col">
+                              <mat-form-field appearance="outline" class="full-width" >
                                 <mat-label>DOB</mat-label>
                                 <input  matInput formControlName="dob" [matDatepicker]="picker" [(ngModel)]="getDOB"  required (ngModelChange)="CalculateAge($event)" />
                                 <mat-datepicker-toggle
@@ -44,34 +51,41 @@
                                 ></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
                               </mat-form-field>
-                              <mat-form-field appearance="legacy" class="full-width col-4">
+                            </div>
+                          </div>
+
+                              <div class="row">
+                              <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Age</mat-label>
                                 <input matInput formControlName="age"   required  [(ngModel)]="age"/>
                               </mat-form-field>
                             </div>
                 
                             <div class="row">
-                              <mat-form-field appearance="legacy" class="full-width col-3">
+                              <mat-form-field appearance="outline" class="full-width col-3">
                                 <mat-label>Race</mat-label>
                                 <input matInput formControlName="race"   />
                               </mat-form-field>
-                              <mat-form-field appearance="legacy" class="full-width col-2">
+
+                              <mat-form-field appearance="outline" class="full-width col-2">
                                 <mat-label>Ethnicity</mat-label>
                                 <input matInput formControlName="ethinicity" />
                               </mat-form-field>
-                              <mat-form-field appearance="legacy" class="full-width col-3">
+
+                              <mat-form-field appearance="outline" class="full-width col-3">
                                 <mat-label>Lanaguageknown</mat-label>
                                 <input matInput  formControlName="languagesKnown" />
                               </mat-form-field>
                             </div>
                 
                             <div class="row">
-                              <mat-form-field appearance="legacy" class="full-width col-4">
+                              <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Email </mat-label>
                                 <input matInput formControlName="email" placeholder="Your email"  value="{{email}}" required />
                                 <mat-icon matSuffix>mail_outline</mat-icon>
                              </mat-form-field>
-                               <mat-form-field class="full-width col-4">
+
+                               <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-select formControlName="gender" placeholder="Gender"  required>
                                   <mat-option value="Male">Male </mat-option>
                                   <mat-option value="Female">Female</mat-option>
@@ -81,13 +95,13 @@
                             </div> 
                          
                             <div class="row">
-                              <mat-form-field appearance="legacy" class="full-width col-4">
+                              <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>HomeAddress</mat-label>
                                 <textarea matInput formControlName="homeAddress"  ></textarea>
                               </mat-form-field>
-                              <mat-form-field appearance="legacy" class="full-width col-4">
-                                <mat-label>ContantNo:</mat-label>
-                
+
+                              <mat-form-field appearance="outline" class="full-width col-4">
+                                <mat-label>ContantNo:</mat-label>                
                                 <input matInput formControlName="contactNumber" placeholder="Your Phone" />
                                 <mat-icon matSuffix>phone</mat-icon>
                               </mat-form-field>
@@ -107,8 +121,8 @@
                   <!-- <accordion-group heading="Patient Emerency Details"> -->
                     <!-- <div class="container"> -->
                       <!-- <div class="row"> -->
-                        <div class="col-sm-4" style="color: red;">
-                          <h2><b>Emerency Information</b></h2>
+                        <div class="col-sm-4" style="color: rgb(10, 10, 10);">
+                          <h2>Emergency Information</h2>
                         </div>
                         <!-- <div class="col-md-8"> -->
                           <!-- (ngSubmit)="updatemerdetails()" -->
@@ -118,17 +132,19 @@
                             <!-- <br />
                             <br /> -->
                             <div class="row">
-                              <mat-form-field appearance="legacy" class="full-width col-4">
+                              <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>first Name</mat-label>
                                 <input matInput  formControlName="emergencyFname"  required  />
                               </mat-form-field>
-                              <mat-form-field appearance="legacy" class="full-width col-4">
+
+                              <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>LastName</mat-label>
                                 <input matInput  formControlName="emergencyLname" required  />
                               </mat-form-field>
                             </div>
+
                             <div class="row">
-                              <mat-form-field class="full-width col-4">
+                              <mat-form-field appearance="outline" class="full-width col-4">
                                 <!-- <mat-select  formControlName="relationship" placeholder="Relation" required>
                                   <option>Mother</option>
                                   <option>Father</option>
@@ -136,19 +152,18 @@
                                 </mat-select>
                                -->
                                <mat-label>Relation:</mat-label>
-                               <input matInput required  formControlName="relationship"  />
-                               <mat-icon matSuffix>mail_outline</mat-icon>
-                             
+                               <input matInput required  formControlName="relationship"  />                          
                               </mat-form-field>
                               
-                              <mat-form-field appearance="legacy" class="full-width col-4">
+                              <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Email Address:</mat-label>
                                 <input matInput required  formControlName="emergencyEmail"  />
                                 <mat-icon matSuffix>mail_outline</mat-icon>
                               </mat-form-field>
                             </div>
+
                             <div class="row">
-                              <mat-form-field appearance="legacy" class="full-width col-4">
+                              <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Contant No:</mat-label>
                                 <input
                                   matInput
@@ -159,7 +174,7 @@
                                 />
                                 <mat-icon matSuffix>phone</mat-icon>
                               </mat-form-field>
-                              <mat-form-field appearance="legacy" class="full-width col-4">
+                              <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Home Address</mat-label>
                                 <input matInput formControlName="emergencyAddress" />
                               </mat-form-field>

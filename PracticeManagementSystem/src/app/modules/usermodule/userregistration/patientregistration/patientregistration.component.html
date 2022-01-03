@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="card col-md-5">
+      <div class="card col-md-8">
         <div class="text-center">
           <h2>Patient Registration</h2>
         </div>
@@ -64,9 +64,10 @@
                
                 </div>
               </div>
-            </div>
+          </div>
 
-
+            <div class="row mb-2">
+              <div class="col">
           <div class="col-md-12">
             <label for="firstname" class="form-label">First Name</label>
             <input formControlName="firstname" required type="text" placeholder="Please Enter First Name"
@@ -76,7 +77,9 @@
               *ngIf="UserForm.controls['firstname'].dirty && UserForm.hasError('required','firstname')">First name can
               not be empty.</span>
           </div>
+          </div>
 
+          <div class="col">
           <div class="col-mb-3">
             <label for="lastname" class="form-label">Last Name</label>
             <input formControlName="lastname" required type="text" placeholder="Please Enter Last Name"
@@ -86,7 +89,9 @@
               *ngIf="UserForm.controls['lastname'].dirty && UserForm.hasError('required','lastname')">Last name can not
               be empty.</span>
           </div>
+          </div>
 
+          <div class="col">
           <div class="col-mb-3">
 
             <label for="emailid" class="form-label">Email Id</label>
@@ -96,7 +101,11 @@
               <span class="text-danger" *ngIf="UserForm.controls['emailid'].dirty && UserForm.hasError('required','emailid')">Please enter you email address.</span>
               <span class="text-danger" *ngIf="UserForm.controls['emailid'].dirty && UserForm.hasError('email','emailid')">Please enter valid email address.</span>
           </div>
+        </div>
+        </div>
 
+        <div class="row mb-2">
+          <div class="col">
           <div class="col-mb-3">
 
             <label for="DOB" class="form-label">Date Of Birth</label>
@@ -106,13 +115,18 @@
             <!-- <span class="text-danger" *ngIf="UserForm.controls['dbo'].dirty && UserForm.hasError('required','dob')">Date Of Birth can not be empty.</span>
             -->
           </div>
+          </div>
+
+          <div class="col">
           <div class="col-mb-3">
             <label for="contactno" class="form-label">Contact Number</label>
             <input formControlName="contactno" required type="text" placeholder="Please Enter Contact no"
               class="form-control" id="Inputcontactno">
               <span class="text-danger" *ngIf="UserForm.controls['contactno'].dirty && UserForm.hasError('required','contactno')">Please enter you email address.</span>
           </div>
+          </div>
 
+          <div class="col">
           <div class="col-mb-3">
 
 
@@ -128,9 +142,10 @@
 
 
           </div>
+          </div>
+          </div>
 
-          <div class="mb-3">
-
+          <div class="col-4 mb-3">
 
             <label for="confirmpassword" class="form-label">Confirm Password</label>
 
@@ -142,6 +157,7 @@
               Password can not be empty.</span>
 
           </div> 
+
           <!-- [disabled]="!UserForm.valid" -->
           <button type="submit" class="btn btn-primary" >Submit</button>&nbsp;
           <button type="reset" class="btn btn-primary" (click)="BacktoLogin()">Cancel</button>

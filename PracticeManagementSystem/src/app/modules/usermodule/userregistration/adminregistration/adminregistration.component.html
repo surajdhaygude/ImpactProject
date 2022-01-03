@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col">
             <div class="card col-md-4">
@@ -17,30 +17,7 @@
 
                       </div>
                 </div>
-                    <!-- <div class="form-group">
-                      
-                        <label for="select">Title</label>
-                        <div  class="row">
-                          <div class="form-group">
-                            <input class="form-check-input" formControlName="title"  type="radio" name="title" id="inlineMR" value="Mr">
-                            <label class="form-check-label" class="form-label" for="inlineMR">Mr.</label>
-                         </div>
-                         <div class="form-group">
-                          <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineMS" value="Ms">
-                          <label class="form-check-label" class="form-label" for="inlineMS">Ms.</label>
-                        </div>
-                        
-                        <div class="col-2">
-                          <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineMrs" value="Mrs">
-                          <label class="form-check-label" class="form-label" for="inlineMrs">Mrs.</label>
-                        </div>
-                        <div class="col-2">
-                          <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineDR" value="Dr">
-                          <label class="form-check-label" class="form-label" for="inlineDR">Dr.</label>
-                        </div>
-                      </div>
-                    </div>
-                     -->
+                   
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="form-label">First Name</label>
                       <input formControlName="firstname" required type="text" placeholder="Please Enter First Name" class="form-control" id="InputFname">
@@ -86,11 +63,105 @@
                     <button type="submit" [disabled]="!ProviderForm.valid" class="btn btn-primary">Register</button>&nbsp;
                     <button type="reset" class="btn btn-primary" (click)="BacktoLogin()">Cancel</button>
 
-                    <!--  -->
                   </form>
                  
 
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+ <div class="container"> 
+    <!-- <div class="row"> -->
+        <!-- <div class="col"> -->
+            <div class="card col-md-8">
+                <div class="text-center">
+                    <h2>Provider Registration</h2>
+                </div>
+                <form [formGroup]="ProviderForm" (ngSubmit)="providerregister()"> 
+
+                  
+                  <div class="form-group mb-2">
+                    <label class="col-sm-4 control-label">Title</label>
+                    <div class="col-sm-6">
+                        <label class="radio-inline col-sm-2"> <input class="form-check-input" formControlName="title"  type="radio" name="title" id="inlineMR" value="Mr"> Mr. </label>
+                        <label class="radio-inline col-sm-2"> <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineMS" value="Ms"> Ms. </label>
+                        <label class="radio-inline col-sm-2"> <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineMrs" value="Mrs"> Mrs. </label>
+                        <label class="radio-inline col-sm-2"> <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineDR" value="Dr"> Dr. </label>
+
+                      </div>
+                </div>
+
+                <div class="row mb-2">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="exampleInputPassword1" class="form-label">First Name</label>
+                      <input formControlName="firstname" required type="text" placeholder="Please Enter First Name" class="form-control" id="InputFname">
+                    <span class="text-danger" *ngIf="ProviderForm.controls['firstname'].dirty && ProviderForm.hasError('required','firstname')">First name can not be empty.</span>
+                    </div>
+                  </div>
+
+                  <div class="col">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" class="form-label">Last Name</label>
+                        <input formControlName="lastname" required type="text" placeholder="Please Enter Last Name" class="form-control" id="InputLname">
+                        <span class="text-danger" *ngIf="ProviderForm.controls['lastname'].dirty && ProviderForm.hasError('required','lastname')">Last name can not be empty.</span>
+                      </div>
+                  </div>
+                    
+                  <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputPassword1" class="form-label">Email Id</label>
+                        <input  formControlName="emailId" required type="email" placeholder="Please Enter Email Id" class="form-control" id="InputEmailid" [(ngModel)]="setemailid">
+                        <span class="text-danger" *ngIf="ProviderForm.controls['emailId'].dirty && ProviderForm.hasError('required','emailId')">Please enter you email address.</span>
+                        <span class="text-danger" *ngIf="ProviderForm.controls['emailId'].dirty && ProviderForm.hasError('email','emailId')">Please enter valid email address.</span>
+
+                      </div>
+                    </div>                    
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputPassword1" class="form-label">Date Of Birth</label>
+                        <input formControlName="dob" required type="date" max="2021-11-27" class="form-control" id="InputDOB">
+                        <span class="text-danger" *ngIf="ProviderForm.controls['dob'].dirty && ProviderForm.hasError('required','dob')">Please select date in mm/dd/yyyy format.</span>
+  
+                      </div>
+                    </div>
+                  
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="exampleInputPassword1" class="form-label">Date Of Joining</label>
+                        <input formControlName="doj" required type="date" max="2021-11-27" class="form-control" id="InputDOB">
+                        <span class="text-danger" *ngIf="ProviderForm.controls['doj'].dirty && ProviderForm.hasError('required','doj')">Please select date in mm/dd/yyyy format.</span>
+                      </div>
+                      </div>
+
+                      <div class="col">
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Role</label>
+                        <div class="mb-3">
+                          <input class="form-control" formControlName='roleId' required list="roledatalistOptions" id="roleDataList" placeholder="Type to search role..." [(ngModel)]="setroleid">
+                          <span class="text-danger" *ngIf="ProviderForm.controls['roleId'].touched && ProviderForm.hasError('required','roleId')">Please select role.</span>
+                          <datalist id="roledatalistOptions">
+                            <option value="Physician">
+                            <option value="Nurse">
+                            <option value="Admin">
+                          </datalist>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+
+
+                    <button type="submit" [disabled]="!ProviderForm.valid" class="btn btn-primary">Register</button>&nbsp;
+                    <button type="reset" class="btn btn-primary" (click)="BacktoLogin()">Cancel</button>
+
+                  </form>
+                 
+
+            </div>
+        <!-- </div> -->
+    <!-- </div> -->
+</div> 
