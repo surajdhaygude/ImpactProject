@@ -18,6 +18,9 @@ import { MasterLayoutModule } from '../master-layout/master-layout.module';
 import { AuthGuard } from 'src/app/auth/auth.guard';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { MaterialModule } from '../material/material.module';
+import { AllergymasterComponent } from './allergymaster/allergymaster.component';
+import { DrugmasterComponent } from './drugmaster/drugmaster.component';
+import { DiagnosismasterComponent } from './diagnosismaster/diagnosismaster.component';
 
 
 @NgModule({
@@ -33,6 +36,9 @@ import { MaterialModule } from '../material/material.module';
     AddpatientComponent,
     EditpatientComponent,
     AdmindashboardComponent,
+    AllergymasterComponent,
+    DrugmasterComponent,
+    DiagnosismasterComponent,
 
   ],
   imports: [
