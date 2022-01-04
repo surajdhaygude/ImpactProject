@@ -235,7 +235,7 @@ toggleDiable() {
 Cancel(){
   if(this.currentroleId==2)
   {
-    this.router.navigateByUrl("physicianscheduling")
+    this.router.navigateByUrl("physicianvisitdashboard")
   }
   else if(this.currentroleId==3)
   {

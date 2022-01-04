@@ -18,9 +18,16 @@
     <mat-divider></mat-divider>
    
   
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/visitdashboard">
-        <mat-icon>supervisor_account</mat-icon> <b style="font-size: 16px;">Home</b>
-    </a>
+    <div *ngIf="currentroleId==3">
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/visitdashboard">
+        <mat-icon>home</mat-icon> <b style="font-size: 16px;">Home</b>
+    </a>  
+    </div> 
+    <div *ngIf="currentroleId==2">
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/physicianvisitdashboard">
+        <mat-icon>home</mat-icon> <b style="font-size: 16px;">Home</b>
+    </a> 
+   </div>  
     <mat-accordion class="app-nav-accordion">
       <mat-expansion-panel class="mat-elevation-z0">
         <mat-expansion-panel-header>
