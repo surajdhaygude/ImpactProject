@@ -2,6 +2,12 @@
     text-align: center;
     color: rgb(18, 24, 32);
 }
+.card{
+    border: 1px solid black;
+}
+.table{
+    border: 2px solid black;
+}
 
 
 .Physicianbtn{
@@ -11,7 +17,7 @@
 
 .nursebtn{
     width: 50%;
-    /* float:right; */
+    float:right;
 }
 
 .addNurse{
