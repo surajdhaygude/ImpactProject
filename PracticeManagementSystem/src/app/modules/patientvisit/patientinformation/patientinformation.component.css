@@ -19,6 +19,7 @@
     /* bottom: 50%; */
 
     transform: translate(-50%,-50%);
+    border: 1px solid black;
 
     /* background: rgb(204, 230, 227);
   background: linear-gradient(90deg, rgb(204, 230, 227)0%, rgb(204, 230, 227)100%); */

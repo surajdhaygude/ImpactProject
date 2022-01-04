@@ -17,10 +17,10 @@
                 
 <form [formGroup]="allergyForm" (ngSubmit)="onSubmit()">
 
-    <div class="form-group mb-3">
-        <label class="col-sm-12 control-label">Patient has any known allergies</label>
-        <div class="col-sm-12">
-            <label class="radio-inline col-sm-3"> <input  [(ngModel)]="type" class="form-check-input" formControlName="hasAllergy"  type="radio" name="hasAllergy" id="hasallergyYes" [value]="true"> Yes </label>
+    <div class=" row form-group mb-3">
+        <label class="col-sm-3 control-label">Patient has any known allergies?</label>
+        <div class="col-sm-9">
+            <label class="radio-inline col-sm-2"> <input  [(ngModel)]="type" class="form-check-input" formControlName="hasAllergy"  type="radio" name="hasAllergy" id="hasallergyYes" [value]="true"> Yes </label>
             <label class="radio-inline col-sm-3"> <input  [(ngModel)]="type" class="form-check-input" formControlName="hasAllergy" type="radio" name="hasAllergy" id="hasallergyNo" [value]="false"> No </label>
           </div>
     </div>
@@ -91,16 +91,16 @@
     </div>
         </div>
 
-        <div class="row">
-        <div class="form-group mb-3">
-            <label class="col-sm-4 control-label" for="isFatal">Is Allergy Fatal?</label>
-            <div class="col-sm-8">
-                <label class="radio-inline col-sm-4"> <input class="form-check-input" formControlName="isFatal"  type="radio" name="isFatal" id="isfatalYes" value="Yes"> Yes </label>
+        <!-- <div class="row"> -->
+        <div class="row form-group mb-3">
+            <label class="col-sm-2 control-label" for="isFatal">Is Allergy Fatal?</label>
+            <div class="col-sm-10">
+                <label class="radio-inline col-sm-2"> <input class="form-check-input" formControlName="isFatal"  type="radio" name="isFatal" id="isfatalYes" value="Yes"> Yes </label>
                 <label class="radio-inline col-sm-4"> <input class="form-check-input" formControlName="isFatal" type="radio" name="isFatal" id="isfatalNo" value="No"> No </label>
               </div>             
             <span class="text-danger" *ngIf="allergyForm.controls['isFatal'].touched && allergyForm.hasError('required','isFatal')">Kindly provide a response.</span>
         </div>
-    </div>
+    <!-- </div> -->
         
     
         <button type="submit"  class="btn btn-primary">Submit</button>&nbsp;

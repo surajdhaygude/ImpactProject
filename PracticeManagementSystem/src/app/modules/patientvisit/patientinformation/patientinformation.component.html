@@ -9,7 +9,7 @@
     <div class="container">
       <div class="row">
           <div class="col">
-              <div class="card col-12 col-md-12 mt-5">
+              <div class="card col-12 col-md-12 mt-2">
     
           <div class="text-center">
             <h2>Patient Information</h2>
@@ -18,6 +18,7 @@
         <form [formGroup]="patientDetails">
         <div class="row">
            <mat-form-field appearance="outline" class="full-width col-3">
+            <mat-label class="label">Select Patient Name:</mat-label>
             <mat-select formControlName="userId" placeholder="Select Patient" [(ngModel)]="userIdDdl" (selectionChange)="showOtherFieldsOnUserId()">
               <mat-option *ngFor="let demoInfo of allPatientDemoInfo" [value]="demoInfo.userId">
                 {{demoInfo.fname}}  {{demoInfo.lname}} </mat-option>              
@@ -183,10 +184,10 @@
 
         <div class="row">
             <div class="example-button-row full-width col-10">
-          <button class="btn btn-outline-primary" (click)="updatePatientDemoInfo()" >
+          <button class="btn btn-primary" (click)="updatePatientDemoInfo()" >
              Edit
           </button>&nbsp;&nbsp;&nbsp;&nbsp;
-          <button class="btn btn-outline-primary" (click)="Cancel()">
+          <button class="btn btn-primary" (click)="Cancel()">
             Cancel
           </button>
           </div>
