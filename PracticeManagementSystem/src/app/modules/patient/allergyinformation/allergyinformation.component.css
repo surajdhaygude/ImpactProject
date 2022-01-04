@@ -1,18 +1,19 @@
 .card{
-    margin-top: 10px  !important;
+    margin-top: 30px  !important;
     margin-bottom: 50px;
-    border: none;
+    /* border: none; */
     padding: 30px;
     /* position: absolute; */
-    top:50%;
+    top:40%;
     left: 50%;
+    border: 1px solid black;
     transform: translate(-50%,-50%);
-    background: rgb(204, 230, 227);
-    background: linear-gradient(90deg, rgb(204, 230, 227)0%, rgb(204, 230, 227)100%);
+    /* background: rgb(204, 230, 227);
+    background: linear-gradient(90deg, rgb(204, 230, 227)0%, rgb(204, 230, 227)100%); */
 }
 
 .card h2{
-    color: cadetblue;
+    color:black;
     font-family: fantasy;
 }
 
@@ -20,9 +21,9 @@ label{
     color: black;
 }
 
-.container-fluid{
+/* .container-fluid{
     background: rgb(204, 230, 227);
-}
+} */
 
 
 

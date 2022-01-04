@@ -11,12 +11,14 @@
         <div class="col">
             <div class="card">
                 <div class="col">
-                    <form  [formGroup]="DeleteAppointment"  (ngSubmit)="DeleteNurseAppointment()">
+
                         <mat-card-title style="text-align: center;">
                             <h2>Delete Appointment</h2>
                         </mat-card-title>
+
+                        <form  [formGroup]="DeleteAppointment"  (ngSubmit)="DeleteNurseAppointment()">
                      <div class="row">
-                        <mat-form-field class="full-width col-10">
+                        <mat-form-field appearance="outline" class="full-width col-12">
                             <mat-select placeholder="Select Appointment" formControlName="timeOfAppointment" (selectionChange)="onBookChange($event)" >
                                 <mat-option *ngFor="let al of patientdata" [value]="al.schedulingId" >
                                     {{ al.meetingTitle}}  {{al.timeOfAppointment}}
