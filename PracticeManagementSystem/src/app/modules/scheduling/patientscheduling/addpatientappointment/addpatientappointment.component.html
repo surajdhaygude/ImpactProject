@@ -1,18 +1,18 @@
-<div class="container-fuild">
+<div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <div class="card col-md-8">
-                <div class="col-md-12">
-                    <form  [formGroup]="createAppointment" (ngSubmit)="createPatientAppointment()">
+        <div class="col">
+            <div class="card col-12 col-md-12 mt-5">
                         <div>
                             <a style="color:rgb(24, 24, 221);" (click)="backtodashboard()">Back</a>
                             <mat-card-title style="text-align: center;">
                                 <h2>Add Appointment</h2>
                             </mat-card-title>
                         </div>
+
+                        <form  [formGroup]="createAppointment" (ngSubmit)="createPatientAppointment()">
+
                         <div class="row">
-                            <div class="col-1"></div>
-                            <mat-form-field class="full-width col-10">
+                            <mat-form-field appearance="outline" class="full-width col-3">
 
                                 <mat-select placeholder="Physician Name" formControlName="physicianId" >
 
@@ -25,27 +25,18 @@
                                 </mat-select>
 
                             </mat-form-field>
-                            <div class="col-1"></div>
-                       </div>
-                         <div class="row" >
-                            <div class="col-1"></div>
-                            <mat-form-field class="full-width col-10">
+                      
+                            <mat-form-field appearance="outline" class="full-width col-3">
                                 <mat-label>Meeting Description</mat-label>
                                 <textarea matInput placeholder="Meeting Description" formControlName="meetingTitle" required></textarea>
                             </mat-form-field>
-                            <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-1"></div>
-                            <mat-form-field appearance="legacy" class="full-width col-10">
+
+                            <mat-form-field appearance="outline" class="full-width col-3">
                                 <mat-label>Date</mat-label>
                                 <input matInput type="date" required  formControlName="dateOfAppointment"/>
                             </mat-form-field>
-                            <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-1"></div>
-                            <mat-form-field class="full-width col-10">
+
+                            <mat-form-field appearance="outline" class="full-width col-3">
 
                                 <mat-select placeholder="Time" formControlName="timeOfAppointment">
 
@@ -58,7 +49,6 @@
                                 </mat-select>
 
                             </mat-form-field>
-                            <div class="col-1"></div>
                         </div>
 
                        
@@ -74,11 +64,9 @@
                     <br/>
                 
                     <div class="row">
-                        <div class="col-1"></div>
                             <div class="example-button-row full-width col-10">
                                 <button  class="btn btn-primary">Add Appointment</button> &nbsp;
-                                <button class="btn btn-primary" (click)="backtodashboard()" >Cancle</button>
-                        <div class="col-1"></div>
+                                <button class="btn btn-primary" (click)="backtodashboard()" >Cancel</button>
                     </div>
                      </div>
 
@@ -92,4 +80,4 @@
 
     </div>
 
-</div>
+

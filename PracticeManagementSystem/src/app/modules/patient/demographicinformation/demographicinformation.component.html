@@ -6,43 +6,46 @@
    </mat-drawer>
    <mat-drawer-content>
 
-<div class="container-fuild">
+    <!-- <div class="container">
+      <div class="row">
+          <div class="col">
+              <div class="card col-12 col-md-12 mt-5">
+                  <div class="text-center">
+                      <h2>Allergy Information</h2>
+                  </div> -->
+
+<div class="container">
     <div class="row">
         <div class="col">
-            <div class="card">                      
-                        <div class="col-md-8">
-                          <form [formGroup]="patientDetails">
-                            
-                            <div class="col-sm-4" style="color: rgb(7, 7, 7);">
-                              <h2>Personal Information</h2>
-                            </div>
+            <div class="card col-12 col-md-12 mt-5">
+                  <div class="text-center">
+                      <h2>Personal Information</h2>
+                  </div>
 
-                            <div class="mb-2">
+                            <form [formGroup]="patientDetails">
+
+                            <div class="row mb-2">
                             <mat-radio-group formControlName="title">
-                              <mat-radio-button value="Mr" color="primary">Mr</mat-radio-button>&nbsp;
-                              <mat-radio-button value="Ms" color="primary">Ms</mat-radio-button>&nbsp;
-                              <mat-radio-button value="Mrs" color="primary">Mrs</mat-radio-button>&nbsp;
-                              <mat-radio-button value="Dr" color="primary">Dr</mat-radio-button>&nbsp;
+                              <span> Title:</span>&nbsp;&nbsp;&nbsp;
+                              <mat-radio-button class="col-1" value="Mr" color="primary">Mr</mat-radio-button>
+                              <mat-radio-button class="col-1" value="Ms" color="primary">Ms</mat-radio-button>
+                              <mat-radio-button class="col-1" value="Mrs" color="primary">Mrs</mat-radio-button>
+                              <mat-radio-button class="col-1" value="Dr" color="primary">Dr</mat-radio-button>
                             </mat-radio-group>
                           </div>
 
                             <div class="row">
-                              <div class="col">
-                              <mat-form-field appearance="outline" class="full-width">
-                                <mat-label class="label">First name</mat-label>
+                              <mat-form-field appearance="outline" class="full-width col-4">
+                                <mat-label class="label">First Name</mat-label>
                                 <input matInput  formControlName="fname"  value="{{fname}}"  required  />
                               </mat-form-field>
-                              </div>
 
-                              <div class="col">
-                              <mat-form-field appearance="outline" class="full-width">
-                                <mat-label>LastName</mat-label>
+                              <mat-form-field appearance="outline" class="full-width col-4">
+                                <mat-label>Last Name</mat-label>
                                 <input matInput   formControlName="lname"   value="{{lname}}" required />
                               </mat-form-field>
-                            </div>
                 
-                            <div class="col">
-                              <mat-form-field appearance="outline" class="full-width" >
+                              <mat-form-field appearance="outline" class="full-width col-4" >
                                 <mat-label>DOB</mat-label>
                                 <input  matInput formControlName="dob" [matDatepicker]="picker" [(ngModel)]="getDOB"  required (ngModelChange)="CalculateAge($event)" />
                                 <mat-datepicker-toggle
@@ -51,34 +54,31 @@
                                 ></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
                               </mat-form-field>
-                            </div>
                           </div>
 
-                              <div class="row">
-                              <mat-form-field appearance="outline" class="full-width col-4">
+                          <div class="row">
+                            <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Age</mat-label>
                                 <input matInput formControlName="age"   required  [(ngModel)]="age"/>
-                              </mat-form-field>
-                            </div>
-                
-                            <div class="row">
-                              <mat-form-field appearance="outline" class="full-width col-3">
+                              </mat-form-field>                       
+
+                              <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Race</mat-label>
                                 <input matInput formControlName="race"   />
                               </mat-form-field>
 
-                              <mat-form-field appearance="outline" class="full-width col-2">
+                              <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Ethnicity</mat-label>
                                 <input matInput formControlName="ethinicity" />
                               </mat-form-field>
+                            </div>
 
-                              <mat-form-field appearance="outline" class="full-width col-3">
-                                <mat-label>Lanaguageknown</mat-label>
+                            <div class="row">
+                              <mat-form-field appearance="outline" class="full-width col-4">
+                                <mat-label>Lanaguages known</mat-label>
                                 <input matInput  formControlName="languagesKnown" />
                               </mat-form-field>
-                            </div>
                 
-                            <div class="row">
                               <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Email </mat-label>
                                 <input matInput formControlName="email" placeholder="Your email"  value="{{email}}" required />
@@ -96,12 +96,12 @@
                          
                             <div class="row">
                               <mat-form-field appearance="outline" class="full-width col-4">
-                                <mat-label>HomeAddress</mat-label>
+                                <mat-label>Home Address</mat-label>
                                 <textarea matInput formControlName="homeAddress"  ></textarea>
                               </mat-form-field>
 
                               <mat-form-field appearance="outline" class="full-width col-4">
-                                <mat-label>ContantNo:</mat-label>                
+                                <mat-label>Contant No:</mat-label>                
                                 <input matInput formControlName="contactNumber" placeholder="Your Phone" />
                                 <mat-icon matSuffix>phone</mat-icon>
                               </mat-form-field>
@@ -121,7 +121,7 @@
                   <!-- <accordion-group heading="Patient Emerency Details"> -->
                     <!-- <div class="container"> -->
                       <!-- <div class="row"> -->
-                        <div class="col-sm-4" style="color: rgb(10, 10, 10);">
+                        <div style="text-align: center;">
                           <h2>Emergency Information</h2>
                         </div>
                         <!-- <div class="col-md-8"> -->
@@ -133,47 +133,46 @@
                             <br /> -->
                             <div class="row">
                               <mat-form-field appearance="outline" class="full-width col-4">
-                                <mat-label>first Name</mat-label>
+                                <mat-label>First Name</mat-label>
                                 <input matInput  formControlName="emergencyFname"  required  />
                               </mat-form-field>
 
                               <mat-form-field appearance="outline" class="full-width col-4">
-                                <mat-label>LastName</mat-label>
+                                <mat-label>Last Name</mat-label>
                                 <input matInput  formControlName="emergencyLname" required  />
                               </mat-form-field>
+
+                              <mat-form-field appearance="outline" class="full-width col-4">
+                                <mat-select  formControlName="relationship" placeholder="Relation" required>
+                                  <mat-option>Mother</mat-option>
+                                  <mat-option>Father</mat-option>
+                                  <mat-option>Brother</mat-option>
+                                  <mat-option>Other</mat-option>
+                                </mat-select>
+                                </mat-form-field>                              
+                              
+                               <!-- <mat-label>Relation:</mat-label>
+                               <input matInput required  formControlName="relationship"  />                          
+                              </mat-form-field> -->
                             </div>
 
-                            <div class="row">
-                              <mat-form-field appearance="outline" class="full-width col-4">
-                                <!-- <mat-select  formControlName="relationship" placeholder="Relation" required>
-                                  <option>Mother</option>
-                                  <option>Father</option>
-                                  <option>Brother</option>
-                                </mat-select>
-                               -->
-                               <mat-label>Relation:</mat-label>
-                               <input matInput required  formControlName="relationship"  />                          
-                              </mat-form-field>
-                              
+                              <div class="row">
                               <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Email Address:</mat-label>
                                 <input matInput required  formControlName="emergencyEmail"  />
                                 <mat-icon matSuffix>mail_outline</mat-icon>
                               </mat-form-field>
-                            </div>
 
-                            <div class="row">
                               <mat-form-field appearance="outline" class="full-width col-4">
-                                <mat-label>Contant No:</mat-label>
+                                <mat-label>Contact No:</mat-label>
                                 <input
                                   matInput
                                   formControlName="emergencyMobileNo"
                                   placeholder="Your Phone"
-                                  required
-                                  
-                                />
+                                  required/>
                                 <mat-icon matSuffix>phone</mat-icon>
                               </mat-form-field>
+
                               <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Home Address</mat-label>
                                 <input matInput formControlName="emergencyAddress" />
@@ -181,10 +180,8 @@
                             </div>
 
                             <div class="row">
-
                             <mat-radio-group name="id" formControlName="portalaccess">
-                              <mat-label> Do you need Access to Patient Portal</mat-label
-                              >&nbsp;&nbsp;&nbsp;
+                              <mat-label> Do you need Access to Patient Portal?</mat-label>&nbsp;&nbsp;&nbsp;
                               <mat-radio-button value="Yes"> Yes </mat-radio-button>&nbsp;&nbsp;
                               <mat-radio-button value="No"> No </mat-radio-button>
                             </mat-radio-group>
@@ -225,8 +222,9 @@
             </div>
         </div>
     </div>
-  </div>
+ 
 </div>
 
 </mat-drawer-content>
 </mat-drawer-container> 
+

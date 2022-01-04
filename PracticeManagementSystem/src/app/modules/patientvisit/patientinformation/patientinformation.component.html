@@ -1,26 +1,25 @@
 <app-patientvisitdashboard></app-patientvisitdashboard>
-<div class="container-fuild">
-  
-  <div class="row">  
-    <div class="col">
-  <div class="card">
-    <div class="col">
-      <form [formGroup]="patientDetails">
-        <div><h2>Patient Information </h2></div>
+
+<div class="container">
+  <div class="row">
+      <div class="col">
+          <div class="card col-12 col-md-12 mt-5">
+
+      <div class="text-center">
+        <h2>Patient Information</h2>
+    </div>
         
+        <form [formGroup]="patientDetails">
         <div class="row">
-          <div class="col-1"></div>
-           <mat-form-field class="full-width col-10">
+           <mat-form-field appearance="outline" class="full-width col-3">
             <mat-select formControlName="userId" placeholder="Select Patient" [(ngModel)]="userIdDdl" (selectionChange)="showOtherFieldsOnUserId()">
               <mat-option *ngFor="let demoInfo of allPatientDemoInfo" [value]="demoInfo.userId">
                 {{demoInfo.fname}}  {{demoInfo.lname}} </mat-option>              
             </mat-select>
           </mat-form-field>  
-          <div class="col-1"></div>
         </div> 
         
-        <div class="row">
-          <div class="col-1"></div>
+        <div class="row mb-3">
         <mat-radio-group  formControlName="title" class="full-width col-10">
           <mat-label class="label">Title:</mat-label>&nbsp;&nbsp;&nbsp;
           <mat-radio-button value="Mr" color="primary">Mr</mat-radio-button>&nbsp;
@@ -28,110 +27,71 @@
           <mat-radio-button value="Mrs" color="primary">Mrs</mat-radio-button>&nbsp;
           <mat-radio-button value="Dr" color="primary">Dr</mat-radio-button>&nbsp;
         </mat-radio-group>
-        <div class="col-1"></div>
       </div>
 
         <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10">
+          <mat-form-field appearance="outline" class="full-width col-3">
             <mat-label class="label">First name</mat-label>
             <input matInput  formControlName="fname"  [value]="showfname"   />
           </mat-form-field>
-          <div class="col-1"></div>
-        </div>
         
-        <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10">
-            <mat-label>LastName</mat-label>
+          <mat-form-field appearance="outline" class="full-width col-3">
+            <mat-label>Last Name</mat-label>
             <input matInput   formControlName="lname" [value]="showlname"  />
           </mat-form-field>
-          <div class="col-1"></div>
-        </div>
 
-        <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10" >
+          <mat-form-field appearance="outline" class="full-width col-3" >
             <mat-label>DOB</mat-label>
             <input  type="date" matInput formControlName="dob" [value]="showdob | date:'yyyy-MM-dd'"  />
           </mat-form-field>
-          <div class="col-1"></div>
-        </div>
 
-        <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10">
+          <mat-form-field appearance="outline" class="full-width col-3">
             <mat-label>Age</mat-label>
             <input matInput formControlName="age" [value]="showage"/>
           </mat-form-field>
-          <div class="col-1"></div>
         </div>
 
         <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10">
+          <mat-form-field appearance="outline" class="full-width col-3">
             <mat-label>Race</mat-label>
             <input matInput formControlName="race" [value]="showrace"  />
           </mat-form-field>
-          <div class="col-1"></div>
-        </div>
 
-        <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10">
+          <mat-form-field appearance="outline" class="full-width col-3">
             <mat-label>Ethnicity</mat-label>
             <input matInput formControlName="ethinicity" [value]="showethinicity" />
           </mat-form-field>
-          <div class="col-1"></div>
-        </div>
 
-        <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10">
-            <mat-label>Lanaguageknown</mat-label>
+          <mat-form-field appearance="outline" class="full-width col-3">
+            <mat-label>Lanaguages known</mat-label>
             <input matInput  formControlName="languagesKnown" [value]="showlanguagesKnown" />
           </mat-form-field>
-          <div class="col-1"></div>
-        </div>
 
-        <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10">
+          <mat-form-field appearance="outline" class="full-width col-3">
             <mat-label>Email </mat-label>
             <input matInput formControlName="email" placeholder="Your email"  [value]="showemail"  />
             <!-- <mat-icon matSuffix>mail_outline</mat-icon> -->
          </mat-form-field>
-         <div class="col-1"></div>
         </div> 
 
         <div class="row">
-          <div class="col-1"></div>
-           <mat-form-field class="full-width col-10">
+           <mat-form-field appearance="outline" class="full-width col-3">
             <mat-select formControlName="gender" placeholder="Gender" [(ngModel)]="showgender">
               <mat-option value="Male">Male </mat-option>
               <mat-option value="Female">Female</mat-option>
             </mat-select>
           </mat-form-field>  
-          <div class="col-1"></div>
-        </div> 
      
-        <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10">
-            <mat-label>HomeAddress</mat-label>
+          <mat-form-field appearance="outline" class="full-width col-3">
+            <mat-label>Home Address</mat-label>
             <textarea matInput formControlName="homeAddress" [value]="showhomeAddress" ></textarea>
           </mat-form-field>
-          <div class="col-1"></div>
-        </div>
 
-        <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10">
-            <mat-label>ContantNo:</mat-label>
+          <mat-form-field appearance="outline" class="full-width col-3">
+            <mat-label>Contant No:</mat-label>
             <input matInput formControlName="contactNumber" placeholder="Your Phone" [value]="showcontactNumber" />
             <!-- <mat-icon matSuffix>phone</mat-icon> -->
           </mat-form-field>
-          <div class="col-1"></div>
           <!-- <button mat-flat-button color="primary">Submit</button> -->
         </div>
       <!-- <div class="row">
@@ -148,7 +108,6 @@
     <div><h2>Emergency Information </h2></div>
     <br>
         <div class="row">
-          <div class="col-1"></div>
 
         <mat-radio-group  formControlName="portalaccess" name="id" [(ngModel)]="showportalaccess" class="full-width col-10">
           <mat-label> Do You Need Access To Patient Portal ?</mat-label
@@ -157,12 +116,10 @@
           <mat-radio-button value="Yes"> Yes </mat-radio-button>&nbsp;&nbsp;
           <mat-radio-button value="No"> No </mat-radio-button>
         </mat-radio-group>
-        <div class="col-1"></div>
         </div>
 
         <br />
         <div class="row">
-          <div class="col-1"></div>
         <mat-radio-group formControlName="typeofAllergies" name="id1" [(ngModel)]="showtypeofAllergies" class="full-width col-10">
           <mat-label> Patient Has Any Known Allergy ?</mat-label
           >&nbsp;&nbsp;
@@ -170,31 +127,21 @@
           <mat-radio-button value="Yes"> Yes </mat-radio-button>&nbsp;&nbsp;
           <mat-radio-button value="No"> No </mat-radio-button>
         </mat-radio-group>
-        <div class="col-1"></div>
         </div>
 
         <br>
         <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10">
-            <mat-label>FirstName</mat-label>
+          <mat-form-field appearance="outline" class="full-width col-3">
+            <mat-label>First Name</mat-label>
             <input matInput formControlName="emergencyFname" required [(ngModel)]="showemergencyFname" />
           </mat-form-field>
-          <div class="col-1"></div>
-        </div>
 
-        <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy"  class="full-width col-10">
-            <mat-label>LastName</mat-label>
+          <mat-form-field appearance="outline"  class="full-width col-3">
+            <mat-label>Last Name</mat-label>
             <input matInput formControlName="emergencyLname" required [value]="showemergencyLname" />
           </mat-form-field>
-          <div class="col-1"></div>
-        </div>
 
-        <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field class="full-width col-10">
+          <mat-form-field appearance="outline" class="full-width col-3">
             <mat-select placeholder="Relation" formControlName="relationship" [(ngModel)]="showrelationship" required>
               <!-- <mat-option *ngFor="let Rel of Relation" [value]="Rel" >
                 {{ Rel }}
@@ -206,41 +153,29 @@
               <mat-option value="Other">Other</mat-option>
             </mat-select>
           </mat-form-field>
-          <div class="col-1"></div>
-        </div>
 
-        <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10">
-            <mat-label>Email Address:</mat-label>
+          <mat-form-field appearance="outline" class="full-width col-3">
+            <mat-label>Email Address</mat-label>
             <input matInput formControlName="emergencyEmail" required  [value]="showemergencyEmail"/>
             <!-- <mat-icon matSuffix>mail_outline</mat-icon> -->
           </mat-form-field>
-          <div class="col-1"></div>
         </div>
 
         <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10">
-            <mat-label>Contant No:</mat-label>
+          <mat-form-field appearance="outline" class="full-width col-3">
+            <mat-label>Contact No</mat-label>
             <input matInput placeholder="Your Phone" formControlName="emergencyMobileNo" required  [value]="showemergencyMobileNo"/>
             <!-- <mat-icon matSuffix>phone</mat-icon> -->
           </mat-form-field>
-          <div class="col-1"></div>
-        </div>
 
-        <div class="row">
-          <div class="col-1"></div>
-          <mat-form-field appearance="legacy" class="full-width col-10">
+          <mat-form-field appearance="outline" class="full-width col-3">
             <mat-label>Home Address</mat-label>
             <textarea matInput required formControlName="emergencyAddress" [value]="showemergencyAddress"></textarea>
             <input matInput />
           </mat-form-field>
-          <div class="col-1"></div>
         </div>
 
         <div class="row">
-          <div class="col-1"></div>
             <div class="example-button-row full-width col-10">
           <button class="btn btn-outline-primary" (click)="updatePatientDemoInfo()" >
              Edit
@@ -248,10 +183,9 @@
           <button class="btn btn-outline-primary" (click)="Cancel()">
             Cancel
           </button>
-          <div class="col-1"></div>
           </div>
         </div>
       </form>
     </div>
   </div>
-</div></div></div>
+</div></div>

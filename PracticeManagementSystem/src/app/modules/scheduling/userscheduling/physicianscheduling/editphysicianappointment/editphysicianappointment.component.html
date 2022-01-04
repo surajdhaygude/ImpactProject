@@ -1,26 +1,26 @@
 <div class="container">
     <div class="row">
-      <div class="col">
-        <div class="card">
-          <div class="col">
-            <form  [formGroup]="EditAppointment" (ngSubmit)="EditPhysicianAppointment()">
+        <div class="col">
+            <div class="card col-12 col-md-12 mt-5">
+
                 <mat-card-title style="text-align: center;">
                     <h2>Edit Appointment</h2>
                 </mat-card-title>
+
+                <form  [formGroup]="EditAppointment" (ngSubmit)="EditPhysicianAppointment()">
+
                 <div class="row">
-                    <mat-form-field appearance="legacy" class="full-width col-10">
+                    <mat-form-field appearance="outline" class="full-width col-4">
                         <mat-label>Physician Name</mat-label>
                         <input matInput required />
                     </mat-form-field>
-                    &nbsp;
 
-                    <mat-form-field appearance="legacy" class="full-width col-10">
+                    <mat-form-field appearance="outline" class="full-width col-4">
                         <mat-label>Employee Id</mat-label>
                         <input matInput >
                     </mat-form-field>
-                </div>
-                <div class="row">
-                    <mat-form-field class="full-width col-10">
+               
+                    <mat-form-field appearance="outline" class="full-width col-4">
                         <mat-select placeholder="Available Time Slots" >
                             <mat-option *ngFor="let al of Timeslot" [value]="al">
                                 {{ al }}
@@ -31,49 +31,43 @@
 
                 <mat-card-title style="text-align: center;">
                     <h2>Description</h2>
-
                 </mat-card-title>
+
                 <div class="row">
-                    <mat-form-field class="full-width col-10">
+                    <mat-form-field appearance="outline" class="full-width col-4">
                         <mat-select placeholder="selection of Patient" >
                             <!-- <mat-option *ngFor="let al of Timeslot" [value]="al">
                                 {{ al }}
                             </mat-option> -->
                         </mat-select>
                     </mat-form-field>
-                </div>
-                <div class="row">
-                    <mat-form-field class="full-width col-10">
+               
+                    <mat-form-field appearance="outline" class="full-width col-4">
                         <mat-label>Descriptive Information</mat-label>
                         <textarea matInput placeholder=" "></textarea>
                       </mat-form-field>
-                </div>
-
-                <div class="row">
-                    <mat-form-field appearance="legacy" class="full-width col-10">
+                
+                    <mat-form-field appearance="outline" class="full-width col-4">
                         <mat-label>Patient Information</mat-label>
                         <input matInput required />
                     </mat-form-field>
-                </div>
-                <div class="row">
-                    <mat-form-field class="full-width col-10">
+                    </div>
+               
+                    <div class="row">
+                    <mat-form-field appearance="outline" class="full-width col-4">
                         <mat-select placeholder="Physican" >
                             <!-- <mat-option *ngFor="let al of Timeslot" [value]="al">
                                 {{ al }}
                             </mat-option> -->
                         </mat-select>
                     </mat-form-field>
-                </div>
 
-                <div class="row">
-                    <mat-form-field appearance="legacy" class="full-width col-10">
+                    <mat-form-field appearance="outline" class="full-width col-4">
                         <mat-label>Date</mat-label>
                         <input matInput type="date" required />
                     </mat-form-field>
-                </div>
                 
-                <div class="row">
-                    <mat-form-field class="full-width col-10">
+                    <mat-form-field appearance="outline" class="full-width col-4">
                         <mat-select placeholder="Time" >
                             <mat-option *ngFor="let al of Timeslot" [value]="al">
                                 {{ al }}
@@ -81,6 +75,7 @@
                         </mat-select>
                     </mat-form-field>
                 </div>
+
                 <div class="example-button-row">
                     <button type="submit" class="btn btn-primary">Edit Appointment</button>&nbsp;
                     <button type="submit"  (click)="Cancel()"class="btn btn-primary">Cancel </button>
@@ -92,4 +87,4 @@
         </div>
       </div>
     </div>
-  </div>
+  
