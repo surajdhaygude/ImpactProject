@@ -88,9 +88,9 @@
                 <form [formGroup]="ProviderForm" (ngSubmit)="providerregister()"> 
 
                   
-                  <div class="form-group mb-2">
-                    <label class="col-sm-4 control-label">Title</label>
-                    <div class="col-sm-6">
+                  <div class=" row form-group mb-2">
+                    <label class="col-sm-1 control-label">Title:</label>
+                    <div class="col-sm-8">
                         <label class="radio-inline col-sm-2"> <input class="form-check-input" formControlName="title"  type="radio" name="title" id="inlineMR" value="Mr"> Mr. </label>
                         <label class="radio-inline col-sm-2"> <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineMS" value="Ms"> Ms. </label>
                         <label class="radio-inline col-sm-2"> <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineMrs" value="Mrs"> Mrs. </label>
