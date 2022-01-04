@@ -20,7 +20,7 @@ export class NurseschedulingComponent implements OnInit {
         data=> {
          debugger
           this.calenderData = data;
-  });
+      });
 }
 
 

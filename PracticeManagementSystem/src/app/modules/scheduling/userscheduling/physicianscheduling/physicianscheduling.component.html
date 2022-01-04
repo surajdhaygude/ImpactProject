@@ -35,8 +35,13 @@
                 <td>{{ data.timeOfAppointment }}</td>
             </tr>
         </tbody>
-       <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </table>
+    <div class="row">
+        <div class="col-4">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+        </div>
+    </div>
         </div>
       </div>
        

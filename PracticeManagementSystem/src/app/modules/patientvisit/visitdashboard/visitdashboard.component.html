@@ -1,0 +1,59 @@
+
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container > 
+   <mat-drawer mode="side" [opened]="sideBarOpen" >
+   <app-patientvisitdashboard></app-patientvisitdashboard>
+   </mat-drawer>
+   <mat-drawer-content>
+
+
+<div class="container" style="text-align: center;">  
+    <div class="row">
+        <div class="patientHeader">
+            <h1><b>Nurse Visit Dashboard</b></h1>
+        </div>
+    </div>
+    <div>
+        <div class="row mb-3">
+            <div class="col-2">
+                <input type="text" name="Name" [(ngModel)]="firstname" (ngModelChange)="search()"
+                placeholder="Search here..." />
+            </div>
+            
+        </div>
+      <div class="row">
+           <table class="table table-striped table-bordered table-sm row-border table-hover">
+            <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Date of Birth</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th width="160px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of nuservisit | paginate: { itemsPerPage: 5, currentPage: p }; ">
+                <td>{{ data.fname }} {{data.lname}}</td>
+                <td>{{ data.dob | date:'yyyy-MM-dd'}}</td>
+                <td>{{ data.age }}</td>
+                <td>{{ data.gender   }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary editbtn" (click)="patientinfo(data.userId)">Patient Details</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-4">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+        </div>
+    </div>
+
+      </div>
+      </div>      
+</div>
+
+</mat-drawer-content>
+</mat-drawer-container> 

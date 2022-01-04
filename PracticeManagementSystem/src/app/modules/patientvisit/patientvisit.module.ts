@@ -10,6 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PatientvisitdashboardComponent } from './patientvisitdashboard/patientvisitdashboard.component';
 import { MasterLayoutModule } from '../master-layout/master-layout.module';
 import { RouterModule } from '@angular/router';
+import { VisitdashboardComponent } from './visitdashboard/visitdashboard.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AuthGuard } from 'src/app/auth/auth.guard';
 
 
 
@@ -21,17 +24,22 @@ import { RouterModule } from '@angular/router';
     DiagnosisComponent,
     ProcedureComponent,
     MedicationComponent,
-    PatientvisitdashboardComponent
+    PatientvisitdashboardComponent,
+    VisitdashboardComponent
     
   ],
   imports: [
     CommonModule,
     MaterialModule,
     FormsModule,
+    NgxPaginationModule,
     MasterLayoutModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      {path:'patientinformation',component:PatientinformationComponent}
+      // {path:'patientinformation',component:PatientinformationComponent, canActivate:[AuthGuard]},
+      {path:'visitdashboard', component:VisitdashboardComponent, canActivate:[AuthGuard]},
+      {path:'patientinformation/:id', component:PatientinformationComponent,canActivate: [AuthGuard]}
+
     ])
   ]
 })
