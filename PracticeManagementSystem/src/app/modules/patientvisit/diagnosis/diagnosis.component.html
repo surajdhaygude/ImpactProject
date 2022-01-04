@@ -18,7 +18,7 @@
             <form [formGroup]="diagnosisdetails" (ngSubmit)="diagnosisadded()" >
 
             <div class="row">
-              <mat-form-field appearance="outline" class="full-width col-4">
+              <!-- <mat-form-field appearance="outline" class="full-width col-4">
                 <mat-select
                   placeholder="Patient Name"
                   formControlName="patientId"
@@ -30,9 +30,9 @@
               </mat-form-field>
               <div *ngIf='diagnosisdetails.controls.patientId.touched && diagnosisdetails.controls.patientId.errors?.required' class="alert alert-danger">
                 Patient name is Required
-              </div>
+              </div> -->
            
-              <mat-form-field appearance="outline" class="full-width col-4">
+              <!-- <mat-form-field appearance="outline" class="full-width col-4">
                 <mat-select
                   placeholder="Physician Name"
                   formControlName="physicianId"
@@ -44,7 +44,7 @@
               </mat-form-field>
               <div *ngIf='diagnosisdetails.controls.physicianId.touched && diagnosisdetails.controls.physicianId.errors?.required' class="alert alert-danger">
                 Physician name is Required
-              </div>
+              </div> -->
               
               <mat-form-field appearance="outline" class="full-width col-4">
                 <mat-select
@@ -59,10 +59,8 @@
               <div *ngIf='diagnosisdetails.controls.diagnosisCode.touched && diagnosisdetails.controls.diagnosisCode.errors?.required' class="alert alert-danger">
                 diagnosis Code is Required
               </div>
-            </div>
-
-            <div class="row">
-              <mat-form-field appearance="outline" class="full-width col-12">
+            
+              <mat-form-field appearance="outline" class="full-width col-8">
                 <mat-select
                   placeholder="Diagnosis Description"
                   formControlName="diagnosisDescription"
