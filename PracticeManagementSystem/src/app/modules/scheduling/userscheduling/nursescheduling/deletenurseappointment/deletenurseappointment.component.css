@@ -1,3 +1,4 @@
+
 .card{
     margin-top: 50px;
     /* border: none; */
@@ -7,12 +8,13 @@
     left: 50%;
     width: 50%;
     transform: translate(-50%,-50%);
+    border: 1px solid black;
     /* background: rgb(204, 230, 227);
     background: linear-gradient(90deg, rgb(204, 230, 227)0%, rgb(204, 230, 227)100%); */
 }
 
 .card h2{
-    color: rgb(65, 25, 25);
+    color: rgb(19, 18, 18);
 }
 
 label{
