@@ -6,23 +6,23 @@
   </mat-drawer>
    <mat-drawer-content>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <div class="col">
-          <form [formGroup]="diagnosisdetails" (ngSubmit)="diagnosisadded()" >
+    <div class="container">
+      <div class="row">
+         <div class="col">
+             <div class="card col-12 col-md-12 mt-2">
+
             <mat-card-title style="text-align: center;">
               <h2>Diagnosis Form</h2>
             </mat-card-title>
+
+            <form [formGroup]="diagnosisdetails" (ngSubmit)="diagnosisadded()" >
+
             <div class="row">
-              <div class="col-1"></div>
-              <mat-form-field class="full-width col-10">
+              <mat-form-field appearance="outline" class="full-width col-4">
                 <mat-select
                   placeholder="Patient Name"
                   formControlName="patientId"
-                  required
-                >
+                  required>
                   <mat-option *ngFor="let p1 of patientdata" [value]="p1.userId">
                     {{ p1.firstname }}   {{ p1.lastname }}
                   </mat-option>
@@ -31,55 +31,42 @@
               <div *ngIf='diagnosisdetails.controls.patientId.touched && diagnosisdetails.controls.patientId.errors?.required' class="alert alert-danger">
                 Patient name is Required
               </div>
-              <div class="col-1"></div>
-            </div>
-            <div class="row">
-              <div class="col-1"></div>
-              <mat-form-field class="full-width col-10">
+           
+              <mat-form-field appearance="outline" class="full-width col-4">
                 <mat-select
-                  placeholder="Physicain Name"
+                  placeholder="Physician Name"
                   formControlName="physicianId"
-                  required
-                >
+                  required>
                   <mat-option *ngFor="let ph1 of phyasiciandata" [value]="ph1.userId">
                     {{ ph1.firstname }}   {{ ph1.lastname }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
               <div *ngIf='diagnosisdetails.controls.physicianId.touched && diagnosisdetails.controls.physicianId.errors?.required' class="alert alert-danger">
-                Physicain name is Required
+                Physician name is Required
               </div>
-              <div class="col-1"></div>
-            </div>
-
-            <div class="row">
-              <div class="col-1"></div>
-              <mat-form-field class="full-width col-10">
+              
+              <mat-form-field appearance="outline" class="full-width col-4">
                 <mat-select
                   placeholder="Diagnosis Code"
                   formControlName="diagnosisCode"
-                  required
-                >
+                  required>
                   <mat-option *ngFor="let al of diagnosismasterdata" [value]="al.diagnosisCode">
                     {{ al.diagnosisCode }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
               <div *ngIf='diagnosisdetails.controls.diagnosisCode.touched && diagnosisdetails.controls.diagnosisCode.errors?.required' class="alert alert-danger">
-                diagnosisCode is Required
+                diagnosis Code is Required
               </div>
-              <div class="col-1"></div>
             </div>
 
-
             <div class="row">
-              <div class="col-1"></div>
-              <mat-form-field class="full-width col-10">
+              <mat-form-field appearance="outline" class="full-width col-12">
                 <mat-select
                   placeholder="Diagnosis Description"
                   formControlName="diagnosisDescription"
-                  required
-                >
+                  required>
                   <mat-option *ngFor="let al of diagnosismasterdata" [value]="al.diagnosisDescription">
                     {{ al.diagnosisDescription }}
                   </mat-option>
@@ -88,22 +75,17 @@
               <div *ngIf='diagnosisdetails.controls.diagnosisCode.touched && diagnosisdetails.controls.diagnosisCode.errors?.required' class="alert alert-danger">
                 Diagnosis Description is Required
               </div>
-              <div class="col-1"></div>
             </div>
             
             <div class="row">
-              <div class="col-1"></div>
               <div class="full-width col-10">
                 <button type="submit"
                 type="submit" [disabled]='!diagnosisdetails.valid' class="btn btn-primary" >Add</button>
                 &nbsp;&nbsp;
-                <button class="btn btn-outline-primary" (click)="Cancel()">
+                <button class="btn btn-primary" (click)="Cancel()">
                   Cancel
                 </button>
-              </div>
-              
-           
-              <div class="col-1"></div>
+              </div>            
             </div>
      
           </form>
@@ -112,7 +94,7 @@
       </div>
     </div>
   </div>
-</div>
+
 
 </mat-drawer-content>
 </mat-drawer-container> 
