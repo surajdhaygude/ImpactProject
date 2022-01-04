@@ -5,22 +5,24 @@
 </mat-drawer>
    <mat-drawer-content>
 
-<div class="container">
-  <div class="row">
-      <div class="col">
-          <div class="card col-md-4">
+    <div class="container">
+      <div class="row">
+          <div class="col">
+              <div class="card col-12 col-md-12 mt-2">
+
               <div class="text-center">
                   <h2>Add Physician</h2>
               </div>
+
               <form [formGroup]="Physicianform" (ngSubmit)="AddPhysician()"> 
 
-                <div class="form-group">
-                  <label class="col-sm-4 control-label">Title</label>
-                  <div class="col-sm-12">
-                      <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="title"  type="radio" name="title" id="inlineMR" value="Mr"> Mr. </label>
-                      <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineMS" value="Ms"> Ms. </label>
-                      <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineMrs" value="Mrs"> Mrs. </label>
-                      <label class="radio-inline col-sm-3"> <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineDR" value="Dr"> Dr. </label>
+                <div class="row form-group mb-3">
+                  <label class="col-sm-1 control-label">Title:</label>
+                  <div class="col-sm-11">
+                      <label class="radio-inline col-sm-1"> <input class="form-check-input" formControlName="title"  type="radio" name="title" id="inlineMR" value="Mr"> Mr. </label>
+                      <label class="radio-inline col-sm-1"> <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineMS" value="Ms"> Ms. </label>
+                      <label class="radio-inline col-sm-1"> <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineMrs" value="Mrs"> Mrs. </label>
+                      <label class="radio-inline col-sm-1"> <input class="form-check-input" formControlName="title" type="radio" name="title" id="inlineDR" value="Dr"> Dr. </label>
 
                     </div>
               </div>
@@ -48,35 +50,38 @@
                     </div>
                   </div>
                    -->
-                  <div class="form-group">
+                   <div class="row mb-3">
+                  <div class="col-4 form-group">
                     <label for="exampleInputPassword1" class="form-label">First Name</label>
                     <input formControlName="firstname" required type="text" placeholder="Please Enter First Name" class="form-control" id="InputFname">
                   <span class="text-danger" *ngIf="Physicianform.controls['firstname'].dirty && Physicianform.hasError('required','firstname')">First name can not be empty.</span>
                   </div>
-                  <div class="form-group">
+
+                  <div class="col-4 form-group">
                       <label for="exampleInputPassword1" class="form-label">Last Name</label>
                       <input formControlName="lastname" required type="text" placeholder="Please Enter Last Name" class="form-control" id="InputLname">
                       <span class="text-danger" *ngIf="Physicianform.controls['lastname'].dirty && Physicianform.hasError('required','lastname')">Last name can not be empty.</span>
-                    </div>
-                    <div class="form-group">
+                  </div>
+
+                  <div class="col-4 form-group">
                       <label for="exampleInputPassword1" class="form-label">Email Id</label>
                       <input  formControlName="emailId" required type="email" placeholder="Please Enter Email Id" class="form-control" id="InputEmailid" [(ngModel)]="setemailid">
                       <span class="text-danger" *ngIf="Physicianform.controls['emailId'].dirty && Physicianform.hasError('required','emailId')">Please enter you email address.</span>
                       <span class="text-danger" *ngIf="Physicianform.controls['emailId'].dirty && Physicianform.hasError('email','emailId')">Please enter valid email address.</span>
+                  </div>
+                </div>
 
-                    </div>
-                    <div class="form-group">
+                <div class="row">
+                    <div class="col-4 form-group">
                       <label for="exampleInputPassword1" class="form-label">Date Of Birth</label>
                       <input formControlName="dob" required type="date" max="2021-12-31" class="form-control" id="InputDOB">
                       <span class="text-danger" *ngIf="Physicianform.controls['dob'].dirty && Physicianform.hasError('required','dob')">Please select date in mm/dd/yyyy format.</span>
-
                     </div>
 
-                    <div class="form-group">
+                    <div class="col-4 form-group">
                       <label for="exampleInputPassword1" class="form-label">Date Of Joining</label>
                       <input formControlName="doj" required type="date" max="2021-12-31" class="form-control" id="InputDOB">
                       <span class="text-danger" *ngIf="Physicianform.controls['doj'].dirty && Physicianform.hasError('required','doj')">Please select date in mm/dd/yyyy format.</span>
-
                     </div>
                     <!-- <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Role</label>
@@ -91,7 +96,7 @@
                       </div>
                     </div> -->
 
-                    <div class="mb-3">
+                    <div class="col-4">
                       <label for="exampleInputPassword1" class="form-label">Status</label>
                       <div class="mb-3">
                         <input class="form-control" formControlName='status' required list="StatusOptions" id="StatusList" placeholder="Type to search status...">
@@ -103,6 +108,8 @@
                         </datalist>
                       </div>
                     </div>
+                  </div>
+
                   <button type="submit" [disabled]="!Physicianform.valid" class="btn btn-primary">Save</button>&nbsp;
                   <button type="button" (click)="backtophysicain()" class="btn btn-primary backbutton">Cancel</button>
                   <!--  -->
