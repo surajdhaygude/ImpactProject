@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./receivednotes.component.css']
 })
 export class ReceivednotesComponent implements OnInit {
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
   receivedNotes:any[]=[];
   localUser:any="";
@@ -76,6 +77,19 @@ export class ReceivednotesComponent implements OnInit {
     {
       this.router.navigateByUrl("patientscheduling")
     }
+    }
+
+    toggleSideBar() {
+      this.toggleSideBarForMe.emit();
+      setTimeout(() => {
+        window.dispatchEvent(
+          new Event('resize')
+        );
+      }, 300);
+    }
+    sideBarOpen = true;
+    sideBarToggler() {
+      this.sideBarOpen = !this.sideBarOpen;
     }
 
 }

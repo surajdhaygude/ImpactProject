@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NursemanagementService } from 'src/app/nursemanagement.service';
@@ -13,7 +13,7 @@ export class CreatenurseComponent implements OnInit {
   public Nurseform!:FormGroup
   constructor(private formbuilder:FormBuilder, private http:HttpClient,
     private route:Router,private hospitalnurse:NursemanagementService) { }
-
+    @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
     ngOnInit(): void {
       this.Nurseform=this.formbuilder.group({
         title:['',Validators.required],
@@ -52,5 +52,16 @@ export class CreatenurseComponent implements OnInit {
       this.route.navigateByUrl('nursedetails');
      }
   
-  
+     toggleSideBar() {
+      this.toggleSideBarForMe.emit();
+      setTimeout(() => {
+        window.dispatchEvent(
+          new Event('resize')
+        );
+      }, 300);
+    }
+    sideBarOpen = true;
+    sideBarToggler() {
+      this.sideBarOpen = !this.sideBarOpen;
+    }
 }

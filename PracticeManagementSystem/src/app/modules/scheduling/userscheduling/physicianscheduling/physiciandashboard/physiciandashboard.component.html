@@ -1,49 +1,55 @@
-<nav class="col-8 col-sm-2 navbar navbar-light">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerSideNavPatient"
-      aria-controls="navbarTogglerSideNavPatient" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerSideNavPatient" style="background-color: #e3f2fd;">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="patientinformation">Patient Information</a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Patient visit Details
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="diagnosis">Diagnosis</a></li>
-            <li><a class="dropdown-item" href="medication">Medication </a></li>
-            <li><a class="dropdown-item" href="procedure">Procedure</a></li>
-            <li><a class="dropdown-item" href="vitalsigns">Vitalsigns</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Notes
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="sendnote">Send Note</a></li>
-            <li><a class="dropdown-item" href="receivednotes">Received Notes </a></li>
-            <li><a class="dropdown-item" href="sentnotes">Sent Notes </a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="physicianscheduling">Scheduling</a>
-        </li>
-
-
-        <li class="nav-item">
-          <a class="nav-link" href="" (click)="SignOut()">Sign Out</a>
-        </li>
-
-      </ul>
-
+<mat-divider></mat-divider>
+<mat-nav-list>
+  <div class="profile-card">
+    <div class="header">
+      <div  *ngIf="currentroleId==2">       
+        <h2 style="color:white;">Physician </h2>
+     </div>
+     <div *ngIf="currentroleId==3">
+       <h2 style="color:white;">Nurse </h2>
+     </div>       
+     <h4 style="color:white;">{{currentEmail}}</h4>
     </div>
-  </div>
-</nav>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7FqSE46QFOJAAmw4ALVH4w1kR-IaV8cil9g&usqp=CAU" alt="Soufiane FADIL">
+</div> 
+    <mat-divider></mat-divider>
+   
+  
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/patientinformation">
+        <mat-icon>supervisor_account</mat-icon> <b style="font-size: 16px;">Patient Information</b>
+    </a>
+    <mat-accordion class="app-nav-accordion">
+      <mat-expansion-panel class="mat-elevation-z0">
+        <mat-expansion-panel-header>
+          <mat-panel-title><b style="font-size: 16px;">Patient Visit</b></mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLinkActive="list-item-active" routerLink="/diagnosis"><b style="font-size: 16px;">Diagnosis</b></a>
+          <a mat-list-item routerLinkActive="list-item-active" routerLink="/medication"><b style="font-size: 16px;">Medication</b></a>
+          <a mat-list-item routerLinkActive="list-item-active" routerLink="/procedure"><b style="font-size: 16px;">Procedure</b></a>
+          <a mat-list-item routerLinkActive="list-item-active" routerLink="/vitalsigns"><b style="font-size: 16px;">Vitalsigns</b></a>
+
+      </mat-nav-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <a mat-list-item routerLink="/physicianscheduling"> <mat-icon>calendar_today</mat-icon><b style="font-size: 16px;">Scheduleing</b>  </a>
+    <mat-accordion class="app-nav-accordion">
+      <mat-expansion-panel class="mat-elevation-z0">
+        <mat-expansion-panel-header>
+          <mat-panel-title><b style="font-size: 16px;">Notes</b></mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLinkActive="list-item-active" routerLink="/sendnotes"><b style="font-size: 16px;">Send Note</b></a>
+          <a mat-list-item routerLinkActive="list-item-active" routerLink="/recievenotes"><b style="font-size: 16px;">Reciever Notes</b></a>
+          <a mat-list-item routerLinkActive="list-item-active" routerLink="/sentnotes"><b style="font-size: 16px;">Sent Notes</b></a>
+
+      </mat-nav-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <a mat-list-item  routerLink="" (click)="SignOut()"><mat-icon>exit_to_app</mat-icon><b style="font-size: 16px;">SignOut</b>  </a>
+
+</mat-nav-list>
+
+  
+
+  

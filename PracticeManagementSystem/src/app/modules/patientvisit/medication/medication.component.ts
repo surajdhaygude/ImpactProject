@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PatientvisitService } from 'src/app/patientvisit.service';
@@ -9,6 +9,8 @@ import { PatientvisitService } from 'src/app/patientvisit.service';
   styleUrls: ['./medication.component.css']
 })
 export class MedicationComponent implements OnInit {
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
+
   patientmedForm !:FormGroup;
   medicationList : any = [];
   localUser:any="";
@@ -154,4 +156,16 @@ export class MedicationComponent implements OnInit {
   }
   
 
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 }

@@ -1,3 +1,4 @@
+
 img {
     width: 200px;
   }
@@ -12,42 +13,42 @@ img {
   }
   .mat-list-item{
     color: #f2f5f8 !important;
-  
+
   font-size: 0.8rem;
-  
+
   height: 44px !important;
-  
+
   margin-bottom: 4px;
   }
   .mat-divider {
-  
+
     border-top-width: 2px;
   
     border-color: white;
   
   }
   :hover {
-  
+
     color: #f7eaa0 !important;
-  
+
   }
   .mat-list-item-content {
-  
+
     border-radius: 5px;
-  
+
     margin: 0 8px;
   }
   :hover {
-  
+
     background: #2c3344 !important;
-  
+
   }
   .mat-list-item-content {
-  
+
     background: #2c3344 !important;
-  
+
    
-  
+
   }
   img {
     width: 70px;
@@ -60,23 +61,27 @@ img {
     padding: 0 20px 20px 20px;
     
   } 
-  .navbar-collapse {
-    position: absolute;
-    top: 54px;
-    right: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
-    width: 100%;
-    transition: all 0.4s ease;
-    display: block;
+
+
+  
+  /* css for sidenave */
+  :host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
-  .navbar-collapse.collapsing {
-    height: auto !important;
-    margin-right: 50%;
-    right: 50%;
-    transition: all 0.2s ease;
+  mat-drawer {
+    width: 250px;
+    background: #2c3344 !important;
+
+    color: aliceblue;
   }
-  .navbar-collapse.show {
-    right: 0;
+  
+  mat-drawer-container {
+    height: 100%;
   }
+  
+  mat-drawer-content {
+    padding: 20px;
+  }
+  

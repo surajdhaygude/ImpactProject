@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PatientService } from 'src/app/Services/patient.service';
@@ -10,7 +10,7 @@ import { PatientService } from 'src/app/Services/patient.service';
   styleUrls: ['./addpatient.component.css']
 })
 export class AddpatientComponent implements OnInit {
-
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   public Patientform!:FormGroup
   constructor(private formbuilder:FormBuilder, private http:HttpClient, 
     private route:Router, private Patientuser:PatientService) { }
@@ -56,5 +56,18 @@ export class AddpatientComponent implements OnInit {
     this.route.navigateByUrl('patientusermanagement');
    }
 
+   
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 
 }

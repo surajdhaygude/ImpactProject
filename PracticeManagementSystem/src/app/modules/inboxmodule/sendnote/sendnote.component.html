@@ -14,7 +14,13 @@
   </form> -->
 
   <!-- <app-topnavuser></app-topnavuser> -->
-<app-sidenavuser></app-sidenavuser>
+
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container > 
+   <mat-drawer mode="side" [opened]="sideBarOpen" >
+    <app-sidenavuser></app-sidenavuser>
+</mat-drawer>
+   <mat-drawer-content>
 
   <div class="container">
     <div class="row">
@@ -64,3 +70,6 @@
         </div>
     </div>
 </div>
+
+</mat-drawer-content>
+</mat-drawer-container> 

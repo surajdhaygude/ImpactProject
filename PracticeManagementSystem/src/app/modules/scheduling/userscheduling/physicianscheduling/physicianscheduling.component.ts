@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventSettingsModel, View } from '@syncfusion/ej2-angular-schedule';
 import { SchedulingService } from 'src/app/scheduling.service';
@@ -9,6 +9,7 @@ import { SchedulingService } from 'src/app/scheduling.service';
   styleUrls: ['./physicianscheduling.component.css']
 })
 export class PhysicianschedulingComponent implements OnInit {
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
     calenderData:any[]=[]
     d:any="";
@@ -77,5 +78,16 @@ Deleteappointment(){
     this.router.navigateByUrl('deletephysicianappointment')
 }
 
-
+toggleSideBar() {
+  this.toggleSideBarForMe.emit();
+  setTimeout(() => {
+    window.dispatchEvent(
+      new Event('resize')
+    );
+  }, 300);
+}
+sideBarOpen = true;
+sideBarToggler() {
+  this.sideBarOpen = !this.sideBarOpen;
+}
 }

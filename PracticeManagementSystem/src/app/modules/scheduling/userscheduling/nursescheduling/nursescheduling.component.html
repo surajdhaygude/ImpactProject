@@ -1,32 +1,15 @@
-<app-nursedashboard></app-nursedashboard>
 
-<!-- <div class="container-fuild" style="text-align: center;">
-
-
-    <button class="btn btn-primary Backbtn" (click)="Deleteappointment()" style="float:right;">Delete</button> 
-    <button class="btn btn-primary Backbtn" (click)="Editappointment()" style="float:right;">Edit</button>
-    <button class="btn btn-primary" style="float: right;" (click)="createappointment()">Create Appointment</button>
-    
-    <div class="row">
-        <div class="patientHeader">
-            <h1>Nurse Scheduling Page</h1>
-        </div>
-    </div>
-    <div>
-        <div class="row">
-            <ejs-schedule  [selectedDate]='selectedDate' [currentView]='currentView' [eventSettings]='eventSettings'></ejs-schedule>
-        </div>
-    </div>
-</div> -->
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container > 
+   <mat-drawer mode="side" [opened]="sideBarOpen" >
+    <app-nursedashboard></app-nursedashboard>
+   </mat-drawer>
+   <mat-drawer-content>
 
 
-<div class="container" style="text-align: center;">
-    <!-- <button class="btn btn-primary Backbtn" (click)="backtoDashbors()" style="float: left;">Back</button> -->
-  
+<div class="container" style="text-align: center;">  
     <button class="btn btn-primary Backbtn" (click)="Deleteappointment()" style="float:right;margin-right: 10px;">Delete</button> 
-   <!-- <button class="btn btn-primary Backbtn" (click)="Editappointment()" style="float:right;margin-right: 10px;">Edit</button> -->
     <button class="btn btn-primary" style="float: right;margin-right: 10px;" (click)="createappointment()">Create Appointment</button>
-    
     <div class="row">
         <div class="patientHeader">
             <h1>Nurse Scheduling Page</h1>
@@ -34,8 +17,6 @@
     </div>
     <div>
       <div class="row">
-       
-          
            <table class="table table-bordered">
             <thead>
             <tr>
@@ -45,7 +26,6 @@
                 <th>Appoiment Time</th>
             </tr>
         </thead>
-        <!-- | orderBy: key:reverse  -->
         <tbody>
             <tr *ngFor="let data of calenderData | paginate: { itemsPerPage: 5, currentPage: p }; ">
                 <td>{{ data.schedulingId }}</td>
@@ -57,6 +37,8 @@
        <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </table>
       </div>
-      </div>
-       
+      </div>      
 </div>
+
+</mat-drawer-content>
+</mat-drawer-container> 

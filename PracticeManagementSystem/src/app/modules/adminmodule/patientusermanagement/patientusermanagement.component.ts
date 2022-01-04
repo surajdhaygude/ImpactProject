@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthservicesService } from 'src/app/authservices.service';
 import { PatientService } from 'src/app/Services/patient.service';
@@ -10,7 +10,8 @@ import { PatientService } from 'src/app/Services/patient.service';
 })
 export class PatientusermanagementComponent implements OnInit {
 
-  
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
+
   constructor(private patientservice:PatientService, private route:Router,private service:AuthservicesService) { }
   firstname:any;
   p:number=1;
@@ -76,4 +77,18 @@ export class PatientusermanagementComponent implements OnInit {
       this.service.logout();
      this.route.navigateByUrl('');
     }
+
+    
+toggleSideBar() {
+  this.toggleSideBarForMe.emit();
+  setTimeout(() => {
+    window.dispatchEvent(
+      new Event('resize')
+    );
+  }, 300);
+}
+sideBarOpen = true;
+sideBarToggler() {
+  this.sideBarOpen = !this.sideBarOpen;
+}
 }

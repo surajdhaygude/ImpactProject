@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PatientvisitService } from 'src/app/patientvisit.service';
@@ -16,6 +16,9 @@ export class DiagnosisComponent implements OnInit {
   currentUser:any="";
   currentUserId:any="";
   currentroleId:any="";
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
+
+  
   constructor(private formBuilder : FormBuilder, private router:Router, private service:PatientvisitService) { 
     this.diagnosisdetails = this.formBuilder.group({
       diagnosisCode: ['',Validators.required],
@@ -147,7 +150,18 @@ export class DiagnosisComponent implements OnInit {
     })
   }
 
- 
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 
 
 }

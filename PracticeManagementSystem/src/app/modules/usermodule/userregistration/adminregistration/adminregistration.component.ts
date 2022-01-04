@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import{FormGroup, FormBuilder,Validators} from '@angular/forms'
   import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { HospitalmanagementService } from 'src/app/hospitalmanagement.service';
   styleUrls: ['./adminregistration.component.css']
 })
 export class AdminregistrationComponent implements OnInit {
-
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   public ProviderForm!:FormGroup
 
   Curruntdate:Date=new Date();
@@ -62,6 +62,20 @@ export class AdminregistrationComponent implements OnInit {
 
   BacktoLogin(){
     this.route.navigateByUrl('hospitalusermanagement');
+  }
+
+  
+  toggleSideBar() {
+    this.toggleSideBarForMe.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
+  sideBarOpen = true;
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
   }
 
 }

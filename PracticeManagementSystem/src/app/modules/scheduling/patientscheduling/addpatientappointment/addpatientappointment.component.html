@@ -1,5 +1,13 @@
-<div class="container">
-    <div class="row">
+
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container > 
+   <mat-drawer mode="side" [opened]="sideBarOpen" >
+    <app-patientdetailsdashboard></app-patientdetailsdashboard>
+</mat-drawer>
+   <mat-drawer-content>
+
+    <div class="container">
+     <div class="row">
         <div class="col">
             <div class="card col-12 col-md-12 mt-5">
                         <div>
@@ -81,3 +89,6 @@
     </div>
 
 
+
+</mat-drawer-content>
+</mat-drawer-container> 

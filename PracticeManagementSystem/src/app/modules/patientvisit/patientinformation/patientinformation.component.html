@@ -1,13 +1,19 @@
-<app-patientvisitdashboard></app-patientvisitdashboard>
 
-<div class="container">
-  <div class="row">
-      <div class="col">
-          <div class="card col-12 col-md-12 mt-5">
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container > 
+   <mat-drawer mode="side" [opened]="sideBarOpen" >
+    <app-patientvisitdashboard></app-patientvisitdashboard>
+  </mat-drawer>
+   <mat-drawer-content>
 
-      <div class="text-center">
-        <h2>Patient Information</h2>
-    </div>
+    <div class="container">
+      <div class="row">
+          <div class="col">
+              <div class="card col-12 col-md-12 mt-5">
+    
+          <div class="text-center">
+            <h2>Patient Information</h2>
+        </div>
         
         <form [formGroup]="patientDetails">
         <div class="row">
@@ -189,3 +195,7 @@
     </div>
   </div>
 </div></div>
+
+
+</mat-drawer-content>
+</mat-drawer-container> 

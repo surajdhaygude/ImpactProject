@@ -1,4 +1,66 @@
-.navbar-collapse {
+img {
+    width: 200px;
+  }
+  .logo {
+    text-align: center;
+    padding: 2.6rem 1rem;
+  
+  }
+  .mat-divider {
+    border-top-width: 2px;
+    border-color: white;
+  }
+  .mat-list-item{
+    color: #f2f5f8 !important;
+  
+  font-size: 0.8rem;
+  
+  height: 44px !important;
+  
+  margin-bottom: 4px;
+  }
+  .mat-divider {
+  
+    border-top-width: 2px;
+  
+    border-color: white;
+  
+  }
+  :hover {
+  
+    color: #f7eaa0 !important;
+  
+  }
+  .mat-list-item-content {
+  
+    border-radius: 5px;
+  
+    margin: 0 8px;
+  }
+  :hover {
+  
+    background: #2c3344 !important;
+  
+  }
+  .mat-list-item-content {
+  
+    background: #2c3344 !important;
+  
+   
+  
+  }
+  img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .profile-card {
+    text-align: center;
+    padding: 0 20px 20px 20px;
+    
+  } 
+  .navbar-collapse {
     position: absolute;
     top: 54px;
     right: 100%;
@@ -8,13 +70,13 @@
     width: 100%;
     transition: all 0.4s ease;
     display: block;
-}
-.navbar-collapse.collapsing {
+  }
+  .navbar-collapse.collapsing {
     height: auto !important;
     margin-right: 50%;
     right: 50%;
     transition: all 0.2s ease;
-}
-.navbar-collapse.show {
+  }
+  .navbar-collapse.show {
     right: 0;
-}
+  }

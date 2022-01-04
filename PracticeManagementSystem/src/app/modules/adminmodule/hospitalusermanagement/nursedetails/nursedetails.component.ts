@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthservicesService } from 'src/app/authservices.service';
 import { NursemanagementService } from 'src/app/nursemanagement.service';
@@ -9,6 +9,7 @@ import { NursemanagementService } from 'src/app/nursemanagement.service';
   styleUrls: ['./nursedetails.component.css']
 })
 export class NursedetailsComponent implements OnInit {
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
   constructor(private nurseservice:NursemanagementService,private route:Router,private service:AuthservicesService) { }
 
@@ -77,5 +78,18 @@ export class NursedetailsComponent implements OnInit {
     this.service.logout();
    this.route.navigateByUrl('');
   }
+
+    toggleSideBar() {
+      this.toggleSideBarForMe.emit();
+      setTimeout(() => {
+        window.dispatchEvent(
+          new Event('resize')
+        );
+      }, 300);
+    }
+    sideBarOpen = true;
+    sideBarToggler() {
+      this.sideBarOpen = !this.sideBarOpen;
+    }
 
 }

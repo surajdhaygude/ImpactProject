@@ -16,6 +16,8 @@ import { CreatenurseComponent } from './hospitalusermanagement/nursedetails/crea
 import { EditnurseComponent } from './hospitalusermanagement/nursedetails/editnurse/editnurse.component';
 import { MasterLayoutModule } from '../master-layout/master-layout.module';
 import { AuthGuard } from 'src/app/auth/auth.guard';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -30,12 +32,14 @@ import { AuthGuard } from 'src/app/auth/auth.guard';
     EditnurseComponent,
     AddpatientComponent,
     EditpatientComponent,
+    AdmindashboardComponent,
 
   ],
   imports: [
     CommonModule,
     FormsModule,
     MasterLayoutModule,
+    MaterialModule,
     ReactiveFormsModule,
     NgxPaginationModule,
     RouterModule.forChild([
@@ -49,7 +53,8 @@ import { AuthGuard } from 'src/app/auth/auth.guard';
       {path:'addpatient', component:AddpatientComponent,canActivate: [AuthGuard]},
       {path:'editPatient/:id', component:EditpatientComponent,canActivate: [AuthGuard]}
     ])
-  ]
+  ],
+  exports:[AdmindashboardComponent]
   
 })
 
