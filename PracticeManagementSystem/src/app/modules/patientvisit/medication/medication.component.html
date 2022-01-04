@@ -5,16 +5,20 @@
     <app-patientvisitdashboard></app-patientvisitdashboard>
   </mat-drawer>
    <mat-drawer-content>
+
 <div class="container">
     <div class="row">
         <div class="col">
             <div class="card">
                 <div class="col">
-                    <form [formGroup]="patientmedForm" (ngSubmit)="addMedication()">
+
                         <mat-card-title style="text-align: center;">
                             <h2>Medication Form</h2>
                         </mat-card-title>
-                        <div class="row">
+
+                        <form [formGroup]="patientmedForm" (ngSubmit)="addMedication()">
+
+                        <!-- <div class="row">
                             <div class="col-1"></div>
                             <mat-form-field class="full-width col-10">
                               <mat-select
@@ -27,12 +31,13 @@
                                 </mat-option>
                               </mat-select>
                             </mat-form-field>
-                            <!-- <div *ngIf='patientmedForm.controls.patientId.touched && patientmedForm.controls.patientId.errors?.required' class="alert alert-danger">
+                            <div *ngIf='patientmedForm.controls.patientId.touched && patientmedForm.controls.patientId.errors?.required' class="alert alert-danger">
                               Patient name is Required
-                            </div> -->
+                            </div> 
                             <div class="col-1"></div>
-                          </div>
-                          <div class="row">
+                          </div> -->
+
+                          <!-- <div class="row">
                             <div class="col-1"></div>
                             <mat-form-field class="full-width col-10">
                               <mat-select
@@ -45,14 +50,14 @@
                                 </mat-option>
                               </mat-select>
                             </mat-form-field>
-                            <!-- <div *ngIf='patientmedForm.controls.physicianId.touched && patientmedForm.controls.physicianId.errors?.required' class="alert alert-danger">
+                            <div *ngIf='patientmedForm.controls.physicianId.touched && patientmedForm.controls.physicianId.errors?.required' class="alert alert-danger">
                               Physicain name is Required
-                            </div> -->
+                            </div>
                             <div class="col-1"></div>
-                          </div>
+                          </div> -->
+
                           <div class="row">
-                            <div class="col-1"></div>
-                            <mat-form-field class="full-width col-10">
+                            <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-select 
                                 placeholder="Drug ID" 
                                 formControlName="drugId"
@@ -63,42 +68,30 @@
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>
-                            <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-1"></div>
-                            <mat-form-field appearance="legacy" class="full-width col-10">
+                           
+                            <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Drug Name</mat-label>
-                                <input matInput required type="text" formControlName="drugName" [value]="showDrugName"> 
-                             
-                               
-                            </mat-form-field>
-                            
-                        </div>
-                        <div class="row">
-                            <div class="col-1"></div>
-                            <mat-form-field appearance="legacy" class="full-width col-10">
+                                <input matInput required type="text" formControlName="drugName" [value]="showDrugName">                      
+                            </mat-form-field>                            
+                        
+                            <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Drug Generic Name </mat-label>
                                 <input matInput required formControlName="drugGenericName" [value]="showDrugGenericName">
                             </mat-form-field>
-                            <div class="col-1"></div>
                         </div>
+
                         <div class="row">
-                            <div class="col-1"></div>
-                            <mat-form-field appearance="legacy" class="full-width col-10">
+                            <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Drug Form</mat-label>
                                 <input matInput required type="text" formControlName="drugForm" [value]="showDrugForm">   
-                            </mat-form-field>
-                            
-                        </div>
-                        <div class="row">
-                            <div class="col-1"></div>
-                            <mat-form-field appearance="legacy" class="full-width col-10">
+                            </mat-form-field>                            
+                        
+                            <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Drug strength </mat-label>
                                 <input matInput required  formControlName="drugStrength" [value]="showDrugStrength">
                             </mat-form-field>
-
                         </div>
+
                         <!-- <div class="col-1"></div>
                         <div class="row">
                             <div class="col-1"></div>
@@ -108,10 +101,11 @@
                             </mat-form-field>
                             <div class="col-1"></div>
                         </div> -->
+
                         <div class="example-button-row">
                             <button type="submit"   class="btn btn-primary">Submit</button>
                             &nbsp;&nbsp;
-                            <button class="btn btn-outline-primary" (click)="Cancel()">
+                            <button class="btn btn-primary" (click)="Cancel()">
                               Cancel
                             </button>
 

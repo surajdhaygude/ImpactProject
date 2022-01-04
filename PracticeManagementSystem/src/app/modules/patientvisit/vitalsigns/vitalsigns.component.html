@@ -10,11 +10,14 @@
         <div class="col">
             <div class="card">
                 <div class="col">
-                    <form [formGroup]="vitalsigndetails" (ngSubmit)="addVitalSign()">
+
                         <mat-card-title style="text-align: center;">
                             <h2>Vital Sign Form</h2>
                         </mat-card-title>
-                        <div class="row">
+
+                        <form [formGroup]="vitalsigndetails" (ngSubmit)="addVitalSign()">
+
+                        <!-- <div class="row">
                             <div class="col-1"></div>
                             <mat-form-field class="full-width col-10">
                                 <mat-select placeholder="Patient Name" formControlName="patientId" required>
@@ -25,8 +28,9 @@
                             </mat-form-field>
 
                             <div class="col-1"></div>
-                        </div>
-                        <div class="row">
+                        </div> -->
+
+                        <!-- <div class="row">
                             <div class="col-1"></div>
                             <mat-form-field class="full-width col-10">
                                 <mat-select placeholder="Physicain Name" formControlName="physicianId" required>
@@ -36,52 +40,41 @@
                                 </mat-select>
                             </mat-form-field>
                             <div class="col-1"></div>
-                        </div>
+                        </div> -->
+
                         <div class="row">
-                            <div class="col-1"></div>
-                            <mat-form-field appearance="legacy" class="full-width col-10">
+                            <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Height(in Cm)</mat-label>
                                 <input matInput required type="text" formControlName="height">
                             </mat-form-field>
-                            <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-1"></div>
-                            <mat-form-field appearance="legacy" class="full-width col-10">
+
+                            <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Weight(in Kg)</mat-label>
                                 <input matInput required type="text" formControlName="weight">
                             </mat-form-field>
-                            <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-1"></div>
-                            <mat-form-field appearance="legacy" class="full-width col-10">
+                            
+                            <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Blood Pressure(in Systolic )</mat-label>
                                 <input matInput required type="text" formControlName="bloodPressure">
                             </mat-form-field>
-                            <div class="col-1"></div>
                         </div>
+
                         <div class="row">
-                            <div class="col-1"></div>
-                            <mat-form-field appearance="legacy" class="full-width col-10">
+                            <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Body Temperature</mat-label>
                                 <input matInput required type="text" formControlName="bodyTemperature">
                             </mat-form-field>
-                            <div class="col-1"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-1"></div>
-                            <mat-form-field appearance="legacy" class="full-width col-10">
+                           
+                            <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Respiration Rate</mat-label>
                                 <input matInput required type="text" formControlName="respirationRate">
                             </mat-form-field>
-                            <div class="col-1"></div>
                         </div>
 
                         <div class="example-button-row">
                             <button type="submit" class="btn btn-primary">Submit</button>
                             &nbsp;&nbsp;
-                            <button class="btn btn-outline-primary" (click)="Cancel()">
+                            <button class="btn btn-primary" (click)="Cancel()">
                               Cancel
                             </button>
                         </div>
