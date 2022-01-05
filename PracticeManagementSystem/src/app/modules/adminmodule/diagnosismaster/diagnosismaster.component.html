@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="col">
                         <mat-card-title style="text-align: center;">
-                            <h2>Master Drug Form</h2>
+                            <h2>Master Diagnosis Form</h2>
                         </mat-card-title>
                         <form [formGroup]="masterDignosisForm" (ngSubmit)="addMasterDignosis()">
                           <div class="row">
@@ -18,13 +18,13 @@
                               <mat-label>Diagnosis Code</mat-label>
                               <input matInput required type="text" formControlName="diagnosisCode" >                      
                           </mat-form-field> 
-                            <mat-form-field appearance="outline" class="full-width col-4">
+                            <mat-form-field appearance="outline" class="full-width col-8">
                               <mat-label>Diagnosis Description</mat-label>
                               <input matInput required type="text" formControlName="diagnosisDescription" >                      
                             </mat-form-field>  
                         </div>
 
-                        <div class="row">
+                        <div class="row mb-3">
                             <mat-radio-group name="id" formControlName="diagnosisIsDepricated" appearance="legacy" class="full-width col-10">
                                 <mat-label> Diagnosis Is Depricated</mat-label>&nbsp;&nbsp;&nbsp;&nbsp;
                              <mat-radio-button value="Yes" >
