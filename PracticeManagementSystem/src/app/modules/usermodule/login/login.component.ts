@@ -72,10 +72,10 @@ export class LoginComponent implements OnInit {
                 this.route.navigateByUrl("hospitalusermanagement");
             }
             else if(result.roleId==2){
-              this.route.navigateByUrl("physicianscheduling");
+              this.route.navigateByUrl("physicianvisitdashboard");
             }
             else if(result.roleId==3){
-              this.route.navigateByUrl("nursescheduling");
+              this.route.navigateByUrl("visitdashboard");
             }
             else
             {

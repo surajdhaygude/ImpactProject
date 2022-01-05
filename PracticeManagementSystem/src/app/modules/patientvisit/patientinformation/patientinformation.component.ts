@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PatientinformationService } from 'src/app/patientinformation.service';
 
 @Component({
@@ -22,9 +22,20 @@ export class PatientinformationComponent implements OnInit {
   currentUserId:any="";
   currentroleId:any="";
 
-  constructor(private formBuilder : FormBuilder, private router : Router,private service:PatientinformationService) { }
+  constructor(private formBuilder : FormBuilder,private route: ActivatedRoute,private router : Router,private service:PatientinformationService) { }
 
   ngOnInit(): void {
+    debugger
+
+    this.service.getAllPatientDemoInfos().subscribe(
+      data=> {
+       debugger
+        this.allPatientDemoInfo = data;
+        console.log(this.allPatientDemoInfo);
+        this.showOtherFieldsOnUserId();
+
+    });
+    
     this.localUser=localStorage.getItem('currentUser');
     this.currentUser=JSON.parse(this.localUser);
     this.currentUserId=this.currentUser.userId;
@@ -56,12 +67,17 @@ export class PatientinformationComponent implements OnInit {
   createdDate:['']
  });
 
- this.service.getAllPatientDemoInfos().subscribe(data=>
-  {
-    this.allPatientDemoInfo=data;
-  },
-  (error) => {
-    console.log('error', error);
+//  this.service.getAllPatientDemoInfos().subscribe(data=>
+//   {
+//     this.allPatientDemoInfo=data;
+//   },
+//   (error) => {
+//     console.log('error', error);
+//   });
+
+  this.route.params.subscribe(params => {
+    this.userIdDdl = params['id']
+
   });
 
 //  this.EmerencyInfo = this.formBuilder.group({
@@ -133,6 +149,7 @@ export class PatientinformationComponent implements OnInit {
       console.log(e);
     }    
   }
+  
 
   get f() {
     return this.patientDetails?.controls;
@@ -218,11 +235,11 @@ toggleDiable() {
 Cancel(){
   if(this.currentroleId==2)
   {
-    this.router.navigateByUrl("physicianscheduling")
+    this.router.navigateByUrl("physicianvisitdashboard")
   }
   else if(this.currentroleId==3)
   {
-    this.router.navigateByUrl("nursescheduling")
+    this.router.navigateByUrl("visitdashboard")
   }
   else
   {
