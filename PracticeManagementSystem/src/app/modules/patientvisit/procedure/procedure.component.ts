@@ -18,6 +18,10 @@ export class ProcedureComponent implements OnInit {
   currentUser:any="";
   currentUserId:any="";
   currentroleId:any="";
+  procedureByUserId:any[]=[];
+  p:number=1;
+
+
   constructor(private fb:FormBuilder , private router:Router,private service:PatientvisitService) {
     this.proceduredetails = this.fb.group({
       patientId:['',Validators.required],
@@ -55,6 +59,13 @@ export class ProcedureComponent implements OnInit {
         debugger
         this.proceduremasterdata=data
       })
+
+      this.service.GetProceduresByUserId(this.currentUserId).subscribe(
+        (data:any[])=>{
+          debugger
+          this.procedureByUserId=data;
+        }
+      )
   }
   procedureCodeDdl:any="";
   showProcedureCode:any="";

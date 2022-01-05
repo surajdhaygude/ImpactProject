@@ -55,5 +55,21 @@ export class PatientvisitService {
     return this.http.get<any>("http://localhost:39671/api/Procedures/GetAllProcedures");  
     
   }
+  
+  public GetDiagnosisByUserId(id: any):Observable<any>{
+    return this.http.get<any>(`http://localhost:39671/api/Diagnosis/GetByUserId/${id}`);
+  }
+
+  public GetDrugsByUserId(id: any):Observable<any>{
+    return this.http.get<any>(`http://localhost:39671/api/Drugs/GetByUserId/${id}`);
+  }
+
+  public GetProceduresByUserId(id: any):Observable<any>{
+    return this.http.get<any>(`http://localhost:39671/api/Procedures/GetByUserId/${id}`);
+  }
+
+  public GetVitalSignsByUserId(id: any):Observable<any>{
+    return this.http.get<any>(`http://localhost:39671/api/VitalInfos/GetByUserId/${id}`);
+  }
 
 }

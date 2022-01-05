@@ -12,6 +12,23 @@
   background: linear-gradient(90deg, rgb(204, 230, 227)0%, rgb(204, 230, 227)100%); */
 }
 
+.table{
+  border: 2px solid black;
+}
+
+.patientHeader{
+  margin-right: -161px;
+}
+
+#ManagetOptions{
+  width: 98%;
+}
+
+.patientHeader{
+  text-align: center;
+  color: darkblue;
+}
+
 .card h2{
     color: rgb(7, 7, 7);
 }

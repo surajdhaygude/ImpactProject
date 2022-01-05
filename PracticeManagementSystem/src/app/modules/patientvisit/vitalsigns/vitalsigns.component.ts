@@ -17,6 +17,9 @@ export class VitalsignsComponent implements OnInit {
   currentUserId:any="";
   currentroleId:any="";
   vitalsigndetails !: FormGroup;
+  vitalSignByUserId:any[]=[];
+  p:number=1;
+
   constructor(private fb:FormBuilder , private router:Router,private service:PatientvisitService){
     this.vitalsigndetails = this.fb.group({
       patientId:['',Validators.required],
@@ -50,6 +53,13 @@ phyasiciandata:any[]=[];
       debugger
           this.phyasiciandata = data;
         })
+
+        this.service.GetVitalSignsByUserId(this.currentUserId).subscribe(
+          (data:any[])=>{
+            debugger
+            this.vitalSignByUserId=data;
+          }
+        )
   }
   get f() {
 

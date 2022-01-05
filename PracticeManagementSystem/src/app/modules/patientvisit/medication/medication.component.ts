@@ -17,6 +17,8 @@ export class MedicationComponent implements OnInit {
   currentUser:any="";
   currentUserId:any="";
   currentroleId:any="";
+  p:number=1;
+
   constructor(private formBuilder : FormBuilder , private router:Router ,private service:PatientvisitService) { 
     this.patientmedForm = this.formBuilder.group({
       
@@ -34,9 +36,11 @@ export class MedicationComponent implements OnInit {
   }
   patientdata:any[]=[];
   phyasiciandata:any[]=[];
-  drugmasterdata:any[]=[]
+  drugmasterdata:any[]=[];
+  medicationByUserId:any[]=[];
 
   ngOnInit(): void {
+
     this.localUser=localStorage.getItem('currentUser');
           this.currentUser=JSON.parse(this.localUser);
           this.currentUserId=this.currentUser.userId;
@@ -58,6 +62,13 @@ export class MedicationComponent implements OnInit {
         debugger
         this.drugmasterdata=data
       })
+
+      this.service.GetDrugsByUserId(this.currentUserId).subscribe(
+        (data:any[])=>{
+          debugger
+          this.medicationByUserId=data;
+        }
+      )
 
   }
   drugIdDdl:any="";

@@ -16,6 +16,10 @@ export class DiagnosisComponent implements OnInit {
   currentUser:any="";
   currentUserId:any="";
   currentroleId:any="";
+  diagnosisByUserId:any[]=[];
+  p:number=1;
+
+
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
   
@@ -34,6 +38,7 @@ export class DiagnosisComponent implements OnInit {
   diagnosismasterdata:any[]=[];
 
   ngOnInit(): void {
+
     this.localUser=localStorage.getItem('currentUser');
           this.currentUser=JSON.parse(this.localUser);
           this.currentUserId=this.currentUser.userId;
@@ -59,6 +64,20 @@ export class DiagnosisComponent implements OnInit {
             this.diagnosismasterdata=data
           })
 
+          this.service.GetDiagnosisByUserId(this.currentUserId).subscribe(
+            (data:any[])=>{
+              debugger
+              this.diagnosisByUserId=data;
+            }
+          )
+
+  }
+
+  key: string ='PatientDiagnosisInfoId';
+  reverse:boolean=false;
+  sort(key: string){
+    this.key=key;
+    this.reverse=!this.reverse;
   }
 
   diagnosis=[
