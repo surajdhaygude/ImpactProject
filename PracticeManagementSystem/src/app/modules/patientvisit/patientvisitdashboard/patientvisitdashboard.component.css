@@ -41,3 +41,8 @@ img {
 :hover:active{
   color: red;
 }
+
+.mat-expansion-panel {
+  background: #2c3344 !important;
+  color: rgba(0,0,0,.87);
+}

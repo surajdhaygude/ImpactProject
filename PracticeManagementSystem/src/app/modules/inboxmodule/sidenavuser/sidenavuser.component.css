@@ -80,3 +80,9 @@ img {
   .navbar-collapse.show {
     right: 0;
   }
+
+  .mat-expansion-panel {
+    background: #2c3344 !important;
+    color: rgba(0,0,0,.87);
+   }
+

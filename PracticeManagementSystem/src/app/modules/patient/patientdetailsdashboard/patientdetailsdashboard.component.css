@@ -108,4 +108,9 @@ img {
   mat-drawer-content {
     padding: 20px;
   }
+
+  .mat-expansion-panel {
+    background: #2c3344 !important;
+    color: rgba(0,0,0,.87);
+}
   

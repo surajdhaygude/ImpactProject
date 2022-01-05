@@ -11,6 +11,9 @@
      <h4 style="color:white;">{{currentEmail}}</h4>
     </div>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7FqSE46QFOJAAmw4ALVH4w1kR-IaV8cil9g&usqp=CAU" alt="Soufiane FADIL">
+    <div class="text-center">
+      {{currentFname}} {{currentLname}}
+    </div>
 </div> 
     <mat-divider></mat-divider>
    
@@ -20,8 +23,8 @@
     </a>
     <mat-accordion class="app-nav-accordion">
       <mat-expansion-panel class="mat-elevation-z0">
-        <mat-expansion-panel-header>
-          <mat-panel-title><b style="font-size: 16px;">Patient Visit</b></mat-panel-title>
+        <mat-expansion-panel-header class="disable_ripple">
+          <mat-panel-title><mat-icon style="color: white;">list</mat-icon>&nbsp;&nbsp;&nbsp;<b style="font-size: 16px; color: white;">Patient Visit</b></mat-panel-title>
         </mat-expansion-panel-header>
         <mat-nav-list>
           <a mat-list-item routerLinkActive="list-item-active" routerLink="/diagnosis"><b style="font-size: 16px;">Diagnosis</b></a>
@@ -41,8 +44,8 @@
 
     <mat-accordion class="app-nav-accordion">
       <mat-expansion-panel class="mat-elevation-z0">
-        <mat-expansion-panel-header>
-          <mat-panel-title><b style="font-size: 16px;">Notes</b></mat-panel-title>
+        <mat-expansion-panel-header class="disable_ripple">
+          <mat-panel-title><mat-icon style="color: white;">list</mat-icon>&nbsp;&nbsp;&nbsp;<b style="font-size: 16px; color: white; ">Notes</b></mat-panel-title>
         </mat-expansion-panel-header>
         <mat-nav-list>
           <a mat-list-item routerLinkActive="list-item-active" routerLink="/sendnotes"><b style="font-size: 16px;">Send Note</b></a>

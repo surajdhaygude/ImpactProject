@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { VisitdashboardComponent } from './visitdashboard/visitdashboard.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthGuard } from 'src/app/auth/auth.guard';
+import { PhysicianvisitdashboardComponent } from './physicianvisitdashboard/physicianvisitdashboard.component';
 
 
 
@@ -25,7 +26,8 @@ import { AuthGuard } from 'src/app/auth/auth.guard';
     ProcedureComponent,
     MedicationComponent,
     PatientvisitdashboardComponent,
-    VisitdashboardComponent
+    VisitdashboardComponent,
+    PhysicianvisitdashboardComponent
     
   ],
   imports: [
@@ -38,7 +40,8 @@ import { AuthGuard } from 'src/app/auth/auth.guard';
     RouterModule.forChild([
       // {path:'patientinformation',component:PatientinformationComponent, canActivate:[AuthGuard]},
       {path:'visitdashboard', component:VisitdashboardComponent, canActivate:[AuthGuard]},
-      {path:'patientinformation/:id', component:PatientinformationComponent,canActivate: [AuthGuard]}
+      {path:'patientinformation/:id', component:PatientinformationComponent,canActivate: [AuthGuard]},
+      {path:'physicianvisitdashboard', component:PhysicianvisitdashboardComponent,canActivate:[AuthGuard]}
 
     ])
   ]

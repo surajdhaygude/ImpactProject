@@ -1,1 +1,64 @@
-<p>drugmaster works!</p>
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container > 
+   <mat-drawer mode="side" [opened]="sideBarOpen" >
+    <app-admindashboard></app-admindashboard>
+</mat-drawer>
+   <mat-drawer-content>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="col">
+                        <mat-card-title style="text-align: center;">
+                            <h2>Master Drug Form</h2>
+                        </mat-card-title>
+                        <form [formGroup]="masterDrugForm" (ngSubmit)="addMasterDrug()">
+                          <div class="row">
+                            <mat-form-field appearance="outline" class="full-width col-4">
+                                <mat-label>Drug Id</mat-label>
+                                <input matInput required type="text" formControlName="drugId" >                      
+                              </mat-form-field> 
+                            
+                            <mat-form-field appearance="outline" class="full-width col-4">
+                              <mat-label>Drug Name</mat-label>
+                              <input matInput required type="text" formControlName="drugName" >                      
+                            </mat-form-field>  
+
+                            <mat-form-field appearance="outline" class="full-width col-4">
+                                <mat-label>Drug Generic Name </mat-label>
+                                <input matInput required formControlName="drugGenericName" >
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+                            <mat-form-field appearance="outline" class="full-width col-4">
+                                <mat-label>Drug Brand Name</mat-label>
+                                <input matInput required type="text" formControlName="drugBrandName" >                      
+                            </mat-form-field> 
+                            <mat-form-field appearance="outline" class="full-width col-4">
+                                <mat-label>Drug Form</mat-label>
+                                <input matInput required type="text" formControlName="drugForm">   
+                            </mat-form-field>                            
+                        
+                            <mat-form-field appearance="outline" class="full-width col-4">
+                                <mat-label>Drug strength </mat-label>
+                                <input matInput required  formControlName="drugStrength">
+                            </mat-form-field>
+                        </div>
+                        <div class="example-button-row">
+                            <button type="submit"   class="btn btn-primary">Submit</button>
+                            &nbsp;&nbsp;
+                            <button class="btn btn-primary" (click)="Cancel()">
+                              Cancel
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</mat-drawer-content>
+</mat-drawer-container> 
+

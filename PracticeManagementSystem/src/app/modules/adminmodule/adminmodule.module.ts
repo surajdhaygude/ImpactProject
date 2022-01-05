@@ -57,7 +57,10 @@ import { DiagnosismasterComponent } from './diagnosismaster/diagnosismaster.comp
       {path:'editnurse/:id',component:EditnurseComponent,canActivate: [AuthGuard]},
       {path:'patientusermanagement',component:PatientusermanagementComponent,canActivate: [AuthGuard]},
       {path:'addpatient', component:AddpatientComponent,canActivate: [AuthGuard]},
-      {path:'editPatient/:id', component:EditpatientComponent,canActivate: [AuthGuard]}
+      {path:'editPatient/:id', component:EditpatientComponent,canActivate: [AuthGuard]},
+      {path:'drugmaster', component:DrugmasterComponent,canActivate: [AuthGuard]},
+      {path:'diagnosismaster', component:DiagnosismasterComponent,canActivate: [AuthGuard]},
+      {path:'allergysmaster', component:AllergymasterComponent,canActivate: [AuthGuard]}
     ])
   ],
   exports:[AdmindashboardComponent]

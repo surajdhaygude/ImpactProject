@@ -1,1 +1,59 @@
-<p>allergymaster works!</p>
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container > 
+   <mat-drawer mode="side" [opened]="sideBarOpen" >
+    <app-admindashboard></app-admindashboard>
+</mat-drawer>
+   <mat-drawer-content>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="col">
+                        <mat-card-title style="text-align: center;">
+                            <h2>Master Allergy Form</h2>
+                        </mat-card-title>
+                        <form [formGroup]="masterAllergyForm" (ngSubmit)="addMasterAllergyData()">
+                          <div class="row">
+                            <mat-form-field appearance="outline" class="full-width col-4">
+                                <mat-label>Allergy Id</mat-label>
+                                <input matInput required type="text" formControlName="allergyId" >                      
+                              </mat-form-field> 
+                            
+                            <mat-form-field appearance="outline" class="full-width col-4">
+                              <mat-label>Allergy Type</mat-label>
+                              <input matInput required type="text" formControlName="allergyType" >                      
+                            </mat-form-field>  
+
+                           
+                        </div>
+
+                        <div class="row">
+                            <mat-form-field appearance="outline" class="full-width col-4">
+                                <mat-label>Allergy Name</mat-label>
+                                <input matInput required type="text" formControlName="allergyName" >                      
+                            </mat-form-field> 
+                            <mat-form-field appearance="outline" class="full-width col-4">
+                                <mat-label>Clinical Info</mat-label>
+                                <input matInput required type="text" formControlName="clinicalInfo">   
+                            </mat-form-field>                            
+                        
+                         
+                        </div>
+                        <div class="example-button-row">
+                            <button type="submit"   class="btn btn-primary">Submit</button>
+                            &nbsp;&nbsp;
+                            <button class="btn btn-primary" (click)="Cancel()">
+                              Cancel
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</mat-drawer-content>
+</mat-drawer-container> 
+
+

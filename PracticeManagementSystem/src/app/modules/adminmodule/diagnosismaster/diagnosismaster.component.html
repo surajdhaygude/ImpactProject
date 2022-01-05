@@ -1,1 +1,54 @@
-<p>diagnosismaster works!</p>
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container > 
+   <mat-drawer mode="side" [opened]="sideBarOpen" >
+    <app-admindashboard></app-admindashboard>
+</mat-drawer>
+   <mat-drawer-content>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="col">
+                        <mat-card-title style="text-align: center;">
+                            <h2>Master Drug Form</h2>
+                        </mat-card-title>
+                        <form [formGroup]="masterDignosisForm" (ngSubmit)="addMasterDignosis()">
+                          <div class="row">
+                            <mat-form-field appearance="outline" class="full-width col-4">
+                              <mat-label>Diagnosis Code</mat-label>
+                              <input matInput required type="text" formControlName="diagnosisCode" >                      
+                          </mat-form-field> 
+                            <mat-form-field appearance="outline" class="full-width col-4">
+                              <mat-label>Diagnosis Description</mat-label>
+                              <input matInput required type="text" formControlName="diagnosisDescription" >                      
+                            </mat-form-field>  
+                        </div>
+
+                        <div class="row">
+                            <mat-radio-group name="id" formControlName="diagnosisIsDepricated" appearance="legacy" class="full-width col-10">
+                                <mat-label> Diagnosis Is Depricated</mat-label>&nbsp;&nbsp;&nbsp;&nbsp;
+                             <mat-radio-button value="Yes" >
+                                 Yes 
+                             </mat-radio-button>&nbsp;&nbsp;
+                             <mat-radio-button value="No" >
+                                No
+                            </mat-radio-button>
+                            </mat-radio-group>                         
+                        </div>
+                        <div class="example-button-row">
+                            <button type="submit"   class="btn btn-primary">Submit</button>
+                            &nbsp;&nbsp;
+                            <button class="btn btn-primary" (click)="Cancel()">
+                              Cancel
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</mat-drawer-content>
+</mat-drawer-container> 
+
