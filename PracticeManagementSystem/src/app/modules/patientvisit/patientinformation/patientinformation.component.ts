@@ -261,6 +261,10 @@ sideBarToggler() {
   this.sideBarOpen = !this.sideBarOpen;
 }
 
+diagnosisform(id:any){
+  
+}
+
 // edituser():void{
 //   this.router.navigate(['/editpatientinformation']);
 // }
