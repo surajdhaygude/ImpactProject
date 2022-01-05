@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl,Validators, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./patientregistration.component.css']
 })
 export class PatientregistrationComponent implements OnInit {
-  
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
+
   public UserForm!:FormGroup
 
 
@@ -74,6 +75,18 @@ export class PatientregistrationComponent implements OnInit {
 
     BacktoLogin(){
       this.route.navigateByUrl('');
+    }
+    toggleSideBar() {
+      this.toggleSideBarForMe.emit();
+      setTimeout(() => {
+        window.dispatchEvent(
+          new Event('resize')
+        );
+      }, 300);
+    }
+    sideBarOpen = true;
+    sideBarToggler() {
+      this.sideBarOpen = !this.sideBarOpen;
     }
 
 

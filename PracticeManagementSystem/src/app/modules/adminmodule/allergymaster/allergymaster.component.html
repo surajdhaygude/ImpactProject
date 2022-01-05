@@ -14,12 +14,12 @@
                         </mat-card-title>
                         <form [formGroup]="masterAllergyForm" (ngSubmit)="addMasterAllergyData()">
                           <div class="row">
-                            <mat-form-field appearance="outline" class="full-width col-4">
+                            <mat-form-field appearance="outline" class="full-width col-6">
                                 <mat-label>Allergy Id</mat-label>
                                 <input matInput required type="text" formControlName="allergyId" >                      
                               </mat-form-field> 
                             
-                            <mat-form-field appearance="outline" class="full-width col-4">
+                            <mat-form-field appearance="outline" class="full-width col-6">
                               <mat-label>Allergy Type</mat-label>
                               <input matInput required type="text" formControlName="allergyType" >                      
                             </mat-form-field>  
@@ -28,11 +28,11 @@
                         </div>
 
                         <div class="row">
-                            <mat-form-field appearance="outline" class="full-width col-4">
+                            <mat-form-field appearance="outline" class="full-width col-6">
                                 <mat-label>Allergy Name</mat-label>
                                 <input matInput required type="text" formControlName="allergyName" >                      
                             </mat-form-field> 
-                            <mat-form-field appearance="outline" class="full-width col-4">
+                            <mat-form-field appearance="outline" class="full-width col-6">
                                 <mat-label>Clinical Info</mat-label>
                                 <input matInput required type="text" formControlName="clinicalInfo">   
                             </mat-form-field>                            

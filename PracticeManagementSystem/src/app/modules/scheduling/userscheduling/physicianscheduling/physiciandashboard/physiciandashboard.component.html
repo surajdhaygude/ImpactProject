@@ -10,8 +10,17 @@
      </div>       
      <h4 style="color:white;">{{currentEmail}}</h4>
     </div>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7FqSE46QFOJAAmw4ALVH4w1kR-IaV8cil9g&usqp=CAU" alt="Soufiane FADIL">
-</div> 
+    <div *ngIf="currentroleId==3">
+      <img src="https://cdn-icons.flaticon.com/png/512/4311/premium/4311322.png?token=exp=1641390887~hmac=14cec5a535e27d8ecff689943e96339c" alt="Soufiane FADIL">
+
+    </div> 
+    <div *ngIf="currentroleId==2">
+      <img src="https://cdn-icons.flaticon.com/png/512/709/premium/709043.png?token=exp=1641391325~hmac=4d9a3ed4835f33b8aca74ee71a73af2f" alt="Soufiane FADIL">
+   </div>  
+   <div class="text-center">
+    {{currentFname}} {{currentLname}}
+  </div>
+  </div> 
     <mat-divider></mat-divider>
    
     <div *ngIf="currentroleId==3">
