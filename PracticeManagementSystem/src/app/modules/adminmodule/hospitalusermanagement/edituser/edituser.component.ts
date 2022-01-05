@@ -40,6 +40,7 @@ export class EdituserComponent implements OnInit {
     this.rs.getUserByID(this.val).subscribe(data =>{
       debugger
       this.userId=data.userId;
+      this.title=data.title;
       this.firstname=data.firstname;
       this.lastname=data.lastname;
       this.emailId=data.emailId;
@@ -54,6 +55,7 @@ export class EdituserComponent implements OnInit {
 
     this.updatephysician=this.formbuilder.group({
       userId:[''],
+      title:[''],
       firstname:['',Validators.required],
       lastname:['',Validators.required],
       emailId:['',[Validators.required, Validators.email]],

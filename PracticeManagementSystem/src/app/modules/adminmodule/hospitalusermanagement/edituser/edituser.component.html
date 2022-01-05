@@ -23,7 +23,18 @@
                   <label class="form-label" formControlName="userId">{{userId}}</label>
                 </div>
               </div>
+              </div>
             
+              <div class="row mb-3">
+                <mat-radio-group [(ngModel)]="title"  formControlName="title" class="full-width col-10">
+                  <mat-label class="label">Title:</mat-label>&nbsp;&nbsp;&nbsp;
+                  <mat-radio-button value="Mr" color="primary">Mr</mat-radio-button>&nbsp;
+                  <mat-radio-button value="Ms" color="primary">Ms</mat-radio-button>&nbsp;
+                  <mat-radio-button value="Mrs" color="primary">Mrs</mat-radio-button>&nbsp;
+                  <mat-radio-button value="Dr" color="primary">Dr</mat-radio-button>&nbsp;
+                </mat-radio-group>
+              </div>
+
                   <!-- <div class="form-group">
                     
                       <label for="select">Title</label>
@@ -48,6 +59,7 @@
                     </div>
                   </div>
                    -->
+                   <div class="row mb-3">
                    <div class="col">
                   <div class="form-group">
                     <label for="exampleInputPassword1" class="form-label">First Name</label>
@@ -63,9 +75,7 @@
                       <span class="text-danger" *ngIf="updatephysician.controls['lastname'].dirty && updatephysician.hasError('required','lastname')">Last name can not be empty.</span>
                     </div>
                   </div>
-                  </div>
 
-                  <div class="row mb-3">
                     <div class="col">
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="form-label">Email Id</label>
@@ -74,7 +84,9 @@
                       <span class="text-danger" *ngIf="updatephysician.controls['emailId'].dirty && updatephysician.hasError('email','emailId')">Please enter valid email address.</span>
                     </div>
                   </div>
+                </div>
 
+                  <div class="row mb-3">
                   <div class="col">
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="form-label">Date Of Birth</label>
@@ -91,7 +103,6 @@
 
                     </div>
                     </div>
-                  </div>
                     <!-- <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Role</label>
                       <div class="mb-3">
@@ -105,8 +116,7 @@
                       </div>
                     </div> -->
 
-                    <div class="row">
-                    <div class="col-4 mb-3">
+                    <div class="col">
                       <label for="exampleInputPassword1" class="form-label">Status</label>
                       <div class="mb-3">
                         <input class="form-control" formControlName='status' required list="StatusOptions" id="StatusList" placeholder="Type to search status..." [(ngModel)]="status">
