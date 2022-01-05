@@ -17,6 +17,18 @@ export class PatientvisitService {
     debugger
     return this.http.post<any>("http://localhost:39671/api/Drugs/CreatePatientMedication",formdata)
   }
+  public AddMasterDrug(formdata:any){
+    debugger
+    return this.http.post<any>("http://localhost:39671/api/Drugs/CreateMasterDrug",formdata)
+  }
+  public AddMasterDignosis(formdata:any){
+    debugger
+    return this.http.post<any>("http://localhost:39671/api/Diagnosis/CreateMasterDiagnosis",formdata)
+  }
+  public AddMasterAllergy(formdata:any){
+    debugger
+    return this.http.post<any>("http://localhost:39671/api/Allergies/CreateMasterAllergy",formdata)
+  }
   public AddPatientProcedure(formdata:any){
     debugger
     return this.http.post<any>("http://localhost:39671/api/Procedures/CreateProcedureInfo",formdata)

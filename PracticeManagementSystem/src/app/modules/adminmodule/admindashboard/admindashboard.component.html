@@ -50,6 +50,18 @@
         <mat-icon>supervisor_account</mat-icon>  <b style="font-size: 16px;">Patient UserManagement</b>
       </a>
       <a mat-list-item routerLink="/adminregistration"> <mat-icon>calendar_today</mat-icon><b style="font-size: 16px;">User Registration</b>  </a>
+      <mat-accordion class="app-nav-accordion">
+        <mat-expansion-panel class="mat-elevation-z0">
+          <mat-expansion-panel-header >
+            <mat-panel-title><mat-icon style="color: white;">list</mat-icon>&nbsp;&nbsp;&nbsp;<b style="font-size: 16px; color: white;">Master Data</b></mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/drugmaster"><b style="font-size: 16px;"> Drug Master</b></a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/diagnosismaster"><b style="font-size: 16px;">Diagnosis Master</b></a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/allergysmaster"><b style="font-size: 16px;">Allergy Master</b></a>
+        </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
       <a mat-list-item  routerLink="" (click)="SignOut()"><mat-icon>exit_to_app</mat-icon><b style="font-size: 16px;">SignOut</b>  </a>
   
   </mat-nav-list>
