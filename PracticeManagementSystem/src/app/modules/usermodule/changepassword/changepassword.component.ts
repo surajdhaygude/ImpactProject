@@ -9,6 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./changepassword.component.css']
 })
 export class ChangepasswordComponent implements OnInit {
+  localUser:any="";
+  currentUser:any="";
+  currentUserId:any="";
+  currentroleId:any="";
+  currentPassword:any="";
+
 
     // hide: boolean = false;
     // loading = false;
@@ -19,6 +25,11 @@ export class ChangepasswordComponent implements OnInit {
   constructor(private fb:FormBuilder, private http:HttpClient, private route:Router) { }
 
   ngOnInit(): void {
+    this.localUser=localStorage.getItem('currentUser');
+          this.currentUser=JSON.parse(this.localUser);
+          this.currentUserId=this.currentUser.userId;
+          this.currentroleId=this.currentUser.roleId;
+          this.currentPassword=this.currentUser.password;
     this.changepassForm= this.fb.group({
       password :['' ,[Validators.required,  Validators.minLength(8)]],
       newpassword:['',[Validators.required, Validators.minLength(8)]],
@@ -51,7 +62,7 @@ export class ChangepasswordComponent implements OnInit {
       
       if(this.changepassForm.valid)
       {
-      
+         if(this.currentPassword==this.changepassForm.value.password)
         // console.log(this.changepassForm.get('password')?.value);
         // console.log(this.changepassForm.get('newpassword')?.value);
         // console.log(this.changepassForm.get('confirmnewpassword')?.value);
