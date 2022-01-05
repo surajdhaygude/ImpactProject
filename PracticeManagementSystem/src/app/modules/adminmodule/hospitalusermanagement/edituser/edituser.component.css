@@ -1,13 +1,13 @@
 .card{
     margin-top: 50px;
-    border: none;
+    /* border: none; */
     padding: 30px;
-    position: absolute;
+    /* position: absolute; */
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: rgb(204, 230, 227);
-    background: linear-gradient(90deg, rgb(204, 230, 227)0%, rgb(204, 230, 227)100%);
+    /* background: rgb(204, 230, 227);
+    background: linear-gradient(90deg, rgb(204, 230, 227)0%, rgb(204, 230, 227)100%); */
 }
 
 /* .card h2{
@@ -18,9 +18,9 @@ label{
     color: white;
 } */
 
-.container-fluid{
+/* .container-fluid{
     background: hsla(205, 40%, 30%, 1);
-}
+} */
 
 .backbutton{
     margin-left: 16px;;
