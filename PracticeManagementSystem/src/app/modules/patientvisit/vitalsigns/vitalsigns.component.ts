@@ -19,6 +19,8 @@ export class VitalsignsComponent implements OnInit {
   vitalsigndetails !: FormGroup;
   vitalSignByUserId:any[]=[];
   p:number=1;
+  patientUser:any="";
+  localPatientUser:any="";
 
   constructor(private fb:FormBuilder , private router:Router,private service:PatientvisitService){
     this.vitalsigndetails = this.fb.group({
@@ -40,7 +42,11 @@ phyasiciandata:any[]=[];
     this.localUser=localStorage.getItem('currentUser');
     this.currentUser=JSON.parse(this.localUser);
     this.currentUserId=this.currentUser.userId;
-    this.currentroleId=this.currentUser.roleId
+    this.currentroleId=this.currentUser.roleId;
+
+    this.localPatientUser=localStorage.getItem('patientUser');
+          this.patientUser=JSON.parse(this.localPatientUser);
+
     debugger
     this.service.GetPatientUsers().subscribe(
       (data: any[]) => {
@@ -54,7 +60,7 @@ phyasiciandata:any[]=[];
           this.phyasiciandata = data;
         })
 
-        this.service.GetVitalSignsByUserId(this.currentUserId).subscribe(
+        this.service.GetVitalSignsByUserId(this.patientUser).subscribe(
           (data:any[])=>{
             debugger
             this.vitalSignByUserId=data;
@@ -119,6 +125,26 @@ phyasiciandata:any[]=[];
     this.router.navigateByUrl("patientscheduling")
   }
   }
+
+  diagnosisform(){
+    this.router.navigateByUrl('diagnosis');  
+   }
+   
+   Medicationform(){
+     this.router.navigateByUrl('medication');  
+   }
+   
+   Procedureform(){
+     this.router.navigateByUrl('procedure');  
+   }
+   
+   Vitalsignsform(){
+     this.router.navigateByUrl('vitalsigns');  
+   }
+
+   patientinfoform(){
+    this.router.navigate(['/patientinformation', this.patientUser]);
+   }
 
   toggleSideBar() {
     this.toggleSideBarForMe.emit();

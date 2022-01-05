@@ -17,6 +17,8 @@ export class MedicationComponent implements OnInit {
   currentUser:any="";
   currentUserId:any="";
   currentroleId:any="";
+  patientUser:any="";
+  localPatientUser:any="";
   p:number=1;
 
   constructor(private formBuilder : FormBuilder , private router:Router ,private service:PatientvisitService) { 
@@ -44,7 +46,11 @@ export class MedicationComponent implements OnInit {
     this.localUser=localStorage.getItem('currentUser');
           this.currentUser=JSON.parse(this.localUser);
           this.currentUserId=this.currentUser.userId;
-          this.currentroleId=this.currentUser.roleId
+          this.currentroleId=this.currentUser.roleId;
+
+          this.localPatientUser=localStorage.getItem('patientUser');
+          this.patientUser=JSON.parse(this.localPatientUser);
+
     debugger
     this.service.GetPatientUsers().subscribe(
       (data: any[]) => {
@@ -63,7 +69,7 @@ export class MedicationComponent implements OnInit {
         this.drugmasterdata=data
       })
 
-      this.service.GetDrugsByUserId(this.currentUserId).subscribe(
+      this.service.GetDrugsByUserId(this.patientUser).subscribe(
         (data:any[])=>{
           debugger
           this.medicationByUserId=data;
@@ -166,6 +172,25 @@ export class MedicationComponent implements OnInit {
   }
   }
   
+  diagnosisform(){
+    this.router.navigateByUrl('diagnosis');  
+   }
+   
+   Medicationform(){
+     this.router.navigateByUrl('medication');  
+   }
+   
+   Procedureform(){
+     this.router.navigateByUrl('procedure');  
+   }
+   
+   Vitalsignsform(){
+     this.router.navigateByUrl('vitalsigns');  
+   }
+
+   patientinfoform(){
+    this.router.navigate(['/patientinformation', this.patientUser]);
+   }
 
   toggleSideBar() {
     this.toggleSideBarForMe.emit();
@@ -179,4 +204,5 @@ export class MedicationComponent implements OnInit {
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
   }
+
 }

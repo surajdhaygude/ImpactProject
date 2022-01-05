@@ -24,7 +24,7 @@
         <mat-icon>home</mat-icon> <b style="font-size: 16px;">Home</b>
     </a> 
    </div>  
-    <mat-accordion class="app-nav-accordion">
+    <!-- <mat-accordion class="app-nav-accordion">
       <mat-expansion-panel class="mat-elevation-z0">
         <mat-expansion-panel-header>
           <mat-panel-title><mat-icon style="color: white;">list</mat-icon>&nbsp;&nbsp;&nbsp;<b style="font-size: 16px; color: white;">Patient Visit</b></mat-panel-title>
@@ -37,8 +37,7 @@
 
       </mat-nav-list>
       </mat-expansion-panel>
-    </mat-accordion>
-    <a mat-list-item routerLink="/physicianscheduling"> <mat-icon>calendar_today</mat-icon><b style="font-size: 16px;">Scheduling</b>  </a>
+    </mat-accordion> -->
     <mat-accordion class="app-nav-accordion">
       <mat-expansion-panel class="mat-elevation-z0">
         <mat-expansion-panel-header>
@@ -52,6 +51,8 @@
       </mat-nav-list>
       </mat-expansion-panel>
     </mat-accordion>
+    <a mat-list-item routerLink="/physicianscheduling"> <mat-icon>calendar_today</mat-icon><b style="font-size: 16px;">Scheduling</b>  </a>
+
     <a mat-list-item  routerLink="" (click)="SignOut()"><mat-icon>exit_to_app</mat-icon><b style="font-size: 16px;">SignOut</b>  </a>
 
 </mat-nav-list>

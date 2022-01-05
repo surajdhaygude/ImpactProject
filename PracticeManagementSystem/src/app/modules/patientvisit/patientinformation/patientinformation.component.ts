@@ -261,10 +261,21 @@ sideBarToggler() {
   this.sideBarOpen = !this.sideBarOpen;
 }
 
-diagnosisform(id:any){
-  
+diagnosisform(){
+ this.router.navigateByUrl('diagnosis');  
 }
 
+Medicationform(){
+  this.router.navigateByUrl('medication');  
+}
+
+Procedureform(){
+  this.router.navigateByUrl('procedure');  
+}
+
+Vitalsignsform(){
+  this.router.navigateByUrl('vitalsigns');  
+}
 // edituser():void{
 //   this.router.navigate(['/editpatientinformation']);
 // }

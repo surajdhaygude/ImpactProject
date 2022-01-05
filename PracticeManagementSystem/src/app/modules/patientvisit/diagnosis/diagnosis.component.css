@@ -70,3 +70,7 @@ label{
   mat-drawer-content {
     padding: 20px;
   }
+
+  .visitbtn{
+    width: 100%;
+  }

@@ -29,8 +29,8 @@ export class DiagnosisComponent implements OnInit {
     this.diagnosisdetails = this.formBuilder.group({
       diagnosisCode: ['',Validators.required],
       diagnosisDescription: ['',Validators.required],
-      patientId:['',Validators.required],
-      physicianId:['',Validators.required],
+      patientId:[''],
+      // physicianId:['',Validators.required],
       createdby:['']
       //diagnosisIsDepricated: ['',Validators.required],
     })
@@ -154,6 +154,7 @@ export class DiagnosisComponent implements OnInit {
     // this.f.patientid.setValue(20);
     // this.f.physicianid.setValue(4);
     this.f.createdby.setValue(this.currentUserId);
+    this.f.patientId.setValue(this.patientUser);
     this.service.Adddiagnosis(this.diagnosisdetails.value).subscribe(res =>{
       console.log(this.diagnosisList)
     alert("Patient diagnosis details added successfully...!")
@@ -188,5 +189,25 @@ export class DiagnosisComponent implements OnInit {
     this.sideBarOpen = !this.sideBarOpen;
   }
 
+  diagnosisform(){
+    this.router.navigateByUrl('diagnosis');  
+   }
+   
+   Medicationform(){
+     this.router.navigateByUrl('medication');  
+   }
+   
+   Procedureform(){
+     this.router.navigateByUrl('procedure');  
+   }
+   
+   Vitalsignsform(){
+     this.router.navigateByUrl('vitalsigns');  
+   }
+
+   patientinfoform(){
+    this.router.navigate(['/patientinformation', this.patientUser]);
+   }
+   
 
 }

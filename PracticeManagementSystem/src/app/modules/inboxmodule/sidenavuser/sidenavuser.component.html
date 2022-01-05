@@ -18,10 +18,17 @@
     <mat-divider></mat-divider>
    
   
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/patientinformation">
-        <mat-icon>supervisor_account</mat-icon> <b style="font-size: 16px;">Patient Information</b>
-    </a>
-    <mat-accordion class="app-nav-accordion">
+    <div *ngIf="currentroleId==3">
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/visitdashboard">
+        <mat-icon>home</mat-icon> <b style="font-size: 16px;">Home</b>
+    </a>  
+    </div> 
+    <div *ngIf="currentroleId==2">
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/physicianvisitdashboard">
+        <mat-icon>home</mat-icon> <b style="font-size: 16px;">Home</b>
+    </a> 
+   </div> 
+    <!-- <mat-accordion class="app-nav-accordion">
       <mat-expansion-panel class="mat-elevation-z0">
         <mat-expansion-panel-header class="disable_ripple">
           <mat-panel-title><mat-icon style="color: white;">list</mat-icon>&nbsp;&nbsp;&nbsp;<b style="font-size: 16px; color: white;">Patient Visit</b></mat-panel-title>
@@ -34,13 +41,8 @@
 
       </mat-nav-list>
       </mat-expansion-panel>
-    </mat-accordion>
-    <div *ngIf="currentroleId==3">
-    <a mat-list-item routerLink="/nursescheduling"> <mat-icon>calendar_today</mat-icon><b style="font-size: 16px;">Scheduling</b>  </a>
-  </div> 
-  <div *ngIf="currentroleId==2">
-    <a mat-list-item routerLink="/physicianscheduling"> <mat-icon>calendar_today</mat-icon><b style="font-size: 16px;">Scheduling</b>  </a>
-</div>
+    </mat-accordion> -->
+    
 
     <mat-accordion class="app-nav-accordion">
       <mat-expansion-panel class="mat-elevation-z0">
@@ -55,6 +57,12 @@
       </mat-nav-list>
       </mat-expansion-panel>
     </mat-accordion>
+    <div *ngIf="currentroleId==3">
+      <a mat-list-item routerLink="/nursescheduling"> <mat-icon>calendar_today</mat-icon><b style="font-size: 16px;">Scheduling</b>  </a>
+    </div> 
+    <div *ngIf="currentroleId==2">
+      <a mat-list-item routerLink="/physicianscheduling"> <mat-icon>calendar_today</mat-icon><b style="font-size: 16px;">Scheduling</b>  </a>
+  </div>
     <a mat-list-item  routerLink="" (click)="SignOut()"><mat-icon>exit_to_app</mat-icon><b style="font-size: 16px;">SignOut</b>  </a>
 
 </mat-nav-list>

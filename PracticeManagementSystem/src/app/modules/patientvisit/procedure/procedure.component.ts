@@ -19,7 +19,9 @@ export class ProcedureComponent implements OnInit {
   currentUserId:any="";
   currentroleId:any="";
   procedureByUserId:any[]=[];
-  p:number=1;
+  p:number=1;  
+patientUser:any="";
+localPatientUser:any="";
 
 
   constructor(private fb:FormBuilder , private router:Router,private service:PatientvisitService) {
@@ -41,7 +43,11 @@ export class ProcedureComponent implements OnInit {
     this.localUser=localStorage.getItem('currentUser');
           this.currentUser=JSON.parse(this.localUser);
           this.currentUserId=this.currentUser.userId;
-          this.currentroleId=this.currentUser.roleId
+          this.currentroleId=this.currentUser.roleId;
+
+          this.localPatientUser=localStorage.getItem('patientUser');
+          this.patientUser=JSON.parse(this.localPatientUser);
+
     debugger
     this.service.GetPatientUsers().subscribe(
       (data: any[]) => {
@@ -60,7 +66,7 @@ export class ProcedureComponent implements OnInit {
         this.proceduremasterdata=data
       })
 
-      this.service.GetProceduresByUserId(this.currentUserId).subscribe(
+      this.service.GetProceduresByUserId(this.patientUser).subscribe(
         (data:any[])=>{
           debugger
           this.procedureByUserId=data;
@@ -136,6 +142,25 @@ export class ProcedureComponent implements OnInit {
   }
   }
   
+  diagnosisform(){
+    this.router.navigateByUrl('diagnosis');  
+   }
+   
+   Medicationform(){
+     this.router.navigateByUrl('medication');  
+   }
+   
+   Procedureform(){
+     this.router.navigateByUrl('procedure');  
+   }
+   
+   Vitalsignsform(){
+     this.router.navigateByUrl('vitalsigns');  
+   }
+
+   patientinfoform(){
+    this.router.navigate(['/patientinformation', this.patientUser]);
+   }
 
   toggleSideBar() {
     this.toggleSideBarForMe.emit();
@@ -150,3 +175,4 @@ export class ProcedureComponent implements OnInit {
     this.sideBarOpen = !this.sideBarOpen;
   }
 }
+

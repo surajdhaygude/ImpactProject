@@ -7,6 +7,23 @@
    <mat-drawer-content>
 
     <div class="container">
+
+      <div class="row">
+        <div class="col-3">
+          <!-- (click)="patientinfo(userIdDdl)" -->
+          <button type="button" class="btn btn-primary visitbtn"(click)="patientinfoform()" >Patient Information</button>
+        </div>
+        <div class="col-3">
+          <button type="button" class="btn btn-primary visitbtn" (click)="Medicationform()">Medication</button>
+        </div>
+        <div class="col-3">
+          <button type="button" class="btn btn-primary visitbtn" (click)="Procedureform()">Procedure</button>
+        </div>
+        <div class="col-3">
+          <button type="button" class="btn btn-primary visitbtn" (click)="Vitalsignsform()">Vitalsigns</button>
+        </div>
+      </div>
+
       <div class="row">
          <div class="col">
              <div class="card col-12 col-md-12 mt-2">
