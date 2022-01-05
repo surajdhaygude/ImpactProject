@@ -16,6 +16,8 @@ export class DiagnosisComponent implements OnInit {
   currentUser:any="";
   currentUserId:any="";
   currentroleId:any="";
+  patientUser:any="";
+  localPatientUser:any="";
   diagnosisByUserId:any[]=[];
   p:number=1;
 
@@ -42,7 +44,11 @@ export class DiagnosisComponent implements OnInit {
     this.localUser=localStorage.getItem('currentUser');
           this.currentUser=JSON.parse(this.localUser);
           this.currentUserId=this.currentUser.userId;
-          this.currentroleId=this.currentUser.roleId
+          this.currentroleId=this.currentUser.roleId;
+
+          this.localPatientUser=localStorage.getItem('patientUser');
+          this.patientUser=JSON.parse(this.localPatientUser);
+
     debugger
     this.service.GetPatientUsers().subscribe(
       (data: any[]) => {
@@ -64,7 +70,7 @@ export class DiagnosisComponent implements OnInit {
             this.diagnosismasterdata=data
           })
 
-          this.service.GetDiagnosisByUserId(this.currentUserId).subscribe(
+          this.service.GetDiagnosisByUserId(this.patientUser).subscribe(
             (data:any[])=>{
               debugger
               this.diagnosisByUserId=data;

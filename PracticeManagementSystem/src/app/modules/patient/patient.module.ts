@@ -10,6 +10,8 @@ import { MaterialModule } from '../material/material.module';
 import { PatientdetailsdashboardComponent } from './patientdetailsdashboard/patientdetailsdashboard.component';
 import { AuthGuard } from 'src/app/auth/auth.guard';
 import { MasterLayoutModule } from '../master-layout/master-layout.module';
+import { PatientvisithistoryComponent } from './patientvisithistory/patientvisithistory.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -17,7 +19,8 @@ import { MasterLayoutModule } from '../master-layout/master-layout.module';
   declarations: [
     DemographicinformationComponent,
     AllergyinformationComponent,
-    PatientdetailsdashboardComponent
+    PatientdetailsdashboardComponent,
+    PatientvisithistoryComponent
   ],
   imports: [
     CommonModule,
@@ -25,10 +28,13 @@ import { MasterLayoutModule } from '../master-layout/master-layout.module';
     MasterLayoutModule,
     MaterialModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     RouterModule.forChild([
       {path:'allergyinformation',component:AllergyinformationComponent,canActivate: [AuthGuard]},
       {path:'demographicinformation' , component:DemographicinformationComponent,canActivate: [AuthGuard]},
-      {path:'patientdetailsdashboard',component:PatientdetailsdashboardComponent,canActivate: [AuthGuard]}
+      {path:'patientdetailsdashboard',component:PatientdetailsdashboardComponent,canActivate: [AuthGuard]},
+      {path:'patientvisithistory',component:PatientvisithistoryComponent,canActivate:[AuthGuard]}
+
 
     ])
   ],

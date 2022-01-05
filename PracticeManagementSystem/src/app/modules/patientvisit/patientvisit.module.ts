@@ -27,8 +27,7 @@ import { PhysicianvisitdashboardComponent } from './physicianvisitdashboard/phys
     MedicationComponent,
     PatientvisitdashboardComponent,
     VisitdashboardComponent,
-    PhysicianvisitdashboardComponent
-    
+    PhysicianvisitdashboardComponent    
   ],
   imports: [
     CommonModule,
@@ -42,7 +41,6 @@ import { PhysicianvisitdashboardComponent } from './physicianvisitdashboard/phys
       {path:'visitdashboard', component:VisitdashboardComponent, canActivate:[AuthGuard]},
       {path:'patientinformation/:id', component:PatientinformationComponent,canActivate: [AuthGuard]},
       {path:'physicianvisitdashboard', component:PhysicianvisitdashboardComponent,canActivate:[AuthGuard]}
-
     ])
   ]
 })

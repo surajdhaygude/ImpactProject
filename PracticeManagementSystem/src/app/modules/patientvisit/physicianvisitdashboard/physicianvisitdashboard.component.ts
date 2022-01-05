@@ -53,8 +53,8 @@ export class PhysicianvisitdashboardComponent implements OnInit {
 
   patientinfo(id:any){
     debugger
+    localStorage.setItem('patientUser', JSON.stringify(id));
     this.route.navigate(['/patientinformation', id]);
-
   }
 
 }

@@ -1,0 +1,199 @@
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container > 
+   <mat-drawer mode="side" [opened]="sideBarOpen" >
+    <app-patientdetailsdashboard></app-patientdetailsdashboard>
+  </mat-drawer>
+   <mat-drawer-content>
+
+<div class="container">
+
+    <div class="row mb-1">
+        <div style="text-align: center;">
+            <h1>Diagnosis Details</h1>
+        </div>
+    </div>
+            <table class="table table-striped table-bordered table-sm row-border table-hover ">
+                <thead>
+                <tr>
+                    <th>Diagnosis ID</th>
+                    <th>Diagnosis Code</th>
+                    <th>Diagnosis Description</th>
+                    <th>Diagnosis IsDepricated</th>
+                    <!-- <th width="220px">Manage</th> -->
+                </tr>
+            </thead>
+            <!-- | orderBy: key:reverse  -->
+            <!-- | paginate: { itemsPerPage: 5, currentPage: p }; -->
+            <tbody>
+                <tr *ngFor="let data of diagnosisByUserId | paginate: { itemsPerPage: 5, currentPage: p };">
+                    <td>{{ data.patientDiagnosisInfoId }}</td>
+                    <td>{{ data.diagnosisCode }}</td>
+                    <td>{{ data.diagnosisDescription}}</td>
+                    <td>{{ data.diagnosisIsDepricated }}</td>
+                    <!-- <td>
+                        <select id="ManagetOptions">
+                            <option value="Active">Active</option>
+                            <option value="Deactivate">Deactivate</option>
+                            <option value="Block">Block</option>
+                        </select>
+                    </td> -->
+                    <!-- <td>
+                        <button type="button" class="btn btn-primary editbtn" (click)="edituser(data.userId)">Edit</button>
+                        <button type="button" (click)="deleteuser(data.userId)" class="btn btn-danger deletebtn">Delete</button>
+                    </td> -->
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-4">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    
+            </div>
+        </div>
+       
+        <div class="row mb-1">
+            <div style="text-align: center;">
+                <h1>Medication Details</h1>
+            </div>
+        </div>
+                        
+                <table class="table table-striped table-bordered table-sm row-border table-hover ">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Drug ID</th>
+                        <th>Drug Name</th>
+                        <th>Drug Generic Name</th>
+                        <th>Drug Brand Name</th>
+                        <th>Drug Form</th>
+                        <th>Drug Strength</th>
+                        <!-- <th width="220px">Manage</th> -->
+                    </tr>
+                </thead>
+                <!-- | orderBy: key:reverse  -->
+                <!-- | paginate: { itemsPerPage: 5, currentPage: p }; -->
+                <tbody>
+                    <tr *ngFor="let data of medicationByUserId | paginate: { itemsPerPage: 5, currentPage: p };">
+                        <td>{{ data.patientMedicationInfoId }}</td>
+                        <td>{{ data.drug_ID }}</td>
+                        <td>{{ data.drugName}}</td>
+                        <td>{{ data.drugGenericName }}</td>
+                        <td>{{ data.drugBrandName }}</td>
+                        <td>{{ data.drugForm }}</td>
+                        <td>{{ data.drugStrength }}</td>
+  
+  
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-4">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        
+                </div>
+            </div>
+          
+
+        <!-- <div class="container"> -->
+            <div class="row mb-1">
+                <div style="text-align: center;">
+                    <h1>Procedure Details</h1>
+                </div>
+            </div>
+   
+            <table class="table table-striped table-bordered table-sm row-border table-hover ">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Procedure Code</th>
+                    <th>Procedure Description</th>
+                    <th>Procedure IsDepricated</th>
+                    <!-- <th width="220px">Manage</th> -->
+                </tr>
+            </thead>
+            <!-- | orderBy: key:reverse  -->
+            <!-- | paginate: { itemsPerPage: 5, currentPage: p }; -->
+            <tbody>
+                <tr *ngFor="let data of procedureByUserId | paginate: { itemsPerPage: 5, currentPage: p };">
+                    <td>{{ data.patientProcedureInfoId }}</td>
+                    <td>{{ data.procedureCode }}</td>
+                    <td>{{ data.procedureDescription}}</td>
+                    <td>{{ data.procedureIsDepricated }}</td>
+
+                    <!-- <td>
+                        <select id="ManagetOptions">
+                            <option value="Active">Active</option>
+                            <option value="Deactivate">Deactivate</option>
+                            <option value="Block">Block</option>
+                        </select>
+                    </td> -->
+                    <!-- <td>
+                        <button type="button" class="btn btn-primary editbtn" (click)="edituser(data.userId)">Edit</button>
+                        <button type="button" (click)="deleteuser(data.userId)" class="btn btn-danger deletebtn">Delete</button>
+                    </td> -->
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-4">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    
+            </div>
+        </div>
+     
+
+    <!-- <div class="container"> -->
+        <div class="row mb-1">
+            <div style="text-align: center;">
+                <h1>Vital Sign Details</h1>
+            </div>
+        </div>
+       
+                <table class="table table-striped table-bordered table-sm row-border table-hover ">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Height</th>
+                        <th>Weight</th>
+                        <th>Blood Pressure</th>
+                        <th>Body Temperature</th>
+                        <th>Respiration Rate</th>
+                        <!-- <th width="220px">Manage</th> -->
+                    </tr>
+                </thead>
+                <!-- | orderBy: key:reverse  -->
+                <!-- | paginate: { itemsPerPage: 5, currentPage: p }; -->
+                <tbody>
+                    <tr *ngFor="let data of vitalSignByUserId | paginate: { itemsPerPage: 5, currentPage: p };">
+                        <td>{{ data.PatientVitalSignInfoId }}</td>
+                        <td>{{ data.height }}</td>
+                        <td>{{ data.weight}}</td>
+                        <td>{{data.bloodPressure}}</td>
+                        <td>{{ data.bodyTemperature }}</td>
+                        <td>{{data.respirationRate}}</td>
+    
+                        <!-- <td>
+                            <select id="ManagetOptions">
+                                <option value="Active">Active</option>
+                                <option value="Deactivate">Deactivate</option>
+                                <option value="Block">Block</option>
+                            </select>
+                        </td> -->
+                        <!-- <td>
+                            <button type="button" class="btn btn-primary editbtn" (click)="edituser(data.userId)">Edit</button>
+                            <button type="button" (click)="deleteuser(data.userId)" class="btn btn-danger deletebtn">Delete</button>
+                        </td> -->
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-4">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        
+                </div>
+            </div>
+            
+</div>
+
+</mat-drawer-content>
+</mat-drawer-container> 
