@@ -26,10 +26,16 @@ export class DemographicinformationComponent implements OnInit {
   email: string="";
    age: any=0;
 
+   title:string="";
+   firstname:any;
+   lastname:any;
+   emailId:any;
+   contactNo:any;
+
    localUser:any="";
   currentUser:any="";
   currentUserId:any="";
-
+  patientdemodata:any[]=[];
   constructor(
     private formBuilder : FormBuilder, 
     private router : Router,
@@ -87,6 +93,15 @@ export class DemographicinformationComponent implements OnInit {
       createdDate:['']
       
      });
+
+     this.service.Getbyuseriddemoinfo(this.currentUserId).subscribe(
+      (data:any[])=>{
+        debugger
+        this.patientdemodata=data;
+        console.log(this.patientdemodata)
+        //this.title=this.patientdemodata.firstname
+      }
+    )
     
     //  this.EmerencyInfo = this.formBuilder.group({
       
