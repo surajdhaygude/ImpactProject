@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { SendnoteserviceService } from 'src/app/sendnoteservice.service';
 import { IUser } from 'src/IUser';
 
@@ -24,7 +25,7 @@ export class ReplynoteComponent implements OnInit {
 
   receivers: IUser[] = [];
   
-  constructor(private fb: FormBuilder,private sendNoteService:SendnoteserviceService,private http:HttpClient,private router:Router) { }
+  constructor(private fb: FormBuilder,private notifyService : NotificationService,private sendNoteService:SendnoteserviceService,private http:HttpClient,private router:Router) { }
 
   ngOnInit(): void {
     this.localUser=localStorage.getItem('currentUser');
@@ -62,7 +63,8 @@ export class ReplynoteComponent implements OnInit {
     this.http.post<any>("http://localhost:3000/sendnotes", this.replyNoteForm.value)
       .subscribe(res =>{
       console.log(this.replyNoteForm.value);
-        alert("Note sent successfully...!");
+        // alert("Note sent successfully...!");
+        this.notifyService.showSuccess("Note sent successfully...!", "Success");
         this.replyNoteForm.reset();
         if(this.currentroleId==2)
          {
@@ -77,7 +79,8 @@ export class ReplynoteComponent implements OnInit {
              this.router.navigateByUrl("patientscheduling")
           }
       },err=>{
-      alert("Somthing went wrong...!");
+      // alert("Somthing went wrong...!");
+      this.notifyService.showError("Something went wrong  ...!", "Error");
       })
 
   }

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { PatientinformationService } from 'src/app/patientinformation.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class PatientinformationComponent implements OnInit {
   currentUserId:any="";
   currentroleId:any="";
 
-  constructor(private formBuilder : FormBuilder,private route: ActivatedRoute,private router : Router,private service:PatientinformationService) { }
+  constructor(private formBuilder : FormBuilder,private notifyService : NotificationService,private route: ActivatedRoute,private router : Router,private service:PatientinformationService) { }
 
   ngOnInit(): void {
     debugger
@@ -177,7 +178,8 @@ export class PatientinformationComponent implements OnInit {
       this.service.UpdatePatientDemoInfo(this.patientDetails.value).subscribe(data=>
         {
           debugger
-          alert("Patient Information Updated Successfully");
+          // alert("Patient Information Updated Successfully");
+          this.notifyService.showSuccess("Patient Information Updated Successfully", "Success");
           if(this.currentroleId==2)
           {
             this.router.navigateByUrl("physicianscheduling")

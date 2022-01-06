@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { IAllergy } from 'IAllergy';
 import { Subscription } from 'rxjs';
 import { AllergyserviceService } from 'src/app/allergyservice.service';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-allergyinformation',
@@ -30,7 +31,7 @@ export class AllergyinformationComponent implements OnInit {
   currentUserId:any="";
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   
-  constructor(private fb: FormBuilder,private allergyService:AllergyserviceService,private http:HttpClient, private router:Router) { }
+  constructor(private fb: FormBuilder,private notifyService : NotificationService,private allergyService:AllergyserviceService,private http:HttpClient, private router:Router) { }
 
   ngOnInit(): void {
 
@@ -150,11 +151,13 @@ export class AllergyinformationComponent implements OnInit {
         this.http.post<any>("http://localhost:39671/api/Allergies/CreatePatientAllergyInfo", this.allergyForm.value)
       .subscribe(res =>{
       console.log(this.allergyForm.value);
-        alert("Allergy Form submitted successfully...!");
+        // alert("Allergy Form submitted successfully...!");
+        this.notifyService.showSuccess("Allergy Form submitted successfully...!", "Success");
         this.allergyForm.reset();
         this.router.navigateByUrl('patientscheduling');
       },err=>{
-      alert("Something went wrong...!");
+      // alert("Something went wrong...!");
+      this.notifyService.showError("Something went wrong  ...!", "Error");
       })
     //}    
    }

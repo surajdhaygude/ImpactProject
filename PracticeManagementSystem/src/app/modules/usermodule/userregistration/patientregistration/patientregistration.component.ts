@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl,Validators, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class PatientregistrationComponent implements OnInit {
   public UserForm!:FormGroup
 
 
-  constructor(private formbuilder:FormBuilder,
+  constructor(private formbuilder:FormBuilder,private notifyService : NotificationService,
               private http:HttpClient, private route:Router         
      ) { }
 
@@ -62,14 +63,15 @@ export class PatientregistrationComponent implements OnInit {
  
      console.log(this.UserForm.value);
  
-      alert("Patient registration successfully...!")
+      // alert("Patient registration successfully...!")
+      this.notifyService.showSuccess("Patient registration successfully...!", "Success")
       this.route.navigateByUrl('');
       this.UserForm.reset();
  
     },err=>{
  
-     alert("Somthing went wrong  ...!")
- 
+    //  alert("Somthing went wrong  ...!")
+     this.notifyService.showError("Something went wrong  ...!", "Error")
     })
     }
 

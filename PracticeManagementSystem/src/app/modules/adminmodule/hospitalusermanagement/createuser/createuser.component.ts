@@ -3,6 +3,7 @@ import{FormGroup, FormBuilder,Validators} from '@angular/forms'
   import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { HospitalmanagementService } from 'src/app/hospitalmanagement.service';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-createuser',
@@ -12,7 +13,7 @@ import { HospitalmanagementService } from 'src/app/hospitalmanagement.service';
 export class CreateuserComponent implements OnInit {
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   public Physicianform!:FormGroup
-  constructor(private formbuilder:FormBuilder, private http:HttpClient, private route:Router, private hospitaluser:HospitalmanagementService) { }
+  constructor(private formbuilder:FormBuilder,private notifyService : NotificationService, private http:HttpClient, private route:Router, private hospitaluser:HospitalmanagementService) { }
   number:Number=0;
   ngOnInit(): void {
     this.Physicianform=this.formbuilder.group({
@@ -39,11 +40,13 @@ export class CreateuserComponent implements OnInit {
     this.f.roleId.setValue(2);
     this.f.username.setValue(this.setemailid);
     this.hospitaluser.AddPhysicianrecords(this.Physicianform.value).subscribe(res =>{
-    alert("Phaysician details successfully...!")
+    // alert("Phaysician details successfully...!")
+    this.notifyService.showSuccess("Phaysician details successfully...!", "Success");
     this.Physicianform.reset();
     this.route.navigateByUrl('hospitalusermanagement');
     },err=>{
-     alert("Somthing went wrong...!")
+    //  alert("Somthing went wrong...!")
+     this.notifyService.showError("Something went wrong  ...!", "Error");
     })
    }
 
