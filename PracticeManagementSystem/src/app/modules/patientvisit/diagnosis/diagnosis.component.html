@@ -77,9 +77,9 @@
               <div *ngIf='diagnosisdetails.controls.diagnosisCode.touched && diagnosisdetails.controls.diagnosisCode.errors?.required' class="alert alert-danger">
                 diagnosis Code is Required
               </div>
-              <mat-form-field appearance="outline" class="full-width col-4">
+              <mat-form-field appearance="outline" class="full-width col-8">
                 <mat-label>Diagnosis Description</mat-label>
-                <input matInput required formControlName="diagnosisDescription" [value]="showDiagnosisDescription">
+                <input matInput required formControlName="diagnosisDescription" [(ngModel)]="showDiagnosisDescription">
             </mat-form-field>
             </div>
             

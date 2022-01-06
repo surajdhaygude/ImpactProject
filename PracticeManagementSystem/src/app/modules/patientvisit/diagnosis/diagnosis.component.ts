@@ -163,8 +163,10 @@ export class DiagnosisComponent implements OnInit {
     // this.f.physicianid.setValue(4);
     this.f.createdby.setValue(this.currentUserId);
     this.f.patientId.setValue(this.patientUser);
+this.f.diagnosisDescription.setValue(this.showDiagnosisDescription);
     this.service.Adddiagnosis(this.diagnosisdetails.value).subscribe(res =>{
       console.log(this.diagnosisList)
+      
     // alert("Patient diagnosis details added successfully...!")
     this.notifyService.showSuccess("Patient diagnosis details added successfully...!", "Success");
     this.diagnosisdetails.reset();

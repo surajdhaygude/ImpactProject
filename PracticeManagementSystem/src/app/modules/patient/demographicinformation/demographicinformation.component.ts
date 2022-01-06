@@ -55,6 +55,7 @@ export class DemographicinformationComponent implements OnInit {
 
    Patientid : any;
    public pId:string="";
+   
     ngOnInit(): void {
     debugger;
     this.localUser=localStorage.getItem('currentUser');
