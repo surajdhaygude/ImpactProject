@@ -10,7 +10,7 @@ import { NotificationService } from 'src/app/notification.service';
 })
 export class ReceivednotesComponent implements OnInit {
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
-
+  p:number=1;
   receivedNotes:any[]=[];
   localUser:any="";
   currentUser:any="";

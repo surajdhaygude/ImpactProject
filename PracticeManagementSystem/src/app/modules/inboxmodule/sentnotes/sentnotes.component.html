@@ -1,59 +1,54 @@
 <!-- <app-topnavuser></app-topnavuser> -->
 <app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
-<mat-drawer-container > 
-   <mat-drawer mode="side" [opened]="sideBarOpen" >
-    <app-sidenavuser></app-sidenavuser>
-</mat-drawer>
-   <mat-drawer-content>
-       
-<div class="container">
-    <div class="row">
-        <div>
-            <div class="card col-12 col-md-4">
-                <div class="text-center">
-                    <h2>Sent Notes</h2>
-                </div>
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        <app-sidenavuser></app-sidenavuser>
+    </mat-drawer>
+    <mat-drawer-content>
 
-                <div class="borderClass" *ngFor="let sentNote of sentNotes.slice().reverse()">
+        <div class="container">
+            <div class="row">
+                <div>
 
-                    <div *ngIf="sentNote.isActive=='true'">
-                        <div class="row col-sm-12 mb-1">
-                            <div class="col-3 col-sm-2 receiverClass">{{sentNote.receiverDesignation}}</div>
-                            <div class="col-3 col-sm-4 receiverClass">{{sentNote.receiver}}</div>
-                            <div class="col-6 col-sm-6 dateClass">{{sentNote.dateTime}}</div>
-                        </div>
+                    <div class="text-center">
+                        <h2>Sent Notes</h2>
+                    </div>
+                    <table class="table table-striped table-bordered table-sm row-border table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Receiver</th>
+                                <th>Designation</th>
+                                <th>DateTime</th>
+                                <th>Urgency</th>
+                                <th>Response</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                *ngFor="let sentNote of sentNotes.slice().reverse() | paginate: { itemsPerPage: 5, currentPage: p };">
+                                <td>{{ sentNote.id }}</td>
+                                <td>{{sentNote.receiverDesignation}}</td>
+                                <td>{{sentNote.receiver}}</td>
+                                <td>{{sentNote.dateTime}}</td>
+                                <td>{{sentNote.urgency }}</td>
+                                <td>{{sentNote.response}}</td>
+                                <td>{{sentNote.message}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-4">
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
-                        <!-- <div class="row col-sm-12 mb-2">
-                            <div *ngIf="sentNote.urgency=='Yes'" class="urgentClass">Urgent</div>
-                            <div *ngIf="sentNote.urgency=='No'" class="notUrgentClass">Not Urgent</div>
-                        </div> -->
-
-                         <div class="row col-sm-12">
-                            <div *ngIf="sentNote.response==''">Awaiting Response</div>
-                            <div>{{sentNote.response}}</div>
-                        </div>
-                        <!-- <hr class="mb-0 mt-0"> -->
-
-                        <div class="row col-sm-12 mb-2">
-                            <div class="sentNoteClass">{{sentNote.message}}</div>
-                        </div>
-                        <div class="mb-1">
-                            <!-- <button type="submit"  class="btn btn-primary">Reply</button>&nbsp; -->
-                            <!-- <a routerLink="#">Reply</a>&nbsp;
-                            <a routerLink="#" (click)="onDelete(sentNote.id)">Delete</a>&nbsp; -->
-                            <!-- <button type="submit"  class="btn btn-light">Delete</button> -->
-                            &nbsp;
-                            <a  (click)="Cancel()" style="color: blue;">
-                               Cancel
-                            </a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
 
-</mat-drawer-content>
-</mat-drawer-container> 
+    </mat-drawer-content>
+</mat-drawer-container>
