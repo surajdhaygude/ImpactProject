@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { PatientvisitService } from 'src/app/patientvisit.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class MedicationComponent implements OnInit {
   localPatientUser:any="";
   p:number=1;
 
-  constructor(private formBuilder : FormBuilder , private router:Router ,private service:PatientvisitService) { 
+  constructor(private formBuilder : FormBuilder ,private notifyService : NotificationService, private router:Router ,private service:PatientvisitService) { 
     this.patientmedForm = this.formBuilder.group({
       
       patientId:['',Validators.required],
@@ -138,7 +139,8 @@ export class MedicationComponent implements OnInit {
     this.f.drugStrength.setValue(this.showDrugStrength);
     this.service.AddPatientMedicatio(this.patientmedForm.value).subscribe(res =>{
       console.log(this.medicationList)
-    alert("Patient Medication details added successfully...!")
+    // alert("Patient Medication details added successfully...!")
+    this.notifyService.showSuccess("Patient Medication details added successfully...!", "Success");
     this.patientmedForm.reset();
     if(this.currentroleId==2)
   {
@@ -153,7 +155,8 @@ export class MedicationComponent implements OnInit {
     this.router.navigateByUrl("patientscheduling")
   }
     },err=>{
-     alert("Somthing went wrong...!")
+    //  alert("Somthing went wrong...!")
+     this.notifyService.showError("Something went wrong  ...!", "Error");
     })
   }
   Cancel(){

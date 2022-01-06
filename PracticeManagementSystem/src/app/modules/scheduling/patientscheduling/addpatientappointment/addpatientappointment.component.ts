@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { SchedulingService } from 'src/app/scheduling.service';
 
 
@@ -22,7 +23,7 @@ localUser:any="";
   currentUser:any="";
   currentUserId:any="";
 
-constructor(private router:Router, private formBuilder:FormBuilder,private service:SchedulingService) { }
+constructor(private router:Router,private notifyService : NotificationService, private formBuilder:FormBuilder,private service:SchedulingService) { }
 
   ngOnInit(): void {
 
@@ -82,11 +83,13 @@ constructor(private router:Router, private formBuilder:FormBuilder,private servi
     this.f.patientId.setValue(this.currentUserId);
     debugger;
     this.service.AddAppointment(this.createAppointment.value).subscribe(res =>{
-    alert("Patient Appointment Added successfully...!")
+    // alert("Patient Appointment Added successfully...!")
+    this.notifyService.showSuccess("Patient Appointment Added successfully...!", "Success");
     this.createAppointment.reset();
     this.router.navigateByUrl('patientscheduling');
     },err=>{
-     alert("Somthing went wrong...!")
+    //  alert("Somthing went wrong...!")
+    this.notifyService.showError("Something went wrong  ...!", "Error");
     })
   }
 

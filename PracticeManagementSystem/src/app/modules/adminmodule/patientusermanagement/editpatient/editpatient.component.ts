@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PatientUser } from 'src/app/models/Patientusers';
+import { NotificationService } from 'src/app/notification.service';
 import { PatientService } from 'src/app/Services/patient.service';
 
 @Component({
@@ -26,7 +27,7 @@ export class EditpatientComponent implements OnInit {
   contactNo:number=0;
 
 
-  constructor(private formbuilder:FormBuilder,private route: ActivatedRoute, private router: Router, private rs:PatientService,private navigation:Router ) { 
+  constructor(private formbuilder:FormBuilder,private notifyService : NotificationService,private route: ActivatedRoute, private router: Router, private rs:PatientService,private navigation:Router ) { 
     
   }
 
@@ -75,11 +76,14 @@ export class EditpatientComponent implements OnInit {
   
      this.f.userId.setValue(this.employeeid);
      this.rs.updatepatient(this.updatepatient.value).subscribe(res =>{
-      alert("Patient details update successfully...!")
+      // alert("Patient details update successfully...!")
+      this.notifyService.showSuccess("Patient details update successfully...!", "Success");
       this.updatepatient.reset();
       this.navigation.navigateByUrl('patientusermanagement');
       },err=>{
-       alert("Somthing went wrong...!")
+      //  alert("Somthing went wrong...!")
+      this.notifyService.showError("Something went wrong  ...!", "Error");
+
       })
    }
 

@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NursemanagementService } from 'src/app/nursemanagement.service';
 import{FormGroup, FormBuilder,Validators} from '@angular/forms'
+import { NotificationService } from 'src/app/notification.service';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class EditnurseComponent implements OnInit {
   dateset:any="2021-11-08";
 
 
-  constructor(private route: ActivatedRoute, private router: Router,
+  constructor(private route: ActivatedRoute, private router: Router,private notifyService : NotificationService,
     private editservice:NursemanagementService,private formbuilder:FormBuilder
     ) { }
 
@@ -75,11 +76,14 @@ export class EditnurseComponent implements OnInit {
         debugger
         this.f.userId.setValue(this.employeeid);
         this.editservice.updateNurseusers(this.updatenurseform.value).subscribe(res =>{
-          alert("Nurse details update successfully...!")
+          // alert("Nurse details update successfully...!")
+          this.notifyService.showSuccess("Nurse details update successfully...!", "Success");
           this.updatenurseform.reset();
           this.router.navigateByUrl('nursedetails');
           },err=>{
-           alert("Somthing went wrong...!")
+          //  alert("Somthing went wrong...!")
+          this.notifyService.showError("Something went wrong  ...!", "Error");
+
           })
        }
 

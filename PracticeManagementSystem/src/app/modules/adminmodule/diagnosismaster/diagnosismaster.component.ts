@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { PatientvisitService } from 'src/app/patientvisit.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class DiagnosismasterComponent implements OnInit {
   currentUserId:any="";
   currentroleId:any="";
 
-  constructor(private formBuilder : FormBuilder , private router:Router ,private service:PatientvisitService) { 
+  constructor(private formBuilder : FormBuilder ,private notifyService : NotificationService, private router:Router ,private service:PatientvisitService) { 
     this.masterDignosisForm = this.formBuilder.group({
      
       diagnosisCode: ['',Validators.required],
@@ -39,7 +40,8 @@ export class DiagnosismasterComponent implements OnInit {
 
     this.service.AddMasterDignosis(this.masterDignosisForm.value).subscribe(res =>{
       
-    alert("Diagnosis details added successfully...!")
+    // alert("Diagnosis details added successfully...!")
+    this.notifyService.showSuccess("Diagnosis details added successfully...!", "Success");
     this.masterDignosisForm.reset();
   //   if(this.currentroleId==2)
   // {
@@ -54,7 +56,8 @@ export class DiagnosismasterComponent implements OnInit {
   //   this.router.navigateByUrl("patientscheduling")
   // }
     },err=>{
-     alert("Somthing went wrong...!")
+    //  alert("Somthing went wrong...!")
+     this.notifyService.showError("Something went wrong  ...!", "Error");
     })
   }
   Cancel(){

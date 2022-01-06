@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { PatientvisitService } from 'src/app/patientvisit.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class VitalsignsComponent implements OnInit {
   patientUser:any="";
   localPatientUser:any="";
 
-  constructor(private fb:FormBuilder , private router:Router,private service:PatientvisitService){
+  constructor(private fb:FormBuilder ,private notifyService : NotificationService, private router:Router,private service:PatientvisitService){
     this.vitalsigndetails = this.fb.group({
       patientId:['',Validators.required],
       physicianId:['',Validators.required],
@@ -78,7 +79,8 @@ phyasiciandata:any[]=[];
  
     this.f.createdBy.setValue(this.currentUserId);
     this.service.AddPatientVitalSign(this.vitalsigndetails.value).subscribe(res =>{
-    alert("Patient Vital sign details added successfully...!")
+    // alert("Patient Vital sign details added successfully...!")
+    this.notifyService.showSuccess("Patient Vital sign details added successfully...!", "Success");
     this.vitalsigndetails.reset();
     if(this.currentroleId==2)
   {
@@ -94,7 +96,9 @@ phyasiciandata:any[]=[];
   }
     },err=>{
    
-     alert("Patient Vital sign details added successfully...!")
+    //  alert("Patient Vital sign details added successfully...!")
+     this.notifyService.showSuccess("Patient Vital sign details added successfully...!", "Success");
+
      if(this.currentroleId==2)
      {
        this.router.navigateByUrl("physicianscheduling")
