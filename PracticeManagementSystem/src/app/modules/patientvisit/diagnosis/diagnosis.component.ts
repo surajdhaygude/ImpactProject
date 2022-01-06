@@ -95,22 +95,7 @@ export class DiagnosisComponent implements OnInit {
     "Venom or Salivary",
     "Other",
   ];
-  // Description=[
-  //   "food",
-  //   "Typhoid",
-  //   "Drug",
-  //   "Cholera",
-  //   "Venom or Salivary",
-  //   "Other",
-  //  ];
-  //  Code=[
-  //   "A00",
-  //   "B00",
-  //   "C00",
-  //   "D00",
-  //   "E00",
-  //   "F00",
-  //  ];
+
 
   option = [
     {id: 'y', name: 'YES'},
@@ -123,6 +108,28 @@ export class DiagnosisComponent implements OnInit {
   //   console.log(this.diagnosisList)
   //   alert("Diagnosis Added successfully...!")
   // }
+  diagnosisCodedd:any="";
+  showDiagnosisCode:any="";
+  showDiagnosisDescription:any="";
+  BreakException:any = {};
+
+  showOtherFieldsOnDiagnosisCode():void{ 
+    try{
+          debugger;
+          this.diagnosismasterdata.forEach(record=>{
+          if(this.diagnosisCodedd==record.diagnosisCode)
+          { this.showDiagnosisCode=record.diagnosisCode;
+            this.showDiagnosisDescription=record.diagnosisDescription;
+            
+            throw this.BreakException;
+          }
+      });
+    }
+    catch(e)
+    {
+      console.log(e);
+    }    
+  }
   removeDiagnosis(element:any){
     this.diagnosisList.forEach((value: any, index:any)=>{
       if(value == element)
