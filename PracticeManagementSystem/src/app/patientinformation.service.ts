@@ -22,6 +22,12 @@ export class PatientinformationService {
     debugger
     return this.http.put<any>("http://localhost:39671/api/PatientDemoInfos/UpdateDemoInfo",formdata)
   }
+
+  public Getbyuseriddemoinfo(id: any): Observable<any> {
+    debugger
+    // return this.http.delete(`${this.APIUrl}/${id}`)
+    return this.http.delete<any>(`http://localhost:29345/api/Admins/GetUserById/${id}`)
+  }
   
  
 }
