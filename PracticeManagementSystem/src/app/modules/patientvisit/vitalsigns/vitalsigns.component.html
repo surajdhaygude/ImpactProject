@@ -64,29 +64,29 @@
                         <div class="row">
                             <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Height(in Cm)</mat-label>
-                                <input matInput required type="text" formControlName="height">
+                                <input matInput required type="number" formControlName="height">
                             </mat-form-field>
 
                             <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Weight(in Kg)</mat-label>
-                                <input matInput required type="text" formControlName="weight">
+                                <input matInput required type="number" formControlName="weight">
                             </mat-form-field>
                             
                             <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Blood Pressure(in Systolic )</mat-label>
-                                <input matInput required type="text" formControlName="bloodPressure">
+                                <input matInput required type="number" formControlName="bloodPressure">
                             </mat-form-field>
                         </div>
 
                         <div class="row">
                             <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Body Temperature</mat-label>
-                                <input matInput required type="text" formControlName="bodyTemperature">
+                                <input matInput required type="number" formControlName="bodyTemperature">
                             </mat-form-field>
                            
                             <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Respiration Rate</mat-label>
-                                <input matInput required type="text" formControlName="respirationRate">
+                                <input matInput required type="number" formControlName="respirationRate">
                             </mat-form-field>
                         </div>
 
@@ -148,13 +148,13 @@
             <!-- | paginate: { itemsPerPage: 5, currentPage: p }; -->
             <tbody>
                 <tr *ngFor="let data of vitalSignByUserId | paginate: { itemsPerPage: 5, currentPage: p };">
-                    <td>{{ data.PatientVitalSignInfoId }}</td>
+                    <td>{{ data.patientVitalSignInfoId }}</td>
                     <td>{{ data.height }}</td>
                     <td>{{ data.weight}}</td>
                     <td>{{data.bloodPressure}}</td>
                     <td>{{ data.bodyTemperature }}</td>
                     <td>{{data.respirationRate}}</td>
-                    <td>{{data.CreatedDate}}</td>
+                    <td>{{data.createdDate | date:'yyyy-MM-dd'}}</td>
 
                     <!-- <td>
                         <select id="ManagetOptions">

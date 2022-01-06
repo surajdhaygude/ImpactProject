@@ -67,6 +67,7 @@
                 <mat-select
                   placeholder="Diagnosis Code"
                   formControlName="diagnosisCode"
+                  [(ngModel)]="diagnosisCodedd" (selectionChange)="showOtherFieldsOnDiagnosisCode()"
                   required>
                   <mat-option *ngFor="let al of diagnosismasterdata" [value]="al.diagnosisCode">
                     {{ al.diagnosisCode }}
@@ -76,20 +77,10 @@
               <div *ngIf='diagnosisdetails.controls.diagnosisCode.touched && diagnosisdetails.controls.diagnosisCode.errors?.required' class="alert alert-danger">
                 diagnosis Code is Required
               </div>
-            
-              <mat-form-field appearance="outline" class="full-width col-8">
-                <mat-select
-                  placeholder="Diagnosis Description"
-                  formControlName="diagnosisDescription"
-                  required>
-                  <mat-option *ngFor="let al of diagnosismasterdata" [value]="al.diagnosisDescription">
-                    {{ al.diagnosisDescription }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-              <div *ngIf='diagnosisdetails.controls.diagnosisCode.touched && diagnosisdetails.controls.diagnosisCode.errors?.required' class="alert alert-danger">
-                Diagnosis Description is Required
-              </div>
+              <mat-form-field appearance="outline" class="full-width col-4">
+                <mat-label>Diagnosis Description</mat-label>
+                <input matInput required formControlName="diagnosisDescription" [value]="showDiagnosisDescription">
+            </mat-form-field>
             </div>
             
             <div class="row">
@@ -144,7 +135,6 @@
                     <th>Diagnosis ID</th>
                     <th>Diagnosis Code</th>
                     <th>Diagnosis Description</th>
-                    <th>Diagnosis IsDepricated</th>
                     <th>Visit Date</th>
                     <!-- <th width="220px">Manage</th> -->
                 </tr>
@@ -156,8 +146,7 @@
                     <td>{{ data.patientDiagnosisInfoId }}</td>
                     <td>{{ data.diagnosisCode }}</td>
                     <td>{{ data.diagnosisDescription}}</td>
-                    <td>{{ data.diagnosisIsDepricated }}</td>
-                    <td>{{data.CreatedDate}}</td>
+                    <td>{{data.createdDate | date:'yyyy-MM-dd'}}</td>
                     <!-- <td>
                         <select id="ManagetOptions">
                             <option value="Active">Active</option>

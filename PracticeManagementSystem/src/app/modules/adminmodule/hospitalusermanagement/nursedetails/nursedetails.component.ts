@@ -60,12 +60,12 @@ export class NursedetailsComponent implements OnInit {
   
    deletenurse(id:number){
      debugger
-     if(confirm('Are you sure to delet nurse record?')){
+     if(confirm('Are you want to delete nurse record?')){
       this.nurseservice.HNursedelete(id).subscribe(
-        response => { });
-        this.nurseservice.GetHospitalNurse().subscribe(data =>{
+        response => {  this.nurseservice.GetHospitalNurse().subscribe(data =>{
           this.NurseUser=data;
-        });
+        });});
+       
      }
   
   }

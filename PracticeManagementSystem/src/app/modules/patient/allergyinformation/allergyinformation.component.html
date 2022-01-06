@@ -42,10 +42,7 @@
         </div>
         </div>
 
-         <!-- <select class="form-control" formControlName="id">  
-                    <option *ngFor="let allergy of allergies">{{allergy.id}}</option>  
-                </select>   -->
-                
+       
                 <div class="col">
         <div class="mb-3">
             <label for="allergytype">Allergy Type </label>
@@ -79,7 +76,7 @@
             <label for="allergydescription" class="form-label">Allergy Description </label>
             <textarea id="allergydescription" rows="3" class="form-control" type="text" formControlName="allergyDescription"></textarea>
             <span class="text-danger" *ngIf="allergyForm.controls['allergyDescription'].touched && allergyForm.hasError('required','allergyDescription')">This field cannot be empty.</span>
-            <span class="text-danger" *ngIf="allergyForm.controls['allergyDescription'].dirty && allergyForm.hasError('minlength','allergyDescription')">Description should be more than 50 letters.</span>
+            <span class="text-danger" *ngIf="allergyForm.controls['allergyDescription'].dirty && allergyForm.hasError('minlength','allergyDescription')">Description should be more than 10 letters.</span>
             <span class="text-danger" *ngIf="allergyForm.controls['allergyDescription'].dirty && allergyForm.hasError('maxlength','allergyDescription')">Description should be more than 1000 letters.</span>
         </div>
     

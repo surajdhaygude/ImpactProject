@@ -8,11 +8,11 @@ import { IUser } from 'src/IUser';
 })
 export class SendnoteserviceService {
 
-  APIUrl:string='http://localhost:3000/users';
+  APIUrl:string='http://localhost:3000/receivednotes';
 
   constructor(private http:HttpClient) { }
 
-  public getReceivers():Observable<IUser[]>{
-    return this.http.get<IUser[]>(this.APIUrl);
+  public getReceivers():Observable<any[]>{
+    return this.http.get<any[]>(this.APIUrl);
   }
 }

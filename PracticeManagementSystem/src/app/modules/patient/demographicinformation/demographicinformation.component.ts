@@ -25,7 +25,7 @@ export class DemographicinformationComponent implements OnInit {
   dob : Date=new Date();
   gender : string="";
   email: string="";
-   age: any=0;
+   age:string="";
 
    title:string="";
    firstname:any;
@@ -146,9 +146,7 @@ export class DemographicinformationComponent implements OnInit {
     this.patientDetails.reset();
     this.router.navigateByUrl('patientscheduling');
     },err=>{
-     //alert("Somthing went wrong...!")
-    //  alert("Patient Demographics details added successfully...!")
-     this.notifyService.showSuccess("Patient Demographics details added successfully...!", "Success");
+      this.notifyService.showError("Somthing went wrong ...!", "Error");
       this.route.navigateByUrl('patientscheduling');
     })
    }
@@ -161,7 +159,7 @@ export class DemographicinformationComponent implements OnInit {
        debugger
          if(date){
             this.timeDiff = Math.abs(Date.now() - date);
-            this.age = Math.floor((this.timeDiff / (1000 * 3600 * 24))/365);
+            this.age = (Math.floor((this.timeDiff / (1000 * 3600 * 24))/365)).toString();
         }
         // this.setDOBFormat=date.toLocaleString();
     }

@@ -27,8 +27,8 @@ localPatientUser:any="";
 
   constructor(private fb:FormBuilder ,private notifyService : NotificationService, private router:Router,private service:PatientvisitService) {
     this.proceduredetails = this.fb.group({
-      patientId:['',Validators.required],
-      physicianId:['',Validators.required],
+      patientId:[''],
+     // physicianId:['',Validators.required],
       createdBy:[''],
       procedureCode: ['',Validators.required],
       procedureDescription: ['',Validators.required],
@@ -50,17 +50,18 @@ localPatientUser:any="";
           this.patientUser=JSON.parse(this.localPatientUser);
 
     debugger
-    this.service.GetPatientUsers().subscribe(
-      (data: any[]) => {
-    debugger
+    // this.service.GetPatientUsers().subscribe(
+    //   (data: any[]) => {
+    // debugger
 
-        this.patientdata = data;
-      })
-      this.service.GetPhyasicanUsers().subscribe(
-        (data: any[]) => {
-      debugger
-          this.phyasiciandata = data;
-        })
+    //     this.patientdata = data;
+    //   })
+    //   this.service.GetPhyasicanUsers().subscribe(
+    //     (data: any[]) => {
+    //   debugger
+    //       this.phyasiciandata = data;
+    //     })
+
     this.service.GetProcedureData().subscribe(
       (data: any[]) =>{
         debugger
@@ -102,7 +103,8 @@ localPatientUser:any="";
 
   addProcedure(){
     debugger;
- 
+   
+    this.f.patientId.setValue(this.patientUser);
     this.f.createdBy.setValue(this.currentUserId);
     this.f.procedureCode.setValue(this.showProcedureCode);
     this.f.procedureDescription.setValue(this.showProcedureDescription);
@@ -112,18 +114,25 @@ localPatientUser:any="";
     // alert("Patient Procedure details added successfully...!")
     this.notifyService.showSuccess("Patient Procedure details added successfully...!", "Success");
     this.proceduredetails.reset();
-    if(this.currentroleId==2)
-    {
-      this.router.navigateByUrl("physicianscheduling")
-    }
-    else if(this.currentroleId==3)
-    {
-      this.router.navigateByUrl("nursescheduling")
-    }
-    else
-    {
-      this.router.navigateByUrl("patientscheduling")
-    }
+    // if(this.currentroleId==2)
+    // {
+    //   this.router.navigateByUrl("physicianscheduling")
+    // }
+    // else if(this.currentroleId==3)
+    // {
+    //   this.router.navigateByUrl("nursescheduling")
+    // }
+    // else
+    // {
+    //   this.router.navigateByUrl("patientscheduling")
+    // }
+
+    this.service.GetProceduresByUserId(this.patientUser).subscribe(
+      (data:any[])=>{
+        debugger
+        this.procedureByUserId=data;
+      }
+    )
     },err=>{
     //  alert("Somthing went wrong...!")
      this.notifyService.showError("Something went wrong  ...!", "Error");
@@ -134,11 +143,11 @@ localPatientUser:any="";
      
     if(this.currentroleId==2)
   {
-    this.router.navigateByUrl("physicianscheduling")
+    this.router.navigateByUrl("physicianvisitdashboard")
   }
   else if(this.currentroleId==3)
   {
-    this.router.navigateByUrl("nursescheduling")
+    this.router.navigateByUrl("visitdashboard")
   }
   else
   {

@@ -26,7 +26,7 @@ export class MedicationComponent implements OnInit {
     this.patientmedForm = this.formBuilder.group({
       
       patientId:['',Validators.required],
-      physicianId:['',Validators.required],
+     // physicianId:['',Validators.required],
       createdby:[''],
       drugId: ['',Validators.required],
       drugName: ['',Validators.required],
@@ -53,17 +53,18 @@ export class MedicationComponent implements OnInit {
           this.patientUser=JSON.parse(this.localPatientUser);
 
     debugger
-    this.service.GetPatientUsers().subscribe(
-      (data: any[]) => {
-    debugger
+    // this.service.GetPatientUsers().subscribe(
+    //   (data: any[]) => {
+    // debugger
 
-        this.patientdata = data;
-      })
-      this.service.GetPhyasicanUsers().subscribe(
-        (data: any[]) => {
-      debugger
-          this.phyasiciandata = data;
-        })
+    //     this.patientdata = data;
+    //   })
+    //   this.service.GetPhyasicanUsers().subscribe(
+    //     (data: any[]) => {
+    //   debugger
+    //       this.phyasiciandata = data;
+    //     })
+
     this.service.GetDrugMasterData().subscribe(
       (data: any[]) =>{
         debugger
@@ -130,8 +131,8 @@ export class MedicationComponent implements OnInit {
 
   addMedication(){
     debugger;
- 
-    this.f.createdby.setValue(this.currentUserId);
+    this.f.patientId.setValue(this.patientUser);
+    this.f.createdby.setValue(this.currentUserId);   
     this.f.drugId.setValue(this.showDrugId);
     this.f.drugName.setValue(this.showDrugName);
     this.f.drugGenericName.setValue(this.showDrugGenericName);
@@ -142,32 +143,39 @@ export class MedicationComponent implements OnInit {
     // alert("Patient Medication details added successfully...!")
     this.notifyService.showSuccess("Patient Medication details added successfully...!", "Success");
     this.patientmedForm.reset();
-    if(this.currentroleId==2)
-  {
-    this.router.navigateByUrl("physicianscheduling")
-  }
-  else if(this.currentroleId==3)
-  {
-    this.router.navigateByUrl("nursescheduling")
-  }
-  else
-  {
-    this.router.navigateByUrl("patientscheduling")
-  }
+  //   if(this.currentroleId==2)
+  // {
+  //   this.router.navigateByUrl("physicianscheduling")
+  // }
+  // else if(this.currentroleId==3)
+  // {
+  //   this.router.navigateByUrl("nursescheduling")
+  // }
+  // else
+  // {
+  //   this.router.navigateByUrl("patientscheduling")
+  // }
+  this.service.GetDrugsByUserId(this.patientUser).subscribe(
+    (data:any[])=>{
+      debugger
+      this.medicationByUserId=data;
+    }
+  )
     },err=>{
     //  alert("Somthing went wrong...!")
      this.notifyService.showError("Something went wrong  ...!", "Error");
     })
+
   }
   Cancel(){
      
     if(this.currentroleId==2)
   {
-    this.router.navigateByUrl("physicianscheduling")
+    this.router.navigateByUrl("physicianvisitdashboard")
   }
   else if(this.currentroleId==3)
   {
-    this.router.navigateByUrl("nursescheduling")
+    this.router.navigateByUrl("visitdashboard")
   }
   else
   {

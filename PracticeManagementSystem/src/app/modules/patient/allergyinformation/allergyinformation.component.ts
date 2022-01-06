@@ -61,7 +61,7 @@ export class AllergyinformationComponent implements OnInit {
       } else {
         this.allergyForm.get('allergyName').setValidators([Validators.required]);
         this.allergyForm.get('isFatal').setValidators([Validators.required]);
-        this.allergyForm.get('allergyDescription').setValidators([Validators.required,Validators.minLength(50),Validators.maxLength(1000)]);
+        this.allergyForm.get('allergyDescription').setValidators([Validators.required,Validators.minLength(5),Validators.maxLength(1000)]);
       }
       // force valitators to be triggered, to update form validity.
       this.allergyForm.get('allergyName').updateValueAndValidity();

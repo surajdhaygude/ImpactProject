@@ -30,19 +30,7 @@ export class AddnurseappointmentComponent implements OnInit {
       dateOfAppointment:['',Validators.required],
       timeOfAppointment:['',Validators.required]
     })
-    this.service.GetPhysicianUsers().subscribe(
-      (data: any[]) => {
-        debugger
-        this.phyasiciandata = data;
-      
-      })
-
-      this.service.GetPatientUsers().subscribe(
-        (data: any[]) => {
-          debugger
-          this.patientdata = data;
-        
-        })
+   
   }
  
   phyasiciandata:any[]=[]
@@ -103,5 +91,26 @@ export class AddnurseappointmentComponent implements OnInit {
   sideBarOpen = true;
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
+  }
+
+  ShowPatientUserData()
+  {
+    debugger
+    this.service.GetPatientUsers().subscribe(
+      (data: any[]) => {
+        debugger
+        this.patientdata = data;
+      
+      })
+  }
+
+  ShowPhysicinData()
+  {
+    this.service.GetPhysicianUsers().subscribe(
+        (data: any[]) => {
+          debugger
+          this.phyasiciandata = data;
+        
+        })
   }
 }

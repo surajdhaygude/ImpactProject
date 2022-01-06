@@ -48,7 +48,7 @@
                 <input class="form-control" list="receiver" formControlName="receiver" [(ngModel)]="receiverddl" [value]="showddl" placeholder="Select Receiver" (change)="populateDesignation()">
                     <datalist id="receiver">
                     <option *ngFor="let receiver of receivers">
-                            {{receiver.username}}
+                            {{receiver.sender}}
                     </datalist>       
             </div>
         </div>  
