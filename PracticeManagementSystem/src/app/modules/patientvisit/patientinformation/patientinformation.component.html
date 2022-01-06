@@ -42,7 +42,7 @@
         </div>  -->
         
         <div class="row mb-3">
-        <mat-radio-group  formControlName="title" class="full-width col-10">
+        <mat-radio-group [(ngModel)]="showtitle"  formControlName="title" class="full-width col-10">
           <mat-label class="label">Title:</mat-label>&nbsp;&nbsp;&nbsp;
           <mat-radio-button value="Mr" color="primary">Mr</mat-radio-button>&nbsp;
           <mat-radio-button value="Ms" color="primary">Ms</mat-radio-button>&nbsp;

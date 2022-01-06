@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { SchedulingService } from 'src/app/scheduling.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class EditnurseappointmentComponent implements OnInit {
   EditAppointment!: FormGroup;
   
   
-  constructor(private formBuilder:FormBuilder, private router:Router,private service:SchedulingService) { }
+  constructor(private formBuilder:FormBuilder,private notifyService : NotificationService, private router:Router,private service:SchedulingService) { }
 
   ngOnInit(): void {
     this.EditAppointment=this.formBuilder.group({
@@ -62,11 +63,13 @@ export class EditnurseappointmentComponent implements OnInit {
   {
     debugger;
     this.service.UpdateAppointment(this.EditAppointment.value).subscribe(res =>{
-    alert("Patient Appointment Updated successfully...!")
+    // alert("Patient Appointment Updated successfully...!")
+    this.notifyService.showSuccess("Patient Appointment Updated successfully...!", "Success");
     this.EditAppointment.reset();
     //this.router.navigateByUrl('patientscheduling');
     },err=>{
-     alert("Somthing went wrong...!")
+    //  alert("Somthing went wrong...!")
+    this.notifyService.showError("Something went wrong  ...!", "Error");
     })
   }
 

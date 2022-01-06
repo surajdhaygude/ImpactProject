@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { PatientvisitService } from 'src/app/patientvisit.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class AllergymasterComponent implements OnInit {
   currentUserId:any="";
   currentroleId:any="";
 
-  constructor(private formBuilder : FormBuilder , private router:Router ,private service:PatientvisitService) { 
+  constructor(private formBuilder : FormBuilder ,private notifyService : NotificationService, private router:Router ,private service:PatientvisitService) { 
     this.masterAllergyForm = this.formBuilder.group({
      
       allergyId: ['',Validators.required],
@@ -39,7 +40,8 @@ export class AllergymasterComponent implements OnInit {
 
     this.service.AddMasterAllergy(this.masterAllergyForm.value).subscribe(res =>{
       
-    alert("Allergy details added successfully...!")
+    // alert("Allergy details added successfully...!")
+    this.notifyService.showSuccess("Allergy details added successfully...!", "Success");
     this.masterAllergyForm.reset();
   //   if(this.currentroleId==2)
   // {
@@ -54,7 +56,8 @@ export class AllergymasterComponent implements OnInit {
   //   this.router.navigateByUrl("patientscheduling")
   // }
     },err=>{
-     alert("Somthing went wrong...!")
+    //  alert("Somthing went wrong...!")
+    this.notifyService.showError("Something went wrong  ...!", "Error");
     })
   }
   Cancel(){

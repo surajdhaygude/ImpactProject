@@ -5,21 +5,36 @@
 </mat-drawer>
    <mat-drawer-content>
 
-<div class="container">
-  <div class="row">
-      <div class="col">
-          <div class="card col-md-4">
+    <div class="container">
+      <div class="row">
+          <div class="col">
+              <div class="card col-12 col-md-12 mt-2">
+
               <div class="text-center">
                   <h2>Update Physician</h2>
               </div>
+
               <form [formGroup]="updatephysician"> 
 
+                <div class="row mb-3">
+                  <div class="col">
                 <div class="form-group">
                   <label class="form-label">Employee ID</label> <br>
                   <label class="form-label" formControlName="userId">{{userId}}</label>
                 </div>
-
+              </div>
+              </div>
             
+              <div class="row mb-3">
+                <mat-radio-group [(ngModel)]="title"  formControlName="title" class="full-width col-10">
+                  <mat-label class="label">Title:</mat-label>&nbsp;&nbsp;&nbsp;
+                  <mat-radio-button value="Mr" color="primary">Mr</mat-radio-button>&nbsp;
+                  <mat-radio-button value="Ms" color="primary">Ms</mat-radio-button>&nbsp;
+                  <mat-radio-button value="Mrs" color="primary">Mrs</mat-radio-button>&nbsp;
+                  <mat-radio-button value="Dr" color="primary">Dr</mat-radio-button>&nbsp;
+                </mat-radio-group>
+              </div>
+
                   <!-- <div class="form-group">
                     
                       <label for="select">Title</label>
@@ -44,35 +59,49 @@
                     </div>
                   </div>
                    -->
+                   <div class="row mb-3">
+                   <div class="col">
                   <div class="form-group">
                     <label for="exampleInputPassword1" class="form-label">First Name</label>
                     <input formControlName="firstname" required type="text" placeholder="Please Enter First Name" class="form-control" id="InputFname"  [(ngModel)]="firstname">
                   <span class="text-danger" *ngIf="updatephysician.controls['firstname'].dirty && updatephysician.hasError('required','firstname')">First name can not be empty.</span>
                   </div>
+                  </div>
+
+                  <div class="col">
                   <div class="form-group">
                       <label for="exampleInputPassword1" class="form-label">Last Name</label>
                       <input formControlName="lastname" required type="text" placeholder="Please Enter Last Name" class="form-control" id="InputLname"  [(ngModel)]="lastname">
                       <span class="text-danger" *ngIf="updatephysician.controls['lastname'].dirty && updatephysician.hasError('required','lastname')">Last name can not be empty.</span>
                     </div>
+                  </div>
+
+                    <div class="col">
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="form-label">Email Id</label>
                       <input  formControlName="emailId" required type="email" placeholder="Please Enter Email Id" class="form-control" id="InputEmailid"  [(ngModel)]="emailId">
                       <span class="text-danger" *ngIf="updatephysician.controls['emailId'].dirty && updatephysician.hasError('required','emailId')">Please enter you email address.</span>
                       <span class="text-danger" *ngIf="updatephysician.controls['emailId'].dirty && updatephysician.hasError('email','emailId')">Please enter valid email address.</span>
-
                     </div>
+                  </div>
+                </div>
+
+                  <div class="row mb-3">
+                  <div class="col">
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="form-label">Date Of Birth</label>
                       <input formControlName="dob" required type="date" max="2021-12-31" class="form-control" id="InputDOB" [ngModel]="dob | date:'yyyy-MM-dd'">
                       <span class="text-danger" *ngIf="updatephysician.controls['dob'].dirty && updatephysician.hasError('required','dob')">Please select date in mm/dd/yyyy format.</span>
-
+                    </div>
                     </div>
 
+                    <div class="col">
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="form-label">Date Of Joining</label>
                       <input formControlName="doj" required type="date" max="2021-12-31" class="form-control" id="InputDOB" [ngModel]="doj | date:'yyyy-MM-dd'">
                       <span class="text-danger" *ngIf="updatephysician.controls['doj'].dirty && updatephysician.hasError('required','doj')">Please select date in mm/dd/yyyy format.</span>
 
+                    </div>
                     </div>
                     <!-- <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Role</label>
@@ -87,7 +116,7 @@
                       </div>
                     </div> -->
 
-                    <div class="mb-3">
+                    <div class="col">
                       <label for="exampleInputPassword1" class="form-label">Status</label>
                       <div class="mb-3">
                         <input class="form-control" formControlName='status' required list="StatusOptions" id="StatusList" placeholder="Type to search status..." [(ngModel)]="status">
@@ -99,6 +128,8 @@
                         </datalist>
                       </div>
                     </div>
+                  </div>
+
                     <!-- [disabled]="!updatephysician.valid" -->
                   <button type="submit"  class="btn btn-primary" (click)="updatephyasicaindata()">Update</button>&nbsp;
                   <button type="button" (click)="backtophysicain()" class="btn btn-primary backbutton">Cancel</button>

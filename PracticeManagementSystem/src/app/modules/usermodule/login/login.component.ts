@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthservicesService } from 'src/app/authservices.service';
+import { NotificationService } from 'src/app/notification.service';
 import { UserserviceService } from 'src/app/userservice.service';
 import { IUser } from 'src/IUser';
 
@@ -13,7 +14,7 @@ import { IUser } from 'src/IUser';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,private userService:UserserviceService,private route:Router, private service:AuthservicesService) { }  
+  constructor(private fb: FormBuilder,private notifyService : NotificationService,private userService:UserserviceService,private route:Router, private service:AuthservicesService) { }  
 
   loginForm!: FormGroup;
   isSubmitted!: boolean;
@@ -83,8 +84,8 @@ export class LoginComponent implements OnInit {
             }
           } 
           else {
-            alert('Please enter valid credentials');
-           
+            // alert('Please enter valid credentials');
+            this.notifyService.showError("Please enter valid credentials", "Error")
             return;
           }
 

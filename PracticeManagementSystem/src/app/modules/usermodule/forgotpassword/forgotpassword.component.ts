@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -12,7 +13,7 @@ export class ForgotpasswordComponent implements OnInit {
   submitted:boolean = false;
   ForgotPassword!:FormGroup
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  constructor(private fb:FormBuilder, private http:HttpClient, private route:Router) { }
+  constructor(private fb:FormBuilder,private notifyService : NotificationService, private http:HttpClient, private route:Router) { }
 
   ngOnInit(): void {
     this.ForgotPassword= this.fb.group({
@@ -45,13 +46,15 @@ onSubmit():void{
   .subscribe(res =>{
 
    console.log(this.ForgotPassword.value);
-        alert("Email Send Successfully...!")
+        // alert("Email Send Successfully...!")
+        this.notifyService.showSuccess("Email Send Successfully...!", "Success")
    this.ForgotPassword.reset();
    this.route.navigateByUrl('login');
 
   },err=>{
 
-   alert("Somthing went wrong  ...!")
+  //  alert("Somthing went wrong  ...!")
+  this.notifyService.showError("Something went wrong  ...!", "Error")
 
   })
   }

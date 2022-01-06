@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { PatientinformationService } from 'src/app/patientinformation.service';
 import { PatientschedulingComponent } from '../../scheduling/patientscheduling/patientscheduling.component';
 
@@ -40,6 +41,7 @@ export class DemographicinformationComponent implements OnInit {
     private formBuilder : FormBuilder, 
     private router : Router,
     private fb:FormBuilder, 
+    private notifyService : NotificationService,
     private service:PatientinformationService,
     private route:Router
   ) {
@@ -138,12 +140,15 @@ export class DemographicinformationComponent implements OnInit {
     this.f.createdDate.setValue("2021-12-30");
     debugger;
     this.service.AddDemographics(this.patientDetails.value).subscribe(res =>{
-    alert("Patient Demographics details added successfully...!")
+    // alert("Patient Demographics details added successfully...!")
+    this.notifyService.showSuccess("Patient Demographics details added successfully...!", "Success");
+
     this.patientDetails.reset();
     this.router.navigateByUrl('patientscheduling');
     },err=>{
      //alert("Somthing went wrong...!")
-     alert("Patient Demographics details added successfully...!")
+    //  alert("Patient Demographics details added successfully...!")
+     this.notifyService.showSuccess("Patient Demographics details added successfully...!", "Success");
       this.route.navigateByUrl('patientscheduling');
     })
    }

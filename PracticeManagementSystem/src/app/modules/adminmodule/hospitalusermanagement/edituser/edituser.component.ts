@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HospitalmanagementService } from 'src/app/hospitalmanagement.service';
 import { Hospitalusers } from 'src/app/models/Hospitalusers';
 import{FormGroup, FormBuilder,Validators} from '@angular/forms'
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-edituser',
@@ -25,7 +26,7 @@ export class EdituserComponent implements OnInit {
     status:string="";
     dateset:any="2021-11-08";
 
-  constructor(private formbuilder:FormBuilder,private route: ActivatedRoute, private router: Router, private rs:HospitalmanagementService,private navigation:Router ) { }
+  constructor(private formbuilder:FormBuilder,private notifyService : NotificationService,private route: ActivatedRoute, private router: Router, private rs:HospitalmanagementService,private navigation:Router ) { }
   val: any;
   Hospitaluser!:Hospitalusers
   
@@ -40,6 +41,7 @@ export class EdituserComponent implements OnInit {
     this.rs.getUserByID(this.val).subscribe(data =>{
       debugger
       this.userId=data.userId;
+      this.title=data.title;
       this.firstname=data.firstname;
       this.lastname=data.lastname;
       this.emailId=data.emailId;
@@ -54,6 +56,7 @@ export class EdituserComponent implements OnInit {
 
     this.updatephysician=this.formbuilder.group({
       userId:[''],
+      title:[''],
       firstname:['',Validators.required],
       lastname:['',Validators.required],
       emailId:['',[Validators.required, Validators.email]],
@@ -77,11 +80,13 @@ export class EdituserComponent implements OnInit {
      debugger
      this.f.userId.setValue(this.employeeid);
       this.rs.updateusers(this.updatephysician.value).subscribe(res =>{
-      alert("Phaysician details update successfully...!")
+      // alert("Phaysician details update successfully...!")
+      this.notifyService.showSuccess("Phaysician details update successfully...!", "Success");
       this.updatephysician.reset();
       this.navigation.navigateByUrl('hospitalusermanagement');
       },err=>{
-       alert("Somthing went wrong...!")
+      //  alert("Somthing went wrong...!")
+       this.notifyService.showError("Something went wrong  ...!", "Error");
       })
    }
 

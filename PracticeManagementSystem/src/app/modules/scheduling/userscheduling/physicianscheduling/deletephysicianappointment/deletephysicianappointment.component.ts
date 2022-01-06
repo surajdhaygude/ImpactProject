@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { SchedulingService } from 'src/app/scheduling.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { SchedulingService } from 'src/app/scheduling.service';
 export class DeletephysicianappointmentComponent implements OnInit {
 
   DeleteAppointment !:FormGroup;
-  constructor(private formBuilder:FormBuilder, private router:Router,private service:SchedulingService) { }
+  constructor(private formBuilder:FormBuilder,private notifyService : NotificationService, private router:Router,private service:SchedulingService) { }
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   // ngOnInit(): void {
   //   this.DeleteAppointment=this.formBuilder.group({
@@ -70,12 +71,15 @@ export class DeletephysicianappointmentComponent implements OnInit {
   {
   debugger;
     this.service.DeleteAppointment(this.getschedulingid).subscribe(res =>{
-    alert("Patient Appointment Deleted successfully...!")
+    // alert("Patient Appointment Deleted successfully...!")
+    this.notifyService.showSuccess("Patient Appointment Deleted successfully...!", "Success");
    this.DeleteAppointment.reset();
     
     this.router.navigateByUrl('physicianscheduling');
     },err=>{
-     alert("Somthing went wrong...!")
+    //  alert("Somthing went wrong...!")
+    this.notifyService.showError("Something went wrong  ...!", "Error");
+
     })
   }
 
