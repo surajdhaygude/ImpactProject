@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-changepassword',
@@ -22,7 +23,7 @@ export class ChangepasswordComponent implements OnInit {
     //passwordRegex: any = '((?=.*\d)(?=.*[a-zA-Z]).{4,20})' ;
     
     changepassForm!:FormGroup
-  constructor(private fb:FormBuilder, private http:HttpClient, private route:Router) { }
+  constructor(private fb:FormBuilder,private notifyService : NotificationService, private http:HttpClient, private route:Router) { }
 
   ngOnInit(): void {
     this.localUser=localStorage.getItem('currentUser');
@@ -72,13 +73,14 @@ export class ChangepasswordComponent implements OnInit {
       .subscribe(res =>{
   
        console.log(this.changepassForm.value);
-            alert("password change successfully...!")
+            // alert("password change successfully...!")
+            this.notifyService.showSuccess("Password changed successfully...!", "Success");
        this.changepassForm.reset();
   
       },err=>{
   
-       alert("Somthing went wrong  ...!")
-  
+      //  alert("Somthing went wrong  ...!")
+       this.notifyService.showError("Something went wrong  ...!", "Error")
       })
       }
       else{

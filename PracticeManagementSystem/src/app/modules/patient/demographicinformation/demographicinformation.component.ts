@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { PatientinformationService } from 'src/app/patientinformation.service';
 import { PatientschedulingComponent } from '../../scheduling/patientscheduling/patientscheduling.component';
 
@@ -26,14 +27,21 @@ export class DemographicinformationComponent implements OnInit {
   email: string="";
    age: any=0;
 
+   title:string="";
+   firstname:any;
+   lastname:any;
+   emailId:any;
+   contactNo:any;
+
    localUser:any="";
   currentUser:any="";
   currentUserId:any="";
-
+  patientdemodata:any[]=[];
   constructor(
     private formBuilder : FormBuilder, 
     private router : Router,
     private fb:FormBuilder, 
+    private notifyService : NotificationService,
     private service:PatientinformationService,
     private route:Router
   ) {
@@ -87,6 +95,15 @@ export class DemographicinformationComponent implements OnInit {
       createdDate:['']
       
      });
+
+     this.service.Getbyuseriddemoinfo(this.currentUserId).subscribe(
+      (data:any[])=>{
+        debugger
+        this.patientdemodata=data;
+        console.log(this.patientdemodata)
+        //this.title=this.patientdemodata.firstname
+      }
+    )
     
     //  this.EmerencyInfo = this.formBuilder.group({
       
@@ -123,12 +140,15 @@ export class DemographicinformationComponent implements OnInit {
     this.f.createdDate.setValue("2021-12-30");
     debugger;
     this.service.AddDemographics(this.patientDetails.value).subscribe(res =>{
-    alert("Patient Demographics details added successfully...!")
+    // alert("Patient Demographics details added successfully...!")
+    this.notifyService.showSuccess("Patient Demographics details added successfully...!", "Success");
+
     this.patientDetails.reset();
     this.router.navigateByUrl('patientscheduling');
     },err=>{
      //alert("Somthing went wrong...!")
-     alert("Patient Demographics details added successfully...!")
+    //  alert("Patient Demographics details added successfully...!")
+     this.notifyService.showSuccess("Patient Demographics details added successfully...!", "Success");
       this.route.navigateByUrl('patientscheduling');
     })
    }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { PatientService } from 'src/app/Services/patient.service';
 
 @Component({
@@ -12,7 +13,7 @@ import { PatientService } from 'src/app/Services/patient.service';
 export class AddpatientComponent implements OnInit {
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   public Patientform!:FormGroup
-  constructor(private formbuilder:FormBuilder, private http:HttpClient, 
+  constructor(private formbuilder:FormBuilder, private http:HttpClient,private notifyService : NotificationService,
     private route:Router, private Patientuser:PatientService) { }
 
   ngOnInit(): void {
@@ -44,12 +45,15 @@ export class AddpatientComponent implements OnInit {
     this.f.username.setValue(this.setemailid);
     // this.f.doj.setValue(this.SetDoj)
     this.Patientuser.AddPatientrecords(this.Patientform.value).subscribe(res =>{
-    alert("Patient details successfully...!")
+    // alert("Patient details successfully...!")
+    this.notifyService.showSuccess("Patient details successfully...!", "Success");
     this.Patientform.reset();
     this.route.navigateByUrl('patientusermanagement');
 
     },err=>{
-     alert("Somthing went wrong...!")
+    //  alert("Somthing went wrong...!")
+     this.notifyService.showError("Something went wrong  ...!", "Error");
+
     })
    }
    backtopatient():void{

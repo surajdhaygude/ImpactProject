@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/notification.service';
 import { PatientvisitService } from 'src/app/patientvisit.service';
 
 @Component({
@@ -25,7 +26,7 @@ export class DiagnosisComponent implements OnInit {
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
   
-  constructor(private formBuilder : FormBuilder, private router:Router, private service:PatientvisitService) { 
+  constructor(private formBuilder : FormBuilder,private notifyService : NotificationService, private router:Router, private service:PatientvisitService) { 
     this.diagnosisdetails = this.formBuilder.group({
       diagnosisCode: ['',Validators.required],
       diagnosisDescription: ['',Validators.required],
@@ -157,7 +158,8 @@ export class DiagnosisComponent implements OnInit {
     this.f.patientId.setValue(this.patientUser);
     this.service.Adddiagnosis(this.diagnosisdetails.value).subscribe(res =>{
       console.log(this.diagnosisList)
-    alert("Patient diagnosis details added successfully...!")
+    // alert("Patient diagnosis details added successfully...!")
+    this.notifyService.showSuccess("Patient diagnosis details added successfully...!", "Success");
     this.diagnosisdetails.reset();
     if(this.currentroleId==2)
     {
@@ -172,7 +174,9 @@ export class DiagnosisComponent implements OnInit {
       this.router.navigateByUrl("patientscheduling")
     }
     },err=>{
-     alert("Somthing went wrong...!")
+    //  alert("Somthing went wrong...!")
+     this.notifyService.showError("Something went wrong  ...!", "Error");
+
     })
   }
 

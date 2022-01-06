@@ -15,7 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InboxmoduleModule } from './modules/inboxmodule/inboxmodule.module';
 
 import { SchedulingModule } from './modules/scheduling/scheduling.module';
-
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -36,7 +36,9 @@ import { SchedulingModule } from './modules/scheduling/scheduling.module';
     SchedulingModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    InboxmoduleModule
+    InboxmoduleModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [],
