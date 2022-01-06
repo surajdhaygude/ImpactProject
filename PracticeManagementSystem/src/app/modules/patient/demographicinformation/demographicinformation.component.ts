@@ -36,7 +36,7 @@ export class DemographicinformationComponent implements OnInit {
    localUser:any="";
   currentUser:any="";
   currentUserId:any="";
-  patientdemodata:any[]=[];
+  patientdemodata!:any;
   constructor(
     private formBuilder : FormBuilder, 
     private router : Router,
@@ -97,19 +97,48 @@ export class DemographicinformationComponent implements OnInit {
       
      });
 
+    
+debugger
      this.service.Getbyuseriddemoinfo(this.currentUserId).subscribe(
-      (data:any[])=>{
+      (data:any)=>{
         debugger
         this.patientdemodata=data;
+
+        this.showTitle=this.patientdemodata.title;
+        this.showFirstName=this.patientdemodata.firstname;
+        this.showLastName=this.patientdemodata.lastname;
+        this.showEmailId=this.patientdemodata.emailId;
+        this.showDOB=this.patientdemodata.dob;
+        this.showContactNo=this.patientdemodata.contactNo;
         console.log(this.patientdemodata)
         //this.title=this.patientdemodata.firstname
       }
     )
+
+    // this.loadingFieldsOnInIt();
     
     //  this.EmerencyInfo = this.formBuilder.group({
       
     // })
    }
+
+   showTitle!:any;
+   showFirstName!:any;
+   showLastName!:any;
+   showEmailId!:any;
+   showDOB!:any;
+   showContactNo!:any;   
+
+   loadingFieldsOnInIt(){
+    this.showTitle=this.patientdemodata.title;
+    this.showFirstName=this.patientdemodata.firstname;
+    this.showLastName=this.patientdemodata.lastname;
+    this.showEmailId=this.patientdemodata.emailId;
+    this.showDOB=this.patientdemodata.dob;
+    this.showContactNo=this.patientdemodata.contactNo;
+
+  }
+
    alergy=[
     "food",
     "Fungi",
@@ -135,6 +164,11 @@ export class DemographicinformationComponent implements OnInit {
   getDOB:any="";
   AddDemographicInfo(){   
     debugger;
+    this.f.fname.setValue(this.showFirstName);
+    this.f.lname.setValue(this.showLastName);
+    this.f.email.setValue(this.showEmailId);
+    this.f.contactNumber.setValue(this.showContactNo);
+
     this.f.userId.setValue(this.currentUserId);
     this.f.dob.setValue("1995-12-31");
     this.f.typeofAllergies.setValue("No");

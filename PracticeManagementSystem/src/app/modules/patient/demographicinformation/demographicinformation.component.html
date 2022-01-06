@@ -25,7 +25,7 @@
                             <form [formGroup]="patientDetails">
 
                             <div class="row mb-2">
-                            <mat-radio-group formControlName="title">
+                            <mat-radio-group formControlName="title" [(ngModel)]="showTitle">
                               <span> Title:</span>&nbsp;&nbsp;&nbsp;
                               <mat-radio-button class="col-1" value="Mr" color="primary">Mr</mat-radio-button>
                               <mat-radio-button class="col-1" value="Ms" color="primary">Ms</mat-radio-button>
@@ -37,17 +37,17 @@
                             <div class="row">
                               <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label class="label">First Name</mat-label>
-                                <input matInput  formControlName="fname"  value="{{fname}}"  required  />
+                                <input matInput [value]="showFirstName" formControlName="fname"  value="{{fname}}"  required  />
                               </mat-form-field>
 
                               <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Last Name</mat-label>
-                                <input matInput   formControlName="lname"   value="{{lname}}" required />
+                                <input matInput [value]="showLastName"  formControlName="lname"   value="{{lname}}" required />
                               </mat-form-field>
                 
                               <mat-form-field appearance="outline" class="full-width col-4" >
                                 <mat-label>DOB</mat-label>
-                                <input  matInput formControlName="dob" [matDatepicker]="picker" [(ngModel)]="getDOB"  required (ngModelChange)="CalculateAge($event)" />
+                                <input  matInput formControlName="dob" [value]="showDOB| date:'yyyy-MM-dd'" [matDatepicker]="picker" [(ngModel)]="getDOB"  required (ngModelChange)="CalculateAge($event)" />
                                 <mat-datepicker-toggle
                                   matSuffix
                                   [for]="picker"
@@ -81,7 +81,7 @@
                 
                               <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Email </mat-label>
-                                <input matInput formControlName="email" placeholder="Your email"  value="{{email}}" required />
+                                <input matInput formControlName="email" [value]="showEmailId" placeholder="Your email"  value="{{email}}" required />
                                 <mat-icon matSuffix>mail_outline</mat-icon>
                              </mat-form-field>
 
@@ -102,7 +102,7 @@
 
                               <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Contant No:</mat-label>                
-                                <input matInput formControlName="contactNumber" placeholder="Your Phone" />
+                                <input matInput formControlName="contactNumber" [value]="showContactNo" placeholder="Your Phone" />
                                 <mat-icon matSuffix>phone</mat-icon>
                               </mat-form-field>
                              

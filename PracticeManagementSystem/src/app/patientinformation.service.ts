@@ -26,7 +26,7 @@ export class PatientinformationService {
   public Getbyuseriddemoinfo(id: any): Observable<any> {
     debugger
     // return this.http.delete(`${this.APIUrl}/${id}`)
-    return this.http.delete<any>(`http://localhost:29345/api/Admins/GetUserById/${id}`)
+    return this.http.get<any>(`http://localhost:29345/api/Admins/GetUserById/${id}`)
   }
   
  
