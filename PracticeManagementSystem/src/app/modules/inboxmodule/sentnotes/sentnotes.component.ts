@@ -32,6 +32,7 @@ export class SentnotesComponent implements OnInit {
         console.log('error', error);
       });
   }
+ 
 
   onDelete(id:any):void{
     alert("Are you sure, you want to delete?");
@@ -71,4 +72,5 @@ export class SentnotesComponent implements OnInit {
     sideBarToggler() {
       this.sideBarOpen = !this.sideBarOpen;
     }
-}
+    p:number=1;
+  }

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ReceivednotesComponent implements OnInit {
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
-
+  p:number=1;
   receivedNotes:any[]=[];
   localUser:any="";
   currentUser:any="";
