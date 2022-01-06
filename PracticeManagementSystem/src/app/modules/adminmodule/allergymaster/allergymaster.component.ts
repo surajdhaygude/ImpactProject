@@ -43,37 +43,16 @@ export class AllergymasterComponent implements OnInit {
     // alert("Allergy details added successfully...!")
     this.notifyService.showSuccess("Allergy details added successfully...!", "Success");
     this.masterAllergyForm.reset();
-  //   if(this.currentroleId==2)
-  // {
-  //   this.router.navigateByUrl("physicianscheduling")
-  // }
-  // else if(this.currentroleId==3)
-  // {
-  //   this.router.navigateByUrl("nursescheduling")
-  // }
-  // else
-  // {
-  //   this.router.navigateByUrl("patientscheduling")
-  // }
+    this.router.navigateByUrl("hospitalusermanagement")
+  
     },err=>{
-    //  alert("Somthing went wrong...!")
+    
     this.notifyService.showError("Something went wrong  ...!", "Error");
     })
   }
   Cancel(){
      
-    if(this.currentroleId==2)
-  {
-    this.router.navigateByUrl("physicianscheduling")
-  }
-  else if(this.currentroleId==3)
-  {
-    this.router.navigateByUrl("nursescheduling")
-  }
-  else
-  {
-    this.router.navigateByUrl("patientscheduling")
-  }
+    this.router.navigateByUrl("hospitalusermanagement")
   }
   toggleSideBar() {
     this.toggleSideBarForMe.emit();

@@ -43,37 +43,15 @@ export class DiagnosismasterComponent implements OnInit {
     // alert("Diagnosis details added successfully...!")
     this.notifyService.showSuccess("Diagnosis details added successfully...!", "Success");
     this.masterDignosisForm.reset();
-  //   if(this.currentroleId==2)
-  // {
-  //   this.router.navigateByUrl("physicianscheduling")
-  // }
-  // else if(this.currentroleId==3)
-  // {
-  //   this.router.navigateByUrl("nursescheduling")
-  // }
-  // else
-  // {
-  //   this.router.navigateByUrl("patientscheduling")
-  // }
+    this.router.navigateByUrl("hospitalusermanagement")
+  
     },err=>{
-    //  alert("Somthing went wrong...!")
+    
      this.notifyService.showError("Something went wrong  ...!", "Error");
     })
   }
   Cancel(){
-     
-    if(this.currentroleId==2)
-  {
-    this.router.navigateByUrl("physicianscheduling")
-  }
-  else if(this.currentroleId==3)
-  {
-    this.router.navigateByUrl("nursescheduling")
-  }
-  else
-  {
-    this.router.navigateByUrl("patientscheduling")
-  }
+    this.router.navigateByUrl("hospitalusermanagement")
   }
   toggleSideBar() {
     this.toggleSideBarForMe.emit();

@@ -105,32 +105,13 @@
                                 <input matInput formControlName="contactNumber" placeholder="Your Phone" />
                                 <mat-icon matSuffix>phone</mat-icon>
                               </mat-form-field>
-                              <!-- <button mat-flat-button color="primary">Submit</button> -->
+                             
                             </div>
-                            <!-- <div class="example-button-row">
-                              <button class="btn btn-outline-primary">Edit</button
-                              >&nbsp;&nbsp;&nbsp;&nbsp;
-                              (click)="updatebasicdetails()" -->
-                              <!-- <button class="btn btn-outline-primary" >  Save </button>
-                            </div> --> 
-                          <!-- </form> -->
-                        <!-- </div> -->
-                      <!-- </div> -->
-                    <!-- </div> -->
-                  <!-- </accordion-group> -->
-                  <!-- <accordion-group heading="Patient Emerency Details"> -->
-                    <!-- <div class="container"> -->
-                      <!-- <div class="row"> -->
+                            
                         <div style="text-align: center;">
                           <h2>Emergency Information</h2>
                         </div>
-                        <!-- <div class="col-md-8"> -->
-                          <!-- (ngSubmit)="updatemerdetails()" -->
-                          <!-- <form [formGroup]="EmerencyInfo"   > -->
-                            
-                            <!-- <input matInput  value="{{Patientid}}" readonly /> -->
-                            <!-- <br />
-                            <br /> -->
+                        
                             <div class="row">
                               <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>First Name</mat-label>
@@ -144,10 +125,11 @@
 
                               <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-select  formControlName="relationship" placeholder="Relation" required>
-                                  <mat-option>Mother</mat-option>
-                                  <mat-option>Father</mat-option>
-                                  <mat-option>Brother</mat-option>
-                                  <mat-option>Other</mat-option>
+                                  <mat-option value="Mother">Mother</mat-option>
+                                  <mat-option value="Father">Father</mat-option>
+                                  <mat-option value="Brother">Brother</mat-option>
+                                  <mat-option value="Sister">Sister</mat-option>
+                                  <mat-option value="Other">Other</mat-option>
                                 </mat-select>
                                 </mat-form-field>                              
                               

@@ -98,6 +98,7 @@
 
         <div class="row">
            <mat-form-field appearance="outline" class="full-width col-3">
+            <mat-label>Gender</mat-label>
             <mat-select formControlName="gender" placeholder="Gender" [(ngModel)]="showgender">
               <mat-option value="Male">Male </mat-option>
               <mat-option value="Female">Female</mat-option>
@@ -164,6 +165,7 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="full-width col-3">
+            <mat-label>Relationship</mat-label>
             <mat-select placeholder="Relation" formControlName="relationship" [(ngModel)]="showrelationship" required>
               <!-- <mat-option *ngFor="let Rel of Relation" [value]="Rel" >
                 {{ Rel }}

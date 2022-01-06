@@ -45,18 +45,7 @@ export class DrugmasterComponent implements OnInit {
     // alert("Drug details added successfully...!")
     this.notifyService.showSuccess("Drug details added successfully...!", "Success");
     this.masterDrugForm.reset();
-  //   if(this.currentroleId==2)
-  // {
-  //   this.router.navigateByUrl("physicianscheduling")
-  // }
-  // else if(this.currentroleId==3)
-  // {
-  //   this.router.navigateByUrl("nursescheduling")
-  // }
-  // else
-  // {
-  //   this.router.navigateByUrl("patientscheduling")
-  // }
+    this.router.navigateByUrl("hospitalusermanagement")
     },err=>{
     //  alert("Somthing went wrong...!")
     this.notifyService.showError("Something went wrong  ...!", "Error");
@@ -64,18 +53,7 @@ export class DrugmasterComponent implements OnInit {
   }
   Cancel(){
      
-    if(this.currentroleId==2)
-  {
-    this.router.navigateByUrl("physicianscheduling")
-  }
-  else if(this.currentroleId==3)
-  {
-    this.router.navigateByUrl("nursescheduling")
-  }
-  else
-  {
-    this.router.navigateByUrl("patientscheduling")
-  }
+    this.router.navigateByUrl("hospitalusermanagement")
   }
   toggleSideBar() {
     this.toggleSideBarForMe.emit();

@@ -65,8 +65,8 @@ export class PatientregistrationComponent implements OnInit {
  
       // alert("Patient registration successfully...!")
       this.notifyService.showSuccess("Patient registration successfully...!", "Success")
-      this.route.navigateByUrl('');
       this.UserForm.reset();
+      this.route.navigateByUrl('');
  
     },err=>{
  

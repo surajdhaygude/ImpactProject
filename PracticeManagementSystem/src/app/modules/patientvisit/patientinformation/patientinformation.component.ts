@@ -22,7 +22,7 @@ export class PatientinformationComponent implements OnInit {
   currentUser:any="";
   currentUserId:any="";
   currentroleId:any="";
-
+  
   constructor(private formBuilder : FormBuilder,private notifyService : NotificationService,private route: ActivatedRoute,private router : Router,private service:PatientinformationService) { }
 
   ngOnInit(): void {
@@ -64,8 +64,7 @@ export class PatientinformationComponent implements OnInit {
   emergencyMobileNo: ['',Validators.required],
   emergencyAddress: ['',Validators.required],
   typeofAllergies:[''],
-  portalaccess:[''],
-  createdDate:['']
+  portalaccess:['']
  });
 
 //  this.service.getAllPatientDemoInfos().subscribe(data=>
@@ -77,7 +76,9 @@ export class PatientinformationComponent implements OnInit {
 //   });
 
   this.route.params.subscribe(params => {
+    debugger
     this.userIdDdl = params['id']
+    
 
   });
 
@@ -158,6 +159,8 @@ export class PatientinformationComponent implements OnInit {
 
   updatePatientDemoInfo():void
   {
+    this.f.userId.setValue(+this.userIdDdl);
+    this.f.dob.setValue(this.showdob);
     this.f.title.setValue(this.showtitle);
     this.f.fname.setValue(this.showfname);
     this.f.lname.setValue(this.showlname);
@@ -173,8 +176,8 @@ export class PatientinformationComponent implements OnInit {
     this.f.emergencyEmail.setValue(this.showemergencyEmail);
     this.f.emergencyMobileNo.setValue(this.showemergencyMobileNo);
     this.f.emergencyAddress.setValue(this.showemergencyAddress);
-    this.f.createdDate.setValue(new Date());
-
+    //this.f.createdDate.setValue(new Date());
+    debugger
       this.service.UpdatePatientDemoInfo(this.patientDetails.value).subscribe(data=>
         {
           debugger
@@ -182,11 +185,11 @@ export class PatientinformationComponent implements OnInit {
           this.notifyService.showSuccess("Patient Information Updated Successfully", "Success");
           if(this.currentroleId==2)
           {
-            this.router.navigateByUrl("physicianscheduling")
+            this.router.navigateByUrl("physicianvisitdashboard")
           }
           else if(this.currentroleId==3)
           {
-            this.router.navigateByUrl("nursescheduling")
+            this.router.navigateByUrl("visitdashboard")
           }
           else
           {
@@ -194,7 +197,8 @@ export class PatientinformationComponent implements OnInit {
           }
         },
         (error) => {
-          console.log('error', error);
+         // console.log('error', error);
+         this.notifyService.showError("Something went wrong ...!", "Error");
         });
   }
 

@@ -51,18 +51,18 @@ export class DiagnosisComponent implements OnInit {
           this.patientUser=JSON.parse(this.localPatientUser);
 
     debugger
-    this.service.GetPatientUsers().subscribe(
-      (data: any[]) => {
-    debugger
+    // this.service.GetPatientUsers().subscribe(
+    //   (data: any[]) => {
+    // debugger
 
-        this.patientdata = data;
-      })
+    //     this.patientdata = data;
+    //   })
 
-      this.service.GetPhyasicanUsers().subscribe(
-        (data: any[]) => {
-      debugger
-          this.phyasiciandata = data;
-        })
+    //   this.service.GetPhyasicanUsers().subscribe(
+    //     (data: any[]) => {
+    //   debugger
+    //       this.phyasiciandata = data;
+    //     })
 
 
         this.service.GetDiagnosisMasterData().subscribe(
@@ -133,11 +133,11 @@ export class DiagnosisComponent implements OnInit {
      
     if(this.currentroleId==2)
   {
-    this.router.navigateByUrl("physicianscheduling")
+    this.router.navigateByUrl("physicianvisitdashboard")
   }
   else if(this.currentroleId==3)
   {
-    this.router.navigateByUrl("nursescheduling")
+    this.router.navigateByUrl("visitdashboard")
   }
   else
   {
@@ -152,7 +152,7 @@ export class DiagnosisComponent implements OnInit {
 
   diagnosisadded(){
     debugger;
-    // this.f.patientid.setValue(20);
+    // this.f.patientid.setValue(this.patientUser);
     // this.f.physicianid.setValue(4);
     this.f.createdby.setValue(this.currentUserId);
     this.f.patientId.setValue(this.patientUser);
@@ -161,18 +161,26 @@ export class DiagnosisComponent implements OnInit {
     // alert("Patient diagnosis details added successfully...!")
     this.notifyService.showSuccess("Patient diagnosis details added successfully...!", "Success");
     this.diagnosisdetails.reset();
-    if(this.currentroleId==2)
-    {
-      this.router.navigateByUrl("physicianscheduling")
-    }
-    else if(this.currentroleId==3)
-    {
-      this.router.navigateByUrl("nursescheduling")
-    }
-    else
-    {
-      this.router.navigateByUrl("patientscheduling")
-    }
+    // if(this.currentroleId==2)
+    // {
+    //   this.router.navigateByUrl("physicianscheduling")
+    // }
+    // else if(this.currentroleId==3)
+    // {
+    //   this.router.navigateByUrl("nursescheduling")
+    // }
+    // else
+    // {
+    //   this.router.navigateByUrl("patientscheduling")
+    // }
+
+    this.service.GetDiagnosisByUserId(this.patientUser).subscribe(
+      (data:any[])=>{
+        debugger
+        this.diagnosisByUserId=data;
+      }
+    )
+
     },err=>{
     //  alert("Somthing went wrong...!")
      this.notifyService.showError("Something went wrong  ...!", "Error");
@@ -194,6 +202,7 @@ export class DiagnosisComponent implements OnInit {
   }
 
   diagnosisform(){
+    debugger
     this.router.navigateByUrl('diagnosis');  
    }
    

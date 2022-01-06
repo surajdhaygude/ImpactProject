@@ -25,7 +25,7 @@ export class SendnoteComponent implements OnInit {
   currentroleId:any="";
 
 
-  receivers: IUser[] = [];
+  receivers: any[] = [];
 
   constructor(private fb: FormBuilder,private notifyService : NotificationService,private sendNoteService:SendnoteserviceService,private http:HttpClient,private router:Router) { }
 
@@ -37,13 +37,15 @@ export class SendnoteComponent implements OnInit {
     this.sendNoteForm = this.fb.group({
       dateTime:[''],
       urgency: ['No'],
-      designation:[''],
+      receiverDesignation:[''],
       receiver: [''],
-      message:['']    
+      message:[''],
+      isActive:[''],
+      response:['']  
     });
 
     this.sendNoteService.getReceivers().subscribe(
-      (data: IUser[]) => {
+      (data: any[]) => {
         this.receivers = data;
       },
 
@@ -59,25 +61,27 @@ export class SendnoteComponent implements OnInit {
 
   onSubmit():void{
     debugger
+    this.f.isActive.setValue(true);
     this.f.dateTime.setValue((new Date().toLocaleString()).toString());
-    this.http.post<any>("http://localhost:3000/sendnotes", this.sendNoteForm.value)
+    this.http.post<any>("http://localhost:3000/sentnotes", this.sendNoteForm.value)
       .subscribe(res =>{
       console.log(this.sendNoteForm.value);
         // alert("Note sent successfully...!");
         this.notifyService.showSuccess("Note sent successfully...!", "Success");
         this.sendNoteForm.reset();
-        if(this.currentroleId==2)
-        {
-         this.router.navigateByUrl("physicianscheduling")
-         }
-      else if(this.currentroleId==3)
-         {
-              this.router.navigateByUrl("nursescheduling")
-         }
-      else
-         {
-            this.router.navigateByUrl("patientscheduling")
-         }
+        this.router.navigateByUrl("sentnotes");
+      //   if(this.currentroleId==2)
+      //   {
+      //    this.router.navigateByUrl("physicianscheduling")
+      //    }
+      // else if(this.currentroleId==3)
+      //    {
+      //         this.router.navigateByUrl("nursescheduling")
+      //    }
+      // else
+      //    {
+      //       this.router.navigateByUrl("patientscheduling")
+      //    }
       },err=>{
       // alert("Somthing went wrong...!");
       this.notifyService.showError("Something went wrong  ...!", "Error");
@@ -89,10 +93,10 @@ export class SendnoteComponent implements OnInit {
     try
     {
       this.receivers.forEach(receiver1=>{
-        if(receiver1.username==this.receiverddl)
+        if(receiver1.sender==this.receiverddl)
         {
-          this.f.designation.setValue(receiver1.role);
-          this.showddl=receiver1.role+" "+receiver1.username;
+          this.f.receiverDesignation.setValue(receiver1.senderDesignation);
+          this.showddl=receiver1.senderDesignation+" "+receiver1.sender;
           throw this.BreakException;
         }
       });

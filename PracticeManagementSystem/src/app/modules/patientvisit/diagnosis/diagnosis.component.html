@@ -144,7 +144,6 @@
                     <th>Diagnosis ID</th>
                     <th>Diagnosis Code</th>
                     <th>Diagnosis Description</th>
-                    <th>Diagnosis IsDepricated</th>
                     <th>Visit Date</th>
                     <!-- <th width="220px">Manage</th> -->
                 </tr>
@@ -156,8 +155,7 @@
                     <td>{{ data.patientDiagnosisInfoId }}</td>
                     <td>{{ data.diagnosisCode }}</td>
                     <td>{{ data.diagnosisDescription}}</td>
-                    <td>{{ data.diagnosisIsDepricated }}</td>
-                    <td>{{data.CreatedDate}}</td>
+                    <td>{{data.createdDate | date:'yyyy-MM-dd'}}</td>
                     <!-- <td>
                         <select id="ManagetOptions">
                             <option value="Active">Active</option>

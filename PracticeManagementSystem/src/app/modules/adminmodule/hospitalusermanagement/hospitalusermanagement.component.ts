@@ -75,15 +75,16 @@ rowData:any[]=[];
 
    deleteuser(id:number){
 
-    if(confirm('Are you sure to delete physician record?')){
+    if(confirm('Are you want to delete physician record?')){
       debugger
-      this.hospitaluser.Husersdelete(id).subscribe(res =>{});
-      this.hospitaluser.GetHospitalUsers().subscribe(data =>{
-        this.rowData=data;
+      this.hospitaluser.Husersdelete(id).subscribe(res =>{
+        this.hospitaluser.GetHospitalUsers().subscribe(data =>{
+          this.rowData=data;
+        });
       });
+     
     }
-    
-    
+   
   }
 
   edituser(id: number){

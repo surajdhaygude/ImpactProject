@@ -34,7 +34,7 @@
 
                         <div class="row" >
                             <mat-form-field appearance="outline" class="full-width col-4">
-                                <mat-select placeholder="selection of Patient" formControlName="patientId">
+                                <mat-select placeholder="selection of Patient" formControlName="patientId" (click)="ShowPatientUserData()">
                                <mat-option *ngFor="let al of patientdata" [value]="al.userId">
                                 {{ al.firstname }}   {{ al.lastname }}
                             </mat-option>
@@ -47,7 +47,7 @@
                             </mat-form-field>
 
                             <mat-form-field appearance="outline" class="full-width col-4">
-                                <mat-select placeholder="Physician" formControlName="physicianId">
+                                <mat-select placeholder="Physician" formControlName="physicianId" (click)="ShowPhysicinData()">
                                     <mat-option *ngFor="let al of phyasiciandata" [value]="al.userId">
                                         {{ al.firstname }}   {{ al.lastname }}
                                     </mat-option> 

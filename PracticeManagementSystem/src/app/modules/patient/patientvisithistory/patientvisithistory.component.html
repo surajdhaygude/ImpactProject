@@ -18,7 +18,6 @@
                     <th>Diagnosis ID</th>
                     <th>Diagnosis Code</th>
                     <th>Diagnosis Description</th>
-                    <th>Diagnosis IsDepricated</th>
                     <th>Created Date</th>
                     <!-- <th width="220px">Manage</th> -->
                 </tr>
@@ -30,8 +29,7 @@
                     <td>{{ data.patientDiagnosisInfoId }}</td>
                     <td>{{ data.diagnosisCode }}</td>
                     <td>{{ data.diagnosisDescription}}</td>
-                    <td>{{ data.diagnosisIsDepricated }}</td>
-                    <td>{{data.CreatedDate}}</td>
+                    <td>{{data.createdDate| date:'yyyy-MM-dd'}}</td>
                     <!-- <td>
                         <select id="ManagetOptions">
                             <option value="Active">Active</option>
@@ -84,7 +82,7 @@
                         <td>{{ data.drugBrandName }}</td>
                         <td>{{ data.drugForm }}</td>
                         <td>{{ data.drugStrength }}</td>
-                        <td>data.CreatedDate</td>
+                        <td>{{data.createdDate| date:'yyyy-MM-dd'}}</td>
   
                     </tr>
                 </tbody>
@@ -123,7 +121,7 @@
                     <td>{{ data.procedureCode }}</td>
                     <td>{{ data.procedureDescription}}</td>
                     <td>{{ data.procedureIsDepricated }}</td>
-                     <td>{{data.CreatedDate}}</td>
+                    <td>{{data.createdDate| date:'yyyy-MM-dd'}}</td>
                     <!-- <td>
                         <select id="ManagetOptions">
                             <option value="Active">Active</option>
@@ -170,13 +168,13 @@
                 <!-- | paginate: { itemsPerPage: 5, currentPage: p }; -->
                 <tbody>
                     <tr *ngFor="let data of vitalSignByUserId | paginate: { itemsPerPage: 5, currentPage: p };">
-                        <td>{{ data.PatientVitalSignInfoId }}</td>
+                        <td>{{ data.patientVitalSignInfoId }}</td>
                         <td>{{ data.height }}</td>
                         <td>{{ data.weight}}</td>
                         <td>{{data.bloodPressure}}</td>
                         <td>{{ data.bodyTemperature }}</td>
                         <td>{{data.respirationRate}}</td>
-                        <td>{{data.CreatedDate}}</td>
+                        <td>{{data.createdDate| date:'yyyy-MM-dd'}}</td>
                         <!-- <td>
                             <select id="ManagetOptions">
                                 <option value="Active">Active</option>
