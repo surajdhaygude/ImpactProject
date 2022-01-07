@@ -64,7 +64,7 @@
 
           <mat-form-field appearance="outline" class="full-width col-3" >
             <mat-label>DOB</mat-label>
-            <input  type="date" matInput formControlName="dob" [value]="showdob | date:'yyyy-MM-dd'"  />
+            <input  type="date" matInput formControlName="dob" [value]="showdob | date:'yyyy-MM-dd'" (ngModelChange)="CalculateAge($event)"   />
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="full-width col-3">

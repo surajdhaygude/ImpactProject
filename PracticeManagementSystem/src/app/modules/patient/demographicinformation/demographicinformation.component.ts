@@ -25,7 +25,7 @@ export class DemographicinformationComponent implements OnInit {
   dob : Date=new Date();
   gender : string="";
   email: string="";
-   age:string="";
+  age:string="";
 
    title:string="";
    firstname:any;
@@ -37,6 +37,8 @@ export class DemographicinformationComponent implements OnInit {
   currentUser:any="";
   currentUserId:any="";
   patientdemodata!:any;
+  setDOBFormat:any="";
+  timeDiff:any="";
   constructor(
     private formBuilder : FormBuilder, 
     private router : Router,
@@ -100,16 +102,21 @@ export class DemographicinformationComponent implements OnInit {
     
 debugger
      this.service.Getbyuseriddemoinfo(this.currentUserId).subscribe(
+
       (data:any)=>{
         debugger
         this.patientdemodata=data;
-
         this.showTitle=this.patientdemodata.title;
         this.showFirstName=this.patientdemodata.firstname;
         this.showLastName=this.patientdemodata.lastname;
         this.showEmailId=this.patientdemodata.emailId;
         this.showDOB=this.patientdemodata.dob;
         this.showContactNo=this.patientdemodata.contactNo;
+      //    if(this.showDOB){
+      // debugger;
+      // this.timeDiff = Math.abs(Date.now() - this.showDOB);
+      // this.age = (Math.floor((this.timeDiff / (1000 * 3600 * 24))/365)).toString();
+    //}
         console.log(this.patientdemodata)
         //this.title=this.patientdemodata.firstname
       }
@@ -136,17 +143,9 @@ debugger
     this.showEmailId=this.patientdemodata.emailId;
     this.showDOB=this.patientdemodata.dob;
     this.showContactNo=this.patientdemodata.contactNo;
+   
 
-  }
-
-   alergy=[
-    "food",
-    "Fungi",
-    "Drug",
-    "Plant",
-    "Venom or Salivary",
-    "Other",
-  ];
+   }
 
   backtodashboard(){
     this.router.navigateByUrl('patientdashboard')
@@ -170,7 +169,7 @@ debugger
     this.f.contactNumber.setValue(this.showContactNo);
 
     this.f.userId.setValue(this.currentUserId);
-    this.f.dob.setValue("1995-12-31");
+    // this.f.dob.setValue("1995-12-31");
     this.f.typeofAllergies.setValue("No");
     this.f.createdDate.setValue("2021-12-30");
     debugger;
@@ -186,8 +185,7 @@ debugger
     })
    }
 
-   setDOBFormat:any="";
-   timeDiff:any="";
+  
 
    public CalculateAge(date:any): void
      {

@@ -201,7 +201,20 @@ export class PatientinformationComponent implements OnInit {
          this.notifyService.showError("Something went wrong ...!", "Error");
         });
   }
+  age:string="";
+  setDOBFormat:any="";
+  timeDiff:any="";
 
+  public CalculateAge(date:any): void
+    {
+      debugger
+        if(date){
+           this.timeDiff = Math.abs(Date.now() - date);
+           this.age = (Math.floor((this.timeDiff / (1000 * 3600 * 24))/365)).toString();
+       }
+       // this.setDOBFormat=date.toLocaleString();
+   }
+   
   MyProfil : any ;
   fname:any;
   lname : any;
