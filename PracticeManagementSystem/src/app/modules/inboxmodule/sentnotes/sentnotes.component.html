@@ -29,8 +29,9 @@
                             <tr
                                 *ngFor="let sentNote of sentNotes.slice().reverse() | paginate: { itemsPerPage: 5, currentPage: p };">
                                 <!-- <td>{{ sentNote.id }}</td> -->
-                                <td>{{sentNote.receiverDesignation}}</td>
+                               
                                 <td>{{sentNote.receiver}}</td>
+                                <td>{{sentNote.receiverDesignation}}</td>
                                 <td>{{sentNote.dateTime}}</td>
                                 <td>{{sentNote.urgency }}</td>
                                 <!-- <td>{{sentNote.response}}</td> -->
