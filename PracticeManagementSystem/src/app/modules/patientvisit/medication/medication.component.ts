@@ -25,14 +25,14 @@ export class MedicationComponent implements OnInit {
   constructor(private formBuilder : FormBuilder ,private notifyService : NotificationService, private router:Router ,private service:PatientvisitService) { 
     this.patientmedForm = this.formBuilder.group({
       
-      patientId:['',Validators.required],
+      patientId:[''],
      // physicianId:['',Validators.required],
       createdby:[''],
-      drugId: ['',Validators.required],
-      drugName: ['',Validators.required],
-      drugGenericName: ['',Validators.required],
-      drugForm: ['',Validators.required],
-      drugStrength: ['',Validators.required],
+      drugId: [''],
+      drugName: [''],
+      drugGenericName: [''],
+      drugForm: [''],
+      drugStrength: [''],
       
      
     })

@@ -82,7 +82,7 @@
                                 <mat-select
                                   placeholder="Procedure Code"
                                   formControlName="procedureCode"
-                                  required
+                                  
                                   [(ngModel)]="procedureCodeDdl" (selectionChange)="showOtherFieldsOnProcedureCode()"
                                 >
                                   <mat-option *ngFor="let al of proceduremasterdata" [value]="al.procedureCode">
@@ -107,7 +107,7 @@
                        
                           <mat-form-field appearance="outline" class="full-width col-8">
                               <mat-label>Procedure Description</mat-label>
-                              <input matInput required type="text" formControlName="procedureDescription" [value]="showProcedureDescription">                      
+                              <input matInput  type="text" formControlName="procedureDescription" [value]="showProcedureDescription">                      
                           </mat-form-field>
                       </div>
 

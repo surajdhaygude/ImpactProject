@@ -91,24 +91,24 @@
                            
                             <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Drug Name</mat-label>
-                                <input matInput required type="text" formControlName="drugName" [value]="showDrugName">                      
+                                <input matInput  type="text" formControlName="drugName" [value]="showDrugName">                      
                             </mat-form-field>                            
                         
                             <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Drug Generic Name </mat-label>
-                                <input matInput required formControlName="drugGenericName" [value]="showDrugGenericName">
+                                <input matInput  formControlName="drugGenericName" [value]="showDrugGenericName">
                             </mat-form-field>
                         </div>
 
                         <div class="row">
                             <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Drug Form</mat-label>
-                                <input matInput required type="text" formControlName="drugForm" [value]="showDrugForm">   
+                                <input matInput  type="text" formControlName="drugForm" [value]="showDrugForm">   
                             </mat-form-field>                            
                         
                             <mat-form-field appearance="outline" class="full-width col-4">
                                 <mat-label>Drug strength </mat-label>
-                                <input matInput required  formControlName="drugStrength" [value]="showDrugStrength">
+                                <input matInput   formControlName="drugStrength" [value]="showDrugStrength">
                             </mat-form-field>
                         </div>
 
@@ -171,7 +171,7 @@
                       <th>Drug ID</th>
                       <th>Drug Name</th>
                       <th>Drug Generic Name</th>
-                      <th>Drug Brand Name</th>
+                      <!-- <th>Drug Brand Name</th> -->
                       <th>Drug Form</th>
                       <th>Drug Strength</th>
                       <th>Visit Date</th>
@@ -183,10 +183,10 @@
               <tbody>
                   <tr *ngFor="let data of medicationByUserId | paginate: { itemsPerPage: 5, currentPage: p };">
                       <td>{{ data.patientMedicationInfoId }}</td>
-                      <td>{{ data.drug_ID }}</td>
+                      <td>{{ data.drugId }}</td>
                       <td>{{ data.drugName}}</td>
                       <td>{{ data.drugGenericName }}</td>
-                      <td>{{ data.drugBrandName }}</td>
+                      <!-- <td>{{ data.drugBrandName }}</td> -->
                       <td>{{ data.drugForm }}</td>
                       <td>{{ data.drugStrength }}</td>
                       <td>{{data.createdDate | date:'yyyy-MM-dd'}}</td>

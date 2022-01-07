@@ -28,8 +28,8 @@ export class DiagnosisComponent implements OnInit {
   
   constructor(private formBuilder : FormBuilder,private notifyService : NotificationService, private router:Router, private service:PatientvisitService) { 
     this.diagnosisdetails = this.formBuilder.group({
-      diagnosisCode: ['',Validators.required],
-      diagnosisDescription: ['',Validators.required],
+      diagnosisCode: [''],
+      diagnosisDescription: [''],
       patientId:[''],
       // physicianId:['',Validators.required],
       createdby:['']

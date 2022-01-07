@@ -30,9 +30,9 @@ localPatientUser:any="";
       patientId:[''],
      // physicianId:['',Validators.required],
       createdBy:[''],
-      procedureCode: ['',Validators.required],
-      procedureDescription: ['',Validators.required],
-      procedureIsDepricated: ['',Validators.required],
+      procedureCode: [''],
+      procedureDescription: [''],
+      procedureIsDepricated: [''],
     })
    }
    patientdata:any[]=[];
