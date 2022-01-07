@@ -181,7 +181,7 @@ debugger
     this.patientDetails.reset();
     this.router.navigateByUrl('patientscheduling');
     },err=>{
-      this.notifyService.showError("Somthing went wrong ...!", "Error");
+      this.notifyService.showError("Something went wrong ...!", "Error");
       this.route.navigateByUrl('patientscheduling');
     })
    }
